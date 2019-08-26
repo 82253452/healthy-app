@@ -3,6 +3,6 @@ start app
 1. run npm install 
 2. npm run start 
 
-#todo 
+# todo 
 index page 
 index page mobile
