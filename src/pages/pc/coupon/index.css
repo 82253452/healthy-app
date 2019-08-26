@@ -1,0 +1,375 @@
+.container {
+  width: 70%;
+  padding: 1% 15% 1% 15%;
+}
+
+.containerLeft {
+  width: 70%;
+  text-align: left;
+  float: left;
+}
+
+.shopHeaderLeft {
+  width: 70%;
+  float: left;
+  padding: 2%;
+}
+
+.shopInfo {
+  width: 70%;
+  float: left;
+}
+
+.shopName {
+  font-size: 2rem;
+  font-weight: bold;
+  float: left;
+}
+
+.shopPraiseInfo {
+  clear: both;
+}
+
+.shopShare {
+  float: right;
+}
+
+.shopHeader {
+  background: #fff;
+  height: 12rem;
+}
+
+.shopHeaderComment {
+  margin-top: 1rem;
+  background: #fff;
+  height: 8rem;
+  padding: 2%;
+  margin-bottom: 1rem;
+}
+
+.commentInput {
+  border: none;
+  width: 100%;
+  height: 4rem;
+  outline: none;
+}
+
+.releaseButton {
+  float: right;
+  width: 6rem;
+  height: 3rem;
+  color: #fff;
+  background: #49acf3;
+  text-align: center;
+  line-height: 3rem;
+  border-radius: 10rem;
+}
+
+.commentImgDiv {
+  width: 10rem;
+  float: left;
+  height: 2rem;
+  padding-top: 2rem;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  background: #bbbbbb;
+}
+
+.commentImg {
+
+}
+
+.commentImoji {
+
+}
+
+.shopHeaderCoupon {
+  background: #fff;
+  padding: 2%;
+  height: 17rem;
+}
+
+.package {
+  width: 10rem;
+  border: 1px solid #bbbbbb;
+  margin-top: 2rem;
+  padding: 1rem;
+  text-align: center;
+  float: left;
+  margin-left: 1rem;
+}
+
+.packageMoney {
+  width: 7rem;
+  height: 2rem;
+  line-height: 2rem;
+  background: #49acf3;
+  color: #fff;
+  border-radius: 2rem;
+  margin: auto;
+}
+
+.packageTop {
+  border-bottom: 1px solid #bbbbbb;
+  padding: 1rem;
+}
+
+.packageBottom {
+  padding: 1rem;
+}
+
+.packageDecoration {
+  text-decoration: line-through;
+  margin-top: 1rem;
+}
+
+.packageTitle {
+  font-weight: bold;
+}
+
+.shopHeaderImages {
+  background: #fff;
+  padding: 2%;
+  height: 17rem;
+  margin-top: 1rem;
+}
+
+.shopHeaderImages img {
+  width: 6.8rem;
+  height: 6.8rem;
+  margin: 1%;
+}
+
+.shopHeaderCommentList {
+  text-align: left;
+  margin-top: 1rem;
+  background: #fff;
+  padding: 2%;
+  float: left;
+}
+
+.context {
+  width: 100%;
+  float: left;
+  margin-top: 1rem;
+}
+
+.commentUser {
+  width: 7%;
+  padding: 2%;
+  float: left;
+}
+
+.commentUserImg {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+}
+
+.commentUserContext {
+  width: 82%;
+  padding: 2%;
+  float: left;
+}
+
+.userCommentText {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.commentMore {
+  text-align: right;
+}
+
+.userCommentImg {
+
+}
+
+.userCommentImg > img {
+  width: 6.8rem;
+  height: 6.8rem;
+  margin: 2px;
+}
+
+.userCommentPraise {
+  float: right;
+  margin-right: 1rem;
+}
+
+.userCommentReplay {
+  text-align: center;
+  float: right;
+  color: #fff;
+  background: #49acf3;
+  border-radius: 2px;
+  width: 4rem;
+}
+
+.commentFooter {
+  border-top: 1px solid #bbbbbb;
+  width: 96%;
+  float: left;
+  text-align: right;
+  padding: 2%;
+}
+
+.containerRight {
+  width: 29%;
+  float: left;
+  margin-left: 1%;
+}
+
+.rightMap {
+  width: 96%;
+  height: 11rem;
+  background: #fff;
+  float: left;
+  padding: 2%;
+}
+
+.about {
+  width: 92%;
+  background: #fff;
+  float: left;
+  padding: 8%;
+  margin-top: 1rem;
+  text-align: left;
+}
+
+.aboutBlock {
+  width: 100%;
+  float: left;
+}
+
+.aboutBlock > div {
+  float: left;
+  width: 60%;
+  padding-left: 1rem;
+}
+
+.aboutFoot {
+
+}
+
+.aboutPraise {
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+.blockImg {
+  width: 7rem;
+  height: 7rem;
+  float: left;
+  margin-top: 1rem;
+}
+
+.aboutShopName {
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.shopHeaderRight {
+
+}
+
+.shopAddress {
+
+}
+
+.couponList {
+
+}
+
+.subCouponList {
+
+}
+
+@media (max-width: 980px) {
+  .container {
+    width: 92%;
+    padding: 4%;
+  }
+
+  .shopInfo {
+    width: 100%;
+  }
+
+  .shopName {
+    width: 100%;
+  }
+
+  .package {
+    display: inline-block;
+    float:none;
+  }
+
+  .couponList {
+    width: 98%;
+    height: 16rem;
+    overflow: hidden;
+    overflow-x: auto;
+    white-space:nowrap;
+  }
+
+ .releaseButton{
+   width:3rem;
+   height: 2rem;
+   line-height: 2rem;
+ }
+
+  div::-webkit-scrollbar {
+    width: 0;
+  }
+
+  .shopAddress {
+    display: none;
+  }
+
+  .shopHeaderRight {
+    display: none;
+  }
+
+  .containerRight {
+    display: none;
+  }
+
+  .containerLeft {
+    width: 100%;
+  }
+
+  .shopHeaderLeft {
+    width: 100%;
+    float: left;
+    padding: 2%;
+  }
+
+  .shopHeaderImages {
+    display: none;
+  }
+
+  .commentUserImg {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .userCommentText {
+
+  }
+
+  .userCommentImg > img {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+
+
+
+
+
+
+
+

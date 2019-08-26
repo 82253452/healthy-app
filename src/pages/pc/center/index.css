@@ -1,0 +1,220 @@
+.container {
+  width: 100%;
+  /*padding: 1% 15% 1% 15%;*/
+}
+
+.header {
+  width: 100%;
+  height: 10rem;
+  background: #49acf3;
+  padding: 10rem 15% 0 15%;
+}
+
+.userAvatar {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+}
+
+.userHeader {
+  width: 17rem;
+  background: #fff;
+  height: 10rem;
+  float: left;
+}
+
+.userAvatarDiv {
+  position: absolute;
+  left: 20%;
+  width: 5rem;
+  height: 5rem;
+  background: #fff;
+  transform: rotate(180deg);
+  transform-origin: top;
+  border-radius: 50%;
+  margin: 3rem auto auto auto;
+}
+
+.userName {
+  margin-top: 5rem;
+  font-size: large;
+  font-weight: bold;
+}
+
+.userContext {
+  margin-top: 1rem;
+}
+
+.headerList {
+  width: 50%;
+  float: left;
+  padding-left: 2rem;
+  margin-top: 6rem;
+}
+
+.headerList > div {
+  width: 8rem;
+  height: 2rem;
+  float: left;
+  line-height: 2rem;
+  background: #49acf3;
+  color: #fff;
+}
+
+.headerList > span {
+  float: left;
+  color: #fff;
+  line-height: 2rem;
+}
+
+.headerList > div:first-child {
+  background: #fff;
+  border-radius: 50px;
+  color: #49acf3;
+}
+
+.context {
+  width: 100%;
+  padding-left: 15%;
+}
+
+.contextLeft {
+  width: 15rem;
+  height: 21em;
+  background: #fff;
+  padding: 1rem;
+  float: left;
+}
+
+.hTop {
+  width: 100%;
+  height: 1px;
+  background: #c3c4c5;
+  margin-top: 1rem;
+}
+
+.hConetxt {
+
+}
+
+.hConetxtInfo {
+  padding-top: 2rem;
+}
+
+.hConetxtInfo > div {
+  width: 5rem;
+  float: left;
+}
+
+.hConetxtEdit {
+  padding-top: 2rem;
+}
+
+.hConetxtEdit > div {
+  margin: 2rem auto auto auto;
+  width: 7rem;
+  height: 3rem;
+  background: #49acf3;
+  color: #fff;
+  line-height: 3rem;
+  border-radius: 70px;
+}
+
+.contextRight {
+  float: left;
+  padding: 2rem;
+}
+
+.contextRightHeader {
+  padding-top: 1rem;
+  color:#bfbfbf;
+}
+
+.contextRightHeader > div {
+  float:left;
+  width:7rem;
+  height: 2rem;
+  border:1px solid #bfbfbf;
+  border-radius: 1rem;
+  line-height: 2rem;
+  margin-left:1rem;
+}
+.contextRightHeader > div:first-child {
+  border:none;
+  background: #dde7f6;
+  color:#49acf3;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 70rem;
+}
+
+.img {
+  width: 100%;
+  height: 180px;
+  border-radius: 10px 10px;
+}
+
+.userImgAvatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.block {
+  padding: 1%;
+  width: 15rem;
+}
+
+.blockInfo {
+  width: 80%;
+  padding: 10%;
+  height: 90px;
+  background: #fff;
+  border-radius: 0 0 10px 10px;
+}
+
+.userInfo {
+  padding-top: 10px;
+}
+
+.headerImg {
+}
+
+.text {
+  text-align: left;
+  font-size: 14px;
+  padding-top: 10px;
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.userImg {
+  float: left;
+}
+
+.userNick {
+  font-size: 8px;
+  float: left;
+  line-height: 30px;
+  margin-left: 10px;
+}
+
+.praise {
+  float: right;
+  margin-right: 10px;
+  font-size: 8px;
+  line-height: 30px;
+}
+
+.num {
+  float: right;
+  font-size: 8px;
+  line-height: 30px;
+}
+
+
+
+

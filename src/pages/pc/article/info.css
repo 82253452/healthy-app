@@ -1,0 +1,534 @@
+.container {
+  width: 70%;
+  padding: 1% 15% 1% 15%;
+}
+
+.contentLeft {
+  width: 60%;
+  float: left;
+}
+
+.video {
+}
+
+.videoPlay {
+  width: 100%;
+}
+
+.like {
+  width: 30px;
+  float: left;
+}
+
+.num {
+  float: left;
+  padding-right: 40px;
+  margin-left: 3px;
+  line-height: 30px;
+}
+
+.videoInfo {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.videoPraise {
+
+}
+
+.userImgDiv {
+  width: 5%;
+  float: left;
+}
+
+.userImgAvatar {
+  width: 30px;
+  height: 30px;
+}
+
+.userImgAvatarRadu {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  float: left;
+}
+
+.videoComment {
+  clear: both;
+  text-align: left;
+  margin-top: 70px;
+}
+
+.userInput {
+  width: 100%;
+  margin-left: 10px;
+  height: 23px;
+}
+
+.userInputDiv {
+  float: left;
+  width: 95%;
+  margin-bottom: 20px;
+}
+
+.videoCommentInfo {
+  margin-left: 10px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.addComment {
+  float: right;
+  width: 80px;
+  border-radius: 5px;
+  height: 20px;
+  line-height: 20px;
+  color: #fff;
+  background: #49acf3;
+  text-align: center;
+}
+
+.address {
+  width: 20px;
+  height: 20px;
+  float: left;
+}
+
+.videoCommentAddress {
+  text-align: left;
+}
+
+.addressText {
+  float: left;
+  margin-left: 10px;
+}
+
+.videoCommentSource {
+  background: #fff;
+  border-radius: 100px;
+  width: 96%;
+  padding: 2%;
+  float: left;
+  margin-top: 20px;
+  text-align: left;
+  line-height: 30px;
+}
+
+.shareArticle {
+  width: 30px;
+  height: 30px;
+  float: right;
+  margin-right: 5px;
+}
+
+.videoCommentAuther {
+  float: left;
+  width: 100%;
+  margin-top: 20px;
+  text-align: left;
+  line-height: 18px;
+}
+
+.textLine {
+  width: 8px;
+  background: #1296db;
+  height: 18px;
+  float: left;
+}
+
+.commmentList {
+  text-align: left;
+  float: left;
+  width: 100%;
+}
+
+.commentBlock {
+  margin-top: 20px;
+  width: 100%;
+  height: 110px;
+}
+
+.contentRight {
+  width: 34%;
+  float: left;
+  padding: 3%;
+}
+
+.commentBlockHeader {
+  width: 100%;
+  float: left;
+}
+
+.userCommentNick {
+  float: left;
+  padding-left: 20px;
+  font-size: 12px;
+}
+
+.usercommentLike {
+  float: right;
+}
+
+.usercommentContent {
+  float: left;
+  padding-left: 50px;
+  margin-top: 20px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #c3c4c5;
+  width: 100%;
+
+}
+
+.share {
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  background: #1296db;
+  color: #fff;
+  line-height: 50px;
+}
+
+.auther {
+  background: #fff;
+  margin-top: 30px;
+  text-align: left;
+  padding: 20px;
+}
+
+.autherTitle {
+}
+
+.autherInfoText {
+  float: left;
+  margin-left: 20px;
+}
+
+.autherInfo {
+  margin-top: 20px;
+  border-bottom: 1px solid #c3c4c5;
+  height: 60px;
+}
+
+.show {
+  padding-top: 10px;
+  float: left;
+}
+
+.keep {
+  margin-left: 100px;
+  padding-top: 10px;
+}
+
+.about {
+  background: #fff;
+  margin-top: 30px;
+  text-align: left;
+  padding: 20px;
+}
+
+.aboutList {
+  background: #fff;
+  margin-top: 3px;
+  text-align: left;
+  padding: 20px;
+  height: 330px;
+}
+
+.aboutListImg {
+  width: 70px;
+  height: 90px;
+  float: left;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+.aboutListBlock {
+  float: left;
+  margin-top: 20px;
+}
+
+.aboutLike {
+  width: 20px;
+  height: 20px;
+  float: left;
+}
+
+.aboutLikeDiv {
+  margin-top: 20px;
+}
+
+.aboutText {
+  word-wrap: break-word;
+}
+
+.more {
+  background: #fff;
+  padding: 20px;
+}
+
+.commentPlus {
+  float: left;
+  width: 20%;
+  height: 200px;
+  background: #fff;
+  font-size: 50px;
+  line-height: 200px;
+  font-weight: lighter;
+  color: #e5e5e5;
+}
+
+.commentContext {
+  float: left;
+  width: 68%;
+  margin-left: 1%;
+  height: 500px;
+  background: #fff;
+  color: #e5e5e5;
+  padding: 20px;
+}
+
+.commontInputTitle {
+  border: none;
+  width: 100%;
+  border-bottom: 1px solid #e5e5e5;
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+.commontInputText {
+  border: none;
+  width: 100%;
+}
+
+.phoneHeader {
+  display: none;
+  padding-top: 1rem;
+  line-height: 2rem;
+  position: fixed;
+  background: #fff;
+  width: 100%;
+  top: 0;
+  height: 6vh;
+}
+
+.phoneHeaderBack {
+  float: left;
+  margin-left: 1rem;
+}
+
+.phoneHeaderBackImg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.phoneHeaderHomeImg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.phoneHeaderHome {
+  width: 2rem;
+  height: 2rem;
+  float: right;
+  margin-right: 1rem;
+}
+
+.phoneFooter {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 6vh;
+  background: #fff;
+}
+
+.footerTrans {
+  width: 3.4rem;
+  height: 3.4rem;
+  margin: 2rem auto;
+  border-radius: 50%;
+  transform: rotate(180deg);
+  transform-origin: top;
+  background: #fff;
+}
+
+.footerAdd {
+  font-size: 3rem;
+  margin: auto;
+  color: #fff;
+  line-height: 3rem;
+  background: #49acf3;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+}
+
+.phoneVideo {
+  color: #fff;
+}
+
+.phoneVideoPlay {
+  width: 100%;
+  height: 93vh;
+}
+
+.phoneVideoPlayButton {
+  width: 3rem;
+  height: 3rem;
+  position: absolute;
+  top: 50vh;
+  left: 44%;
+  opacity: 0.5
+}
+
+.phoneVideoPlayAvatar {
+  position: absolute;
+  top: 46vh;
+  right: 10%;
+  width: 3rem;
+  height: 3rem;
+  background: url("http://www.goisoda.cn/d/file/2018-04-11/1523415683326223.jpg") no-repeat;
+  background-size: 100%;
+  border-radius: 50%;
+}
+
+.phoneVideoPlayAvatarLike {
+  width: 1rem;
+  height: 1rem;
+  margin-top: 2.5rem;
+}
+
+.phoneVideoPlayPrise {
+  width: 2rem;
+  height: 10rem;
+  position: absolute;
+  top: 60vh;
+  right: 10%;
+  color: #fff;
+}
+
+.phoneVideoPlayPrise > img {
+  width: 2rem;
+  height: 2rem;
+}
+
+.phoneVideoPlayPriseLike {
+  font-size: 2rem !important;
+}
+
+.phoneVideoPlayPriseComment {
+  font-size: 2rem !important;
+}
+
+.phoneVideoPlayPriseShare {
+  font-size: 2rem !important;
+}
+
+.phoneComment {
+  width: 100%;
+  height: 70vh;
+  position: fixed;
+  bottom: 0;
+  background: #fff;
+  display: none;
+}
+
+.phoneCommentList {
+  padding: 6%;
+  width: 88%;
+}
+
+.phoneCommentBlock {
+
+}
+
+.phoneCommentUser {
+  line-height: 2rem;
+  height: 2rem;
+  text-align: left;
+}
+
+.phoneCommentUser > i {
+  float:right;
+}
+.phoneCommentUser > span {
+  margin-left:2rem;
+}
+
+.phoneCommentChild {
+  height: 2rem;
+  text-align: left;
+  clear:both;
+  font-size: .9rem;
+  margin-top:1rem;
+}
+.userCommentChildUser{
+  color:#bbbbbb;
+}
+
+.phoneCommentChild >img {
+  float:left;
+  margin-left:3rem;
+}
+
+.userImgAvatarRaduSmal{
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  float: left;
+}
+
+.phoneCommentChild > i {
+  float:right;
+}
+.phoneCommentChild > span {
+  margin-left:.5rem;
+}
+
+.phoneConnmentPraise {
+  color: #49acf3;
+  font-size: 1.5rem !important;
+}
+
+.phonecommentInputDiv{
+  position: fixed;
+  bottom: 0;
+  width:100%;
+}
+
+.phoneCommentInput {
+  width:100%;
+  border:1px solid #bbbbbb;
+  padding:.6rem;
+}
+.phoneCommentInputIcon{
+  position: fixed;
+  bottom: 0;
+  right: 1rem;
+  font-size: 2rem !important;
+}
+
+
+@media (max-width: 980px) {
+  .contentLeft {
+    display: none;
+  }
+
+  .contentRight {
+    display: none;
+  }
+
+  .container {
+    width: 100%;
+    padding: 6vh 0 0 0;
+  }
+
+  .phoneHeader {
+    display: block;
+  }
+
+  .phoneFooter {
+    display: block;
+  }
+}

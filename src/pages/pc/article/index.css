@@ -1,0 +1,184 @@
+
+.container {
+  width: 70%;
+  padding: 1% 15% 1% 15%;
+}
+.phoneHeader{
+  display: none;
+  padding-top:1rem;
+  line-height: 2rem;
+  position: fixed;
+  background: #fff;
+  width: 100%;
+  top:0;
+  height: 2.5rem;
+}
+.phoneHeaderBack{
+  float: left;
+  margin-left:1rem;
+}
+.phoneHeaderBackImg{
+  width:2rem;
+  height: 2rem;
+}
+.phoneHeaderHomeImg{
+  width:2rem;
+  height: 2rem;
+}
+.phoneHeaderHome{
+  width:2rem;
+  height: 2rem;
+  float: right;
+  margin-right:1rem;
+}
+.column {
+  width: 70%;
+  padding: 3% 15% 4% 15%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.class {
+  width: 80px;
+  height: 25px;
+  background: #49acf3;
+  border-radius: 100px;
+  color: #fff;
+  margin-top: 10px;
+  line-height: 25px;
+}
+
+.share {
+  clear: both;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  color: #fff;
+  background: #49acf3;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.img {
+  width: 100%;
+  height: 180px;
+  border-radius: 10px 10px;
+}
+
+.userImgAvatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.block {
+  padding: 1%;
+  width: 17rem;
+  margin-left:2%;
+}
+
+.blockInfo {
+  width: 80%;
+  padding: 10%;
+  height: 90px;
+  background: #fff;
+  border-radius: 0 0 10px 10px;
+}
+
+.userInfo {
+  padding-top: 10px;
+}
+
+.headerImg {
+}
+
+.text {
+  text-align: left;
+  font-size: 14px;
+  padding-top: 10px;
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.userImg {
+  float: left;
+}
+
+.userNick {
+  font-size: 8px;
+  float: left;
+  line-height: 30px;
+  margin-left: 10px;
+}
+
+.praise {
+  float: right;
+  margin-right: 10px;
+  font-size: 8px;
+  line-height: 30px;
+}
+
+.num {
+  float: right;
+  font-size: 8px;
+  line-height: 30px;
+}
+.phoneFooter{
+  display: none;
+  position: fixed;
+  bottom:0;
+  width:100%;
+  height: 3rem;
+  background: #fff;
+}
+.footerTrans{
+  width:3.4rem;
+  height: 3.4rem;
+  margin: 2rem auto;
+  border-radius: 50%;
+  transform: rotate(180deg);
+  transform-origin: top;
+  background: #fff;
+}
+.footerAdd{
+  font-size: 3rem;
+  margin: auto;
+  color:#fff;
+  line-height: 3rem;
+  background:#49acf3;
+  width:3rem;
+  height: 3rem;
+  border-radius: 50%;
+}
+@media (max-width: 980px) {
+  .container{
+    width:100%;
+    padding:2.6rem 0;
+  }
+  .phoneHeader{
+    display: block;
+  }
+  .share{
+    display: none;
+  }
+  .block{
+    padding: 1%;
+    width: 45%;
+    margin-left:2%;
+  }
+  .column{
+    width: 96%;
+    padding:2%;
+  }
+  .class{
+    width:5rem;
+  }
+  .phoneFooter{
+    display: block;
+  }
+}
