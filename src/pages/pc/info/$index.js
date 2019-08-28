@@ -9,8 +9,25 @@ import commentFill from '../../../assets/comment_fill.png';
 import add from '../../../assets/add.png';
 import back from '../../../assets/back.png';
 import home from '../../../assets/home.png';
+import { useEffect, useState } from 'react';
+import { getArticleInfo, articlePraise, articleKeep } from '@/api/article';
+import { commontList } from '@/api/comment';
 
-export default function() {
+export default function(props) {
+  const [article, setArticle] = useState({});
+  const [comments, setComments] = useState([]);
+  useEffect(() => {
+    getArticleInfo(props.match.params.index).then(data => data && data.data ? setArticle(data.data) : console.log('无数据'));
+    commontList(props.match.params.index).then(data => data && data.data ? setComments(data.data) : console.log('无数据'));
+  }, []);
+
+  const praise = (id) => {
+    console.log(article)
+    articlePraise(article.id).then(data => {
+      console.log(data);
+    });
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.phoneHeader}>
@@ -28,24 +45,24 @@ export default function() {
                  src='http://kjniu.zhonglanmedia.com/upload/video/source/C1BA2F736834CA7FAA623CDA40E530E1.mp4?_upt=84ebd01c1564474114874&crazycache=1'/>
         </div>
         <div className={styles.videoInfo}>
-          这样做鱼 比饭好吃
+          {article.context}
         </div>
         <div className={styles.videoPraise}>
           <img className={styles.like} src={like}/>
-          <div className={styles.num}>1000</div>
+          <div className={styles.num}>{article.praiseNum}</div>
           <img className={styles.like} src={comment}/>
-          <div className={styles.num}>1000</div>
+          <div className={styles.num}>{article.commentNum}</div>
           <img className={styles.like} src={keep}/>
-          <div className={styles.num}>1000</div>
+          <div className={styles.num}>{article.keepNum}</div>
         </div>
         <div className={styles.videoComment}>
           <div className={styles.userImgDiv}>
-            <img src='http://www.goisoda.cn/d/file/2018-04-11/1523415683326223.jpg' className={styles.userImgAvatar}/>
+            <img src={article.avatar} className={styles.userImgAvatar}/>
           </div>
           <div className={styles.userInputDiv}>
             <input className={styles.userInput}/>
             <div className={styles.videoCommentInfo}>
-              <img className={styles.like} src={like}/>
+              <i className={'iconfont icon-like1 ' + styles.like} onClick={praise}></i>
               <img className={styles.like} src={like}/>
               <img className={styles.like} src={like}/>
               <div className={styles.addComment}>评论</div>
@@ -58,7 +75,7 @@ export default function() {
         </div>
         <div className={styles.videoCommentSource}>
           <img className={styles.userImgAvatarRadu} src='http://www.goisoda.cn/d/file/2018-04-11/1523415683326223.jpg'/>
-          &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;吃货的境界 &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一起来分享给朋友们看看把
+          &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;{article.nickName} &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一起来分享给朋友们看看把
           <img className={styles.shareArticle} src={like}/>
           <img className={styles.shareArticle} src={like}/>
           <img className={styles.shareArticle} src={like}/>
@@ -68,45 +85,23 @@ export default function() {
           <span>&nbsp;&nbsp;笔记评论</span>
         </div>
         <div className={styles.commmentList}>
-          <div className={styles.commentBlock}>
-            <div className={styles.commentBlockHeader}>
-              <img className={styles.userImgAvatarRadu}
-                   src='http://www.goisoda.cn/d/file/2018-04-11/1523415683326223.jpg'/>
-              <div className={styles.userCommentNick}>小红书<br/>07-18</div>
-              <div className={styles.usercommentLike}>
-                <img className={styles.like} src={like}/> &nbsp;&nbsp;98&nbsp;&nbsp; 回复
-              </div>
-            </div>
-            <div className={styles.usercommentContent}>
-              你家缺邻居么 能蹭饭么ksdfklasdf
-            </div>
-          </div>
-          <div className={styles.commentBlock}>
-            <div className={styles.commentBlockHeader}>
-              <img className={styles.userImgAvatarRadu}
-                   src='http://www.goisoda.cn/d/file/2018-04-11/1523415683326223.jpg'/>
-              <div className={styles.userCommentNick}>小红书<br/>07-18</div>
-              <div className={styles.usercommentLike}>
-                <img className={styles.like} src={like}/> &nbsp;&nbsp;98&nbsp;&nbsp; 回复
-              </div>
-            </div>
-            <div className={styles.usercommentContent}>
-              你家缺邻居么 能蹭饭么ksdfklasdf
-            </div>
-          </div>
-          <div className={styles.commentBlock}>
-            <div className={styles.commentBlockHeader}>
-              <img className={styles.userImgAvatarRadu}
-                   src='http://www.goisoda.cn/d/file/2018-04-11/1523415683326223.jpg'/>
-              <div className={styles.userCommentNick}>小红书<br/>07-18</div>
-              <div className={styles.usercommentLike}>
-                <img className={styles.like} src={like}/> &nbsp;&nbsp;98&nbsp;&nbsp; 回复
-              </div>
-            </div>
-            <div className={styles.usercommentContent}>
-              你家缺邻居么 能蹭饭么ksdfklasdf
-            </div>
-          </div>
+          {
+            comments.map(comment =>
+              (<div className={styles.commentBlock}>
+                <div className={styles.commentBlockHeader}>
+                  <img className={styles.userImgAvatarRadu}
+                       src={comment.avatar}/>
+                  <div className={styles.userCommentNick}>{comment.nickName}<br/>07-18</div>
+                  <div className={styles.usercommentLike}>
+                    <img className={styles.like} src={like}/> &nbsp;&nbsp;98&nbsp;&nbsp; 回复
+                  </div>
+                </div>
+                <div className={styles.usercommentContent}>
+                  {comment.content}
+                </div>
+              </div>),
+            )
+          }
         </div>
       </div>
       <div className={styles.contentRight}>
@@ -116,13 +111,13 @@ export default function() {
           <div className={styles.autherInfo}>
             <img className={styles.userImgAvatarRadu}
                  src='http://www.goisoda.cn/d/file/2018-04-11/1523415683326223.jpg'/>
-            <div className={styles.autherInfoText}>吃货的时间<br/>分享世界 喜欢你我</div>
+            <div className={styles.autherInfoText}>{article.nickName}<br/>分享世界 喜欢你我</div>
           </div>
           <div className={styles.show}>
-            浏览量<br/>128万
+            浏览量<br/>{article.browseNum}
           </div>
           <div className={styles.keep}>
-            获赞与收藏<br/>1208万
+            获赞与收藏<br/>{article.praiseNum + article.keepNum}
           </div>
 
         </div>
@@ -192,19 +187,22 @@ export default function() {
         <div className={styles.phoneCommentList}>
           <div className={styles.phoneCommentBlock}>
             <div className={styles.phoneCommentUser}>
-              <img src='http://www.goisoda.cn/d/file/2018-04-11/1523415683326223.jpg' className={styles.userImgAvatarRadu}/>
+              <img src='http://www.goisoda.cn/d/file/2018-04-11/1523415683326223.jpg'
+                   className={styles.userImgAvatarRadu}/>
               <span>评论评论评论评论评论</span>
               <i className={'iconfont icon-icontypraise2 ' + styles.phoneConnmentPraise}></i>
             </div>
             <div className={styles.phoneCommentChild}>
-              <img src='http://www.goisoda.cn/d/file/2018-04-11/1523415683326223.jpg' className={styles.userImgAvatarRaduSmal}/>
+              <img src='http://www.goisoda.cn/d/file/2018-04-11/1523415683326223.jpg'
+                   className={styles.userImgAvatarRaduSmal}/>
               <span className={styles.userCommentChildUser}>@张三</span>
               <br/>
               <span>回复回复回复回</span>
               <i className={'iconfont icon-icontypraise2 ' + styles.phoneConnmentPraise}></i>
             </div>
             <div className={styles.phoneCommentChild}>
-              <img src='http://www.goisoda.cn/d/file/2018-04-11/1523415683326223.jpg' className={styles.userImgAvatarRaduSmal}/>
+              <img src='http://www.goisoda.cn/d/file/2018-04-11/1523415683326223.jpg'
+                   className={styles.userImgAvatarRaduSmal}/>
               <span className={styles.userCommentChildUser}>@张三</span>
               <br/>
               <span>回复回复回复回</span>

@@ -18,4 +18,18 @@ export default {
       },
     }],
   ],
+  proxy:{
+    '/common/*':{
+      target: 'http://localhost:8080',
+      changeOrigin: true
+    },
+    '/article/*':{
+      target: 'http://localhost:8080',
+      changeOrigin: true
+    },
+    '/comment/*':{
+      target: 'http://localhost:8080',
+      changeOrigin: true
+    }
+  }
 }

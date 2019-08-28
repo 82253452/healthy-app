@@ -1,7 +1,13 @@
 import styles from './index.css';
 import select from '../../../assets/select.png';
+import { useState, useEffect } from 'react';
 
 export default function() {
+  const [isLogin, setIsLogin] = useState(false);
+  useEffect(() => {
+    console.log('effect')
+
+  }, [isLogin]);
   return (
     <div className={styles.container}>
       <div className={styles.close}></div>

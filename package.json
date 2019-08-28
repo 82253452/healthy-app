@@ -8,8 +8,11 @@
     "precommit": "lint-staged"
   },
   "dependencies": {
+    "qiniu-js": "^2.5.4",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "umi-request": "^1.2.3",
+    "uuid": "^3.3.3"
   },
   "devDependencies": {
     "babel-eslint": "^9.0.0",
