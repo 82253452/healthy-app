@@ -5,6 +5,9 @@ const BASE = '/article';
 export function getArticles() {
   return request(BASE + '/list');
 }
+export function getArticlesAbout(page) {
+  return request(BASE + '/list/about',{params:page});
+}
 
 export function getArticleInfo(id) {
   return request(BASE + '/info/' + id);

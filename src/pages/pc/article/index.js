@@ -43,26 +43,28 @@ export default function() {
       </div>
       <div className={styles.list}>
         {articles.map(article =>
-          (<Link to={'/pc/info/' + article.id}>
+          (
             <div className={styles.block}>
-              <div className={styles.headerImg}><img className={styles.img}
-                                                     src={article.img}/>
-              </div>
-              <div className={styles.blockInfo}>
-                <div
-                  className={styles.text}>{article.context.lenght >= 20 ? article.context.substring(0, 20) : article.context}</div>
-                <div className={styles.userInfo}>
-                  <div className={styles.userImg}><img className={styles.userImgAvatar}
-                                                       src={article.avatar}/>
-                  </div>
-                  <div className={styles.userNick}>{article.nickName}</div>
-                  <div className={styles.num}>{article.praiseNum}</div>
-                  <i className={'iconfont icon-like1 ' + styles.praise}></i>
-                  {/*<div className={styles.praise}>心</div>*/}
+              <Link key={article.id} to={'/pc/info/' + article.id}>
+                <div className={styles.headerImg}><img className={styles.img}
+                                                       src={article.image}/>
                 </div>
-              </div>
+                <div className={styles.blockInfo}>
+                  <div
+                    className={styles.text}>{article.context.lenght >= 20 ? article.context.substring(0, 20) : article.context}</div>
+                  <div className={styles.userInfo}>
+                    <div className={styles.userImg}><img className={styles.userImgAvatar}
+                                                         src={article.avatar}/>
+                    </div>
+                    <div className={styles.userNick}>{article.nickName}</div>
+                    <div className={styles.num}>{article.praiseNum}</div>
+                    <i className={'iconfont icon-like1 ' + styles.praise}></i>
+                    {/*<div className={styles.praise}>心</div>*/}
+                  </div>
+                </div>
+              </Link>
             </div>
-          </Link>),
+          ),
         )}
       </div>
       <div className={styles.phoneFooter}>

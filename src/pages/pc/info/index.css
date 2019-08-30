@@ -16,8 +16,12 @@
 }
 
 .like {
-  width: 30px;
   float: left;
+  font-size: 2.5rem !important;
+}
+
+.red {
+  color: red;
 }
 
 .num {
@@ -60,12 +64,6 @@
   margin-top: 70px;
 }
 
-.userInput {
-  width: 100%;
-  margin-left: 10px;
-  height: 23px;
-}
-
 .userInputDiv {
   float: left;
   width: 95%;
@@ -73,6 +71,7 @@
 }
 
 .videoCommentInfo {
+  float: left;
   margin-left: 10px;
   width: 100%;
   margin-top: 20px;
@@ -236,14 +235,15 @@
 }
 
 .aboutListImg {
-  width: 70px;
-  height: 90px;
+  width: 5rem;
+  height: 5rem;
   float: left;
   border-radius: 10px;
   margin-right: 10px;
 }
 
 .aboutListBlock {
+  width: 100%;
   float: left;
   margin-top: 20px;
 }
@@ -332,6 +332,10 @@
   height: 2rem;
   float: right;
   margin-right: 1rem;
+}
+
+.show {
+  display: block;
 }
 
 .phoneFooter {
@@ -451,29 +455,31 @@
 }
 
 .phoneCommentUser > i {
-  float:right;
+  float: right;
 }
+
 .phoneCommentUser > span {
-  margin-left:2rem;
+  margin-left: 2rem;
 }
 
 .phoneCommentChild {
   height: 2rem;
   text-align: left;
-  clear:both;
+  clear: both;
   font-size: .9rem;
-  margin-top:1rem;
-}
-.userCommentChildUser{
-  color:#bbbbbb;
+  margin-top: 1rem;
 }
 
-.phoneCommentChild >img {
-  float:left;
-  margin-left:3rem;
+.userCommentChildUser {
+  color: #bbbbbb;
 }
 
-.userImgAvatarRaduSmal{
+.phoneCommentChild > img {
+  float: left;
+  margin-left: 3rem;
+}
+
+.userImgAvatarRaduSmal {
   width: 1.5rem;
   height: 1.5rem;
   border-radius: 50%;
@@ -481,10 +487,11 @@
 }
 
 .phoneCommentChild > i {
-  float:right;
+  float: right;
 }
+
 .phoneCommentChild > span {
-  margin-left:.5rem;
+  margin-left: .5rem;
 }
 
 .phoneConnmentPraise {
@@ -492,30 +499,36 @@
   font-size: 1.5rem !important;
 }
 
-.phonecommentInputDiv{
+.phonecommentInputDiv {
   position: fixed;
   bottom: 0;
-  width:100%;
+  width: 100%;
 }
 
 .phoneCommentInput {
-  width:100%;
-  border:1px solid #bbbbbb;
-  padding:.6rem;
+  width: 100%;
+  border: 1px solid #bbbbbb;
+  padding: .6rem;
 }
-.phoneCommentInputIcon{
+
+.phoneCommentInputIcon {
   position: fixed;
   bottom: 0;
   right: 1rem;
   font-size: 2rem !important;
 }
 
+.editor {
+  border: 1px solid #bbbbbb;
+  height: 2rem;
+}
 
 @media (max-width: 980px) {
   .contentLeft {
     display: none;
   }
-  .phoneVideo{
+
+  .phoneVideo {
     display: block;
   }
 

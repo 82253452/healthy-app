@@ -21,8 +21,8 @@ export function render(oldRender) {
     }else{
       // window.location.href='https://open.weixin.qq.com/connect/qrconnect?appid=wx91fad2501e704f40&redirect_uri=ttp://admin.wokanjian.com.cn/admin&response_type=code&scope=snsapi_login&state=STATE#wechat_redirect';
     }
-    localStorage.setItem('TOKEN', 'eyJhbGciOiJIUzM4NCJ9.eyJuaWNrTmFtZSI6IuWwj-m6pui2oyIsIm9sZFVzZXJJZCI6IjE3MDNDRTU5LTk4NjgtNDA2OC04MzIyLTM0MjZGQUE2OERDQyIsIm1vYmlsZSI6IjEyMzEyMyIsImF2YXRhciI6IjEyMyIsImp0aSI6Ijg4NjVmNTUxMDQ0NjQ1MDM4NjA4NDdiYWZhZjkzZjEyIiwiZXhwIjoxODgyMDAzODQyLCJpYXQiOjE1NjYzODQ2NDIsIm5iZiI6MTU2NjM4NDY0Mn0.O7lUWWWHabCJFpG33wZkAlGSBksPeNYfKJyJpncBQohsFi2D0bVLGnWBJUHzZPCX');
-  }
+    localStorage.setItem('TOKEN', 'eyJhbGciOiJIUzM4NCJ9.eyJuaWNrTmFtZSI6IumJtOWuojUwMTgiLCJvbGRVc2VySWQiOiIxIiwibW9iaWxlIjoiMTIzMTIzIiwiYXZhdGFyIjoiMTIzIiwidXNlcklkIjoiMSIsImp0aSI6IjJiYjQ4ZDJhN2U5ZTRhMmFhMWE2ZTQzMjUyMzM5NDAzIiwiZXhwIjoxODgyNjE2Mjc2LCJpYXQiOjE1NjY5OTcwNzYsIm5iZiI6MTU2Njk5NzA3Nn0.KsRyNZm9ryO0V7vQL9pZSh9b1D4OYyhdxIFccJuaC4aT-wteW6A0UIRp1D5mtb7F');
+}
   oldRender();
 }
 

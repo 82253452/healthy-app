@@ -3,7 +3,6 @@
  * 更详细的 api 文档: https://github.com/umijs/umi-request
  */
 import { extend } from 'umi-request';
-// import { notification } from 'antd';
 const codeMessage = {
   200: '服务器成功返回请求的数据。',
   201: '新建或修改数据成功。',
@@ -31,15 +30,9 @@ const errorHandler = error => {
   if (response && response.status) {
     const errorText = codeMessage[response.status] || response.statusText;
     const { status, url } = response;
-  //   notification.error({
-  //     message: `请求错误 ${status}: ${url}`,
-  //     description: errorText,
-  //   });
-  // } else if (!response) {
-  //   notification.error({
-  //     description: '您的网络发生异常，无法连接服务器',
-  //     message: '网络异常',
-  //   });
+    console.error(errorText)
+    console.error(status)
+    console.error(url)
   }
 
   return response;
@@ -53,4 +46,23 @@ const request = extend({
   // 默认错误处理
   credentials: 'include', // 默认请求是否带上cookie
 });
+
+// 中间件，对请求前、响应后做处理
+request.use(async (ctx, next) => {
+  const { req } = ctx;
+  const {  options } = req;
+  ctx.req.options = {
+    ...options,
+    headers: {
+      'TOKEN':localStorage.getItem('TOKEN')
+    },
+  };
+  await next();
+
+  const { res } = ctx;
+  const { success = false } = res; // 假设返回结果为 : { success: false, errorCode: 'B001' }
+  if (!success) {
+    // 对异常情况做对应处理
+  }
+})
 export default request;

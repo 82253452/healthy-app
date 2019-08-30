@@ -65,7 +65,7 @@
 }
 
 .img {
-  width: 100%;
+  width: 80%;
   height: 180px;
   border-radius: 10px 10px;
 }
@@ -78,7 +78,7 @@
 
 .block {
   padding: 1%;
-  width: 17rem;
+  width: 100%;
   margin-left:2%;
 }
 
@@ -180,5 +180,8 @@
   }
   .phoneFooter{
     display: block;
+  }
+  .img {
+    width: 100%;
   }
 }

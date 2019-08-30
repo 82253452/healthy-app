@@ -1,0 +1,18 @@
+.editor {
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  cursor: text;
+  border-radius: 2px;
+  margin-bottom: 2em;
+  padding:1rem;
+  box-shadow: inset 0px 1px 8px -3px #ABABAB;
+  background: #fefefe;
+}
+
+.editor :global(.public-DraftEditor-content) {
+  min-height: 1rem;
+}
+
+.options {
+  float: right;
+}
