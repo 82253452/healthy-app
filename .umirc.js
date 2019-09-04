@@ -1,4 +1,3 @@
-
 // ref: https://umijs.org/config/
 export default {
   treeShaking: true,
@@ -10,7 +9,7 @@ export default {
       dynamicImport: false,
       title: 'my-app',
       dll: false,
-      
+
       routes: {
         exclude: [
           /components\//,
@@ -18,18 +17,34 @@ export default {
       },
     }],
   ],
-  proxy:{
-    '/common/*':{
+  proxy: {
+    '/common/*': {
       target: 'http://localhost:8080',
-      changeOrigin: true
+      changeOrigin: true,
     },
-    '/article/*':{
+    '/article/*': {
       target: 'http://localhost:8080',
-      changeOrigin: true
+      changeOrigin: true,
     },
-    '/comment/*':{
+    '/comment/*': {
       target: 'http://localhost:8080',
-      changeOrigin: true
-    }
-  }
-}
+      changeOrigin: true,
+    },
+    '/address/*': {
+      target: 'http://localhost:8080',
+      changeOrigin: true,
+    },
+    '/classify/*': {
+      target: 'http://localhost:8080',
+      changeOrigin: true,
+    },
+    '/shop/*': {
+      target: 'http://localhost:8080',
+      changeOrigin: true,
+    },
+    '/user/*': {
+      target: 'http://localhost:8080',
+      changeOrigin: true,
+    },
+  },
+};

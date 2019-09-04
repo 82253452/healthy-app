@@ -19,13 +19,15 @@
 .classButton {
   float: left;
   display: block;
-  color: #fff;
-  background: #49acf3;
   width: 50px;
   height: 30px;
   margin-left: 5%;
   line-height: 30px;
   border-radius: 100px;
+}
+.classActive{
+  background: #49acf3;
+  color: #fff;
 }
 
 .address {
@@ -37,11 +39,13 @@
 .addressButton {
   float: left;
   display: block;
-  background: #f6f6f6;
-  width: 100px;
-  height: 30px;
+  width: 10rem;
+  height: 3rem;
   line-height: 30px;
   border: #f4f4f4;
+}
+.active{
+  background: #f6f6f6;
 }
 .conHeader{
   background: #fff;
@@ -51,11 +55,13 @@
 }
 
 .hotAddress {
-
+  width: 100%;
+  height: 3rem;
 }
 
 .addressChild {
-
+  width: 100%;
+  height: 3rem;
 }
 
 .classButtonLeft {
@@ -101,9 +107,9 @@
 }
 
 .shopInfo {
-  padding-left: 20px;
+  padding-left: 2rem;
   float: left;
-  width:80%;
+  width:76%;
 }
 
 .shopInfoTop {

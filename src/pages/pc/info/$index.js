@@ -11,6 +11,9 @@ import { useEffect, useRef, useState } from 'react';
 import { articlePraise, getArticleInfo, getArticlesAbout } from '@/api/article';
 import { addCommont, commentPraise, commontList } from '@/api/comment';
 import { EmojiEditor } from '@/component/editor/emoji';
+import Link from 'umi/link';
+import { stateFromHTML } from 'draft-js-import-html';
+
 
 export default function(props) {
   const [isloding, setIsloding] = useState(true);
@@ -18,7 +21,6 @@ export default function(props) {
   const [articleAbout, setArticleAbout] = useState([]);
   const [comments, setComments] = useState([]);
   const [content, setContent] = useState('');
-
 
   useEffect(() => {
     getArticleInfo(props.match.params.index).then(data => {
@@ -62,7 +64,14 @@ export default function(props) {
   };
 
   function getCommonList() {
-    commontList(props.match.params.index).then(data => data && data.data ? setComments(data.data) : console.log('无数据'));
+    commontList({
+      id: props.match.params.index,
+      type: 1,
+    }).then(data => data && data.data ? setComments(data.data) : console.log('无数据'));
+  }
+
+  function commentChange(content) {
+    setContent(content);
   }
 
   return (
@@ -83,7 +92,8 @@ export default function(props) {
                    src={article.video}/>
           </div>
           <div className={styles.videoInfo}>
-            {article.context}
+            <EmojiEditor readOnly contentState={() => stateFromHTML(article.context)}/>
+            {/*{article.context}*/}
           </div>
           <div className={styles.videoPraise}>
             <i className={'iconfont icon-like1 ' + styles.like + ' ' + (article.isPraise ? styles.red : '')}
@@ -101,7 +111,7 @@ export default function(props) {
               <img src={article.avatar} className={styles.userImgAvatar}/>
             </div>
             <div className={styles.userInputDiv}>
-              <EmojiEditor/>
+              <EmojiEditor emoji onChange={commentChange}/>
               {/*<input className={styles.userInput} value={content} onChange={commentChange}/>*/}
               <div className={styles.videoCommentInfo}>
                 {/*<i className={'iconfont icon-like1 ' + styles.like} onClick={praise}></i>*/}
@@ -142,7 +152,7 @@ export default function(props) {
                     </div>
                   </div>
                   <div className={styles.usercommentContent}>
-                    {comment.content}
+                    <EmojiEditor readOnly contentState={() => stateFromHTML(comment.content)}/>
                   </div>
                 </div>),
               )
@@ -150,7 +160,9 @@ export default function(props) {
           </div>
         </div>
         <div className={styles.contentRight}>
-          <div className={styles.share}>开始分享</div>
+          <Link to='/pc/article/comment'>
+            <div className={styles.share}>开始分享</div>
+          </Link>
           <div className={styles.auther}>
             <div className={styles.autherTitle}>发布者</div>
             <div className={styles.autherInfo}>
@@ -170,11 +182,12 @@ export default function(props) {
             相关笔记
           </div>
           <div className={styles.aboutList}>
-            {articleAbout.map(about=>(
-              <div className={styles.aboutListBlock}>
+            {articleAbout.map(about => (
+              <div key={about.id} className={styles.aboutListBlock}>
                 <img className={styles.aboutListImg} src={about.avatar}/>
                 <div>
-                  <div className={styles.aboutText}>{about.context.lenght >= 20 ? about.context.substring(0, 20) : article.context}</div>
+                  <div
+                    className={styles.aboutText}>{about.title && (about.title.lenght >= 20 ? about.title.substring(0, 20) : about.title)}</div>
                   <div className={styles.aboutLikeDiv}>
                     <i className={'iconfont icon-like1 ' + styles.like + ' ' + (about.isPraise ? styles.red : '')}></i>
                     &nbsp;&nbsp;&nbsp;{about.praiseNum}
@@ -183,9 +196,11 @@ export default function(props) {
               </div>
             ))}
           </div>
-          <div className={styles.more}>
-            查看更多
-          </div>
+          <Link to='/pc/article'>
+            <div className={styles.more}>
+              查看更多
+            </div>
+          </Link>
         </div>
         <div className={styles.phoneVideo}>
           <video className={styles.phoneVideoPlay}

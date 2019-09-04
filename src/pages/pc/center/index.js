@@ -1,134 +1,131 @@
 import styles from './index.css';
+import { getUserInfo } from '@/api/user';
+import { useEffect, useState } from 'react';
+import { getUserArticles } from '@/api/article';
+import router from 'umi/router';
 
 export default function() {
+  const [isloding, setIsloding] = useState(true);
+  const [user, setUser] = useState({});
+  const [articles, setArticles] = useState([]);
+  const [articleType, setArticleType] = useState(1);
+  const [clickType, setClickType] = useState(1);
+  const [headerIndex, setHeaderIndex] = useState(2);
+  useEffect(() => {
+    getUserArtycles();
+    getUserInfo().then(data => {
+      data && data.data ? setUser(data.data) : console.log('无数据');
+    });
+    setIsloding(false);
+  }, []);
+
+  useEffect(() => {
+    setClickType(1)
+    getUserArtycles();
+  }, [headerIndex]);
+
+  function getUserArtycles() {
+    getUserArticles({ pageSize: 10, pageNum: 1, type: articleType }).then(data => {
+      data && data.data ? setArticles([...data.data]) : console.log('无数据');
+    });
+  }
+
   return (
-    <div className={styles.container}>
-      <div className={styles.header}>
-        <div className={styles.userHeader}>
-          <div className={styles.userAvatarDiv}><img className={styles.userAvatar}
-                                                     src='http://www.goisoda.cn/d/file/2018-04-11/1523415683326223.jpg'/>
+    isloding ? '' :
+      <div className={styles.container}>
+        <div className={styles.header}>
+          <div className={styles.userHeader}>
+            <div className={styles.userAvatarDiv}><img className={styles.userAvatar}
+                                                       src={user.avatar}/>
+            </div>
+            <div className={styles.userName}>{user.nickName}</div>
+            <div className={styles.userContext}>{user.introduction}</div>
           </div>
-          <div className={styles.userName}>张三</div>
-          <div className={styles.userContext}>这个人有个胡萝卜</div>
+          <div className={styles.headerList}>
+            <div className={headerIndex===0?styles.headerListClick:''} onClick={()=>{setHeaderIndex(0)}}>我的收藏 100</div>
+            <span>|</span>
+            <div className={headerIndex===1?styles.headerListClick:''}  onClick={()=>{setHeaderIndex(1)}}>我的点评 100</div>
+            <span>|</span>
+            <div className={headerIndex===2?styles.headerListClick:''}  onClick={()=>{setHeaderIndex(2)}}>我的分享 100</div>
+            <span>|</span>
+            <div className={headerIndex===3?styles.headerListClick:''}  onClick={()=>{setHeaderIndex(3)}}>浏览记录 100</div>
+          </div>
         </div>
-        <div className={styles.headerList}>
-          <div>我的收藏 100</div>
-          <span>|</span>
-          <div>我的收藏 100</div>
-          <span>|</span>
-          <div>我的收藏 100</div>
-          <span>|</span>
-          <div>我的收藏 100</div>
+        <div className={styles.context}>
+          <div className={styles.contextLeft}>
+            <div className={styles.hTop}></div>
+            <div className={styles.hConetxt}>
+              <div className={styles.hConetxtInfo}>
+                <div>
+                  0<br/>
+                  粉丝
+                </div>
+                <div>
+                  0<br/>
+                  浏览量
+                </div>
+                <div>
+                  0<br/>
+                  关注
+                </div>
+              </div>
+              <div className={styles.hConetxtEdit}>
+                <div onClick={() => setClickType(2)}>编辑资料</div>
+                <div onClick={() => router.push('/pc/article/comment')}>开始分享</div>
+                <div>我的特权卡</div>
+              </div>
+            </div>
+          </div>
+          <div className={styles.contextRight}>
+            <div className={styles.contextRightHeader + ' ' + (clickType == 1 ? styles.show : styles.hidden)}>
+              <div className={articleType === 2 ? styles.contextRightHeaderSelect : null}
+                   onClick={() => setArticleType(2)}>视频
+              </div>
+              <div className={articleType === 1 ? styles.contextRightHeaderSelect : null}
+                   onClick={() => setArticleType(1)}>文章
+              </div>
+            </div>
+            <div className={styles.list + ' ' + (clickType === 1 ? styles.show : styles.hidden)}>
+              {articles.map(article => (
+                <div key={article.id} className={styles.block}>
+                  <div className={styles.headerImg}><img className={styles.img}
+                                                         src={article.image}/>
+                  </div>
+                  <div className={styles.blockInfo}>
+                    <div className={styles.text}>{article.title}</div>
+                    <div className={styles.userInfo}>
+                      <div className={styles.userImg}><img className={styles.userImgAvatar}
+                                                           src={article.avatar}/>
+                      </div>
+                      <div className={styles.userNick}>{article.nickName}</div>
+                      <div className={styles.num}>{article.praiseNum}</div>
+                      <div className={styles.praise}>心</div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className={styles.contextRightCenter + ' ' + (clickType === 2 ? styles.show : styles.hidden)}>
+              <div className={styles.userInfoDiv}>
+                <div className={styles.baseInfo}>
+                  <div>基本信息</div>
+                  <div className={styles.baseInputDiv}>(<span className={styles.red}>*</span>为必须填写项目)</div>
+                </div>
+                <div className={styles.baseInputDiv}>(为了让各位更了解你，以下信息将显示在个人资料页）</div>
+                <div className={styles.userInfoAvatarDiv}>
+                  <img className={styles.userInfoAvatar} src={user.avatar}/>
+                </div>
+                <div className={styles.userInfoAvatarDiv}>
+                  <h3>{user.nickName}</h3>
+                </div>
+                <div className={styles.userNickName}><span className={styles.red}></span>昵称 <input value={user.nickName}/></div>
+                <div  className={styles.introduction}><div>自我介绍</div><textarea rows={5}></textarea></div>
+              </div>
+            </div>
+          </div>
+          <div>
+          </div>
         </div>
       </div>
-      <div className={styles.context}>
-        <div className={styles.contextLeft}>
-          <div className={styles.hTop}></div>
-          <div className={styles.hConetxt}>
-            <div className={styles.hConetxtInfo}>
-              <div>
-                76<br/>
-                粉丝
-              </div>
-              <div>
-                76<br/>
-                粉丝
-              </div>
-              <div>
-                76<br/>
-                粉丝
-              </div>
-            </div>
-            <div className={styles.hConetxtEdit}>
-              <div>编辑资料</div>
-              <div>编辑资料</div>
-              <div>编辑资料</div>
-            </div>
-          </div>
-        </div>
-        <div className={styles.contextRight}>
-          <div className={styles.contextRightHeader}>
-            <div>视频</div>
-            <div>文章</div>
-          </div>
-          <div className={styles.list}>
-            <div className={styles.block}>
-              <div className={styles.headerImg}><img className={styles.img} src='http://www.goisoda.cn/d/file/2018-04-11/1523415683326223.jpg'/></div>
-              <div className={styles.blockInfo}>
-                <div className={styles.text}>为了撒地方阿斯蒂芬啊手动阀s阿斯顿发射点</div>
-                <div className={styles.userInfo}>
-                  <div className={styles.userImg}><img className={styles.userImgAvatar} src='http://www.goisoda.cn/d/file/2018-04-11/1523415683326223.jpg'/></div>
-                  <div className={styles.userNick}>一只小可爱</div>
-                  <div className={styles.num}>4880</div>
-                  <div className={styles.praise}>心</div>
-                </div>
-              </div>
-            </div>
-            <div className={styles.block}>
-              <div className={styles.headerImg}><img className={styles.img} src='http://www.goisoda.cn/d/file/2018-04-11/1523415683326223.jpg'/></div>
-              <div className={styles.blockInfo}>
-                <div className={styles.text}>为了撒地方阿斯蒂芬啊手动阀s阿斯顿发射点</div>
-                <div className={styles.userInfo}>
-                  <div className={styles.userImg}><img className={styles.userImgAvatar} src='http://www.goisoda.cn/d/file/2018-04-11/1523415683326223.jpg'/></div>
-                  <div className={styles.userNick}>一只小可爱</div>
-                  <div className={styles.num}>4880</div>
-                  <div className={styles.praise}>心</div>
-                </div>
-              </div>
-            </div>
-            <div className={styles.block}>
-              <div className={styles.headerImg}><img className={styles.img} src='http://www.goisoda.cn/d/file/2018-04-11/1523415683326223.jpg'/></div>
-              <div className={styles.blockInfo}>
-                <div className={styles.text}>为了撒地方阿斯蒂芬啊手动阀s阿斯顿发射点</div>
-                <div className={styles.userInfo}>
-                  <div className={styles.userImg}><img className={styles.userImgAvatar} src='http://www.goisoda.cn/d/file/2018-04-11/1523415683326223.jpg'/></div>
-                  <div className={styles.userNick}>一只小可爱</div>
-                  <div className={styles.num}>4880</div>
-                  <div className={styles.praise}>心</div>
-                </div>
-              </div>
-            </div>
-            <div className={styles.block}>
-              <div className={styles.headerImg}><img className={styles.img} src='http://www.goisoda.cn/d/file/2018-04-11/1523415683326223.jpg'/></div>
-              <div className={styles.blockInfo}>
-                <div className={styles.text}>为了撒地方阿斯蒂芬啊手动阀s阿斯顿发射点</div>
-                <div className={styles.userInfo}>
-                  <div className={styles.userImg}><img className={styles.userImgAvatar} src='http://www.goisoda.cn/d/file/2018-04-11/1523415683326223.jpg'/></div>
-                  <div className={styles.userNick}>一只小可爱</div>
-                  <div className={styles.num}>4880</div>
-                  <div className={styles.praise}>心</div>
-                </div>
-              </div>
-            </div>
-            <div className={styles.block}>
-              <div className={styles.headerImg}><img className={styles.img} src='http://www.goisoda.cn/d/file/2018-04-11/1523415683326223.jpg'/></div>
-              <div className={styles.blockInfo}>
-                <div className={styles.text}>为了撒地方阿斯蒂芬啊手动阀s阿斯顿发射点</div>
-                <div className={styles.userInfo}>
-                  <div className={styles.userImg}><img className={styles.userImgAvatar} src='http://www.goisoda.cn/d/file/2018-04-11/1523415683326223.jpg'/></div>
-                  <div className={styles.userNick}>一只小可爱</div>
-                  <div className={styles.num}>4880</div>
-                  <div className={styles.praise}>心</div>
-                </div>
-              </div>
-            </div>
-            <div className={styles.block}>
-              <div className={styles.headerImg}><img className={styles.img} src='http://www.goisoda.cn/d/file/2018-04-11/1523415683326223.jpg'/></div>
-              <div className={styles.blockInfo}>
-                <div className={styles.text}>为了撒地方阿斯蒂芬啊手动阀s阿斯顿发射点</div>
-                <div className={styles.userInfo}>
-                  <div className={styles.userImg}><img className={styles.userImgAvatar} src='http://www.goisoda.cn/d/file/2018-04-11/1523415683326223.jpg'/></div>
-                  <div className={styles.userNick}>一只小可爱</div>
-                  <div className={styles.num}>4880</div>
-                  <div className={styles.praise}>心</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div>
-        </div>
-      </div>
-    </div>
   );
 }

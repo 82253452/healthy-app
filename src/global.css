@@ -5,6 +5,9 @@ html, body, #root {
   color: #676767;
   font-size: 62.5%;
 }
+body div{
+  cursor:default;
+}
 
 @media (max-width: 980px) {
   html, body, #root  {

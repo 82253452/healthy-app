@@ -2,9 +2,14 @@
   width: 100%;
   /*padding: 1% 15% 1% 15%;*/
 }
-
+.hidden{
+  display: none !important;
+}
+.show{
+  display: block;
+}
 .header {
-  width: 100%;
+  width: 70%;
   height: 10rem;
   background: #49acf3;
   padding: 10rem 15% 0 15%;
@@ -14,6 +19,7 @@
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
+  transform: rotateX(180deg);
 }
 
 .userHeader {
@@ -24,21 +30,22 @@
 }
 
 .userAvatarDiv {
-  position: absolute;
-  left: 20%;
+  /*position: absolute;*/
+  /*left: 20%;*/
   width: 5rem;
   height: 5rem;
   background: #fff;
-  transform: rotate(180deg);
+  transform: rotateX(180deg);
   transform-origin: top;
   border-radius: 50%;
   margin: 3rem auto auto auto;
 }
 
 .userName {
-  margin-top: 5rem;
+  /*margin-top: 5rem;*/
   font-size: large;
   font-weight: bold;
+  margin-top:-3rem;
 }
 
 .userContext {
@@ -61,21 +68,24 @@
   color: #fff;
 }
 
+.headerListClick {
+  background: #fff !important;
+  border-radius: 50px !important;
+  color: #49acf3 !important;
+}
+
 .headerList > span {
   float: left;
   color: #fff;
   line-height: 2rem;
 }
 
-.headerList > div:first-child {
-  background: #fff;
-  border-radius: 50px;
-  color: #49acf3;
-}
 
 .context {
-  width: 100%;
+  width: 70%;
   padding-left: 15%;
+  padding-right: 15%;
+  float: left;
 }
 
 .contextLeft {
@@ -123,11 +133,15 @@
 .contextRight {
   float: left;
   padding: 2rem;
+  width: 70%;
+
 }
 
 .contextRightHeader {
   padding-top: 1rem;
   color:#bfbfbf;
+  width: 100%;
+  height: 3rem;
 }
 
 .contextRightHeader > div {
@@ -139,7 +153,7 @@
   line-height: 2rem;
   margin-left:1rem;
 }
-.contextRightHeader > div:first-child {
+.contextRightHeaderSelect {
   border:none;
   background: #dde7f6;
   color:#49acf3;
@@ -148,7 +162,6 @@
 .list {
   display: flex;
   flex-wrap: wrap;
-  width: 70rem;
 }
 
 .img {
@@ -214,6 +227,57 @@
   font-size: 8px;
   line-height: 30px;
 }
+.contextRightCenter{
+
+}
+.baseInfo{
+  width:100%;
+  float:left;
+  border-bottom:1px solid #c3c4c5;
+  margin-bottom:1rem;
+}
+.baseInfo>div{
+  float:left;
+}
+.userInfoDiv{
+  padding:2rem;
+  background: #fff;
+  border:1px solid #c3c4c5;
+  text-align: left;
+}
+.baseInputDiv{
+  color:#c3c4c5;
+  padding-bottom: 1rem;
+}
+.baseInput{
+  border:0;
+  margin-left:2rem;
+}
+.userInfoAvatarDiv{
+  text-align: center;
+}
+.userInfoAvatar{
+  width: 10rem;
+  height: 10rem;
+}
+.red{
+  color: red;
+}
+.userNickName>input{
+  margin-left:2rem;
+}
+
+.userNickName{
+  margin-top:3rem;
+}
+.introduction{
+  margin-top:5rem;
+}
+.introduction>textarea{
+  margin-left:5rem;
+}
+
+
 
 
 

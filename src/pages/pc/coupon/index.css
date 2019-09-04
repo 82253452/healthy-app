@@ -147,6 +147,7 @@
   text-align: left;
   margin-top: 1rem;
   background: #fff;
+  width: 96%;
   padding: 2%;
   float: left;
 }
@@ -158,7 +159,7 @@
 }
 
 .commentUser {
-  width: 7%;
+  width: 5rem;
   padding: 2%;
   float: left;
 }
@@ -170,7 +171,7 @@
 }
 
 .commentUserContext {
-  width: 82%;
+  width: 79%;
   padding: 2%;
   float: left;
 }
@@ -182,6 +183,7 @@
 
 .commentMore {
   text-align: right;
+  padding:1rem;
 }
 
 .userCommentImg {
@@ -220,6 +222,7 @@
   width: 29%;
   float: left;
   margin-left: 1%;
+  height: 11rem;
 }
 
 .rightMap {
@@ -246,7 +249,7 @@
 
 .aboutBlock > div {
   float: left;
-  width: 60%;
+  width: 47%;
   padding-left: 1rem;
 }
 
@@ -303,7 +306,7 @@
 
   .package {
     display: inline-block;
-    float:none;
+    float: none;
   }
 
   .couponList {
@@ -311,14 +314,14 @@
     height: 16rem;
     overflow: hidden;
     overflow-x: auto;
-    white-space:nowrap;
+    white-space: nowrap;
   }
 
- .releaseButton{
-   width:3rem;
-   height: 2rem;
-   line-height: 2rem;
- }
+  .releaseButton {
+    width: 3rem;
+    height: 2rem;
+    line-height: 2rem;
+  }
 
   div::-webkit-scrollbar {
     width: 0;

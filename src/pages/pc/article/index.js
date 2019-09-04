@@ -8,10 +8,12 @@ import Link from 'umi/link';
 
 export default function() {
   const [articles, setArticles] = useState([]);
+  const [page, setPage] = useState({ pageSize: 10, pageNum: 1 });
+
 
   useEffect(() => {
-    getArticles().then(data => data && data.data ? setArticles(data.data) : console.log('无数据'));
-  }, []);
+    getArticles(page).then(data => data && data.data ? setArticles([...articles, ...data.data]) : console.log('无数据'));
+  }, [page]);
 
   const goBack = () => {
     window.history.go(-1);
@@ -38,9 +40,11 @@ export default function() {
         <div className={styles.class}>细胞</div>
         <div className={styles.class}>体检</div>
       </div>
-      <div className={styles.share}>
-        开始分享
-      </div>
+      <Link to='/pc/article/comment'>
+        <div className={styles.share}>
+          开始分享
+        </div>
+      </Link>
       <div className={styles.list}>
         {articles.map(article =>
           (
@@ -51,7 +55,7 @@ export default function() {
                 </div>
                 <div className={styles.blockInfo}>
                   <div
-                    className={styles.text}>{article.context.lenght >= 20 ? article.context.substring(0, 20) : article.context}</div>
+                    className={styles.text}>{article.title && (article.title.length >= 20 ? article.title.substring(0, 20) : article.title)}</div>
                   <div className={styles.userInfo}>
                     <div className={styles.userImg}><img className={styles.userImgAvatar}
                                                          src={article.avatar}/>

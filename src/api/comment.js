@@ -3,8 +3,8 @@ import request from '@/utils/request';
 const BASE = '/comment';
 
 
-export function commontList(id) {
-  return request(BASE + '/comments', { method: 'get', params: { id: id } });
+export function commontList(data) {
+  return request(BASE + '/comments', { method: 'get', params: data });
 }
 
 export function addCommont(data) {
