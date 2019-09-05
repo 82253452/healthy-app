@@ -8,7 +8,21 @@
   float: left;
 }
 
+.showCainter {
+  display: block;
+}
+
+.hideCainter {
+  display: none;
+}
+
 .video {
+}
+
+.phoneUserImg {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
 }
 
 .videoPlay {
@@ -52,8 +66,8 @@
 }
 
 .userImgAvatarRadu {
-  width: 30px;
-  height: 30px;
+  width: 3rem;
+  height: 3rem;
   border-radius: 50%;
   float: left;
 }
@@ -379,8 +393,7 @@
 }
 
 .phoneVideoPlayButton {
-  width: 3rem;
-  height: 3rem;
+  font-size: 5rem !important;
   position: absolute;
   top: 50vh;
   left: 44%;
@@ -393,7 +406,7 @@
   right: 10%;
   width: 3rem;
   height: 3rem;
-  background: url("http://www.goisoda.cn/d/file/2018-04-11/1523415683326223.jpg") no-repeat;
+  /*background: url("http://www.goisoda.cn/d/file/2018-04-11/1523415683326223.jpg") no-repeat;*/
   background-size: 100%;
   border-radius: 50%;
 }
@@ -419,15 +432,15 @@
 }
 
 .phoneVideoPlayPriseLike {
-  font-size: 2rem !important;
+  font-size: 3rem !important;
 }
 
 .phoneVideoPlayPriseComment {
-  font-size: 2rem !important;
+  font-size: 3rem !important;
 }
 
 .phoneVideoPlayPriseShare {
-  font-size: 2rem !important;
+  font-size: 3rem !important;
 }
 
 .phoneComment {
@@ -436,7 +449,6 @@
   position: fixed;
   bottom: 0;
   background: #fff;
-  display: none;
 }
 
 .phoneCommentList {
@@ -445,12 +457,12 @@
 }
 
 .phoneCommentBlock {
-
+  padding-top:2rem;
 }
 
 .phoneCommentUser {
   line-height: 2rem;
-  height: 2rem;
+  height: 4rem;
   text-align: left;
 }
 
@@ -463,7 +475,6 @@
 }
 
 .phoneCommentChild {
-  height: 2rem;
   text-align: left;
   clear: both;
   font-size: .9rem;
@@ -496,24 +507,29 @@
 
 .phoneConnmentPraise {
   color: #49acf3;
-  font-size: 1.5rem !important;
+  font-size: 2rem !important;
+}
+.commentUserName{
+  font-size: 1rem;
 }
 
 .phonecommentInputDiv {
   position: fixed;
-  bottom: 0;
+  bottom: 2rem;
   width: 100%;
 }
 
 .phoneCommentInput {
+  font-size: 2rem;
   width: 100%;
   border: 1px solid #bbbbbb;
   padding: .6rem;
+  height: 3rem;
 }
 
 .phoneCommentInputIcon {
   position: fixed;
-  bottom: 0;
+  bottom: 3rem;
   right: 1rem;
   font-size: 2rem !important;
 }
@@ -521,6 +537,12 @@
 .editor {
   border: 1px solid #bbbbbb;
   height: 2rem;
+}
+.phoneSend{
+  font-size:2rem;
+  float:right;
+  margin-top:-3.4rem;
+  margin-right:1rem;
 }
 
 @media (max-width: 980px) {

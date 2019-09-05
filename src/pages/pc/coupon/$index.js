@@ -131,7 +131,7 @@ export default function(props) {
                     <div>{comment.nickName}</div>
                     <div>****</div>
                     <div className={styles.userCommentText}>
-                      <EmojiEditor readOnly contentState={() => stateFromHTML(comment.content)}/>
+                      <div dangerouslySetInnerHTML={{__html: comment.content}}></div>
                     </div>
                     {/*<div className={styles.commentMore}>更多</div>*/}
                     <div className={styles.userCommentImg}>

@@ -11,7 +11,7 @@ body div{
 
 @media (max-width: 980px) {
   html, body, #root  {
-    font-size: 92.5% !important;
+    font-size: 62.5% !important;
   }
 }
 
@@ -43,7 +43,7 @@ body {
 }
 .iconfont {
   font-family:"iconfont" !important;
-  font-size: 16px;
+  font-size: 2rem;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

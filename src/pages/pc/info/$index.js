@@ -1,10 +1,8 @@
 import styles from './index.css';
 import like from '../../../assets/like.png';
 import address from '../../../assets/address.png';
-import play from '../../../assets/play.png';
 import share from '../../../assets/share.png';
 import commentFill from '../../../assets/comment_fill.png';
-import add from '../../../assets/add.png';
 import back from '../../../assets/back.png';
 import home from '../../../assets/home.png';
 import { useEffect, useRef, useState } from 'react';
@@ -13,7 +11,7 @@ import { addCommont, commentPraise, commontList } from '@/api/comment';
 import { EmojiEditor } from '@/component/editor/emoji';
 import Link from 'umi/link';
 import { stateFromHTML } from 'draft-js-import-html';
-
+import router from 'umi/router';
 
 export default function(props) {
   const [isloding, setIsloding] = useState(true);
@@ -21,6 +19,8 @@ export default function(props) {
   const [articleAbout, setArticleAbout] = useState([]);
   const [comments, setComments] = useState([]);
   const [content, setContent] = useState('');
+  const [phoneComment, setPhoneComment] = useState(false);
+  const videoRef = useRef(null);
 
   useEffect(() => {
     getArticleInfo(props.match.params.index).then(data => {
@@ -31,8 +31,8 @@ export default function(props) {
     getArticlesAbout({
       pageNum: 1,
       pageSize: 5,
-    }).then(data => data && data.data ? setArticleAbout(data.data) : console.log('无数据'));
-  }, []);
+    }).then(data => data && data.data ? setArticleAbout([...data.data]) : console.log('无数据'));
+  }, [props.match.params.index]);
 
   function praise() {
     article.isPraise = !article.isPraise;
@@ -53,7 +53,10 @@ export default function(props) {
 
 
   function addCommontText() {
-    addCommont({ topicId: article.id, type: 0, content: content }).then(data => getCommonList());
+    addCommont({ topicId: article.id, type: 1, content: content }).then(data => getCommonList());
+  }
+  function addPhoneCommontText() {
+    content.length>11?addCommontText():setPhoneComment(false)
   }
 
   function addCommentPraise(comment) {
@@ -67,11 +70,17 @@ export default function(props) {
     commontList({
       id: props.match.params.index,
       type: 1,
-    }).then(data => data && data.data ? setComments(data.data) : console.log('无数据'));
+    }).then(data => data && data.data && setComments([...data.data.list]));
   }
 
   function commentChange(content) {
     setContent(content);
+  }
+  function playVideo() {
+    videoRef.current.play();
+  }
+  function toInfo(id) {
+    router.push(`/pc/info/${id}`)
   }
 
   return (
@@ -88,11 +97,11 @@ export default function(props) {
         </div>
         <div className={styles.contentLeft}>
           <div className={styles.video}>
-            <video controls='controls' className={styles.videoPlay}
+            <video ref={videoRef} controls='controls' className={styles.videoPlay}
                    src={article.video}/>
           </div>
           <div className={styles.videoInfo}>
-            <EmojiEditor readOnly contentState={() => stateFromHTML(article.context)}/>
+            <div dangerouslySetInnerHTML={{__html: article.content}}></div>
             {/*{article.context}*/}
           </div>
           <div className={styles.videoPraise}>
@@ -140,7 +149,7 @@ export default function(props) {
           <div className={styles.commmentList}>
             {
               comments.map(comment =>
-                (<div className={styles.commentBlock}>
+                (<div key={comment.id} className={styles.commentBlock}>
                   <div className={styles.commentBlockHeader}>
                     <img className={styles.userImgAvatarRadu}
                          src={comment.avatar}/>
@@ -152,7 +161,7 @@ export default function(props) {
                     </div>
                   </div>
                   <div className={styles.usercommentContent}>
-                    <EmojiEditor readOnly contentState={() => stateFromHTML(comment.content)}/>
+                    <div dangerouslySetInnerHTML={{__html: comment.content}}></div>
                   </div>
                 </div>),
               )
@@ -183,7 +192,7 @@ export default function(props) {
           </div>
           <div className={styles.aboutList}>
             {articleAbout.map(about => (
-              <div key={about.id} className={styles.aboutListBlock}>
+              <div key={about.id} className={styles.aboutListBlock} onClick={()=>toInfo(about.id)}>
                 <img className={styles.aboutListImg} src={about.avatar}/>
                 <div>
                   <div
@@ -204,21 +213,28 @@ export default function(props) {
         </div>
         <div className={styles.phoneVideo}>
           <video className={styles.phoneVideoPlay}
-                 src='http://kjniu.zhonglanmedia.com/upload/video/source/C1BA2F736834CA7FAA623CDA40E530E1.mp4?_upt=84ebd01c1564474114874&crazycache=1'/>
-          <img className={styles.phoneVideoPlayButton} src={play}/>
+                 src={article.video}/>
+          {/*<img className={styles.phoneVideoPlayButton} src={play}/>*/}
+          <i className={'iconfont icon-right ' + styles.phoneVideoPlayButton} onClick={playVideo}></i>
           <div className={styles.phoneVideoPlayAvatar}>
-            <img className={styles.phoneVideoPlayAvatarLike} src={add}/>
+            <img className={styles.phoneUserImg} src={article.avatar}/>
+            {/*<img className={styles.phoneVideoPlayAvatarLike} src={add}/>*/}
           </div>
           <div className={styles.phoneVideoPlayPrise}>
-            <i className={'iconfont icon-icontypraise2 ' + styles.phoneVideoPlayPriseLike}></i>
+            <i
+              className={'iconfont icon-icontypraise2 ' + styles.phoneVideoPlayPriseLike + ' ' + (article.isPraise ? styles.red : '')}
+              onClick={praise}></i>
             <br/>
-            1233
+            {article.praiseNum}
             <br/>
             <br/>
-            <i className={'iconfont icon-comment ' + styles.phoneVideoPlayPriseComment} src={commentFill}/><br/>1231
+            <i className={'iconfont icon-comment ' + styles.phoneVideoPlayPriseComment} src={commentFill}
+               onClick={() => setPhoneComment(true)}/><br/>
+            {article.commentNum}
             <br/>
             <br/>
-            <i className={'iconfont icon-share ' + styles.phoneVideoPlayPriseShare} src={share}/><br/>123
+            <i className={'iconfont icon-share ' + styles.phoneVideoPlayPriseShare} src={share}/><br/>
+            {article.shareNum}
           </div>
         </div>
         <div className={styles.phoneFooter}>
@@ -228,36 +244,31 @@ export default function(props) {
             </div>
           </div>
         </div>
-        <div className={styles.phoneComment}>
+        <div className={styles.phoneComment + ' ' + (phoneComment ? styles.showCainter : styles.hideCainter)}>
           <div className={styles.phoneCommentList}>
-            <div className={styles.phoneCommentBlock}>
+            {comments.map(comment => <div key={comment.id} className={styles.phoneCommentBlock}>
               <div className={styles.phoneCommentUser}>
-                <img src='http://www.goisoda.cn/d/file/2018-04-11/1523415683326223.jpg'
+                <img src={comment.avatar}
                      className={styles.userImgAvatarRadu}/>
-                <span>评论评论评论评论评论</span>
+                <span className={styles.commentUserName}>{comment.nickName}</span>
                 <i className={'iconfont icon-icontypraise2 ' + styles.phoneConnmentPraise}></i>
+                <div style={{fontSize:'1rem',paddingLeft:'5rem'}} dangerouslySetInnerHTML={{__html: comment.content}}></div>
               </div>
-              <div className={styles.phoneCommentChild}>
-                <img src='http://www.goisoda.cn/d/file/2018-04-11/1523415683326223.jpg'
+              {comment.childList&&comment.childList.map(child=><div key={child.id} className={styles.phoneCommentChild}>
+                <img src={child.avatar}
                      className={styles.userImgAvatarRaduSmal}/>
-                <span className={styles.userCommentChildUser}>@张三</span>
-                <br/>
-                <span>回复回复回复回</span>
+                <span className={styles.userCommentChildUser}>@{child.nickName}</span>
                 <i className={'iconfont icon-icontypraise2 ' + styles.phoneConnmentPraise}></i>
-              </div>
-              <div className={styles.phoneCommentChild}>
-                <img src='http://www.goisoda.cn/d/file/2018-04-11/1523415683326223.jpg'
-                     className={styles.userImgAvatarRaduSmal}/>
-                <span className={styles.userCommentChildUser}>@张三</span>
                 <br/>
-                <span>回复回复回复回</span>
-                <i className={'iconfont icon-icontypraise2 ' + styles.phoneConnmentPraise}></i>
-              </div>
-            </div>
+                <div style={{fontSize:'1rem',paddingLeft:'5rem'}} dangerouslySetInnerHTML={{__html: child.content}}></div>
+              </div>)}
+            </div>)}
           </div>
           <div className={styles.phonecommentInputDiv}>
-            <input placeholder='写下您的评论...' className={styles.phoneCommentInput}/>
-            <i className={'iconfont icon-icontypraise2 ' + styles.phoneCommentInputIcon}></i>
+            <EmojiEditor emoji editorStyle={{fontSize:'2rem',textAlign:'left',marginBottom:'.5rem'}} emojiStyle={{fontSize:'1rem',marginTop:'-3.2rem',marginRight:'6rem'}} onChange={commentChange} />
+            <div className = {styles.phoneSend} onClick={addPhoneCommontText}>{content.length>11?'发送':'关闭'}</div>
+            {/*<input placeholder='写下您的评论...' className={styles.phoneCommentInput}/>*/}
+            {/*<i className={'iconfont icon-icontypraise2 ' + styles.phoneCommentInputIcon}></i>*/}
           </div>
         </div>
       </div>

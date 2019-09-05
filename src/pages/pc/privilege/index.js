@@ -15,6 +15,7 @@ export default function() {
   const [shops, setShops] = useState([]);
   const [addressActive, setAddressActive] = useState(0);
   const [classifyActive, setClassifyActive] = useState(0);
+  const [phoneClassifyActive, setPhoneClassifyActive] = useState(false);
 
   useEffect(() => {
     getClassify().then(data => data && data.data && setClassify(data.data));
@@ -52,17 +53,17 @@ export default function() {
       </div>
       <div className={styles.conHeader}>
         <div className={styles.classHeaterDiv}>
-          <div className={styles.classHeader}>
-            分类
-            <i className={'iconfont icon-right ' + styles.classHeaderRightIcon}></i>
+          <div className={styles.classHeader} onClick={()=>setPhoneClassifyActive(false)}>
+            <spam>分类</spam>
+            <i className={'iconfont '+(phoneClassifyActive?'icon-right':'icon-bottom')+' ' + styles.classHeaderRightIcon}></i>
           </div>
-          <div className={styles.classHeader}>
-            地点
-            <i className={'iconfont icon-right ' + styles.classHeaderRightIcon}></i>
+          <div className={styles.classHeader} onClick={()=>setPhoneClassifyActive(true)}>
+            <spam>地点</spam>
+            <i className={'iconfont '+(!phoneClassifyActive?'icon-right':'icon-bottom')+' ' + styles.classHeaderRightIcon}></i>
           </div>
         </div>
         <div className={styles.classInfoDiv}>
-          <div className={styles.classInfo}>
+          <div className={styles.classInfo +' '+ (!phoneClassifyActive?styles.phoneClassShow:styles.phoneClassHide)}>
             <a className={styles.classButton}>不限</a>
             {
               classify.map(add => (<a key={add.id}
@@ -70,27 +71,26 @@ export default function() {
                                       className={styles.classButton + ' ' + (classify.indexOf(add) === classifyActive && styles.classActive)}>{add.name}</a>))
             }
           </div>
-
-          <div className={styles.addressInfo}>
-            <a className={styles.classButton + ' ' + styles.classButtonLeft}>不限</a>
-            <div className={styles.addressAdd}>
-              <div className={styles.hotAddress}>
-                {
-                  addressFir.map(address => (
-                    <a key={address.id}
-                       className={styles.addressButton + ' ' + (addressFir.indexOf(address) === addressActive && styles.active)}
-                       onClick={() => changeAddress(address.id, addressFir.indexOf(address))}>{address.name}</a>))
-                }
-              </div>
-              <div className={styles.addressChild}>
-                {
-                  addressSec.map(address => (
-                    <a key={address.id}
-                       className={styles.addressButton + ' ' + styles.active}>{address.name}</a>))
-                }
+          <div className={styles.addressInfo +' '+ (phoneClassifyActive?styles.phoneClassShow:styles.phoneClassHide)}>
+              <a className={styles.classButton + ' ' + styles.classButtonLeft}>不限</a>
+              <div className={styles.addressAdd}>
+                <div className={styles.hotAddress}>
+                  {
+                    addressFir.map(address => (
+                      <a key={address.id}
+                         className={styles.addressButton + ' ' + (addressFir.indexOf(address) === addressActive && styles.active)}
+                         onClick={() => changeAddress(address.id, addressFir.indexOf(address))}>{address.name}</a>))
+                  }
+                </div>
+                <div className={styles.addressChild}>
+                  {
+                    addressSec.map(address => (
+                      <a key={address.id}
+                         className={styles.addressButton + ' ' + styles.active}>{address.name}</a>))
+                  }
+                </div>
               </div>
             </div>
-          </div>
         </div>
       </div>
       <div className={styles.advertise}>

@@ -3,10 +3,11 @@ import { getUserInfo } from '@/api/user';
 import { useEffect, useState } from 'react';
 import { getUserArticles } from '@/api/article';
 import router from 'umi/router';
+import Qiniu from '@/component/qiniu/index';
 
 export default function() {
   const [isloding, setIsloding] = useState(true);
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({nickName:''});
   const [articles, setArticles] = useState([]);
   const [articleType, setArticleType] = useState(1);
   const [clickType, setClickType] = useState(1);
@@ -20,7 +21,7 @@ export default function() {
   }, []);
 
   useEffect(() => {
-    setClickType(1)
+    setClickType(1);
     getUserArtycles();
   }, [headerIndex]);
 
@@ -30,6 +31,15 @@ export default function() {
     });
   }
 
+  function imgSuccessUpload(res) {
+    console.log(res);
+  }
+function changeUserName(e) {
+  setUser({userName:e.target.value,...user})
+}
+function toInfo(id) {
+  router.push('/pc/info/'+id)
+}
   return (
     isloding ? '' :
       <div className={styles.container}>
@@ -42,13 +52,25 @@ export default function() {
             <div className={styles.userContext}>{user.introduction}</div>
           </div>
           <div className={styles.headerList}>
-            <div className={headerIndex===0?styles.headerListClick:''} onClick={()=>{setHeaderIndex(0)}}>我的收藏 100</div>
+            <div className={headerIndex === 0 ? styles.headerListClick : ''} onClick={() => {
+              setHeaderIndex(0);
+            }}>我的收藏 100
+            </div>
             <span>|</span>
-            <div className={headerIndex===1?styles.headerListClick:''}  onClick={()=>{setHeaderIndex(1)}}>我的点评 100</div>
+            <div className={headerIndex === 1 ? styles.headerListClick : ''} onClick={() => {
+              setHeaderIndex(1);
+            }}>我的点评 100
+            </div>
             <span>|</span>
-            <div className={headerIndex===2?styles.headerListClick:''}  onClick={()=>{setHeaderIndex(2)}}>我的分享 100</div>
+            <div className={headerIndex === 2 ? styles.headerListClick : ''} onClick={() => {
+              setHeaderIndex(2);
+            }}>我的分享 100
+            </div>
             <span>|</span>
-            <div className={headerIndex===3?styles.headerListClick:''}  onClick={()=>{setHeaderIndex(3)}}>浏览记录 100</div>
+            <div className={headerIndex === 3 ? styles.headerListClick : ''} onClick={() => {
+              setHeaderIndex(3);
+            }}>浏览记录 100
+            </div>
           </div>
         </div>
         <div className={styles.context}>
@@ -87,7 +109,7 @@ export default function() {
             </div>
             <div className={styles.list + ' ' + (clickType === 1 ? styles.show : styles.hidden)}>
               {articles.map(article => (
-                <div key={article.id} className={styles.block}>
+                <div onClick={()=>toInfo(article.id)} key={article.id} className={styles.block}>
                   <div className={styles.headerImg}><img className={styles.img}
                                                          src={article.image}/>
                   </div>
@@ -113,13 +135,16 @@ export default function() {
                 </div>
                 <div className={styles.baseInputDiv}>(为了让各位更了解你，以下信息将显示在个人资料页）</div>
                 <div className={styles.userInfoAvatarDiv}>
-                  <img className={styles.userInfoAvatar} src={user.avatar}/>
+                  <Qiniu onSuccess={imgSuccessUpload}><img className={styles.userInfoAvatar} src={user.avatar}/></Qiniu>
                 </div>
                 <div className={styles.userInfoAvatarDiv}>
                   <h3>{user.nickName}</h3>
                 </div>
-                <div className={styles.userNickName}><span className={styles.red}></span>昵称 <input value={user.nickName}/></div>
-                <div  className={styles.introduction}><div>自我介绍</div><textarea rows={5}></textarea></div>
+                <div className={styles.userNickName}><span className={styles.red}>*</span>昵称 <input defaultValue={user.nickName} onChange={changeUserName}/>
+                </div>
+                <div className={styles.introduction}>
+                  <div>自我介绍</div>
+                  <textarea rows={5} defaultValue={user.introduction} onChange={(e)=>setUser({introduction:e.target.value,...user})}></textarea></div>
               </div>
             </div>
           </div>

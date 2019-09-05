@@ -8,6 +8,12 @@
   height: 50px;
   padding: 2%;
 }
+.phoneClassShow{
+  display: block;
+}
+.phoneClassHide{
+  display: block;
+}
 
 .classHeader {
   float: left;
@@ -56,7 +62,6 @@
 
 .hotAddress {
   width: 100%;
-  height: 3rem;
 }
 
 .addressChild {
@@ -70,7 +75,6 @@
 
 .addressInfo {
   width:90%;
-  height: 4rem;
   background: #fff;
   float:left;
 }
@@ -84,8 +88,8 @@
 
 .adImg {
   width: 100%;
-  height: 200px;
-  margin-top: 20px;
+  height: 13rem;
+  margin-top: 2rem;
 }
 
 .list {
@@ -172,6 +176,7 @@
 .classHeaderRightIcon{
   display: none;
   color:#c5c5c5;
+  font-size:1rem !important;
 }
 .phoneHeader{
   display: none;
@@ -202,6 +207,12 @@
   margin-right:1rem;
 }
 @media (max-width: 980px) {
+  .phoneClassShow{
+    display: block;
+  }
+  .phoneClassHide{
+    display: none;
+  }
   .container{
     width:100%;
     padding:3.2rem 0;
@@ -211,7 +222,6 @@
   }
   .classHeaterDiv{
     width:100%;
-    height: 2rem;
     float:left;
     background: #fff;
   }
@@ -236,13 +246,12 @@
     line-height: 1.5rem;
   }
   .classInfo{
-    display: none;
     width:100%;
     float:left;
   }
   .addressInfo{
-    display: block;
     width:100%;
+    float:left;
   }
   .classHeaderRightIcon{
     display: inline;
@@ -250,14 +259,12 @@
   .classHeader{
     float: left;
     width:43%;
-    height: 2rem;
   }
   .classButtonLeft{
     display: none;
   }
   .addressAdd{
     width:100%;
-    height: 4rem;
     float:left;
     background: #fff;
   }
@@ -267,6 +274,7 @@
   }
   .addressButton{
     background: #fff;
+    float:left;
   }
   .addressButton{
     width:100%;
@@ -280,8 +288,6 @@
     float:left;
   }
   .adImg{
-    height: 4rem;
-    margin-top:.5rem;
   }
   .shopInfo{
     width:40%;
