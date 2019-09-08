@@ -1,10 +1,11 @@
 import styles from './index.css';
-import { getUserInfo } from '@/api/user';
+import { getUserInfo,save } from '@/api/user';
 import { useEffect, useState } from 'react';
 import { getUserArticles } from '@/api/article';
 import { getUser } from '@/api/privilege';
 import router from 'umi/router';
 import Qiniu from '@/component/qiniu/index';
+import Message from '@/component/alert/message'
 
 export default function() {
   const [isloding, setIsloding] = useState(true);
@@ -15,6 +16,7 @@ export default function() {
   const [headerIndex, setHeaderIndex] = useState(2);
   const [privilege, setPrivilege] = useState(2);
   const [paramArticle, setParamArticle] = useState({pageSize: 10, pageNum: 1});
+  const url = 'http://pxczv9bs6.bkt.clouddn.com/';
   useEffect(() => {
     getUserInfo().then(data => {
       data && data.data ? setUser(data.data) : console.log('无数据');
@@ -36,13 +38,16 @@ export default function() {
   }, [clickType]);
 
   function imgSuccessUpload(res) {
-    console.log(res);
+    setUser({...user,avatar:url+res.key})
   }
 function changeUserName(e) {
-  setUser({userName:e.target.value,...user})
+  setUser({...user,nickName:e.target.value})
 }
 function toInfo(id) {
   router.push('/pc/info/'+id)
+}
+function saveUser() {
+  save(user).then(()=>Message.open("保存成功"))
 }
   return (
     isloding ? '' :
@@ -148,7 +153,8 @@ function toInfo(id) {
                 </div>
                 <div className={styles.introduction}>
                   <div>自我介绍</div>
-                  <textarea rows={5} defaultValue={user.introduction} onChange={(e)=>setUser({introduction:e.target.value,...user})}></textarea></div>
+                  <textarea rows={5} value={user.introduction} onChange={(e)=>setUser({...user,introduction:e.target.value})}></textarea></div>
+                <div className={styles.share} onClick={saveUser}>保存</div>
               </div>
             </div>
             <div className={styles.contextRightCenter + ' ' + (clickType === 3 ? styles.show : styles.hidden)}>

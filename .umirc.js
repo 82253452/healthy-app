@@ -1,5 +1,6 @@
 // ref: https://umijs.org/config/
 export default {
+  base: 'http://localhost:8080',
   treeShaking: true,
   plugins: [
     // ref: https://umijs.org/plugin/umi-plugin-react.html
