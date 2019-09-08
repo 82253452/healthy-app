@@ -10,7 +10,7 @@
 }
 
 .shopHeaderLeft {
-  width: 70%;
+  width: 73%;
   float: left;
   padding: 2%;
 }
@@ -31,6 +31,7 @@
 }
 
 .shopShare {
+  margin-top:1rem;
   float: right;
 }
 
@@ -181,6 +182,10 @@
   padding-bottom: 2rem;
 }
 
+.userCommentChildUser {
+  color: #bbbbbb;
+}
+
 .commentMore {
   text-align: right;
   padding:1rem;
@@ -188,6 +193,28 @@
 
 .userCommentImg {
 
+}
+.phoneCommentChild {
+  text-align: left;
+  clear: both;
+  font-size: .9rem;
+  margin-top: 1rem;
+}
+.userImgAvatarRaduSmal {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  float: left;
+}
+.addComment {
+  float: right;
+  width: 80px;
+  border-radius: 5px;
+  height: 20px;
+  line-height: 20px;
+  color: #fff;
+  background: #49acf3;
+  text-align: center;
 }
 
 .userCommentImg > img {
@@ -275,7 +302,7 @@
 }
 
 .shopHeaderRight {
-
+  padding-top:2rem;
 }
 
 .shopAddress {
@@ -288,6 +315,18 @@
 
 .subCouponList {
 
+}
+
+.shopButton {
+  text-align: center;
+  float: left;
+  color: #fff;
+  background: #49acf3;
+  width: 10rem;
+  height: 2rem;
+  margin-top: .5rem;
+  line-height:2rem;
+  border-radius: 100px;
 }
 
 @media (max-width: 980px) {

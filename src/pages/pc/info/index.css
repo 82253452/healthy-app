@@ -28,6 +28,11 @@
 .videoPlay {
   width: 100%;
 }
+.contextContent{
+  min-height: 10rem;
+  background: #fff;
+  text-align: left;
+}
 
 .like {
   float: left;
@@ -49,6 +54,9 @@
   margin-bottom: 20px;
   margin-top: 20px;
   text-align: left;
+  background: #fff;
+  min-height: 1rem;
+  padding:1rem;
 }
 
 .videoPraise {
@@ -186,10 +194,10 @@
 .usercommentContent {
   float: left;
   padding-left: 50px;
-  margin-top: 20px;
-  padding-bottom: 40px;
+  margin-top: 1rem;
+  padding-bottom: 1rem;
   border-bottom: 1px solid #c3c4c5;
-  width: 100%;
+  width: 90%;
 
 }
 

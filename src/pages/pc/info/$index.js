@@ -5,13 +5,15 @@ import share from '../../../assets/share.png';
 import commentFill from '../../../assets/comment_fill.png';
 import back from '../../../assets/back.png';
 import home from '../../../assets/home.png';
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { articlePraise, getArticleInfo, getArticlesAbout } from '@/api/article';
 import { addCommont, commentPraise, commontList } from '@/api/comment';
 import { EmojiEditor } from '@/component/editor/emoji';
 import Link from 'umi/link';
 import { stateFromHTML } from 'draft-js-import-html';
 import router from 'umi/router';
+import Message from '@/component/alert/message';
+import Mask from '@/component/alert/Model';
 
 export default function(props) {
   const [isloding, setIsloding] = useState(true);
@@ -20,19 +22,24 @@ export default function(props) {
   const [comments, setComments] = useState([]);
   const [content, setContent] = useState('');
   const [phoneComment, setPhoneComment] = useState(false);
+  const [commonPage, setCommonPage] = useState({ pageNum: 1, pageSize: 5,type: 1});
   const videoRef = useRef(null);
+  const [replayIndex,setReplayIndex] = useState(null);
 
   useEffect(() => {
+
     getArticleInfo(props.match.params.index).then(data => {
       data && data.data ? setArticle(data.data) : console.log('无数据');
       setIsloding(false);
     });
-    getCommonList();
     getArticlesAbout({
       pageNum: 1,
       pageSize: 5,
     }).then(data => data && data.data ? setArticleAbout([...data.data]) : console.log('无数据'));
   }, [props.match.params.index]);
+  useEffect(() => {
+    commontList({id: props.match.params.index,...commonPage}).then(data => data && data.data && setComments([...data.data.list]));
+  }, [commonPage, props.match.params.index]);
 
   function praise() {
     article.isPraise = !article.isPraise;
@@ -53,9 +60,34 @@ export default function(props) {
 
 
   function addCommontText() {
-    addCommont({ topicId: article.id, type: 1, content: content }).then(data => getCommonList());
+    if(content==='<p><br></p>'){
+      Message.open('清楚如评论内容！')
+      return
+    }
+    addCommont({ topicId: article.id, type: 1, content: content }).then(data => {
+      setContent('')
+      Message.open('评论成功')
+      setCommonPage({...commonPage})
+    });
+  }
+  function addCommontReplayText(id) {
+    if(content==='<p><br></p>'){
+      Message.open('清楚如评论内容！')
+      return
+    }
+    addCommont({ topicId: article.id, type: 1, content: content,pid:id }).then(data => {
+      setContent('')
+      Message.open('回复成功')
+      setReplayIndex(null)
+      setCommonPage({...commonPage})
+    });
   }
   function addPhoneCommontText() {
+    if(content==='<p><br></p>'){
+      Message.open('清楚如评论内容！')
+      return
+    }
+    phoneComment&&setPhoneComment(false)
     content.length>11?addCommontText():setPhoneComment(false)
   }
 
@@ -65,13 +97,6 @@ export default function(props) {
     setComments([...comments]);
     commentPraise(comment.id).then(data => console.log(123));
   };
-
-  function getCommonList() {
-    commontList({
-      id: props.match.params.index,
-      type: 1,
-    }).then(data => data && data.data && setComments([...data.data.list]));
-  }
 
   function commentChange(content) {
     setContent(content);
@@ -97,12 +122,15 @@ export default function(props) {
         </div>
         <div className={styles.contentLeft}>
           <div className={styles.video}>
-            <video ref={videoRef} controls='controls' className={styles.videoPlay}
-                   src={article.video}/>
+            {article.type===2&& <video ref={videoRef} controls='controls' className={styles.videoPlay}
+                                       src={article.video}/>}
           </div>
           <div className={styles.videoInfo}>
-            <div dangerouslySetInnerHTML={{__html: article.content}}></div>
+            <div dangerouslySetInnerHTML={{__html: article.context}}></div>
             {/*{article.context}*/}
+          </div>
+          <div className={styles.videoInfo}>
+            {article.type===1&&article.images&&article.images.split(',').map(m=><img style={{width:'4rem',height:'4rem',marginLeft:'1rem'}} src={m}/>)}
           </div>
           <div className={styles.videoPraise}>
             <i className={'iconfont icon-like1 ' + styles.like + ' ' + (article.isPraise ? styles.red : '')}
@@ -120,7 +148,7 @@ export default function(props) {
               <img src={article.avatar} className={styles.userImgAvatar}/>
             </div>
             <div className={styles.userInputDiv}>
-              <EmojiEditor emoji onChange={commentChange}/>
+              <EmojiEditor content={content} emoji onChange={commentChange}/>
               {/*<input className={styles.userInput} value={content} onChange={commentChange}/>*/}
               <div className={styles.videoCommentInfo}>
                 {/*<i className={'iconfont icon-like1 ' + styles.like} onClick={praise}></i>*/}
@@ -129,7 +157,7 @@ export default function(props) {
                 <div className={styles.addComment} onClick={addCommontText}>评论</div>
               </div>
             </div>
-          </div>
+            </div>
           <div className={styles.videoCommentAddress}>
             <img className={styles.address} src={address}/>
             <div className={styles.addressText}>地址：苹果社区 <br/><br/>网址：www.baidu.com 电话：000000</div>
@@ -138,9 +166,7 @@ export default function(props) {
             <img className={styles.userImgAvatarRadu}
                  src='http://www.goisoda.cn/d/file/2018-04-11/1523415683326223.jpg'/>
             &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;{article.nickName} &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一起来分享给朋友们看看把
-            <img className={styles.shareArticle} src={like}/>
-            <img className={styles.shareArticle} src={like}/>
-            <img className={styles.shareArticle} src={like}/>
+            {/*<img className={styles.shareArticle} src={like}/>*/}
           </div>
           <div className={styles.videoCommentAuther}>
             <div className={styles.textLine}></div>
@@ -148,7 +174,7 @@ export default function(props) {
           </div>
           <div className={styles.commmentList}>
             {
-              comments.map(comment =>
+              comments.map((comment,index) =>
                 (<div key={comment.id} className={styles.commentBlock}>
                   <div className={styles.commentBlockHeader}>
                     <img className={styles.userImgAvatarRadu}
@@ -157,11 +183,21 @@ export default function(props) {
                     <div className={styles.usercommentLike}>
                       <i className={'iconfont icon-like1 red ' + styles.like + ' ' + (comment.star ? styles.red : '')}
                          onClick={() => addCommentPraise(comment)}></i>
-                      &nbsp;&nbsp;{comment.praiseNum}&nbsp;&nbsp; 回复
+                      &nbsp;&nbsp;{comment.praiseNum}&nbsp;&nbsp; <span onClick={()=>setReplayIndex(index)}>回复</span>
                     </div>
                   </div>
                   <div className={styles.usercommentContent}>
                     <div dangerouslySetInnerHTML={{__html: comment.content}}></div>
+                    {replayIndex===index&& <div><EmojiEditor content={content} emoji onChange={commentChange}/>
+                    <div className={styles.addComment} onClick={()=>addCommontReplayText(comment.id)}>确认</div>
+                    </div>}
+                    {comment.childList&&comment.childList.map(child=><div key={child.id} className={styles.phoneCommentChild}>
+                      <img src={child.avatar}
+                           className={styles.userImgAvatarRaduSmal}/>
+                      <span className={styles.userCommentChildUser}>@{child.nickName}</span>
+                      <br/>
+                      <div style={{fontSize:'1rem',paddingLeft:'5rem'}} dangerouslySetInnerHTML={{__html: child.content}}></div>
+                    </div>)}
                   </div>
                 </div>),
               )
@@ -169,9 +205,7 @@ export default function(props) {
           </div>
         </div>
         <div className={styles.contentRight}>
-          <Link to='/pc/article/comment'>
-            <div className={styles.share}>开始分享</div>
-          </Link>
+          <div onClick={()=>router.push('/pc/push')} className={styles.share}>开始分享</div>
           <div className={styles.auther}>
             <div className={styles.autherTitle}>发布者</div>
             <div className={styles.autherInfo}>
@@ -205,15 +239,13 @@ export default function(props) {
               </div>
             ))}
           </div>
-          <Link to='/pc/article'>
-            <div className={styles.more}>
-              查看更多
-            </div>
-          </Link>
+          <div onClick={()=>router.push('/pc/article')} className={styles.more}>
+            查看更多
+          </div>
         </div>
         <div className={styles.phoneVideo}>
-          <video className={styles.phoneVideoPlay}
-                 src={article.video}/>
+          {article.type===2&&<video className={styles.phoneVideoPlay}
+                                    src={article.video}/>}
           {/*<img className={styles.phoneVideoPlayButton} src={play}/>*/}
           <i className={'iconfont icon-right ' + styles.phoneVideoPlayButton} onClick={playVideo}></i>
           <div className={styles.phoneVideoPlayAvatar}>

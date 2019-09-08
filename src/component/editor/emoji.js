@@ -5,6 +5,7 @@ import createEmojiPlugin from 'draft-js-emoji-plugin';
 import React, { useEffect, useRef, useState } from 'react';
 import { EditorState } from 'draft-js';
 import 'draft-js-emoji-plugin/lib/plugin.css';
+import { stateFromHTML } from 'draft-js-import-html';
 
 export function EmojiEditor(props) {
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
@@ -13,8 +14,8 @@ export function EmojiEditor(props) {
   const { EmojiSuggestions, EmojiSelect } = emojiPlugin;
 
   useEffect(() => {
-    props.contentState && (setEditorState(EditorState.createWithContent(props.contentState())));
-  }, []);
+    props.content===''&&setEditorState(EditorState.createEmpty())
+  }, [props.content]);
 
   function focusEditor() {
     editor.current.focus();

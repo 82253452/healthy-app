@@ -2,6 +2,7 @@ import styles from './index.css';
 import { getUserInfo } from '@/api/user';
 import { useEffect, useState } from 'react';
 import { getUserArticles } from '@/api/article';
+import { getUser } from '@/api/privilege';
 import router from 'umi/router';
 import Qiniu from '@/component/qiniu/index';
 
@@ -12,24 +13,27 @@ export default function() {
   const [articleType, setArticleType] = useState(1);
   const [clickType, setClickType] = useState(1);
   const [headerIndex, setHeaderIndex] = useState(2);
+  const [privilege, setPrivilege] = useState(2);
+  const [paramArticle, setParamArticle] = useState({pageSize: 10, pageNum: 1});
   useEffect(() => {
-    getUserArtycles();
     getUserInfo().then(data => {
       data && data.data ? setUser(data.data) : console.log('无数据');
     });
     setIsloding(false);
   }, []);
+  useEffect(() => {
+    getUserArticles({ ...paramArticle, type: articleType,searchType:headerIndex }).then(data => {
+      data && data.data ? setArticles([...data.data]) : setArticles([]);
+    });
+    setIsloding(false);
+  }, [articleType, paramArticle,headerIndex]);
 
   useEffect(() => {
     setClickType(1);
-    getUserArtycles();
   }, [headerIndex]);
-
-  function getUserArtycles() {
-    getUserArticles({ pageSize: 10, pageNum: 1, type: articleType }).then(data => {
-      data && data.data ? setArticles([...data.data]) : console.log('无数据');
-    });
-  }
+  useEffect(() => {
+    clickType===3&&getUser().then(data=>setPrivilege(data.data))
+  }, [clickType]);
 
   function imgSuccessUpload(res) {
     console.log(res);
@@ -93,8 +97,8 @@ function toInfo(id) {
               </div>
               <div className={styles.hConetxtEdit}>
                 <div onClick={() => setClickType(2)}>编辑资料</div>
-                <div onClick={() => router.push('/pc/article/comment')}>开始分享</div>
-                <div>我的特权卡</div>
+                <div onClick={() => router.push('/pc/push')}>开始分享</div>
+                <div onClick={() => setClickType(3)}>我的特权卡</div>
               </div>
             </div>
           </div>
@@ -146,6 +150,9 @@ function toInfo(id) {
                   <div>自我介绍</div>
                   <textarea rows={5} defaultValue={user.introduction} onChange={(e)=>setUser({introduction:e.target.value,...user})}></textarea></div>
               </div>
+            </div>
+            <div className={styles.contextRightCenter + ' ' + (clickType === 3 ? styles.show : styles.hidden)}>
+              <img src={privilege}/>
             </div>
           </div>
           <div>

@@ -29,6 +29,10 @@ export default function() {
       <div className={styles.commentPlus}>
         +
       </div>
+      <div>
+        <div>文章</div>
+        <div>视频</div>
+      </div>
       <div className={styles.commentContext}>
         <input className={styles.commontInputTitle} value={article.title} onChange={editorChange} placeholder='输入标题'/>
         {/*<textarea rows='25' className={styles.commontInputText} placeholder='添加正文'></textarea>*/}

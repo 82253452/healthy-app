@@ -18,6 +18,8 @@ export function render(oldRender) {
   if (!item) {
     if(isMobile){
       // window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx91fad2501e704f40&redirect_uri=http://admin.wokanjian.com.cn/admin&response_type=code&scope=snsapi_base&state=STATE&component_appid=wxaef3251ba28a0c89#wechat_redirect';
+      window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=https%3A%2F%2Fzhihuizhan.net%2Fweb%2Findex.html%23%2Fbusi%2FbusiApp&response_type=code&scope=snsapi_base&state=STATE&component_appid=wx2b1b9aa4f2e422c4#wechat_redirect';
+
     }else{
       // window.location.href='https://open.weixin.qq.com/connect/qrconnect?appid=wx91fad2501e704f40&redirect_uri=ttp://admin.wokanjian.com.cn/admin&response_type=code&scope=snsapi_login&state=STATE#wechat_redirect';
     }

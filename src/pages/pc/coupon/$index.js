@@ -1,11 +1,12 @@
 import styles from './index.css';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { getShopInfo, getShopAbout } from '@/api/shop.js';
 import { EmojiEditor } from '@/component/editor/emoji';
 import { addCommont, commontList } from '@/api/comment';
 import { stateFromHTML } from 'draft-js-import-html';
 import { Map, Marker } from 'react-bmap';
 import dayjs from 'dayjs';
+import Message from '@/component/alert/message'
 
 
 export default function(props) {
@@ -15,6 +16,8 @@ export default function(props) {
   const [comments, setComments] = useState([]);
   const [commontsTotal, setCommontsTotal] = useState(0);
   const [shopAbout, setShopAbout] = useState([]);
+  const [replayIndex,setReplayIndex] = useState(null);
+  const [commonPage, setCommonPage] = useState({ pageNum: 1, pageSize: 5,type: 2});
   useEffect(() => {
     getShopInfo(props.match.params.index).then(data => {
       data && data.data ? setShop(data.data) : console.log('无数据');
@@ -24,8 +27,10 @@ export default function(props) {
       pageNum: 1,
       pageSize: 5,
     }).then(data => data && data.data ? setShopAbout(data.data) : console.log('无数据'));
-    getCommonList();
   }, []);
+  useEffect(() => {
+    getCommonList();
+  }, [commonPage]);
   const editorStyle = {
     border: 'none',
     height: '4rem',
@@ -35,7 +40,10 @@ export default function(props) {
   };
 
   function addCommontText() {
-    addCommont({ topicId: shop.id, type: 2, content: content }).then(data => getCommonList());
+    addCommont({ topicId: shop.id, type: 2, content: content }).then(data => {
+      Message.open('评论成功')
+      getCommonList();setContent('')
+    });
   }
 
   function getCommonList() {
@@ -53,6 +61,18 @@ export default function(props) {
   function commentChange(content) {
     setContent(content);
   }
+  function addCommontReplayText(id) {
+    if(content==='<p><br></p>'){
+      Message.open('清楚如评论内容！')
+      return
+    }
+    addCommont({ topicId: shop.id, type: 2, content: content,pid:id }).then(data => {
+      setContent('')
+      Message.open('回复成功')
+      setReplayIndex(null)
+      setCommonPage({...commonPage})
+    });
+  }
 
   var mapStyle = { height: '11rem' };
   return (
@@ -64,20 +84,30 @@ export default function(props) {
               <div className={styles.shopInfo}>
                 <div className={styles.shopName}>{shop.name}</div>
                 <div>{shop.Introduction}</div>
-                <div className={styles.shopPraiseInfo}>***** 22条评论</div>
+                <div className={styles.shopPraiseInfo} style={{paddingTop:'1rem'}}>
+                  <i className={'iconfont icon-star'} style={{color:'#49acf3'}}></i>
+                  <i className={'iconfont icon-star'} style={{color:'#49acf3'}}></i>
+                  <i className={'iconfont icon-star'} style={{color:'#49acf3'}}></i>
+                  <i className={'iconfont icon-star'} style={{color:'#49acf3'}}></i>
+                  <i className={'iconfont icon-star'} style={{color:'#49acf3'}}></i>
+                  &nbsp;&nbsp;&nbsp;22条评论</div>
                 <div className={styles.shopAddress}>
-                  <p>地址 {shop.address}</p>
-                  <p>电环 {shop.phone}</p>
+                  <p>地址： {shop.address}</p>
+                  <p>电环： {shop.phone}</p>
                 </div>
               </div>
-              <div className={styles.shopShare}>share</div>
+              <div className={styles.shopShare}>
+                <i className={'iconfont icon-jingcaishike'} style={{color:'#49acf3',fontSize:'2rem'}}></i>
+              </div>
             </div>
             <div className={styles.shopHeaderRight}>
-              免费体检
+              <div className={styles.shopButton}>首次免费体检</div>
+              <div className={styles.shopButton}>提价体检</div>
+              <div className={styles.shopButton}>折扣特权</div>
             </div>
           </div>
           <div className={styles.shopHeaderComment}>
-            <EmojiEditor emoji editorStyle={editorStyle} emojiStyle={emojiStyle} onChange={commentChange}/>
+            <EmojiEditor emoji content={content} editorStyle={editorStyle} emojiStyle={emojiStyle} onChange={commentChange}/>
             {/*<input className={styles.commentInput} placeholder='写下你的点评吧'/>*/}
             {/*<div className={styles.commentImgDiv}>*/}
             {/*  <i className={'iconfont icon-icontypraise2 ' + styles.commentImg}></i>*/}
@@ -122,16 +152,23 @@ export default function(props) {
             全部点评
             <div className={styles.line}></div>
             {
-              comments.map(comment => (
+              comments.map((comment,index) => (
                 <div key={comment.id} className={styles.context}>
                   <div className={styles.commentUser}><img className={styles.commentUserImg}
                                                            src={comment.avatar}/>
                   </div>
                   <div className={styles.commentUserContext}>
-                    <div>{comment.nickName}</div>
-                    <div>****</div>
+                    <div style={{fontWeight:'bold'}}>{comment.nickName}</div>
+                    <div><i className={'iconfont icon-star'} style={{color:'#49acf3'}}></i>
+                      <i className={'iconfont icon-star'} style={{color:'#49acf3'}}></i>
+                      <i className={'iconfont icon-star'} style={{color:'#49acf3'}}></i>
+                      <i className={'iconfont icon-star'} style={{color:'#49acf3'}}></i>
+                      <i className={'iconfont icon-star'} style={{color:'#49acf3'}}></i></div>
                     <div className={styles.userCommentText}>
                       <div dangerouslySetInnerHTML={{__html: comment.content}}></div>
+                      {replayIndex===index&& <div><EmojiEditor content={content} emoji onChange={commentChange}/>
+                        <div className={styles.addComment} onClick={()=>addCommontReplayText(comment.id)}>确认</div>
+                      </div>}
                     </div>
                     {/*<div className={styles.commentMore}>更多</div>*/}
                     <div className={styles.userCommentImg}>
@@ -140,10 +177,17 @@ export default function(props) {
                     </div>
                     <div>
                       <span>{dayjs(comment.createTime).format('MM-DD')}</span>
-                      <div className={styles.userCommentReplay}>回复</div>
+                      <div className={styles.userCommentReplay} onClick={()=>setReplayIndex(index)}>回复</div>
                       <span className={styles.userCommentPraise}>{comment.praiseNum}</span>
                       <i className={'iconfont icon-like1 ' + styles.userCommentPraise}></i>
                     </div>
+                    {comment.childList&&comment.childList.map(child=><div key={child.id} className={styles.phoneCommentChild}>
+                      <img src={child.avatar}
+                           className={styles.userImgAvatarRaduSmal}/>
+                      <span className={styles.userCommentChildUser}>@{child.nickName}</span>
+                      <br/>
+                      <div style={{fontSize:'1rem'}} dangerouslySetInnerHTML={{__html: child.content}}></div>
+                    </div>)}
                   </div>
                 </div>
               ))
@@ -167,8 +211,14 @@ export default function(props) {
             {shopAbout.map(shop => (<div key={shop.id} className={styles.aboutBlock}>
               <img className={styles.blockImg} src={!!shop.images&&shop.images.split(',')[0]}/>
               <div className={styles.aboutShopName}>{shop.name}</div>
-              <div className={styles.aboutPraise}>*********</div>
-              <div className={styles.aboutFoot}>{shop.address} <span>人均/693</span></div>
+              <div className={styles.aboutPraise}>
+                <i className={'iconfont icon-star'} style={{color:'#49acf3'}}></i>
+                <i className={'iconfont icon-star'} style={{color:'#49acf3'}}></i>
+                <i className={'iconfont icon-star'} style={{color:'#49acf3'}}></i>
+                <i className={'iconfont icon-star'} style={{color:'#49acf3'}}></i>
+                <i className={'iconfont icon-star'} style={{color:'#49acf3'}}></i>
+              </div>
+              <div className={styles.aboutFoot}>{shop.address} <span>人均/{shop.percapita}</span></div>
             </div>))}
           </div>
 

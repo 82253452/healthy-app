@@ -84,6 +84,8 @@
 }
 
 .advertise {
+  background: #fff;
+  margin-top:1rem;
 }
 
 .adImg {
@@ -144,17 +146,16 @@
 }
 
 .shopContext {
-  padding-top:2rem;
+  padding-top:1rem;
   float: left;
 }
 .shopMore{
   float: left;
   color: #fff;
   background: #49acf3;
-  width: 100px;
-  height: 20px;
-  margin-top: 5%;
-  line-height:20px;
+  width: 10rem;
+  height: 2rem;
+  line-height:2rem;
   border-radius: 100px;
   text-align: center;
 }

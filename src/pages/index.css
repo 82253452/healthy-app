@@ -1,10 +1,71 @@
-
-.normal {
+.normasl {
   font-family: Georgia, sans-serif;
-  margin-top: 4em;
   text-align: center;
+  /*background: url("http://pxczv9bs6.bkt.clouddn.com/535e6721-e93a-4b85-9824-e45df821231f") no-repeat;*/
+  /*background-size:100%;*/
+  width: 100%;
+  background: #2e4467;
+  float:left;
 }
-
+.headerText{
+  width:50%;
+  margin: 2rem auto auto auto;
+}
+.more{
+  color:#fff;
+  float:right;
+  margin-right: 15%;
+  margin-top:-4.5rem;
+}
+.headerText img{
+  width:100%;
+}
+.swiper{
+  width:60%;
+  margin:3vh auto;
+}
+.shareText{
+  margin: auto ;
+  width:50%;
+}
+.shareText img{
+  width:100%;
+}
+.headerHav{
+  display: flex;
+  justify-content: space-between;
+  height: 5rem;
+  width:50vw;
+  margin:2vh auto auto auto ;
+}
+.button{
+  width:8vw;
+  height: 2rem;
+  line-height: 2rem;
+  border-radius: 2rem;
+  background: #fff;
+}
+.buttonActive{
+  background: #49acf3;
+  color:#fff;
+}
+.startShare{
+  width:40vw;
+  height: 4rem;
+  line-height: 4rem;
+  color:#fff;
+  font-weight: bold;
+  border-radius: 2rem;
+  background: #49acf3;
+  margin:0 auto 2vh auto;
+}
+.nb{
+  width:80%;
+  margin:auto;
+}
+.nb img{
+  width:100%;
+}
 .welcome {
   height: 328px;
   background: url(../assets/yay.jpg) no-repeat center 0;
@@ -28,3 +89,15 @@
   border-radius: 2rem;
   line-height: 100px;
 }
+@media (max-width: 980px) {
+  .nb{
+    width:100%;
+  }
+  .swiper{
+    width:100%;
+  }
+  .more{
+    margin-right: 0;
+  }
+}
+

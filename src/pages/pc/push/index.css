@@ -1,0 +1,283 @@
+.container {
+  width: 70%;
+  padding: 1% 15% 1% 15%;
+}
+
+.commentPlus {
+  float: left;
+  width: 20%;
+  height: 200px;
+  background: #fff;
+  font-size: 50px;
+  line-height: 200px;
+  font-weight: lighter;
+  color: #e5e5e5;
+}
+
+.commentContext {
+  width: 68%;
+  margin:auto;
+  height: 500px;
+  background: #fff;
+  padding: 20px;
+  text-align: left;
+}
+
+.commontInputTitle {
+  border: none;
+  width: 100%;
+  border-bottom: 1px solid #e5e5e5;
+  height: 30px;
+  margin-bottom: 10px;
+  margin-top:10px;
+}
+
+.commontInputText {
+  border: none;
+  width: 100%;
+}
+
+.phoneHeader {
+  display: none;
+  padding-top: 1rem;
+  line-height: 2rem;
+  position: fixed;
+  background: #fff;
+  width: 100%;
+  top: 0;
+  height: 6vh;
+}
+
+.phoneHeaderBack {
+  float: left;
+  margin-left: 1rem;
+}
+
+.phoneHeaderBackImg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.phoneHeaderHomeImg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.phoneHeaderHome {
+  width: 2rem;
+  height: 2rem;
+  float: right;
+  margin-right: 1rem;
+}
+
+.phoneFooter {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 6vh;
+  background: #fff;
+}
+
+.footerTrans {
+  width: 3.4rem;
+  height: 3.4rem;
+  margin: 2rem auto;
+  border-radius: 50%;
+  transform: rotate(180deg);
+  transform-origin: top;
+  background: #fff;
+}
+
+.footerAdd {
+  font-size: 3rem;
+  margin: auto;
+  color: #fff;
+  line-height: 3rem;
+  background: #49acf3;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+}
+
+.phoneVideo {
+  color: #fff;
+}
+
+.phoneVideoPlay {
+  width: 100%;
+  height: 93vh;
+}
+
+.phoneVideoPlayButton {
+  width: 3rem;
+  height: 3rem;
+  position: absolute;
+  top: 50vh;
+  left: 44%;
+  opacity: 0.5
+}
+
+.phoneVideoPlayAvatar {
+  position: absolute;
+  top: 46vh;
+  right: 10%;
+  width: 3rem;
+  height: 3rem;
+  background: url("http://www.goisoda.cn/d/file/2018-04-11/1523415683326223.jpg") no-repeat;
+  background-size: 100%;
+  border-radius: 50%;
+}
+
+.phoneVideoPlayAvatarLike {
+  width: 1rem;
+  height: 1rem;
+  margin-top: 2.5rem;
+}
+
+.phoneVideoPlayPrise {
+  width: 2rem;
+  height: 10rem;
+  position: absolute;
+  top: 60vh;
+  right: 10%;
+  color: #fff;
+}
+
+.phoneVideoPlayPrise > img {
+  width: 2rem;
+  height: 2rem;
+}
+
+.phoneVideoPlayPriseLike {
+  font-size: 2rem !important;
+}
+
+.phoneVideoPlayPriseComment {
+  font-size: 2rem !important;
+}
+
+.phoneVideoPlayPriseShare {
+  font-size: 2rem !important;
+}
+
+.phoneComment {
+  width: 100%;
+  height: 70vh;
+  position: fixed;
+  bottom: 0;
+  background: #fff;
+  display: none;
+}
+
+.phoneCommentList {
+  padding: 6%;
+  width: 88%;
+}
+
+.phoneCommentBlock {
+
+}
+
+.phoneCommentUser {
+  line-height: 2rem;
+  height: 2rem;
+  text-align: left;
+}
+
+.phoneCommentUser > i {
+  float:right;
+}
+.phoneCommentUser > span {
+  margin-left:2rem;
+}
+
+.phoneCommentChild {
+  height: 2rem;
+  text-align: left;
+  clear:both;
+  font-size: .9rem;
+  margin-top:1rem;
+}
+.userCommentChildUser{
+  color:#bbbbbb;
+}
+
+.phoneCommentChild >img {
+  float:left;
+  margin-left:3rem;
+}
+
+.userImgAvatarRaduSmal{
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  float: left;
+}
+
+.phoneCommentChild > i {
+  float:right;
+}
+.phoneCommentChild > span {
+  margin-left:.5rem;
+}
+
+.phoneConnmentPraise {
+  color: #49acf3;
+  font-size: 1.5rem !important;
+}
+
+.phonecommentInputDiv{
+  position: fixed;
+  bottom: 0;
+  width:100%;
+}
+
+.phoneCommentInput {
+  width:100%;
+  border:1px solid #bbbbbb;
+  padding:.6rem;
+}
+.phoneCommentInputIcon{
+  position: fixed;
+  bottom: 0;
+  right: 1rem;
+  font-size: 2rem !important;
+}
+.buttonDiv{
+  width: 70%;
+  float:left;
+  margin-bottom: 2rem;
+}
+.button{
+  width:4rem;
+  height: 2rem;
+  float:left;
+  background: #999999;
+  line-height: 2rem;
+  margin-left: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  color:#fff;
+}
+.buttonActive{
+  background: #49acf3;
+  color:#fff;
+}
+.share {
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  background: #1296db;
+  color: #fff;
+  line-height: 50px;
+  margin-top:5rem;
+  text-align: center;
+}
+.classify{
+  width: 68%;
+}
+.upload{
+  clear: both;
+  padding:1rem;
+}

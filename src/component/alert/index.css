@@ -1,0 +1,21 @@
+.message{
+  min-width:5rem;
+  min-height: 2rem;
+  line-height: 2rem;
+  padding-left:1rem;
+  padding-right:1rem;
+  opacity: .7;
+  border-radius: 1rem;
+  background: #999999;
+  position: fixed;
+  left:50vw;
+  top: 50vh;
+  text-align: center;
+  color:#fff;
+}
+.show{
+  display: block;
+}
+.hide{
+  display: none;
+}

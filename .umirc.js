@@ -46,5 +46,9 @@ export default {
       target: 'http://localhost:8080',
       changeOrigin: true,
     },
+    '/privilege/*': {
+      target: 'http://localhost:8080',
+      changeOrigin: true,
+    },
   },
 };

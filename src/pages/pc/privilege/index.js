@@ -3,29 +3,37 @@ import back from '@/assets/back.png';
 import home from '@/assets/home.png';
 import { useEffect, useState } from 'react';
 import { getAddressyFir, getAddressySec } from '@/api/address';
+import { getList,receive } from '@/api/privilege';
 import { getClassify } from '@/api/classify';
 import { getShopIndex } from '@/api/shop';
 import router from 'umi/router';
-
+import privilege from '@/assets/prililege.png'
+import Mask from '@/component/alert/model'
+import Message from '@/component/alert/message'
 export default function() {
   const [isloding, setIsloding] = useState(true);
   const [classify, setClassify] = useState([]);
   const [addressFir, setAddressFir] = useState([]);
   const [addressSec, setAddressSec] = useState([]);
   const [shops, setShops] = useState([]);
-  const [addressActive, setAddressActive] = useState(0);
-  const [classifyActive, setClassifyActive] = useState(0);
+  const [shopsParam, setShopsParam] = useState({pageSize:10,pageNum:1});
+  const [addressActive, setAddressActive] = useState(null);
+  const [addressId, setAddressId] = useState(null);
+  const [classifyActive, setClassifyActive] = useState(null);
   const [phoneClassifyActive, setPhoneClassifyActive] = useState(false);
-
   useEffect(() => {
     getClassify().then(data => data && data.data && setClassify(data.data));
-    getShopIndex().then(data => data && data.data && setShops(data.data));
     getAddressyFir().then(data => {
       data && data.data && setAddressFir(data.data);
     });
-    changeAddress(1, 0);
     setIsloding(false);
   }, []);
+
+  useEffect(() => {
+    console.log(123)
+    const classifyId=classifyActive===null?null:classify[classifyActive]['id']
+    getShopIndex({...shopsParam,...{classifyId},...{addressId}}).then(data => data && data.data && setShops(data.data));
+  }, [shopsParam, classifyActive, addressId, classify]);
 
   function changeAddress(id, index) {
     setAddressActive(index);
@@ -38,6 +46,20 @@ export default function() {
 
   function toCoupon(id) {
     router.push('/pc/coupon/' + id);
+  }
+  function reveivePrivilege(id,status) {
+    Mask.dom.remove()
+    !status&&receive(id)
+    !status&&Message.open("领取成功")
+  }
+  function getPrivilege() {
+    getList().then(data=>{
+      Mask.success({render:<div>
+          <img style={{width:'40rem',height:'20rem'}} src={data.data['1']}/>
+          <div style={{color:'red',padding:'1rem',marginTop:'3rem'}}>享受平台所有签约商户会员权益</div>
+          <div onClick={()=>reveivePrivilege(1,data.data['status'])}  style={{color:'red',padding:'1rem',margin:'auto',marginTop:'2rem',border:'1px solid red',borderRadius:'3rem' ,width:'10rem'}}>{data.data['status']?'关闭':'立即领取'}</div>
+        </div>,modelStyle:{width:'50rem',height:'35rem',borderRadius:'2rem'}})
+    })
   }
 
   return (
@@ -54,17 +76,17 @@ export default function() {
       <div className={styles.conHeader}>
         <div className={styles.classHeaterDiv}>
           <div className={styles.classHeader} onClick={()=>setPhoneClassifyActive(false)}>
-            <spam>分类</spam>
+            <span>分类</span>
             <i className={'iconfont '+(phoneClassifyActive?'icon-right':'icon-bottom')+' ' + styles.classHeaderRightIcon}></i>
           </div>
           <div className={styles.classHeader} onClick={()=>setPhoneClassifyActive(true)}>
-            <spam>地点</spam>
+            <span>地点</span>
             <i className={'iconfont '+(!phoneClassifyActive?'icon-right':'icon-bottom')+' ' + styles.classHeaderRightIcon}></i>
           </div>
         </div>
         <div className={styles.classInfoDiv}>
           <div className={styles.classInfo +' '+ (!phoneClassifyActive?styles.phoneClassShow:styles.phoneClassHide)}>
-            <a className={styles.classButton}>不限</a>
+            <a className={styles.classButton} onClick={()=>setClassifyActive(null)}>不限</a>
             {
               classify.map(add => (<a key={add.id}
                                       onClick={() => classifyClick(add.id, classify.indexOf(add))}
@@ -72,20 +94,20 @@ export default function() {
             }
           </div>
           <div className={styles.addressInfo +' '+ (phoneClassifyActive?styles.phoneClassShow:styles.phoneClassHide)}>
-              <a className={styles.classButton + ' ' + styles.classButtonLeft}>不限</a>
+              <a onClick={()=>{setAddressActive(null);setAddressSec([]);setAddressId(null)}} className={styles.classButton + ' ' + styles.classButtonLeft}>不限</a>
               <div className={styles.addressAdd}>
                 <div className={styles.hotAddress}>
                   {
                     addressFir.map(address => (
                       <a key={address.id}
-                         className={styles.addressButton + ' ' + (addressFir.indexOf(address) === addressActive && styles.active)}
+                         className={styles.addressButton + ' ' + (addressFir.indexOf(address) === addressActive ? styles.active:'')}
                          onClick={() => changeAddress(address.id, addressFir.indexOf(address))}>{address.name}</a>))
                   }
                 </div>
                 <div className={styles.addressChild}>
                   {
                     addressSec.map(address => (
-                      <a key={address.id}
+                      <a onClick={()=>setAddressId(address.id)} key={address.id}
                          className={styles.addressButton + ' ' + styles.active}>{address.name}</a>))
                   }
                 </div>
@@ -93,8 +115,8 @@ export default function() {
             </div>
         </div>
       </div>
-      <div className={styles.advertise}>
-        <img className={styles.adImg} src='http://www.goisoda.cn/d/file/2018-04-11/1523415683326223.jpg'/>
+      <div className={styles.advertise} onClick={getPrivilege}>
+        <img className={styles.adImg} src={privilege}/>
       </div>
       <div className={styles.list}>
         {
@@ -104,10 +126,15 @@ export default function() {
               <div className={styles.shopInfo}>
                 <div className={styles.shopInfoTop}>
                   <div className={styles.shopText}>
-                    <div>{shop.name}</div>
-                    <div>****** 5 分</div>
-                    <div>{shop.classifyName} {shop.address} {shop.phone}</div>
-                    <div>人均 &148</div>
+                    <div style={{fontSize:'2rem'}}>{shop.name}</div>
+                    <div style={{paddingTop:'1rem'}}><i className={'iconfont icon-star'} style={{color:'#49acf3'}}></i>
+                      <i className={'iconfont icon-star'} style={{color:'#49acf3'}}></i>
+                      <i className={'iconfont icon-star'} style={{color:'#49acf3'}}></i>
+                      <i className={'iconfont icon-star'} style={{color:'#49acf3'}}></i>
+                      <i className={'iconfont icon-star'} style={{color:'#49acf3'}}></i>
+                      5 分</div>
+                    <div style={{paddingTop:'1rem'}}>{shop.classifyName} {shop.address} {shop.phone}</div>
+                    <div style={{paddingTop:'1rem'}}>人均 ￥{shop.percapita}</div>
                   </div>
                   <div className={styles.shopButtonDiv}>
                     <div className={styles.shopButton}>首次免费体检</div>
@@ -116,8 +143,8 @@ export default function() {
                   </div>
                 </div>
                 <div className={styles.shopContext}>
-                  <div>面部祛痘买它就对</div>
-                  <div>66 门市价188 已售5460</div>
+                  {/*<div>面部祛痘买它就对</div>*/}
+                  {/*<div>66 门市价188 已售5460</div>*/}
                   <div className={styles.shopMore} onClick={() => toCoupon(shop.id)}>查看更多优惠</div>
                 </div>
               </div>

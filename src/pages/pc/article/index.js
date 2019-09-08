@@ -4,16 +4,20 @@ import home from '../../../assets/home.png';
 import like from '../../../assets/like.png';
 import { useEffect, useState } from 'react';
 import { getArticles } from '@/api/article';
+import { getClassify } from '@/api/classify';
 import router from 'umi/router';
 
 export default function() {
   const [articles, setArticles] = useState([]);
+  const [classifys, setClassifys] = useState([]);
   const [page, setPage] = useState({ pageSize: 10, pageNum: 1 });
 
-
   useEffect(() => {
-    getArticles(page).then(data => data && data.data ? setArticles([...articles, ...data.data]) : console.log('无数据'));
-  }, [articles, page]);
+    getClassify().then(data=>data&&data.data&&setClassifys(data.data))
+  }, []);
+  useEffect(() => {
+    getArticles(page).then(data => data && (data.data ? setArticles([...articles, ...data.data]) : console.log('无数据')));
+  }, [page]);
 
   const goBack = () => {
     window.history.go(-1);
@@ -41,11 +45,7 @@ export default function() {
         </div>
       </div>
       <div className={styles.column}>
-        <div className={styles.class}>美容</div>
-        <div className={styles.class}>塑性</div>
-        <div className={styles.class}>美甲</div>
-        <div className={styles.class}>细胞</div>
-        <div className={styles.class}>体检</div>
+        {classifys.map(c=> <div key={c.id} onClick={()=>{setPage({...page,classifyId:c.id});setArticles([])}} className={styles.class+' '+(page.classifyId===c.id?styles.classActive:'')}>{c.name}</div>)}
       </div>
         <div className={styles.share} onClick={()=>toShare()}>
           开始分享

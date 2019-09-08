@@ -16,7 +16,7 @@ function BasicLayout(props) {
   return (
     <div className={styles.normal}>
       <div className={styles.header}>
-        <div className={styles.headerLogo}></div>
+        <div onClick={()=>router.push('/')} className={styles.headerLogo}></div>
         <div className={styles.login} onClick={login}>登录</div>
         <div className={styles.phone}>+86 010-5826 4568</div>
       </div>
