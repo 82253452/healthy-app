@@ -50,7 +50,8 @@ const request = extend({
 // 中间件，对请求前、响应后做处理
 request.use(async (ctx, next) => {
   const { req } = ctx;
-  const {  options } = req;
+  const {  url,options } = req;
+  ctx.req.url = `https://zhihuizhen.net/api${url}`;
   ctx.req.options = {
     ...options,
     headers: {

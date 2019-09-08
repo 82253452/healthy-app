@@ -2,41 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="13b1d294-8837-4008-a333-26f9bd810a01" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/api/privilege.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/header_img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/index.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/index_header.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/nb.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/prililege.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/share_text.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/component/alert/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/component/alert/message.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/component/alert/model.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/pc/push/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/pc/push/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.umirc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.umirc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/shop.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/shop.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/editor/emoji.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/editor/emoji.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/global.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/centerLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/centerLayout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/document.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/document.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/pc/article/comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/pc/article/comment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/pc/article/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/pc/article/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/pc/article/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/pc/article/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/pc/article/info.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/pc/center/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/pc/center/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/pc/coupon/$index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/pc/coupon/$index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/pc/coupon/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/pc/coupon/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/pc/info/$index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/pc/info/$index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/pc/info/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/pc/info/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/pc/privilege/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/pc/privilege/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/pc/privilege/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/pc/privilege/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/request.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -154,7 +123,7 @@
       <workItem from="1567592268768" duration="19078000" />
       <workItem from="1567655081068" duration="42000" />
       <workItem from="1567687080655" duration="1967000" />
-      <workItem from="1567773617938" duration="47404000" />
+      <workItem from="1567773617938" duration="52873000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1566788131478</created>
@@ -219,7 +188,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567687152733</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="init">
+      <created>1567921712270</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1567921712270</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
