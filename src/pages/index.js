@@ -7,6 +7,7 @@ import router from 'umi/router';
 import { getClassify } from '@/api/classify';
 import { getArticles } from '@/api/article';
 import { getShopIndex } from '@/api/shop';
+import {isMobile} from '@/utils/utils'
 
 export default function() {
   const [count, setCount] = useState(0);
@@ -18,24 +19,26 @@ export default function() {
   const [shopsParam, setShopsParam] = useState({pageSize:10,pageNum:1});
   const [shops, setShops] = useState([]);
   useEffect(() => {
-    getClassify().then(data=>data&&data.data&&setClassifys(data.data))
-    if (/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))) {
-      try {
-        console.log('222')
-        if (/Android|Windows Phone|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
-          console.log('收集端')
-          new Swiper('.swiper-container1', {
-            slidesPerView: 1,
-            spaceBetween:0,
-          })
-          return
-        } else{
+    if(isMobile()){
+      setshopSwiper(new Swiper('.swiper-container1', {
+        slidesPerView: 3,
+        spaceBetween:0,
+      }))
+      setSwiper(new Swiper('.container2', {
+        slidesPerView: 3,
+        spaceBetween:0,
+        pagination: {  //分页器
+          el: '.swiper-pagination'
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      }))
 
-        }
-      } catch (e) {
-        console.log('catch');
-      }
+      return;
     }
+    getClassify().then(data=>data&&data.data&&setClassifys(data.data))
     setshopSwiper(new Swiper('.swiper-container1', {
       slidesPerView: 5,
       spaceBetween:0,
@@ -75,7 +78,7 @@ export default function() {
       <div className={styles.swiper}>
         <div className="swiper-container swiper-container1">
           <div className="swiper-wrapper">
-            {shops.map(shop=><div onClick={()=>router.push(`/pc/coupon/${shop.id}`)} className="swiper-slide"> <img style={{height:'10rem'}} src={shop.image}/></div>)}
+            {shops.map(shop=><div  className="swiper-slide"> <img onClick={()=>router.push(`/pc/coupon/${shop.id}`)} style={{height:'10rem',width:'100%'}} src={shop.image}/></div>)}
           </div>
         </div>
       </div>
@@ -89,7 +92,7 @@ export default function() {
       <div className={styles.swiper}>
         <div className="swiper-container container2">
             <div className="swiper-wrapper">
-              {articles.map(article=><div onClick={()=>router.push(`/pc/info/${article.id}`)} key={article.id}  className="swiper-slide"> <img style={{height:'10rem'}} src={article.image}/></div>)}
+              {articles.map(article=><div  key={article.id}  className="swiper-slide"> <img onClick={()=>router.push(`/pc/info/${article.id}`)} style={{height:'10rem',width:'100%'}} src={article.image}/></div>)}
             </div>
           <div className="swiper-pagination"></div>
           <div className="swiper-button-prev"></div>

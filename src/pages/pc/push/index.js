@@ -34,8 +34,11 @@ export default function() {
   }
 
   function imgSuccessUpload(res) {
+      setArticle({ ...article, ...{image:url+ res.key} });
+  }
+  function imgsSuccessUpload(res) {
     const images = article.images ?(article.images+ ',' +url+ res.key):(url+ res.key)
-      setArticle({ ...article, ...{ images} });
+    setArticle({ ...article, ...{ images} });
   }
 
   return (
@@ -45,6 +48,7 @@ export default function() {
       {/*</div>*/}
       <div className={styles.commentContext}>
         <div className={styles.buttonDiv}>
+          <div className={styles.button+' '+styles.header}>类型</div>
           <div onClick={() => setArticle({ ...article, ...{ type: 1 } })}
                className={styles.button + ' ' + (article.type === 1 ? styles.buttonActive : '')}>文章
           </div>
@@ -53,13 +57,20 @@ export default function() {
           </div>
         </div>
         <div className={styles.classify}>
+          <div className={styles.button+' '+styles.header}>分类</div>
           {classifys.map(classify => <div key={classify.id}
                                           onClick={() => setArticle({ ...article, ...{ classifyId: classify.id } })}
                                           className={styles.button + ' ' + (article.classifyId === classify.id ? styles.buttonActive : '')}>{classify.name}</div>)}
         </div>
         <div className={styles.upload}>
+          <div className={styles.headerImgTitle}>头图</div>
+          {article.image&&<img style={{width:'4rem',height:'4rem',float:'left',marginLeft:'1rem'}} src={article.image}/>}
+          {article.type === 1&&!article.image &&<Qiniu onSuccess={imgSuccessUpload}><div className={styles.uploadImg}>+</div></Qiniu>}
+        </div>
+        <div className={styles.upload}>
+          <div className={styles.headerImgTitle}>详情</div>
           {article.images&&article.images.split(',').map(m=><img key={m} style={{width:'4rem',height:'4rem',float:'left',marginLeft:'1rem'}} src={m}/>)}
-          {article.type === 1 &&<Qiniu onSuccess={imgSuccessUpload}><div style={{width:'4rem',height:'4rem',border:'1px solid #999',textAlign:'center',lineHeight:'4rem',float:'left'}}>+</div></Qiniu>}
+          {article.type === 1 &&<Qiniu onSuccess={imgsSuccessUpload}><div className={styles.uploadImg}>+</div></Qiniu>}
         </div>
         {article.type === 2 &&
         <input onChange={(e) => setArticle({ ...article, ...{ video: e.target.value } })}  className={styles.commontInputTitle} placeholder='视频链接'/>}

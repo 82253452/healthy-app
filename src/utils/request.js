@@ -53,7 +53,7 @@ const request = extend({
 request.use(async (ctx, next) => {
   const { req } = ctx;
   const { url, options } = req;
-  // ctx.req.url = `https://zhihuizhan.net/api${url}`;
+  ctx.req.url = `${process.env.apiUrl}${url}`;
   ctx.req.options = {
     ...options,
     headers: {
@@ -86,7 +86,7 @@ request.use(async (ctx, next) => {
         localStorage.setItem('TOKEN', 'eyJhbGciOiJIUzM4NCJ9.eyJuaWNrTmFtZSI6IumJtOWuojUwMTgiLCJvbGRVc2VySWQiOiIxIiwibW9iaWxlIjoiMTIzMTIzIiwiYXZhdGFyIjoiMTIzIiwidXNlcklkIjoiMSIsImp0aSI6IjJiYjQ4ZDJhN2U5ZTRhMmFhMWE2ZTQzMjUyMzM5NDAzIiwiZXhwIjoxODgyNjE2Mjc2LCJpYXQiOjE1NjY5OTcwNzYsIm5iZiI6MTU2Njk5NzA3Nn0.KsRyNZm9ryO0V7vQL9pZSh9b1D4OYyhdxIFccJuaC4aT-wteW6A0UIRp1D5mtb7F');
         if (isMobile) {
           // window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx91fad2501e704f40&redirect_uri=http://admin.wokanjian.com.cn/admin&response_type=code&scope=snsapi_base&state=STATE&component_appid=wxaef3251ba28a0c89#wechat_redirect';
-          window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=https%3A%2F%2Fhealthy.zhihuizhan.net%2Findex.html&response_type=code&scope=snsapi_base&state=STATE&component_appid=wx2b1b9aa4f2e422c4#wechat_redirect';
+          // window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=https%3A%2F%2Fhealthy.zhihuizhan.net%2Findex.html&response_type=code&scope=snsapi_base&state=STATE&component_appid=wx2b1b9aa4f2e422c4#wechat_redirect';
         } else {
           // router.push('/pc/login')
         }

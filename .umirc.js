@@ -1,7 +1,9 @@
 // ref: https://umijs.org/config/
 export default {
-  base: 'http://localhost:8080',
   treeShaking: true,
+  "define": {
+    "process.env.apiUrl": 'https://zhihuizhan.net/api',
+  },
   plugins: [
     // ref: https://umijs.org/plugin/umi-plugin-react.html
     ['umi-plugin-react', {

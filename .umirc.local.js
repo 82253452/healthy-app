@@ -1,1 +1,5 @@
-export default { base: '' };
+export default {
+  "define": {
+    "process.env.apiUrl": '',
+  },
+};

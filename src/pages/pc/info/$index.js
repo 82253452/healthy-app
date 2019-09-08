@@ -107,16 +107,22 @@ export default function(props) {
   function toInfo(id) {
     router.push(`/pc/info/${id}`)
   }
+  const goBack = () => {
+    window.history.go(-1);
+  };
+  const goHome = () => {
+    window.location.href = '/';
+  };
 
   return (
     isloding ? '' :
       <div className={styles.container}>
-        <div className={styles.phoneHeader}>
+        <div onClick={goBack} className={styles.phoneHeader}>
           <div className={styles.phoneHeaderBack}>
             <img className={styles.phoneHeaderBackImg} src={back}/>
           </div>
           分享健康 分享美丽
-          <div className={styles.phoneHeaderHome}>
+          <div onClick={goHome} className={styles.phoneHeaderHome}>
             <img className={styles.phoneHeaderHomeImg} src={home}/>
           </div>
         </div>
@@ -196,7 +202,7 @@ export default function(props) {
                            className={styles.userImgAvatarRaduSmal}/>
                       <span className={styles.userCommentChildUser}>@{child.nickName}</span>
                       <br/>
-                      <div style={{fontSize:'1rem',paddingLeft:'5rem'}} dangerouslySetInnerHTML={{__html: child.content}}></div>
+                      <div style={{fontSize:'1rem',paddingLeft:'2rem'}} dangerouslySetInnerHTML={{__html: child.content}}></div>
                     </div>)}
                   </div>
                 </div>),
@@ -243,9 +249,57 @@ export default function(props) {
             查看更多
           </div>
         </div>
-        <div className={styles.phoneVideo}>
-          {article.type===2&&<video className={styles.phoneVideoPlay}
-                                    src={article.video}/>}
+        {article.type===1&&<div className={styles.phoneVideo}>
+          <div className={styles.phoneArticleContent}>
+            <div style={{float:'left',width:'100%'}}>
+              <img className={styles.userImgAvatarRadu} src={article.avatar}/>
+              <div style={{float:'left',marginLeft:'2rem',lineHeight:'2rem'}}>{article.nickName}</div>
+              <div className={styles.articleContext} dangerouslySetInnerHTML={{__html: article.context}}></div>
+              <div className={styles.articleImages}>
+                {article.images&&article.images.split(',').map(m=><img style={{width:'40%',height:'4rem'}} src={m}/>)}
+              </div>
+            </div>
+            <div className={styles.videoCommentAuther}>
+              <div className={styles.textLine}></div>
+              <span>&nbsp;&nbsp;笔记评论</span>
+            </div>
+            <div className={styles.commmentList}>
+              {
+                comments.map((comment,index) =>
+                  (<div key={comment.id} className={styles.commentBlock}>
+                    <div className={styles.commentBlockHeader}>
+                      <img className={styles.userImgAvatarRadu}
+                           src={comment.avatar}/>
+                      <div className={styles.userCommentNick}>{comment.nickName}<br/>07-18</div>
+                      <div className={styles.usercommentLike}>
+                        <i className={'iconfont icon-like1 red ' + styles.like + ' ' + (comment.star ? styles.red : '')}
+                           onClick={() => addCommentPraise(comment)}></i>
+                        &nbsp;&nbsp;{comment.praiseNum}&nbsp;&nbsp; <span onClick={()=>setReplayIndex(index)}>回复</span>
+                      </div>
+                    </div>
+                    <div className={styles.usercommentContent}>
+                      <div dangerouslySetInnerHTML={{__html: comment.content}}></div>
+                      {replayIndex===index&& <div><EmojiEditor content={content} emoji onChange={commentChange}/>
+                        <div className={styles.addComment} onClick={()=>addCommontReplayText(comment.id)}>确认</div>
+                      </div>}
+                      {comment.childList&&comment.childList.map(child=><div key={child.id} className={styles.phoneCommentChild}>
+                        <img src={child.avatar}
+                             className={styles.userImgAvatarRaduSmal}/>
+                        <span className={styles.userCommentChildUser}>@{child.nickName}</span>
+                        <br/>
+                        <div style={{fontSize:'1rem',paddingLeft:'2rem'}} dangerouslySetInnerHTML={{__html: child.content}}></div>
+                      </div>)}
+                    </div>
+                  </div>),
+                )
+              }
+            </div>
+          </div>
+
+        </div>}
+        {article.type===2&&<div className={styles.phoneVideo}>
+          <video className={styles.phoneVideoPlay}
+                                    src={article.video}/>
           {/*<img className={styles.phoneVideoPlayButton} src={play}/>*/}
           <i className={'iconfont icon-right ' + styles.phoneVideoPlayButton} onClick={playVideo}></i>
           <div className={styles.phoneVideoPlayAvatar}>
@@ -268,7 +322,7 @@ export default function(props) {
             <i className={'iconfont icon-share ' + styles.phoneVideoPlayPriseShare} src={share}/><br/>
             {article.shareNum}
           </div>
-        </div>
+        </div>}
         <div className={styles.phoneFooter}>
           <div className={styles.footerTrans}>
             <div className={styles.footerAdd}>
