@@ -51,7 +51,7 @@ const request = extend({
 request.use(async (ctx, next) => {
   const { req } = ctx;
   const {  url,options } = req;
-  ctx.req.url = `https://healthy.zhihuizhen.net/api${url}`;
+  ctx.req.url = `https://healthy.zhihuizhan.net/api${url}`;
   ctx.req.options = {
     ...options,
     headers: {
