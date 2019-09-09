@@ -1,5 +1,14 @@
+import { UrlSearch } from '@/utils/utils';
+import { login } from '@/api/user';
 
 export function render(oldRender) {
+  const code = UrlSearch('code');
+  const appId = UrlSearch('appid');
+  if (code && appId) {
+    login({ code: code, appId: appId }).then(data=>{
+     data.data&&data.data.token&&localStorage.setItem('TOKEN', data.data.token);
+    });
+  }
   // let isMobile = false;
   // if (/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))) {
   //   try {
