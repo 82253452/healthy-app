@@ -25,6 +25,7 @@ export default function(props) {
   const [commonPage, setCommonPage] = useState({ pageNum: 1, pageSize: 5,type: 1});
   const videoRef = useRef(null);
   const [replayIndex,setReplayIndex] = useState(null);
+  const [videoStatus,setVideoStatus] = useState(false);
 
   useEffect(() => {
 
@@ -103,6 +104,7 @@ export default function(props) {
   }
   function playVideo() {
     videoRef.current.play();
+    setVideoStatus(true)
   }
   function toInfo(id) {
     router.push(`/pc/info/${id}`)
@@ -298,10 +300,12 @@ export default function(props) {
 
         </div>}
         {article.type===2&&<div className={styles.phoneVideo}>
-          <video className={styles.phoneVideoPlay}
-                                    src={article.video}/>
+          <div className={styles.phoneVideoPlay}>
+            <video preload='auto' autoPlay className={styles.phoneVideoPlay}
+                   src={article.video}/>
+          </div>
           {/*<img className={styles.phoneVideoPlayButton} src={play}/>*/}
-          <i className={'iconfont icon-right ' + styles.phoneVideoPlayButton} onClick={playVideo}></i>
+          {!videoStatus&&<i className={'iconfont icon-right ' + styles.phoneVideoPlayButton} onClick={playVideo}></i>}
           <div className={styles.phoneVideoPlayAvatar}>
             <img className={styles.phoneUserImg} src={article.avatar}/>
             {/*<img className={styles.phoneVideoPlayAvatarLike} src={add}/>*/}
@@ -325,7 +329,7 @@ export default function(props) {
         </div>}
         <div className={styles.phoneFooter}>
           <div className={styles.footerTrans}>
-            <div className={styles.footerAdd}>
+            <div onClick={()=>router.push('/pc/push')} className={styles.footerAdd}>
               +
             </div>
           </div>

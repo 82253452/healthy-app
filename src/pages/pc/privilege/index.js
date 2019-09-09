@@ -1,7 +1,7 @@
 import styles from './index.css';
 import back from '@/assets/back.png';
 import home from '@/assets/home.png';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { getAddressyFir, getAddressySec } from '@/api/address';
 import { getList,receive } from '@/api/privilege';
 import { getClassify } from '@/api/classify';
@@ -52,6 +52,12 @@ export default function() {
     !status&&receive(id)
     !status&&Message.open("领取成功")
   }
+  const goBack = () => {
+    window.history.go(-1);
+  };
+  const goHome = () => {
+    window.location.href = '/';
+  };
   function getPrivilege() {
     getList().then(data=>{
       Mask.success({render:<div>
@@ -64,12 +70,12 @@ export default function() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.phoneHeader}>
+      <div onClick={goBack} className={styles.phoneHeader}>
         <div className={styles.phoneHeaderBack}>
           <img className={styles.phoneHeaderBackImg} src={back}/>
         </div>
         分享健康 分享美丽
-        <div className={styles.phoneHeaderHome}>
+        <div  onClick={goHome} className={styles.phoneHeaderHome}>
           <img className={styles.phoneHeaderHomeImg} src={home}/>
         </div>
       </div>

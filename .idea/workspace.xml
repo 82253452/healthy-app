@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="13b1d294-8837-4008-a333-26f9bd810a01" name="Default Changelist" comment="">
+    <list default="true" id="13b1d294-8837-4008-a333-26f9bd810a01" name="Default Changelist" comment="init">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/authority.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/authority.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/pc/info/$index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/pc/info/$index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/pc/privilege/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/pc/privilege/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/request.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -126,7 +128,8 @@
       <workItem from="1567655081068" duration="42000" />
       <workItem from="1567687080655" duration="1967000" />
       <workItem from="1567773617938" duration="72172000" />
-      <workItem from="1567995513482" duration="645000" />
+      <workItem from="1567995513482" duration="1594000" />
+      <workItem from="1568030202069" duration="18984000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1566788131478</created>
@@ -233,7 +236,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567955192310</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="init">
+      <created>1567996166270</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1567996166270</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

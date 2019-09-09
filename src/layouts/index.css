@@ -2,14 +2,9 @@
 .normal {
   text-align: center;
 }
-@media (max-width: 980px) {
-  .header{
-    display: none;
-  }
-}
 .header{
-  width:70%;
-  height: 80px;
+  width:110rem;
+  height: 43px;
   padding:1% 15% 1% 15%;
   border-bottom: 1px solid #bcbcbc;
 }
@@ -54,4 +49,31 @@
   height: 34px;
   background: url("../assets/logo-w.png") no-repeat ;
   background-size: 100% 100%;
+}
+@media (max-width: 980px) {
+  .header{
+    width:100%;
+    padding:0;
+
+  }
+  .headerLogo{
+    width: 8rem;
+    height: 3rem;
+    margin-top:.5rem;
+    margin-left: 0rem;
+  }
+  .login{
+    width:5rem;
+    height: 2rem;
+    margin-top:1rem;
+    line-height: 2rem;
+    margin-right: 1rem;
+  }
+  .phone{
+    margin-right:3%;
+    color:#fff;
+    height: 2rem;
+    margin-top:1rem;
+    line-height: 2rem;
+  }
 }

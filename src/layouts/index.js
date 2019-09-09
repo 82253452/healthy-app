@@ -10,7 +10,7 @@ function BasicLayout(props) {
     getUserInfo().then(data=>setUser(data.data))
   },[])
   function login() {
-    router.push('/pc/center')
+    router.push('/pc/login')
   }
   if (props.location.pathname === '/pc/login') {
     return <SimpleLayout user={user}  login={login}>{ props.children }</SimpleLayout>
