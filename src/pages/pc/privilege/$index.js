@@ -10,7 +10,7 @@ import router from 'umi/router';
 import privilege from '@/assets/prililege.png'
 import Mask from '@/component/alert/model'
 import Message from '@/component/alert/message'
-export default function() {
+export default function(props) {
   const [isloding, setIsloding] = useState(true);
   const [classify, setClassify] = useState([]);
   const [addressFir, setAddressFir] = useState([]);
@@ -30,10 +30,11 @@ export default function() {
   }, []);
 
   useEffect(() => {
-    console.log(123)
-    const classifyId=classifyActive===null?null:classify[classifyActive]['id']
+    let classifyId = props.match.params.index
+    classifyId=(classifyActive===null?classifyId:classify[classifyActive]['id'])
     getShopIndex({...shopsParam,...{classifyId},...{addressId}}).then(data => data && data.data && setShops(data.data));
-  }, [shopsParam, classifyActive, addressId, classify]);
+  }, [shopsParam, classifyActive, addressId, classify, props.match.params.index]);
+
 
   function changeAddress(id, index) {
     setAddressActive(index);

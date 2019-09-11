@@ -88,7 +88,7 @@ export default function() {
           <div className={styles.privilege}>
             <div>
               <div className={styles.privilegeListDiv}>
-                {classifys.map(classify => <div className={styles.privilegeList}>
+                {classifys.map(classify => <div onClick={()=>router.push(`/pc/privilege/${classify.id}`)} className={styles.privilegeList}>
                   <img src={classify.image}/>
                   <div>{classify.name}</div>
                 </div>)}
