@@ -8,6 +8,7 @@
     "precommit": "lint-staged"
   },
   "dependencies": {
+    "antd-mobile": "^2.3.1",
     "dayjs": "^1.8.16",
     "draft-js": "^0.11.0",
     "draft-js-emoji-plugin": "^2.1.3",
@@ -18,9 +19,12 @@
     "qiniu-js": "^2.5.4",
     "react": "^16.8.6",
     "react-bmap": "^1.0.103",
+    "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^16.8.6",
     "react-draft-wysiwyg": "^1.13.2",
     "react-google-maps": "^9.4.5",
+    "react-infinite-scroller": "^1.2.4",
+    "react-scroll": "^1.7.14",
     "social-share.js": "^1.0.16",
     "swiper": "^4.5.0",
     "umi-request": "^1.2.3",

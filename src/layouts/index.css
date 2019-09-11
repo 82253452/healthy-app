@@ -57,7 +57,7 @@
 
   }
   .headerLogo{
-    width: 8rem;
+    width: 9rem;
     height: 3rem;
     margin-top:.5rem;
     margin-left: 0rem;
@@ -75,5 +75,9 @@
     height: 2rem;
     margin-top:1rem;
     line-height: 2rem;
+    width:10rem;
+  }
+  .header{
+    border:none;
   }
 }

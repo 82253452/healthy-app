@@ -3,13 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="13b1d294-8837-4008-a333-26f9bd810a01" name="Default Changelist" comment="init">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/global.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/layouts/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/document.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/document.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/pc/article/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/pc/article/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/pc/article/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/pc/article/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/pc/info/$index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/pc/info/$index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/pc/privilege/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/pc/privilege/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/request.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/pc/info/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/pc/info/index.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,16 +56,16 @@
     <property name="ts.external.directory.path" value="C:\Users\admin\AppData\Local\JetBrains\Toolbox\apps\WebStorm\ch-0\192.6262.59\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\workSpace\my\reactApp\my-app\src" />
-      <recent name="D:\workSpace\my\reactApp\my-app\src\assets" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\workSpace\my\reactApp\my-app\src\pages\pc\push" />
       <recent name="D:\workSpace\my\reactApp\my-app\src\assets" />
       <recent name="D:\workSpace\my\reactApp\my-app\src\api" />
       <recent name="D:\workSpace\my\reactApp\my-app\src\component\alert" />
       <recent name="D:\workSpace\my\reactApp\my-app\src\component\map" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\workSpace\my\reactApp\my-app\src" />
+      <recent name="D:\workSpace\my\reactApp\my-app\src\assets" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -129,7 +132,9 @@
       <workItem from="1567687080655" duration="1967000" />
       <workItem from="1567773617938" duration="72172000" />
       <workItem from="1567995513482" duration="1594000" />
-      <workItem from="1568030202069" duration="18984000" />
+      <workItem from="1568030202069" duration="19242000" />
+      <workItem from="1568081669711" duration="299000" />
+      <workItem from="1568115271744" duration="16210000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1566788131478</created>
@@ -243,7 +248,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567996166270</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="init">
+      <created>1568049544149</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1568049544149</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

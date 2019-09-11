@@ -144,7 +144,7 @@
   padding:.2rem;
 }
 .headerTextImg{
-  width:610px;
+  width:610px !important;
   height:201px;
 }
 .pc{
@@ -206,17 +206,17 @@
     display: flex;
     justify-content:space-around;
     flex-wrap: wrap;
-    height: 40rem;
+    height: 45rem;
   }
   .phoneImagesContent{
-    padding:0;
+    padding:1rem;
     margin:0;
   }
   .startShare{
     width:20rem;
     height: 2rem;
     line-height: 2rem;
-    margin:3rem auto;
+    margin:auto;
   }
   .footerBlock{
     padding:1rem 0 0 0 ;

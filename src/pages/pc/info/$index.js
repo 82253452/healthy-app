@@ -130,7 +130,7 @@ export default function(props) {
         </div>
         <div className={styles.contentLeft}>
           <div className={styles.video}>
-            {article.type===2&& <video ref={videoRef} controls='controls' className={styles.videoPlay}
+            {article.type===2&& <video controls='controls' className={styles.videoPlay}
                                        src={article.video}/>}
           </div>
           <div className={styles.videoInfo}>
@@ -300,8 +300,8 @@ export default function(props) {
 
         </div>}
         {article.type===2&&<div className={styles.phoneVideo}>
-          <div className={styles.phoneVideoPlay}>
-            <video preload='auto' autoPlay className={styles.phoneVideoPlay}
+          <div className={styles.phoneVideoPlayDiv}>
+            <video className={styles.phoneVideoPlay} ref={videoRef} playsinline="" webkit-playsinline=""  x5-video-player-type="h5-page" preload="auto" x-webkit-airplay="allow" autoplay="autoplay"
                    src={article.video}/>
           </div>
           {/*<img className={styles.phoneVideoPlayButton} src={play}/>*/}

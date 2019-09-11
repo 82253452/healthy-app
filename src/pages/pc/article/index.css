@@ -3,6 +3,10 @@
   width: 70%;
   padding: 1% 15% 1% 15%;
 }
+.scroll{
+  height: 90vh;
+  overflow:auto;
+}
 .phoneHeader{
   display: none;
   padding-top:1rem;
@@ -163,7 +167,7 @@
 @media (max-width: 980px) {
   .container{
     width:100%;
-    padding:2.6rem 0;
+    padding:0;
   }
   .phoneHeader{
     display: block;
@@ -182,13 +186,53 @@
   }
   .class{
     width:5rem;
-    background: #f6f6f6;
-    color:#666;
+    background: #ededed;
+    color:#646464;
+    font-size: 1rem;
+    height: 2rem;
+    line-height: 2rem;
+    margin-top:0;
   }
   .phoneFooter{
     display: block;
   }
   .img {
     width: 100%;
+    height: 20rem;
+  }
+  .headerImg {
+    height: 20rem;
+  }
+  .userImgAvatar {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+  }
+  .blockInfo {
+    width: 80%;
+    padding: 10%;
+    height: 4rem;
+    background: #fff;
+    border-radius: 0 0 10px 10px;
+  }
+  .userInfo {
+    padding-top: 1rem;
+  }
+  .text {
+    text-align: left;
+    font-size: 1rem;
+    padding-top: 0;
+    width: 100%;
+    height: 2rem;
+    word-wrap: break-word;
+  }
+  .userNick {
+    line-height: 2rem;
+  }
+  .praise {
+    line-height: 2rem;
+  }
+  .num {
+    line-height: 2rem;
   }
 }
