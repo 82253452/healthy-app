@@ -34,7 +34,7 @@ export default function() {
     if(!article.title) {Message.open('请输入标题');return}
     if(!article.type){ Message.open('请输入选择类型') ;return}
     if(!article.classifyId) {Message.open('请选择分类') ;return}
-    if(!article.image) {Message.open('请选择头图') ;return}
+    if(article.type===1&&!article.image) {Message.open('请选择头图') ;return}
     if(article.type===2&&!article.video) {Message.open('请输入选择视频') ;return}
     articleSave(article).then(data => router.push('/pc/article'));
   }
