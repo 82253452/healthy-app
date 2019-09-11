@@ -110,7 +110,7 @@
 }
 .privilegeList >img{
   border-radius: 1rem;
-  width:13rem;
+  width:100%!important;
   height:15rem;
 }
 .privilegeListDiv{

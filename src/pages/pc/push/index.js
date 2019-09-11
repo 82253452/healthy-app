@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import router from 'umi/router';
 import { getClassify } from '@/api/classify';
 import Qiniu from '@/component/qiniu/index';
+import Message from '@/component/alert/message';
 
 export default function() {
 
@@ -30,6 +31,11 @@ export default function() {
   }
 
   function saveArticle() {
+    if(!article.title) Message.open('请输入标题') ;return;
+    if(!article.type) Message.open('请输入选择类型') ;return;
+    if(!article.classifyId) Message.open('请输入文章选择分类') ;return;
+    if(!article.image) Message.open('请输入文章选择头图') ;return;
+    if(article.type===1&&!article.video) Message.open('请输入选择视频') ;return;
     articleSave(article).then(data => router.push('/pc/article'));
   }
 
