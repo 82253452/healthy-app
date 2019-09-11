@@ -2,7 +2,6 @@ import { UrlSearch } from '@/utils/utils';
 import { login } from '@/api/user';
 
 export function render(oldRender) {
-  alert(123)
   const code = UrlSearch('code');
   const appId = UrlSearch('appid');
   if (code && appId) {
