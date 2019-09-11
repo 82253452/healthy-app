@@ -119,26 +119,18 @@ export default function(props) {
             优惠
             <div className={styles.line}></div>
             <div className={styles.couponList}>
-              <div className={styles.package}>
-                <div className={styles.packageTop}>
-                  <div className={styles.packageTitle}>体验A套餐</div>
-                  <div>50+ sdfsa</div>
-                </div>
-                <div className={styles.packageBottom}>
-                  <div className={styles.packageMoney}>190000</div>
-                  <div className={styles.packageDecoration}>￥10000</div>
-                </div>
-              </div>
-              <div className={styles.package}>
-                <div className={styles.packageTop}>
-                  <div className={styles.packageTitle}>体验A套餐</div>
-                  <div>50+ sdfsa</div>
-                </div>
-                <div className={styles.packageBottom}>
-                  <div className={styles.packageMoney}>190000</div>
-                  <div className={styles.packageDecoration}>￥10000</div>
-                </div>
-              </div>
+              {
+                shop.offerList.map(offer=><div className={styles.package}>
+                  <div className={styles.packageTop}>
+                    <div className={styles.packageTitle}>{offer.title}</div>
+                    <div>{offer.description}</div>
+                  </div>
+                  <div className={styles.packageBottom}>
+                    <div className={styles.packageMoney}>{offer.price}</div>
+                    <div className={styles.packageDecoration}>￥{offer.oldPrice}</div>
+                  </div>
+                </div>)
+              }
             </div>
           </div>
           <div className={styles.shopHeaderImages}>

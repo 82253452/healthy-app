@@ -58,6 +58,13 @@ export default function() {
   const goHome = () => {
     window.location.href = '/';
   };
+  function getRates(value) {
+    const render = []
+    for(let i=0;i<value;i++){
+      render.push(<i className={'iconfont icon-star'} style={{color:'#49acf3'}}></i>)
+    }
+    return render
+  }
   function getPrivilege() {
     getList().then(data=>{
       Mask.success({render:<div>
@@ -133,12 +140,9 @@ export default function() {
                 <div className={styles.shopInfoTop}>
                   <div className={styles.shopText}>
                     <div style={{fontSize:'2rem'}}>{shop.name}</div>
-                    <div style={{paddingTop:'1rem'}}><i className={'iconfont icon-star'} style={{color:'#49acf3'}}></i>
-                      <i className={'iconfont icon-star'} style={{color:'#49acf3'}}></i>
-                      <i className={'iconfont icon-star'} style={{color:'#49acf3'}}></i>
-                      <i className={'iconfont icon-star'} style={{color:'#49acf3'}}></i>
-                      <i className={'iconfont icon-star'} style={{color:'#49acf3'}}></i>
-                      5 分</div>
+                    <div style={{paddingTop:'1rem'}}>
+                      {getRates(shop.rate)}
+                      {shop.rate} 分</div>
                     <div style={{paddingTop:'1rem'}}>{shop.classifyName} {shop.address} {shop.phone}</div>
                     <div style={{paddingTop:'1rem'}}>人均 ￥{shop.percapita}</div>
                   </div>
