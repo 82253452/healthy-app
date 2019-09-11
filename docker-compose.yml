@@ -1,0 +1,13 @@
+version: "3"
+networks:
+  default:
+    external:
+      name: default-network
+services:
+  healthy:
+    container_name: healthyapp
+    image: yp/healthyapp
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+    ports:
+      - 8009:80
