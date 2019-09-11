@@ -14,7 +14,7 @@ export function EmojiEditor(props) {
   const { EmojiSuggestions, EmojiSelect } = emojiPlugin;
 
   useEffect(() => {
-    props.content===''&&setEditorState(EditorState.createEmpty())
+    props.content===''&&setEditorState(EditorState.createWithContent(stateFromHTML('')))
   }, [props.content]);
 
   function focusEditor() {

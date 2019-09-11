@@ -467,6 +467,8 @@
 .phoneCommentList {
   padding: 6%;
   width: 88%;
+  overflow-y: scroll;
+  height: 30rem;
 }
 
 .phoneCommentBlock {

@@ -18,7 +18,7 @@ export default function(props) {
   const [comments, setComments] = useState([]);
   const [content, setContent] = useState('');
   const [phoneComment, setPhoneComment] = useState(false);
-  const [commonPage, setCommonPage] = useState({ pageNum: 1, pageSize: 5,type: 1});
+  const [commonPage, setCommonPage] = useState({type: 1});
   const videoRef = useRef(null);
   const [replayIndex,setReplayIndex] = useState(null);
   const [videoStatus,setVideoStatus] = useState(false);
@@ -36,7 +36,7 @@ export default function(props) {
   }, [props.match.params.index]);
   useEffect(() => {
     commontList({id: props.match.params.index,...commonPage}).then(data => data && data.data && setComments([...data.data.list]));
-  }, [commonPage, props.match.params.index]);
+  }, [commonPage, props.match.params.index,phoneComment]);
 
   function praise() {
     article.isPraise = !article.isPraise;
@@ -58,11 +58,12 @@ export default function(props) {
 
   function addCommontText() {
     if(content==='<p><br></p>'){
-      Message.open('清楚如评论内容！')
+      Message.open('请填写评论内容！')
       return
     }
     addCommont({ topicId: article.id, type: 1, content: content }).then(data => {
       setContent('')
+      console.log(content)
       Message.open('评论成功')
       setCommonPage({...commonPage})
     });
@@ -81,11 +82,11 @@ export default function(props) {
   }
   function addPhoneCommontText() {
     if(content==='<p><br></p>'){
-      Message.open('清楚如评论内容！')
+      setPhoneComment(false)
       return
     }
-    phoneComment&&setPhoneComment(false)
-    content.length>11?addCommontText():setPhoneComment(false)
+    // phoneComment&&setPhoneComment(false)
+    addCommontText()
   }
 
   function addCommentPraise(comment) {
@@ -297,7 +298,7 @@ export default function(props) {
         </div>}
         {article.type===2&&<div className={styles.phoneVideo}>
           <div className={styles.phoneVideoPlayDiv}>
-            <video className={styles.phoneVideoPlay} ref={videoRef} playsinline="" webkit-playsinline=""  x5-video-player-type="h5-page" preload="auto" x-webkit-airplay="allow" autoplay="autoplay"
+            <video className={styles.phoneVideoPlay} ref={videoRef} playsInline webkit-playsinline=""  x5-video-player-type="h5-page" preload="auto" x-webkit-airplay="allow"
                    src={article.video}/>
           </div>
           {/*<img className={styles.phoneVideoPlayButton} src={play}/>*/}
@@ -315,8 +316,8 @@ export default function(props) {
             <br/>
             <br/>
             <i className={'iconfont icon-comment ' + styles.phoneVideoPlayPriseComment} src={commentFill}
-               onClick={() => setPhoneComment(true)}/><br/>
-            {article.commentNum}
+               onClick={() => {setPhoneComment(true)}}/><br/>
+            {comments.length}
             <br/>
             <br/>
             <i className={'iconfont icon-share ' + styles.phoneVideoPlayPriseShare} src={share}/><br/>
@@ -352,7 +353,7 @@ export default function(props) {
           </div>
           <div className={styles.phonecommentInputDiv}>
             <EmojiEditor emoji editorStyle={{fontSize:'2rem',textAlign:'left',marginBottom:'.5rem'}} emojiStyle={{fontSize:'1rem',marginTop:'-3.2rem',marginRight:'6rem'}} onChange={commentChange} />
-            <div className = {styles.phoneSend} onClick={addPhoneCommontText}>{content.length>11?'发送':'关闭'}</div>
+            <div className = {styles.phoneSend} onClick={addPhoneCommontText}>{content==='<p><br></p>'?'关闭':'发送'}</div>
             {/*<input placeholder='写下您的评论...' className={styles.phoneCommentInput}/>*/}
             {/*<i className={'iconfont icon-icontypraise2 ' + styles.phoneCommentInputIcon}></i>*/}
           </div>
