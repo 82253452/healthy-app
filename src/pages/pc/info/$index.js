@@ -1,5 +1,4 @@
 import styles from './index.css';
-import like from '../../../assets/like.png';
 import address from '../../../assets/address.png';
 import share from '../../../assets/share.png';
 import commentFill from '../../../assets/comment_fill.png';
@@ -9,11 +8,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import { articlePraise, getArticleInfo, getArticlesAbout } from '@/api/article';
 import { addCommont, commentPraise, commontList } from '@/api/comment';
 import { EmojiEditor } from '@/component/editor/emoji';
-import Link from 'umi/link';
-import { stateFromHTML } from 'draft-js-import-html';
 import router from 'umi/router';
 import Message from '@/component/alert/message';
-import Mask from '@/component/alert/Model';
 
 export default function(props) {
   const [isloding, setIsloding] = useState(true);
