@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="13b1d294-8837-4008-a333-26f9bd810a01" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,11 +53,11 @@
       <recent name="D:\workSpace\my\reactApp\my-app\src\assets" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\workSpace\my\reactApp\my-app" />
       <recent name="D:\workSpace\my\reactApp\my-app\docker" />
       <recent name="D:\workSpace\my\reactApp\my-app\src\pages\pc\push" />
       <recent name="D:\workSpace\my\reactApp\my-app\src\assets" />
       <recent name="D:\workSpace\my\reactApp\my-app\src\api" />
-      <recent name="D:\workSpace\my\reactApp\my-app\src\component\alert" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -126,7 +127,7 @@
       <workItem from="1568030202069" duration="19242000" />
       <workItem from="1568081669711" duration="299000" />
       <workItem from="1568115271744" duration="16210000" />
-      <workItem from="1568182130390" duration="3533000" />
+      <workItem from="1568182130390" duration="4494000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1566788131478</created>
@@ -282,7 +283,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568185076619</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="init">
+      <created>1568188707815</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1568188707815</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
