@@ -20,7 +20,7 @@
 .editor :global(.public-DraftEditor-content) {
   min-height: 1rem;
 }
-
 .options {
   float: right;
 }
+

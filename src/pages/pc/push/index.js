@@ -14,7 +14,7 @@ export default function() {
   const url = 'http://pxczv9bs6.bkt.clouddn.com/';
 
   const editorStyle = {
-    height: '30rem',
+    height: '20rem',
   };
 
   useEffect(() => {
@@ -31,11 +31,11 @@ export default function() {
   }
 
   function saveArticle() {
-    if(!article.title) Message.open('请输入标题') ;return;
-    if(!article.type) Message.open('请输入选择类型') ;return;
-    if(!article.classifyId) Message.open('请输入文章选择分类') ;return;
-    if(!article.image) Message.open('请输入文章选择头图') ;return;
-    if(article.type===1&&!article.video) Message.open('请输入选择视频') ;return;
+    if(!article.title) {Message.open('请输入标题');return}
+    if(!article.type){ Message.open('请输入选择类型') ;return}
+    if(!article.classifyId) {Message.open('请选择分类') ;return}
+    if(!article.image) {Message.open('请选择头图') ;return}
+    if(article.type===2&&!article.video) {Message.open('请输入选择视频') ;return}
     articleSave(article).then(data => router.push('/pc/article'));
   }
 
@@ -45,6 +45,9 @@ export default function() {
   function imgsSuccessUpload(res) {
     const images = article.images ?(article.images+ ',' +url+ res.key):(url+ res.key)
     setArticle({ ...article, ...{ images} });
+  }
+  function videoSuccessUpload(res) {
+    setArticle({ ...article, ...{video:url+ res.key} });
   }
 
   return (
@@ -68,18 +71,27 @@ export default function() {
                                           onClick={() => setArticle({ ...article, ...{ classifyId: classify.id } })}
                                           className={styles.button + ' ' + (article.classifyId === classify.id ? styles.buttonActive : '')}>{classify.name}</div>)}
         </div>
-        <div className={styles.upload}>
-          <div className={styles.headerImgTitle}>头图</div>
-          {article.image&&<img style={{width:'4rem',height:'4rem',float:'left',marginLeft:'1rem'}} src={article.image}/>}
-          {article.type === 1&&!article.image &&<Qiniu onSuccess={imgSuccessUpload}><div className={styles.uploadImg}>+</div></Qiniu>}
-        </div>
-        <div className={styles.upload}>
-          <div className={styles.headerImgTitle}>详情</div>
-          {article.images&&article.images.split(',').map(m=><img key={m} style={{width:'4rem',height:'4rem',float:'left',marginLeft:'1rem'}} src={m}/>)}
-          {article.type === 1 &&<Qiniu onSuccess={imgsSuccessUpload}><div className={styles.uploadImg}>+</div></Qiniu>}
-        </div>
-        {article.type === 2 &&
-        <input onChange={(e) => setArticle({ ...article, ...{ video: e.target.value } })}  className={styles.commontInputTitle} placeholder='视频链接'/>}
+        {
+          article.type === 1 && <div className={styles.upload}>
+            <div className={styles.headerImgTitle}>头图</div>
+            {article.image&&<img style={{width:'4rem',height:'4rem',float:'left',marginLeft:'1rem'}} src={article.image}/>}
+            {!article.image &&<Qiniu onSuccess={imgSuccessUpload}><div className={styles.uploadImg}>+</div></Qiniu>}
+          </div>
+        }
+        {
+          article.type === 1 &&<div className={styles.upload}>
+            <div className={styles.headerImgTitle}>图片详情</div>
+            {article.images&&article.images.split(',').map(m=><img key={m} style={{width:'4rem',height:'4rem',float:'left',marginLeft:'1rem'}} src={m}/>)}
+            {<Qiniu onSuccess={imgsSuccessUpload}><div className={styles.uploadImg}>+</div></Qiniu>}
+          </div>
+        }
+        {
+          article.type === 2 && <div className={styles.upload}>
+            <div className={styles.headerImgTitle}>视频</div>
+            {article.video&&<video style={{width:'4rem',height:'4rem'}} src={article.video}></video>}
+            {!article.video &&<Qiniu video onSuccess={videoSuccessUpload}><div className={styles.uploadImg}>+</div></Qiniu>}
+          </div>
+        }
         <input className={styles.commontInputTitle} value={article.title} onChange={editorChange} placeholder='输入标题'/>
         {/*<textarea rows='25' className={styles.commontInputText} placeholder='添加正文'></textarea>*/}
         <EmojiEditor emoji editorStyle={editorStyle} onChange={editroChange}/>

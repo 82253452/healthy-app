@@ -10,7 +10,7 @@ import { stateFromHTML } from 'draft-js-import-html';
 export function EmojiEditor(props) {
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
   const editor = useRef(null);
-  const [emojiPlugin, setEmojiPlugin] = useState(createEmojiPlugin({ useNativeArt: true }));
+  const [emojiPlugin, setEmojiPlugin] = useState(createEmojiPlugin({emojiSelectPopover:{width:'100px'}}));
   const { EmojiSuggestions, EmojiSelect } = emojiPlugin;
 
   useEffect(() => {

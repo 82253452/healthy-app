@@ -43,17 +43,17 @@ export default function() {
     //   slidesPerView: 5,
     //   spaceBetween:0,
     // }))
-    // setSwiper(new Swiper('.container2', {
-    //    slidesPerView: 4,
-    //    spaceBetween:0,
-    //    pagination: {  //分页器
-    //      el: '.swiper-pagination'
-    //    },
-    //    navigation: {
-    //      nextEl: '.swiper-button-next',
-    //      prevEl: '.swiper-button-prev',
-    //    },
-    //  }))
+    setSwiper(new Swiper('.swiper-container1', {
+       slidesPerView: 4,
+       spaceBetween:0,
+       pagination: {  //分页器
+         el: '.swiper-pagination'
+       },
+       navigation: {
+         nextEl: '.swiper-button-next',
+         prevEl: '.swiper-button-prev',
+       },
+     }))
     setshopSwiper(new Swiper('.container3', {
       slidesPerView: 3,
       pagination: {  //分页器
@@ -106,7 +106,7 @@ export default function() {
             <span className={styles.more} onClick={() => router.push('/pc/article')}>更多 &nbsp;&nbsp; >>></span>
           </div>
           <div className={styles.swiper}>
-            <div className="swiper-container">
+            <div className="swiper-container swiper-container1">
               <div className="swiper-wrapper">
                 {articles.map(article => <div key={article.id} className="swiper-slide"><img
                   className={styles.swiperImg} onClick={() => router.push(`/pc/info/${article.id}`)}
