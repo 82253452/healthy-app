@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="13b1d294-8837-4008-a333-26f9bd810a01" name="Default Changelist" comment="">
+    <list default="true" id="13b1d294-8837-4008-a333-26f9bd810a01" name="Default Changelist" comment="init">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -127,7 +127,7 @@
       <workItem from="1568030202069" duration="19242000" />
       <workItem from="1568081669711" duration="299000" />
       <workItem from="1568115271744" duration="16210000" />
-      <workItem from="1568182130390" duration="4494000" />
+      <workItem from="1568182130390" duration="5921000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1566788131478</created>
@@ -290,7 +290,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568188707815</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="init">
+      <created>1568189523028</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1568189523028</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
