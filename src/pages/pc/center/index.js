@@ -63,22 +63,22 @@ function saveUser() {
           <div className={styles.headerList}>
             <div className={headerIndex === 0 ? styles.headerListClick : ''} onClick={() => {
               setHeaderIndex(0);
-            }}>我的收藏 100
+            }}>我的收藏 {user.userPraiseNum}
             </div>
             <span>|</span>
             <div className={headerIndex === 1 ? styles.headerListClick : ''} onClick={() => {
               setHeaderIndex(1);
-            }}>我的点评 100
+            }}>我的点评 {user.userCommentsNum}
             </div>
             <span>|</span>
             <div className={headerIndex === 2 ? styles.headerListClick : ''} onClick={() => {
               setHeaderIndex(2);
-            }}>我的分享 100
+            }}>我的分享 {user.userShareNum}
             </div>
             <span>|</span>
             <div className={headerIndex === 3 ? styles.headerListClick : ''} onClick={() => {
               setHeaderIndex(3);
-            }}>浏览记录 100
+            }}>浏览记录 {user.userBrowseNum}
             </div>
           </div>
         </div>
@@ -88,15 +88,15 @@ function saveUser() {
             <div className={styles.hConetxt}>
               <div className={styles.hConetxtInfo}>
                 <div>
-                  0<br/>
+                  {user.userFenNums}<br/>
                   粉丝
                 </div>
                 <div>
-                  0<br/>
+                  {user.userViewedNums}<br/>
                   浏览量
                 </div>
                 <div>
-                  0<br/>
+                  {user.userAttentionNums}<br/>
                   关注
                 </div>
               </div>
