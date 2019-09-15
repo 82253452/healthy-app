@@ -305,6 +305,7 @@ export default function(props) {
           {!videoStatus&&<i className={'iconfont icon-right ' + styles.phoneVideoPlayButton} onClick={playVideo}></i>}
           <div className={styles.phoneVideoPlayAvatar}>
             <img className={styles.phoneUserImg} src={article.avatar}/>
+            <i className={'iconfont icon-add1 '+ styles.phoneVideoPlayAvatarLike}></i>
             {/*<img className={styles.phoneVideoPlayAvatarLike} src={add}/>*/}
           </div>
           <div className={styles.phoneVideoPlayPrise}>

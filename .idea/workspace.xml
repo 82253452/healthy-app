@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="13b1d294-8837-4008-a333-26f9bd810a01" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/pc/center/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/pc/center/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/pc/info/$index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/pc/info/$index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/pc/info/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/pc/info/index.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,6 +20,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JsFlowSettings">
@@ -130,7 +136,8 @@
       <workItem from="1568182130390" duration="27082000" />
       <workItem from="1568256532677" duration="540000" />
       <workItem from="1568257088347" duration="2551000" />
-      <workItem from="1568533934711" duration="4610000" />
+      <workItem from="1568533934711" duration="6472000" />
+      <workItem from="1568559126406" duration="3334000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1566788131478</created>
@@ -370,7 +377,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568536417111</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="个人中心调整">
+      <created>1568540427377</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1568540427377</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -392,6 +406,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
     <MESSAGE value="登录调整" />
-    <option name="LAST_COMMIT_MESSAGE" value="登录调整" />
+    <MESSAGE value="个人中心调整" />
+    <option name="LAST_COMMIT_MESSAGE" value="个人中心调整" />
   </component>
 </project>
