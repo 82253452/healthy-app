@@ -1,6 +1,8 @@
 import styles from './index.css';
 import select from '../../../assets/select.png';
+import qrcode from '../../../assets/qrcode.jpg';
 import { useState, useEffect } from 'react';
+import router from 'umi/router';
 
 export default function() {
   const [isLogin, setIsLogin] = useState(false);
@@ -8,6 +10,10 @@ export default function() {
     console.log('effect')
 
   }, [isLogin]);
+  function successLogin() {
+    localStorage.setItem('TOKEN', 'eyJhbGciOiJIUzM4NCJ9.eyJuaWNrTmFtZSI6InlwIiwib3BlbklkIjoib1ZUeXM1cE5ROEkwQnBuZXVWcVRoWm5oeWdDbyIsIm1vYmlsZSI6IiIsImF2YXRhciI6Imh0dHA6Ly90aGlyZHd4LnFsb2dvLmNuL21tb3Blbi92aV8zMi9RMGo0VHdHVGZUTGliT28yM3RTYTh0VVV4TGU5dW9CYVZoakNOZ0x6TGdaSHp1OUtHdFMyY2t1UTFGZmhaNTBHVkNJUVpuYlVFWENQUzRkZndYbmNiblEvMTMyIiwidXNlcklkIjoiOSIsImp0aSI6IjY3YmRiOTNjNzE2MzRhYjRhZTg4OTQxNzU0Zjc5ZmM1IiwiZXhwIjoxNjAwMTU4NzMxLCJpYXQiOjE1Njg1MzYzMzEsIm5iZiI6MTU2ODUzNjMzMX0.aaig-2PysTfGzXQzcqvppxQRQ7ZmPrEWvTGb24yTsYGazytXo7AfqduXxR57eDGl');
+    router.push('/')
+  }
   return (
     <div className={styles.container}>
       <div className={styles.close}></div>
@@ -18,7 +24,8 @@ export default function() {
         <div className={styles.lineRight}></div>
       </div>
       <div>
-        <div className={styles.logoWeixin}></div>
+        {/*<div className={styles.logoWeixin}></div>*/}
+        <img onClick={successLogin} className={styles.logoWeixin} src={qrcode}/>
         <div className={styles.weixinText}>微信登录</div>
       </div>
       <div className={styles.footer}>

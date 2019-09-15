@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="13b1d294-8837-4008-a333-26f9bd810a01" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/assets/qrcode.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/editor/emoji.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/editor/emoji.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/pc/info/$index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/pc/info/$index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/pc/info/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/pc/info/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.umirc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.umirc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/pc/login/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/pc/login/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/request.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,7 +38,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -49,17 +52,17 @@
     <property name="ts.external.directory.path" value="C:\Users\admin\AppData\Local\JetBrains\Toolbox\apps\WebStorm\ch-0\192.6603.19\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\workSpace\my\reactApp\my-app\src\assets" />
+      <recent name="D:\workSpace\my\reactApp\my-app" />
+      <recent name="D:\workSpace\my\reactApp\my-app\docker" />
+      <recent name="D:\workSpace\my\reactApp\my-app\src\pages\pc\push" />
+      <recent name="D:\workSpace\my\reactApp\my-app\src\api" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\workSpace\my\reactApp\my-app" />
       <recent name="D:\workSpace\my\reactApp\my-app\src" />
       <recent name="D:\workSpace\my\reactApp\my-app\src\assets" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\workSpace\my\reactApp\my-app" />
-      <recent name="D:\workSpace\my\reactApp\my-app\docker" />
-      <recent name="D:\workSpace\my\reactApp\my-app\src\pages\pc\push" />
-      <recent name="D:\workSpace\my\reactApp\my-app\src\assets" />
-      <recent name="D:\workSpace\my\reactApp\my-app\src\api" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -129,7 +132,10 @@
       <workItem from="1568030202069" duration="19242000" />
       <workItem from="1568081669711" duration="299000" />
       <workItem from="1568115271744" duration="16210000" />
-      <workItem from="1568182130390" duration="26974000" />
+      <workItem from="1568182130390" duration="27082000" />
+      <workItem from="1568256532677" duration="540000" />
+      <workItem from="1568257088347" duration="2551000" />
+      <workItem from="1568533934711" duration="2280000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1566788131478</created>
@@ -355,7 +361,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568217504375</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="init">
+      <created>1568219598238</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1568219598238</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

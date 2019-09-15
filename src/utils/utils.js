@@ -34,6 +34,10 @@ const isMobile = () => {
   return false
 };
 
+const isLogin = () => {
+  return !!localStorage.getItem('TOKEN')
+};
+
 function UrlSearch(name) {
   var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
   var reg_rewrite = new RegExp("(^|/)" + name + "/([^/]*)(/|$)", "i");
@@ -48,4 +52,4 @@ function UrlSearch(name) {
   }
 }
 
-export { isAntDesignProOrDev, isAntDesignPro, isUrl,isMobile,UrlSearch };
+export { isAntDesignProOrDev, isAntDesignPro, isUrl,isMobile,UrlSearch,isLogin };
