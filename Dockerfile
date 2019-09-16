@@ -10,5 +10,4 @@ ADD . /code
 RUN npm run build
 # 选择更小体积的基础镜像
 FROM nginx:alpine
-COPY --from=builder code/dist/index.html code/dist/umi.js code/dist/umi.css /usr/share/nginx/html/
-COPY --from=builder code/dist/static /usr/share/nginx/html/static
+COPY --from=builder code/dist /usr/share/nginx/html/
