@@ -4,6 +4,8 @@ export default {
   "define": {
     "process.env.apiUrl": 'https://zhihuizhan.net/api',
   },
+  history: 'hash',
+  hash: true,
   plugins: [
     // ref: https://umijs.org/plugin/umi-plugin-react.html
     ['umi-plugin-react', {
