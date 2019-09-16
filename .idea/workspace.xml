@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="13b1d294-8837-4008-a333-26f9bd810a01" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/pc/info/$index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/pc/info/$index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/pc/info/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/pc/info/index.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -137,7 +135,8 @@
       <workItem from="1568256532677" duration="540000" />
       <workItem from="1568257088347" duration="2551000" />
       <workItem from="1568533934711" duration="6472000" />
-      <workItem from="1568559126406" duration="3334000" />
+      <workItem from="1568559126406" duration="3474000" />
+      <workItem from="1568565890694" duration="460000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1566788131478</created>
@@ -384,7 +383,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568540427377</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="分支">
+      <created>1568565550920</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1568565550920</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -407,6 +413,8 @@
     <MESSAGE value="init" />
     <MESSAGE value="登录调整" />
     <MESSAGE value="个人中心调整" />
-    <option name="LAST_COMMIT_MESSAGE" value="个人中心调整" />
+    <MESSAGE value="ce" />
+    <MESSAGE value="分支" />
+    <option name="LAST_COMMIT_MESSAGE" value="分支" />
   </component>
 </project>
