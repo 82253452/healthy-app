@@ -214,8 +214,8 @@ export default function () {
           </div>
 
           <div className={styles.pages02}>
-            <img style={{ padding: '5rem' }}
-                 src='http://pxczv9bs6.bkt.clouddn.com/8abd3257-9514-43dc-a511-17f9bb3ad314' />
+            <div><img style={{ padding: '5rem' }}
+                      src='http://pxczv9bs6.bkt.clouddn.com/8abd3257-9514-43dc-a511-17f9bb3ad314' /></div>
             <img src='http://pxczv9bs6.bkt.clouddn.com/607740bd-dbdd-48cc-8277-6e480a32de4d' />
 
           </div>
