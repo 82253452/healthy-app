@@ -23,6 +23,7 @@
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
+  z-index: 1;
 }
 
 .videoPlay {
@@ -427,7 +428,12 @@
 .phoneVideoPlayAvatarLike {
   width: 1rem;
   height: 1rem;
-  margin-top: 2.5rem;
+  color: #49acf3;
+  margin-left: 15px;
+  margin-top: -30px;
+  float:left;
+  display: block;
+  z-index: 1000;
 }
 
 .phoneVideoPlayPrise {
