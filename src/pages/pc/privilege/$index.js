@@ -68,6 +68,7 @@ export default function(props) {
   }
   function getPrivilege() {
     getList().then(data=>{
+      if(data.data['status']){Message.open('您已经领取过了');return}
       Mask.success({render:<div>
           <img style={{width:'40rem',height:'20rem'}} src={data.data['1']}/>
           <div style={{color:'red',padding:'1rem',marginTop:'3rem'}}>享受平台所有签约商户会员权益</div>

@@ -1,14 +1,11 @@
 import styles from './index.css';
 import back from '../../../assets/back.png';
 import home from '../../../assets/home.png';
-import like from '../../../assets/like.png';
 import { useEffect, useState } from 'react';
 import { getArticles } from '@/api/article';
 import { getClassify } from '@/api/classify';
 import router from 'umi/router';
-import InfiniteScroll from 'react-infinite-scroller';
-import { Scrollbars } from 'react-custom-scrollbars';
-
+import { Scrollbar } from '@/component/scrollBar/index';
 export default function() {
   const [articles, setArticles] = useState([]);
   const [classifys, setClassifys] = useState([]);
@@ -40,23 +37,26 @@ export default function() {
   function toShare() {
     router.push(`/pc/privilege`);
   }
-  function loadFunc(e) {
-    console.log(hasMore)
-    if(!hasMore){
-      console.log('无数据')
-      return
-    }
-    if(isLoding){
-      console.log('加载中')
-      return
-    }
-    if (e.target.scrollHeight-e.target.scrollTop-e.target.offsetHeight<80) {
-      setIsLoding(true)
-      setPage({...page,pageNum:page.pageNum+1})
-      //滚动到底部，可以继续发请求获取数据或干点什么
-    }
-    // getArticles(page).then(data => data && (data.data ? setArticles([...articles, ...data.data]) : console.log('无数据')));
-    // console.log(page)
+  // function loadFunc(e) {
+  //   console.log(hasMore)
+  //   if(!hasMore){
+  //     console.log('无数据')
+  //     return
+  //   }
+  //   if(isLoding){
+  //     console.log('加载中')
+  //     return
+  //   }
+  //   if (e.target.scrollHeight-e.target.scrollTop-e.target.offsetHeight<80) {
+  //     setIsLoding(true)
+  //     setPage({...page,pageNum:page.pageNum+1})
+  //     //滚动到底部，可以继续发请求获取数据或干点什么
+  //   }
+  //   // getArticles(page).then(data => data && (data.data ? setArticles([...articles, ...data.data]) : console.log('无数据')));
+  //   // console.log(page)
+  // }
+  function loadData() {
+    setPage({...page,pageNum:page.pageNum+1})
   }
 
   return (
@@ -77,8 +77,9 @@ export default function() {
         开始分享
       </div>
       <div className={styles.scroll}>
-        <Scrollbars
-          onScroll={loadFunc}
+        <Scrollbar
+          loadData={loadData}
+          hasMore={hasMore}
         >
           <div className={styles.list}>
             {articles.map(article =>
@@ -104,7 +105,7 @@ export default function() {
               ),
             )}
           </div>
-        </Scrollbars>
+        </Scrollbar>
       </div>
       <div className={styles.phoneFooter}>
         <div className={styles.footerTrans}>

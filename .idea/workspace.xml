@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="13b1d294-8837-4008-a333-26f9bd810a01" name="Default Changelist" comment="登录调整">
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-    </list>
-    <list id="950ab94b-c5cb-4b43-95e3-3accf7a742fe" name="22" comment="">
+    <list default="true" id="13b1d294-8837-4008-a333-26f9bd810a01" name="Default Changelist" comment="init">
+      <change afterPath="$PROJECT_DIR$/src/component/scrollBar/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/pc/article/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/pc/article/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/pc/privilege/$index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/pc/privilege/$index.js" afterDir="false" />
     </list>
+    <list id="950ab94b-c5cb-4b43-95e3-3accf7a742fe" name="22" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +36,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/component/scrollBar" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -49,17 +50,17 @@
     <property name="ts.external.directory.path" value="C:\Users\admin\AppData\Local\JetBrains\Toolbox\apps\WebStorm\ch-0\192.6603.19\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\workSpace\my\reactApp\my-app\src\assets" />
-      <recent name="D:\workSpace\my\reactApp\my-app" />
-      <recent name="D:\workSpace\my\reactApp\my-app\docker" />
-      <recent name="D:\workSpace\my\reactApp\my-app\src\pages\pc\push" />
-      <recent name="D:\workSpace\my\reactApp\my-app\src\api" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\workSpace\my\reactApp\my-app" />
       <recent name="D:\workSpace\my\reactApp\my-app\src" />
       <recent name="D:\workSpace\my\reactApp\my-app\src\assets" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\workSpace\my\reactApp\my-app\src\component\scrollBar" />
+      <recent name="D:\workSpace\my\reactApp\my-app\src\assets" />
+      <recent name="D:\workSpace\my\reactApp\my-app" />
+      <recent name="D:\workSpace\my\reactApp\my-app\docker" />
+      <recent name="D:\workSpace\my\reactApp\my-app\src\pages\pc\push" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -379,7 +380,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568638859261</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="init">
+      <created>1568642777984</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1568642777984</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -399,8 +407,8 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="init" />
     <MESSAGE value="登录调整" />
-    <option name="LAST_COMMIT_MESSAGE" value="登录调整" />
+    <MESSAGE value="init" />
+    <option name="LAST_COMMIT_MESSAGE" value="init" />
   </component>
 </project>
