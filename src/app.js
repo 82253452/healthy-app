@@ -6,7 +6,7 @@ export function render(oldRender) {
   const appId = UrlSearch('appid');
   alert(code)
   alert(appId)
-  alert(code && appId)
+  alert(!!code && !!appId)
   if (!!code && !!appId) {
     login({ code: code, appId: appId }).then(data=>{
       alert(data.data.token)
