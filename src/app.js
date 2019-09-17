@@ -5,10 +5,11 @@ export function render(oldRender) {
   const code = UrlSearch('code');
   const appId = UrlSearch('appid');
   alert(code)
-  alert(code)
+  alert(appId)
   alert(code && appId)
-  if (code && appId) {
+  if (!!code && !!appId) {
     login({ code: code, appId: appId }).then(data=>{
+      alert(data.data.token)
      data.data&&data.data.token&&localStorage.setItem('TOKEN', data.data.token);
     });
   }else{
