@@ -29,7 +29,6 @@ steps:
     volumes:
       - name: cacheNpm
         path: /opt/cacheNpm
-
   - name: build
     image: plugins/docker
     repo: testApp/testApp
