@@ -8,7 +8,9 @@ export function render(oldRender) {
   alert(appId)
   alert(!!code && !!appId)
   if (!!code && !!appId) {
+    alert(1)
     login({ code: code, appId: appId }).then(data=>{
+      alert(2)
       alert(data.data.token)
      data.data&&data.data.token&&localStorage.setItem('TOKEN', data.data.token);
     });
