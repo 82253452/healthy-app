@@ -10,7 +10,8 @@ export function save(data) {
   return request(BASE + '/saveOrUpdate', { method: 'post', data });
 }
  export async function login(params) {
-  await request(BASE + '/login', { method: 'get', params });
+   const res = await request(BASE + '/login', { method: 'get', params });
+   return res;
 }
 
 
