@@ -11,7 +11,7 @@ steps:
         - ./node_modules
     volumes:
       - name: cacheNpm
-        path: /cacheNpm
+        path: /opt/cacheNpm
 
   - name: init
     image: node:10
@@ -28,7 +28,7 @@ steps:
         - ./node_modules
     volumes:
       - name: cacheNpm
-        path: /cacheNpm
+        path: /opt/cacheNpm
 
   - name: build
     image: plugins/docker
