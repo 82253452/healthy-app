@@ -4,11 +4,8 @@ import { login } from '@/api/user';
 export function render(oldRender) {
   const code = UrlSearch('code');
   const appId = UrlSearch('appid');
-  alert(code)
   if (!!code && !!appId) {
-    alert(1)
     login({ code: code, appId: appId }).then(data=>{
-      alert(JSON.stringify(data))
      data.data&&data.data.token&&localStorage.setItem('TOKEN', data.data.token);
     });
   }else{
