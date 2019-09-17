@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="13b1d294-8837-4008-a333-26f9bd810a01" name="Default Changelist" comment="init">
-      <change afterPath="$PROJECT_DIR$/src/component/scrollBar/index.js" afterDir="false" />
+    <list default="true" id="13b1d294-8837-4008-a333-26f9bd810a01" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.drone.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/pc/article/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/pc/article/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/pc/privilege/$index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/pc/privilege/$index.js" afterDir="false" />
     </list>
     <list id="950ab94b-c5cb-4b43-95e3-3accf7a742fe" name="22" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,7 +34,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/component/scrollBar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -50,17 +48,17 @@
     <property name="ts.external.directory.path" value="C:\Users\admin\AppData\Local\JetBrains\Toolbox\apps\WebStorm\ch-0\192.6603.19\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\workSpace\my\reactApp\my-app" />
+      <recent name="D:\workSpace\my\reactApp\my-app\src\component\scrollBar" />
+      <recent name="D:\workSpace\my\reactApp\my-app\src\assets" />
+      <recent name="D:\workSpace\my\reactApp\my-app\docker" />
+      <recent name="D:\workSpace\my\reactApp\my-app\src\pages\pc\push" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\workSpace\my\reactApp\my-app" />
       <recent name="D:\workSpace\my\reactApp\my-app\src" />
       <recent name="D:\workSpace\my\reactApp\my-app\src\assets" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\workSpace\my\reactApp\my-app\src\component\scrollBar" />
-      <recent name="D:\workSpace\my\reactApp\my-app\src\assets" />
-      <recent name="D:\workSpace\my\reactApp\my-app" />
-      <recent name="D:\workSpace\my\reactApp\my-app\docker" />
-      <recent name="D:\workSpace\my\reactApp\my-app\src\pages\pc\push" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -134,6 +132,7 @@
       <workItem from="1568256532677" duration="540000" />
       <workItem from="1568257088347" duration="2551000" />
       <workItem from="1568533934711" duration="4610000" />
+      <workItem from="1568727474920" duration="1389000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1566788131478</created>
@@ -387,7 +386,21 @@
       <option name="project" value="LOCAL" />
       <updated>1568642777984</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="init">
+      <created>1568645704554</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1568645704554</updated>
+    </task>
+    <task id="LOCAL-00038" summary="init">
+      <created>1568728045173</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1568728045173</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
