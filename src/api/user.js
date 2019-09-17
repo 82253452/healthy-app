@@ -9,8 +9,8 @@ export function getUserInfo() {
 export function save(data) {
   return request(BASE + '/saveOrUpdate', { method: 'post', data });
 }
-export function login(params) {
-  return request(BASE + '/login', { method: 'get', params });
+ export async function login(params) {
+  await request(BASE + '/login', { method: 'get', params });
 }
 
 
