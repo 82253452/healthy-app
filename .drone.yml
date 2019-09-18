@@ -1,6 +1,5 @@
 kind: pipeline
 name: drone
-
 steps:
   - name: test
     image: busybox
@@ -9,5 +8,6 @@ steps:
     dns: [ 114.114.114.114 ]
 
   - name: build
+    dns: [ 114.114.114.114 ]
     image: plugins/docker
     repo: testApp/testApp
