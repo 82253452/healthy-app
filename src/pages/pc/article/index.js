@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { getArticles } from '@/api/article';
 import { getClassify } from '@/api/classify';
 import router from 'umi/router';
-import { Scrollbar } from '@/component/scrollBar/index';
+import Scrollbar from '@/component/scrollBar/index';
 export default function() {
   const [articles, setArticles] = useState([]);
   const [classifys, setClassifys] = useState([]);
@@ -35,7 +35,7 @@ export default function() {
     router.push(`/pc/info/${id}`);
   }
   function toShare() {
-    router.push(`/pc/privilege`);
+    router.push(`/pc/push`);
   }
   // function loadFunc(e) {
   //   console.log(hasMore)

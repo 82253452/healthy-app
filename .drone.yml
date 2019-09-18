@@ -5,4 +5,3 @@ steps:
   - name: build
     image: plugins/docker
     repo: testApp/testApp
-    tags: latest

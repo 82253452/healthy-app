@@ -197,8 +197,8 @@ export default function () {
                   className={styles.swiperImg} onClick={() => router.push(`/pc/info/${article.id}`)}
                   src={article.image} />
                   <div className={styles.listitemtitle}>
-                    标题
-                    <p>描述</p>
+                    {article.title&&(article.title.length>5?article.title.substring(0,5):article.title)}
+                    {/*<p>{article.context&&article.context.length>5?article.context.substring(0,5):article.context}</p>*/}
                   </div>
                 </div>)}
               </div>
