@@ -6,6 +6,7 @@ steps:
     image: busybox
     commands:
       - nslookup google.com
+    dns: 114.114.114.114
   - name: build
     image: plugins/docker
     repo: testApp/testApp
