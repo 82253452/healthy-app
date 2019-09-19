@@ -10,17 +10,19 @@ import router from 'umi/router';
 import privilege from '@/assets/prililege.png'
 import Mask from '@/component/alert/model'
 import Message from '@/component/alert/message'
+import Scrollbar from '@/component/scrollBar';
 export default function(props) {
   const [isloding, setIsloding] = useState(true);
   const [classify, setClassify] = useState([]);
   const [addressFir, setAddressFir] = useState([]);
   const [addressSec, setAddressSec] = useState([]);
   const [shops, setShops] = useState([]);
-  const [shopsParam, setShopsParam] = useState({pageSize:10,pageNum:1});
+  const [shopsParam, setShopsParam] = useState({pageSize:5,pageNum:1});
   const [addressActive, setAddressActive] = useState(null);
   const [addressId, setAddressId] = useState(null);
   const [classifyActive, setClassifyActive] = useState(null);
   const [phoneClassifyActive, setPhoneClassifyActive] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
   useEffect(() => {
     getClassify().then(data => data && data.data && setClassify(data.data));
     getAddressyFir().then(data => {
@@ -28,13 +30,21 @@ export default function(props) {
     });
     setIsloding(false);
   }, []);
+  useEffect(() => {
+    setShops([])
+    let classifyId = props.match.params.index
+    classifyId=(classifyActive===null?classifyId:
+        (classifyActive===-1?'':classify[classifyActive]['id'])
+    )
+    setShopsParam({...shopsParam,...{classifyId},...{addressId}})
+  }, [classifyActive,addressId]);
 
   useEffect(() => {
-    let classifyId = props.match.params.index
-    classifyId=(classifyActive===null?classifyId:classify[classifyActive]['id'])
-    getShopIndex({...shopsParam,...{classifyId},...{addressId}}).then(data => data && data.data && setShops(data.data));
-  }, [shopsParam, classifyActive, addressId, classify, props.match.params.index]);
-
+    getShopIndex(shopsParam).then(data => {
+        data.data&&!data.data.length&&setHasMore(false)
+        data && data.data && setShops([...shops, ...data.data])
+    });
+  }, [shopsParam,  classify, props.match.params.index]);
 
   function changeAddress(id, index) {
     setAddressActive(index);
@@ -77,6 +87,10 @@ export default function(props) {
     })
   }
 
+  function loadData() {
+    setShopsParam({...shopsParam,pageNum:shopsParam.pageNum+1})
+  }
+
   return (
     <div className={styles.container}>
       <div onClick={goBack} className={styles.phoneHeader}>
@@ -101,7 +115,7 @@ export default function(props) {
         </div>
         <div className={styles.classInfoDiv}>
           <div className={styles.classInfo +' '+ (!phoneClassifyActive?styles.phoneClassShow:styles.phoneClassHide)}>
-            <a className={styles.classButton} onClick={()=>setClassifyActive(null)}>不限</a>
+            <a className={styles.classButton} onClick={()=>setClassifyActive(-1)}>不限</a>
             {
               classify.map(add => (<a key={add.id}
                                       onClick={() => classifyClick(add.id, classify.indexOf(add))}
@@ -134,35 +148,40 @@ export default function(props) {
         <img className={styles.adImg} src={privilege}/>
       </div>
       <div className={styles.list}>
-        {
-          shops.map(shop => (
-            <div key={shop.id} className={styles.block}>
-              <img className={styles.shopImg} src={shop.image}/>
-              <div className={styles.shopInfo}>
-                <div className={styles.shopInfoTop}>
-                  <div className={styles.shopText}>
-                    <div style={{fontSize:'2rem'}}>{shop.name}</div>
-                    <div style={{paddingTop:'1rem'}}>
-                      {getRates(shop.rate)}
-                      {shop.rate} 分</div>
-                    <div style={{paddingTop:'1rem'}}>{shop.classifyName} {shop.address} {shop.phone}</div>
-                    <div style={{paddingTop:'1rem'}}>人均 ￥{shop.percapita}</div>
+        <Scrollbar
+          loadData={loadData}
+          hasMore={hasMore}
+        >
+          {
+            shops.map(shop => (
+              <div key={shop.id} className={styles.block}>
+                <img className={styles.shopImg} src={shop.image}/>
+                <div className={styles.shopInfo}>
+                  <div className={styles.shopInfoTop}>
+                    <div className={styles.shopText}>
+                      <div style={{fontSize:'2rem'}}>{shop.name}</div>
+                      <div style={{paddingTop:'1rem'}}>
+                        {getRates(shop.rate)}
+                        {shop.rate} 分</div>
+                      <div style={{paddingTop:'1rem'}}>{shop.classifyName} {shop.address} {shop.phone}</div>
+                      <div style={{paddingTop:'1rem'}}>人均 ￥{shop.percapita}</div>
+                    </div>
+                    <div className={styles.shopButtonDiv}>
+                      <div className={styles.shopButton}>首次免费体检</div>
+                      <div className={styles.shopButton}>提价体检</div>
+                      <div className={styles.shopButton}>折扣特权</div>
+                    </div>
                   </div>
-                  <div className={styles.shopButtonDiv}>
-                    <div className={styles.shopButton}>首次免费体检</div>
-                    <div className={styles.shopButton}>提价体检</div>
-                    <div className={styles.shopButton}>折扣特权</div>
+                  <div className={styles.shopContext}>
+                    {/*<div>面部祛痘买它就对</div>*/}
+                    {/*<div>66 门市价188 已售5460</div>*/}
+                    <div className={styles.shopMore} onClick={() => toCoupon(shop.id)}>查看更多优惠</div>
                   </div>
-                </div>
-                <div className={styles.shopContext}>
-                  {/*<div>面部祛痘买它就对</div>*/}
-                  {/*<div>66 门市价188 已售5460</div>*/}
-                  <div className={styles.shopMore} onClick={() => toCoupon(shop.id)}>查看更多优惠</div>
                 </div>
               </div>
-            </div>
-          ))
-        }
+            ))
+          }
+        </Scrollbar>
       </div>
     </div>
   );

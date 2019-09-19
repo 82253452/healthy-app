@@ -85,8 +85,8 @@ export default function() {
             {articles.map(article =>
               (
                 <div className={styles.block} onClick={() => toInfo(article.id)}>
-                  <div className={styles.headerImg}><img className={styles.img}
-                                                         src={article.image}/>
+                  <div className={styles.headerImg}>
+                    <img className={styles.img} src={article.type===1?article.image:`${article.video}?vframe/jpg/offset/1`}/>
                   </div>
                   <div className={styles.blockInfo}>
                     <div

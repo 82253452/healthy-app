@@ -63,7 +63,7 @@ export default function(props) {
     }
     addCommont({ topicId: article.id, type: 1, content: content }).then(data => {
       setContent('')
-      console.log(content)
+      setPhoneComment(false)
       Message.open('评论成功')
       setCommonPage({...commonPage})
     });
@@ -100,8 +100,14 @@ export default function(props) {
     setContent(content);
   }
   function playVideo() {
-    videoRef.current.play();
-    setVideoStatus(true)
+    if(videoStatus){
+      videoRef.current.pause();
+      setVideoStatus(false)
+    }else{
+      videoRef.current.play();
+      setVideoStatus(true)
+    }
+
   }
   function toInfo(id) {
     router.push(`/pc/info/${id}`)
@@ -297,15 +303,15 @@ export default function(props) {
 
         </div>}
         {article.type===2&&<div className={styles.phoneVideo}>
-          <div className={styles.phoneVideoPlayDiv}>
-            <video className={styles.phoneVideoPlay} ref={videoRef} playsInline webkit-playsinline=""  x5-video-player-type="h5-page" preload="auto" x-webkit-airplay="allow"
-                   src={article.video}/>
+          <div className={styles.phoneVideoPlayDiv} onClick={playVideo}>
+            <video  className={styles.phoneVideoPlay} ref={videoRef} playsInline webkit-playsinline=""  x5-video-player-type="h5-page" preload="auto" x-webkit-airplay="allow"
+                   src={article.video} poster={`${article.video}?vframe/jpg/offset/1`}/>
           </div>
           {/*<img className={styles.phoneVideoPlayButton} src={play}/>*/}
-          {!videoStatus&&<i className={'iconfont icon-right ' + styles.phoneVideoPlayButton} onClick={playVideo}></i>}
+          {!videoStatus&&<i className={'iconfont icon-right ' + styles.phoneVideoPlayButton}  onClick={playVideo}></i>}
           <div className={styles.phoneVideoPlayAvatar}>
             <img className={styles.phoneUserImg} src={article.avatar}/>
-            <i className={'iconfont icon-add1 '+ styles.phoneVideoPlayAvatarLike}></i>
+            {/*<i className={'iconfont icon-add1 '+ styles.phoneVideoPlayAvatarLike}></i>*/}
             {/*<img className={styles.phoneVideoPlayAvatarLike} src={add}/>*/}
           </div>
           <div className={styles.phoneVideoPlayPrise}>
@@ -339,7 +345,7 @@ export default function(props) {
                 <img src={comment.avatar}
                      className={styles.userImgAvatarRadu}/>
                 <span className={styles.commentUserName}>{comment.nickName}</span>
-                <i className={'iconfont icon-icontypraise2 ' + styles.phoneConnmentPraise}></i>
+                <i className={'iconfont icon-icontypraise2 ' + (comment.star ? styles.phoneConnmentPraise : styles.phoneConnmentPraiseNone)} onClick={() => addCommentPraise(comment)}></i>
                 <div style={{fontSize:'1rem',paddingLeft:'5rem'}} dangerouslySetInnerHTML={{__html: comment.content}}></div>
               </div>
               {comment.childList&&comment.childList.map(child=><div key={child.id} className={styles.phoneCommentChild}>
@@ -353,8 +359,8 @@ export default function(props) {
             </div>)}
           </div>
           <div className={styles.phonecommentInputDiv}>
-            <EmojiEditor emoji editorStyle={{fontSize:'2rem',textAlign:'left',marginBottom:'.5rem'}} emojiStyle={{fontSize:'1rem',marginTop:'-3.2rem',marginRight:'6rem'}} onChange={commentChange} />
-            <div className = {styles.phoneSend} onClick={addPhoneCommontText}>{content==='<p><br></p>'?'关闭':'发送'}</div>
+            <EmojiEditor emoji content={content} editorStyle={{fontSize:'2rem',textAlign:'left',marginBottom:'.5rem'}} emojiStyle={{fontSize:'1rem',marginTop:'-3.2rem',marginRight:'6rem'}} onChange={commentChange} />
+            <div className = {styles.phoneSend} onClick={addPhoneCommontText}>{(content==='<p><br></p>'||content==='')?'关闭':'发送'}</div>
             {/*<input placeholder='写下您的评论...' className={styles.phoneCommentInput}/>*/}
             {/*<i className={'iconfont icon-icontypraise2 ' + styles.phoneCommentInputIcon}></i>*/}
           </div>

@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="13b1d294-8837-4008-a333-26f9bd810a01" name="Default Changelist" comment="" />
+    <list default="true" id="13b1d294-8837-4008-a333-26f9bd810a01" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/component/scrollBar/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/qiniu/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/qiniu/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/scrollBar/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/scrollBar/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/pc/article/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/pc/article/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/pc/article/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/pc/article/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/pc/center/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/pc/center/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/pc/info/$index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/pc/info/$index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/pc/info/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/pc/info/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/pc/privilege/$index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/pc/privilege/$index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/pc/privilege/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/pc/privilege/index.css" afterDir="false" />
+    </list>
     <list id="950ab94b-c5cb-4b43-95e3-3accf7a742fe" name="22" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,7 +44,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/component/scrollBar" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -45,17 +58,17 @@
     <property name="ts.external.directory.path" value="C:\Users\admin\AppData\Local\JetBrains\Toolbox\apps\WebStorm\ch-0\192.6603.19\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\workSpace\my\reactApp\my-app" />
-      <recent name="D:\workSpace\my\reactApp\my-app\src\component\scrollBar" />
-      <recent name="D:\workSpace\my\reactApp\my-app\src\assets" />
-      <recent name="D:\workSpace\my\reactApp\my-app\docker" />
-      <recent name="D:\workSpace\my\reactApp\my-app\src\pages\pc\push" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\workSpace\my\reactApp\my-app" />
       <recent name="D:\workSpace\my\reactApp\my-app\src" />
       <recent name="D:\workSpace\my\reactApp\my-app\src\assets" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\workSpace\my\reactApp\my-app\src\component\scrollBar" />
+      <recent name="D:\workSpace\my\reactApp\my-app" />
+      <recent name="D:\workSpace\my\reactApp\my-app\src\assets" />
+      <recent name="D:\workSpace\my\reactApp\my-app\docker" />
+      <recent name="D:\workSpace\my\reactApp\my-app\src\pages\pc\push" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -131,14 +144,8 @@
       <workItem from="1568533934711" duration="4610000" />
       <workItem from="1568727474920" duration="8587000" />
       <workItem from="1568772739567" duration="923000" />
-      <workItem from="1568811924026" duration="6611000" />
-    </task>
-    <task id="LOCAL-00013" summary="init">
-      <created>1567938088489</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1567938088489</updated>
+      <workItem from="1568811924026" duration="7322000" />
+      <workItem from="1568897079355" duration="8740000" />
     </task>
     <task id="LOCAL-00014" summary="init">
       <created>1567947596971</created>
@@ -476,7 +483,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568818128314</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="init">
+      <created>1568820078204</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1568820078204</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

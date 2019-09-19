@@ -12,7 +12,7 @@
   display: block;
 }
 .phoneClassHide{
-  display: block;
+  display: none;
 }
 
 .classHeader {
@@ -95,7 +95,8 @@
 }
 
 .list {
-
+  width:100%;
+  height: 800px;
 }
 
 .block {
@@ -211,12 +212,9 @@
   .phoneClassShow{
     display: block;
   }
-  .phoneClassHide{
-    display: none;
-  }
   .container{
     width:100%;
-    padding:3.2rem 0;
+    padding:0;
   }
   .phoneHeader{
    display: block;
@@ -301,6 +299,9 @@
   }
   .shopInfoTop{
     padding-bottom: .5rem;
+  }
+  .list {
+    height: 60vh;
   }
 }
 

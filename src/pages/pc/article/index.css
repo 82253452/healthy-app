@@ -4,7 +4,7 @@
   padding: 1% 15% 1% 15%;
 }
 .scroll{
-  height: 90vh;
+  height: 600px;
   overflow:auto;
 }
 .phoneHeader{
@@ -234,5 +234,9 @@
   }
   .num {
     line-height: 2rem;
+  }
+  .scroll{
+    height: 90vh;
+    overflow:auto;
   }
 }

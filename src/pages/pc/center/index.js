@@ -108,7 +108,7 @@ function saveUser() {
             </div>
           </div>
           <div className={styles.contextRight}>
-            <div className={styles.contextRightHeader + ' ' + (clickType == 1 ? styles.show : styles.hidden)}>
+            <div className={styles.contextRightHeader + ' ' + (clickType === 1 ? styles.show : styles.hidden)}>
               <div className={articleType === 2 ? styles.contextRightHeaderSelect : null}
                    onClick={() => setArticleType(2)}>视频
               </div>
@@ -120,7 +120,7 @@ function saveUser() {
               {articles.map(article => (
                 <div onClick={()=>toInfo(article.id)} key={article.id} className={styles.block}>
                   <div className={styles.headerImg}><img className={styles.img}
-                                                         src={article.image}/>
+                                                         src={article.type===1?article.image:`${article.video}?vframe/jpg/offset/1`}/>
                   </div>
                   <div className={styles.blockInfo}>
                     <div className={styles.text}>{article.title}</div>

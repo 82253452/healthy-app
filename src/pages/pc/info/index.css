@@ -20,14 +20,15 @@
 }
 
 .phoneUserImg {
-  width: 4rem;
-  height: 4rem;
+  width: 3.5rem;
+  height: 3.5rem;
   border-radius: 50%;
   z-index: 1;
 }
 
 .videoPlay {
   width: 100%;
+  height: 40rem;
 }
 .contextContent{
   min-height: 10rem;
@@ -418,8 +419,8 @@
   position: absolute;
   top: 46vh;
   right: 10%;
-  width: 3rem;
-  height: 3rem;
+  width: 4rem;
+  height: 4rem;
   /*background: url("http://www.goisoda.cn/d/file/2018-04-11/1523415683326223.jpg") no-repeat;*/
   background-size: 100%;
   border-radius: 50%;
@@ -474,7 +475,7 @@
   padding: 6%;
   width: 88%;
   overflow-y: scroll;
-  height: 30rem;
+  height: 55vh;
 }
 
 .phoneCommentBlock {
@@ -528,6 +529,11 @@
 
 .phoneConnmentPraise {
   color: #49acf3;
+  font-size: 2rem !important;
+}
+
+.phoneConnmentPraiseNone {
+  color: #999999;
   font-size: 2rem !important;
 }
 .commentUserName{

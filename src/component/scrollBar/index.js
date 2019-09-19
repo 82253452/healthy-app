@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
+import styles from './index.css';
 
 export default function({children,loadData,hasMore}) {
   const [isLoding, setIsLoding] = useState(false);
@@ -21,6 +22,8 @@ export default function({children,loadData,hasMore}) {
 
   return (
     <Scrollbars
+      autoHide
+      className={styles.scroll}
       onScroll={loadFunc}
     >
       {children}
