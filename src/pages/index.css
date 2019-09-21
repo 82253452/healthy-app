@@ -276,8 +276,8 @@ img{
   }
   .normasl {
     width: 100%;
-    overflow-y: auto;
-    height: 100vh;
+    /* overflow-y: auto;
+    height: 100vh; */
   }
   .headerText {
     width: 100%;

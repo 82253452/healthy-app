@@ -24,35 +24,35 @@ export default {
   ],
   proxy: {
     '/common/*': {
-      target: 'http://localhost:8080',
+      target: 'https://zhihuizhan.net/api',
       changeOrigin: true,
     },
     '/article/*': {
-      target: 'http://localhost:8080',
+      target: 'https://zhihuizhan.net/api',
       changeOrigin: true,
     },
     '/comment/*': {
-      target: 'http://localhost:8080',
+      target: 'https://zhihuizhan.net/api',
       changeOrigin: true,
     },
     '/address/*': {
-      target: 'http://localhost:8080',
+      target: 'https://zhihuizhan.net/api',
       changeOrigin: true,
     },
     '/classify/*': {
-      target: 'http://localhost:8080',
+      target: 'https://zhihuizhan.net/api',
       changeOrigin: true,
     },
     '/shop/*': {
-      target: 'http://localhost:8080',
+      target: 'https://zhihuizhan.net/api',
       changeOrigin: true,
     },
     '/user/*': {
-      target: 'http://localhost:8080',
+      target: 'https://zhihuizhan.net/api',
       changeOrigin: true,
     },
     '/privilege/*': {
-      target: 'http://localhost:8080',
+      target: 'https://zhihuizhan.net/api',
       changeOrigin: true,
     },
   },

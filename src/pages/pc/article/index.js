@@ -23,7 +23,7 @@ export default function() {
       data && (data.data ? setArticles([...articles, ...data.data]) : console.log('无数据'));
       setIsLoding(false)
     });
-  }, [page]);
+  }, [articles, page]);
   const goBack = () => {
     window.history.go(-1);
   };
@@ -60,6 +60,7 @@ export default function() {
   }
 
   return (
+    <div className={styles.body}>
     <div className={styles.container}>
       <div className={styles.phoneHeader}>
         <div onClick={goBack} className={styles.phoneHeaderBack}>
@@ -85,8 +86,8 @@ export default function() {
             {articles.map(article =>
               (
                 <div className={styles.block} onClick={() => toInfo(article.id)}>
-                  <div className={styles.headerImg}>
-                    <img className={styles.img} src={article.type===1?article.image:`${article.video}?vframe/jpg/offset/1`}/>
+                  <div className={styles.headerImg} style={{backgroundImage:`url(${article.type===1?article.image:`${article.video}?vframe/jpg/offset/1`})`}}>
+                    {/* <img className={styles.img} src={article.type===1?article.image:`${article.video}?vframe/jpg/offset/1`}/> */}
                   </div>
                   <div className={styles.blockInfo}>
                     <div
@@ -114,6 +115,7 @@ export default function() {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }

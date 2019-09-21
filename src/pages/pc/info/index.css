@@ -1,6 +1,9 @@
 .container {
-  width: 70%;
-  padding: 1% 15% 1% 15%;
+  width: 1200px;
+  margin: 0 auto;
+  zoom:1;
+  overflow: hidden;
+  padding-top: 50px;
 }
 
 .contentLeft {
@@ -17,6 +20,7 @@
 }
 
 .video {
+  background: #dedede;
 }
 
 .phoneUserImg {
@@ -38,7 +42,7 @@
 
 .like {
   float: left;
-  font-size: 2.5rem !important;
+  font-size: 16px !important;
 }
 
 .red {
@@ -96,9 +100,8 @@
 
 .videoCommentInfo {
   float: left;
-  margin-left: 10px;
   width: 100%;
-  margin-top: 20px;
+  position: relative;
 }
 
 .addComment {
@@ -110,6 +113,9 @@
   color: #fff;
   background: #49acf3;
   text-align: center;
+  position: absolute;
+  top: -20px;
+  right: 0;
 }
 
 .address {
@@ -152,6 +158,10 @@
   text-align: left;
   line-height: 18px;
 }
+.body{
+  background: #f6f6f6;
+  padding-bottom: 30px;
+}
 
 .textLine {
   width: 8px;
@@ -177,7 +187,7 @@
 .contentRight {
   width: 34%;
   float: left;
-  padding: 3%;
+  padding-left: 40px;
 }
 
 .commentBlockHeader {
@@ -197,11 +207,17 @@
 
 .usercommentContent {
   float: left;
+  clear: both;
+  width: 100%;
+  box-sizing: border-box;
   padding-left: 3rem;
   margin-top: 1rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid #c3c4c5;
-  width: 90%;
+
+}
+.usercommentContent >div{
+  padding-left: 20px;
 
 }
 
@@ -329,12 +345,12 @@
 
 .phoneHeader {
   display: none;
-  padding-top: 1rem;
   line-height: 2rem;
   position: fixed;
   background: #fff;
   width: 100%;
-  top: 0;
+  top:0;
+  height: 70px;
 }
 
 .phoneHeaderBack {
@@ -366,31 +382,36 @@
 .phoneFooter {
   display: none;
   position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 2.5rem;
+  bottom:0;
+  width:100%;
+  height: 60px;
   background: #fff;
 }
 
-.footerTrans {
-  width: 3.4rem;
-  height: 3.4rem;
-  margin: 2rem auto;
+.footerTrans{
+  width:60px;
+  height: 60px;
   border-radius: 50%;
-  transform: rotate(180deg);
-  transform-origin: top;
   background: #fff;
-}
+  border: 3px solid #fff;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: -30px;
 
-.footerAdd {
+
+}
+.footerAdd{
   font-size: 3rem;
   margin: auto;
-  color: #fff;
-  line-height: 3rem;
-  background: #49acf3;
-  width: 3rem;
-  height: 3rem;
+  color:#fff;
+  line-height: 55px;
+  background:#49acf3;
+  width:60px;
+  height: 60px;
   border-radius: 50%;
+  
 }
 
 .phoneVideo {
@@ -400,6 +421,7 @@
 .phoneVideoPlayDiv {
   width: 100%;
   height: 88vh;
+  background: #dedede;
 }
 .phoneVideoPlay {
   -webkit-playsinline:webkit-playsinline;
@@ -465,26 +487,25 @@
 
 .phoneComment {
   width: 100%;
-  height: 70vh;
+  max-height: 70vh;
   position: fixed;
   bottom: 0;
   background: #fff;
 }
 
 .phoneCommentList {
-  padding: 6%;
-  width: 88%;
+  padding: 25px 25px 5rem 25px ;
   overflow-y: scroll;
-  height: 55vh;
+  max-height: 55vh;
 }
 
 .phoneCommentBlock {
-  padding-top:2rem;
+  padding-bottom:2rem;
 }
 
 .phoneCommentUser {
   line-height: 2rem;
-  height: 4rem;
+  /* height: 4rem; */
   text-align: left;
 }
 
@@ -509,7 +530,6 @@
 
 .phoneCommentChild > img {
   float: left;
-  margin-left: 1rem;
 }
 
 .userImgAvatarRaduSmal {
@@ -542,10 +562,9 @@
 
 .phonecommentInputDiv {
   position: fixed;
-  bottom: 2rem;
+  bottom: 0;
   width: 100%;
 }
-
 .phoneCommentInput {
   font-size: 2rem;
   width: 100%;
@@ -589,8 +608,64 @@
   float:left;
   margin-top:2rem;
 }
+.commmentListMore{
+  color: #49acf3;
+  font-size: 16px;
+  text-align: center;
+  padding: 15px 0;
+}
+.shareBox{
+  list-style: none;
+  float: right;
 
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  height: 36px;
+  overflow: hidden;
+  margin: 0;
+}
+.shareBox li{
+  margin-left: 12px;
+  font-size: 0;
+  line-height: normal
+}
 @media (max-width: 980px) {
+
+  .phoneCommentChild {
+    text-align: left;
+    clear: both;
+    font-size: .9rem;
+    margin-top: 1rem;
+    margin-left: 5rem;
+  }
+  
+  .phonecommentInputDiv >div>div:first-child{
+    margin-bottom: 0 !important;
+    padding: 15px 0;
+    border-left: 0;
+    border-right:0
+  
+  }
+  .phonecommentInputDiv >div>div:last-child{
+    display: none;
+  
+  }
+.phonecommentInputDiv>div>.options{
+  position: relative;
+}
   .contentLeft {
     display: none;
   }
@@ -610,11 +685,31 @@
 
   .phoneHeader {
     display: block;
-    height: 2.5rem;
+    height: 70px;
+
+
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
   }
 
   .phoneFooter {
     display: block;
+  }
+  .body{
+    padding: 0;
   }
 
 }

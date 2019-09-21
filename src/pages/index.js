@@ -225,27 +225,7 @@ export default function () {
           <img style={{ marginTop: '10rem', marginBottom: '10rem' }}
                src='http://pxczv9bs6.bkt.clouddn.com/40564633-3368-4334-823e-2a3dc9c56721' />
         </div>
-        <div className={styles.footer}>
-          <div style={{ width: '110rem', margin: 'auto' }}>
-            <div className={styles.footerBlock}>
-              <div className={styles.blockHeader}>特权服务</div>
-              {classifys.map(classify => <div className={styles.blockText}>{classify.name}</div>)}
-            </div>
-            <div className={styles.footerBlock} style={{ width: '6rem' }}>
-              <div className={styles.blockHeader}>分享</div>
-              {classifys.map(classify => <div className={styles.blockText}>{classify.name}</div>)}
-            </div>
-            <div className={styles.footerBlock}>
-              <div className={styles.blockHeader}>微信公众号</div>
-              <img src='http://pxczv9bs6.bkt.clouddn.com/425b3fea-63e6-4d8a-b098-049c20792586' />
-            </div>
-            <div className={styles.footerBlock} style={{ width: '15rem' }}>
-              <div className={styles.blockHeader}>联系我们</div>
-              <div className={styles.blockText}>企业邮箱：<span style={{ color: '#49acf3' }}>yang@revering.cn</span></div>
-              <div className={styles.blockText}>企业电话：<span style={{ color: '#49acf3' }}>+86 010-5826 4568</span></div>
-            </div>
-          </div>
-        </div>
+       
       </div>
       <div className={styles.phone}>
         <div>
@@ -323,6 +303,11 @@ export default function () {
             </div>
           </div>
           <img src={require(`@/assets/img003.jpg`)} />
+
+          <div className={styles.h5foter}>
+          <img src={require(`@/assets/img003_01.jpg`)} className={styles.h5_phone} />
+
+          </div>
 
         </div>
       </div>

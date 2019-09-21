@@ -121,6 +121,7 @@ export default function(props) {
 
   return (
     isloding ? '' :
+    <div className={styles.body}>
       <div className={styles.container}>
         <div onClick={goBack} className={styles.phoneHeader}>
           <div className={styles.phoneHeaderBack}>
@@ -174,6 +175,11 @@ export default function(props) {
             <div className={styles.addressText}>地址：苹果社区 <br/><br/>网址：www.baidu.com 电话：000000</div>
           </div>
           <div className={styles.videoCommentSource}>
+            <ul className={styles.shareBox}>
+            <li><img src={require('@/assets/icon001.png')}  alt=""/></li>
+            <li><img src={require('@/assets/icon002.png')}  alt=""/></li>
+            <li><img src={require('@/assets/icon003.png')}  alt=""/></li>
+            </ul>
             <img className={styles.userImgAvatarRadu}
                  src='http://www.goisoda.cn/d/file/2018-04-11/1523415683326223.jpg'/>
             &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;{article.nickName} &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一起来分享给朋友们看看把
@@ -200,7 +206,8 @@ export default function(props) {
                   <div className={styles.usercommentContent}>
                     <div dangerouslySetInnerHTML={{__html: comment.content}}></div>
                     {replayIndex===index&& <div><EmojiEditor content={content} emoji onChange={commentChange}/>
-                    <div className={styles.addComment} onClick={()=>addCommontReplayText(comment.id)}>确认</div>
+                    <div className={styles.videoCommentInfo}>
+                    <div className={styles.addComment} onClick={()=>addCommontReplayText(comment.id)}>确认</div></div>
                     </div>}
                     {comment.childList&&comment.childList.map(child=><div key={child.id} className={styles.phoneCommentChild}>
                       <img src={child.avatar}
@@ -213,6 +220,7 @@ export default function(props) {
                 </div>),
               )
             }
+            <div className={styles.commmentListMore}>查看更多</div>
           </div>
         </div>
         <div className={styles.contentRight}>
@@ -354,7 +362,7 @@ export default function(props) {
                 <span className={styles.userCommentChildUser}>@{child.nickName}</span>
                 <i className={'iconfont icon-icontypraise2 ' + styles.phoneConnmentPraise}></i>
                 <br/>
-                <div style={{fontSize:'1rem',paddingLeft:'5rem'}} dangerouslySetInnerHTML={{__html: child.content}}></div>
+                <div  dangerouslySetInnerHTML={{__html: child.content}}></div>
               </div>)}
             </div>)}
           </div>
@@ -365,6 +373,7 @@ export default function(props) {
             {/*<i className={'iconfont icon-icontypraise2 ' + styles.phoneCommentInputIcon}></i>*/}
           </div>
         </div>
+      </div>
       </div>
   );
 }
