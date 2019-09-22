@@ -195,7 +195,7 @@ export default function () {
               <div className="swiper-wrapper">
                 {articles.map(article => <div key={article.id} className="swiper-slide"><img
                   className={styles.swiperImg} onClick={() => router.push(`/pc/info/${article.id}`)}
-                  src={article.image} />
+                  src={article.type===1?article.image:(article.video+"?vframe/jpg/offset/1")} />
                   <div className={styles.listitemtitle}>
                     {article.title&&(article.title.length>5?article.title.substring(0,5):article.title)}
                     {/*<p>{article.context&&article.context.length>5?article.context.substring(0,5):article.context}</p>*/}
@@ -225,7 +225,7 @@ export default function () {
           <img style={{ marginTop: '10rem', marginBottom: '10rem' }}
                src='http://pxczv9bs6.bkt.clouddn.com/40564633-3368-4334-823e-2a3dc9c56721' />
         </div>
-       
+
       </div>
       <div className={styles.phone}>
         <div>

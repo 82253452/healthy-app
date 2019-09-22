@@ -10,6 +10,7 @@ import { addCommont, commentPraise, commontList } from '@/api/comment';
 import { EmojiEditor } from '@/component/editor/emoji';
 import router from 'umi/router';
 import Message from '@/component/alert/message';
+import { formatDate } from '@/utils/dateUtil';
 
 export default function(props) {
   const [isloding, setIsloding] = useState(true);
@@ -18,13 +19,12 @@ export default function(props) {
   const [comments, setComments] = useState([]);
   const [content, setContent] = useState('');
   const [phoneComment, setPhoneComment] = useState(false);
-  const [commonPage, setCommonPage] = useState({type: 1});
+  const [commonPage, setCommonPage] = useState({type: 1,pageNum:1,pageSize:5});
   const videoRef = useRef(null);
   const [replayIndex,setReplayIndex] = useState(null);
   const [videoStatus,setVideoStatus] = useState(false);
-
+  const [commentsHasMore,setCommentsHasMore] = useState(true);
   useEffect(() => {
-
     getArticleInfo(props.match.params.index).then(data => {
       data && data.data ? setArticle(data.data) : console.log('无数据');
       setIsloding(false);
@@ -35,8 +35,11 @@ export default function(props) {
     }).then(data => data && data.data ? setArticleAbout([...data.data]) : console.log('无数据'));
   }, [props.match.params.index]);
   useEffect(() => {
-    commontList({id: props.match.params.index,...commonPage}).then(data => data && data.data && setComments([...data.data.list]));
-  }, [commonPage, props.match.params.index,phoneComment]);
+    commontList({id: props.match.params.index,...commonPage}).then(data => {
+      data && data.data && data.data.list.length===0 &&setCommentsHasMore(false)
+      data && data.data && setComments([...comments,...data.data.list])
+    });
+  }, [commonPage, props.match.params.index, phoneComment]);
 
   function praise() {
     article.isPraise = !article.isPraise;
@@ -118,6 +121,27 @@ export default function(props) {
   const goHome = () => {
     window.location.href = '/';
   };
+  function shareToQQ() {
+    const _url = 'http://www.newsucai.cn';
+    const _title = 'safsd';
+    var _shareUrl = 'https://connect.qq.com/widget/shareqq/iframe_index.html?';
+    _shareUrl += 'url=' + encodeURIComponent(_url||window.location.href);   //分享的链接
+    _shareUrl += '&title=' + encodeURIComponent(_title||document.title);     //分享的标题
+    window.open(_shareUrl,'_blank');
+  }
+
+  function shareToXinlang() {
+    const _url = 'http://www.newsucai.cn';
+    const _title = 'safsd';
+    var _shareUrl = 'http://v.t.sina.com.cn/share/share.php?title="123"';     //真实的appkey，必选参数
+    _shareUrl += '&url='+ encodeURIComponent(_url||document.location);     //参数url设置分享的内容链接|默认当前页location，可选参数
+    _shareUrl += '&title=' + encodeURIComponent(_title||document.title);    //参数title设置分享的标题|默认当前页标题，可选参数
+    _shareUrl += '&source=' + encodeURIComponent(''||'');
+    _shareUrl += '&sourceUrl=' + encodeURIComponent(''||'');
+    _shareUrl += '&content=' + 'utf-8';   //参数content设置页面编码gb2312|utf-8，可选参数
+    _shareUrl += '&pic=' + encodeURIComponent(''||'');  //参数pic设置图片链接|默认为空，可选参数
+    window.open(_shareUrl,'_blank');
+  }
 
   return (
     isloding ? '' :
@@ -176,9 +200,13 @@ export default function(props) {
           </div>
           <div className={styles.videoCommentSource}>
             <ul className={styles.shareBox}>
-            <li><img src={require('@/assets/icon001.png')}  alt=""/></li>
-            <li><img src={require('@/assets/icon002.png')}  alt=""/></li>
-            <li><img src={require('@/assets/icon003.png')}  alt=""/></li>
+            <li><div className={styles.shareBlock}>
+              <img src={require('@/assets/icon001.png')}  alt=""/>
+              <img className={styles.shareBlockQrcode} src='http://pxczv9bs6.bkt.clouddn.com/Frhd-RKCPmYRta090EbusfC-1tJY'/>
+            </div>
+            </li>
+            <li><img src={require('@/assets/icon002.png')}  alt="" onClick={shareToXinlang}/></li>
+            <li><img src={require('@/assets/icon003.png')}  alt="" onClick={shareToQQ}/></li>
             </ul>
             <img className={styles.userImgAvatarRadu}
                  src='http://www.goisoda.cn/d/file/2018-04-11/1523415683326223.jpg'/>
@@ -196,7 +224,7 @@ export default function(props) {
                   <div className={styles.commentBlockHeader}>
                     <img className={styles.userImgAvatarRadu}
                          src={comment.avatar}/>
-                    <div className={styles.userCommentNick}>{comment.nickName}<br/>07-18</div>
+                    <div className={styles.userCommentNick}>{comment.nickName}<br/>{formatDate(new Date(comment.createTime),'MM-d')}</div>
                     <div className={styles.usercommentLike}>
                       <i className={'iconfont icon-like1 red ' + styles.like + ' ' + (comment.star ? styles.red : '')}
                          onClick={() => addCommentPraise(comment)}></i>
@@ -220,7 +248,7 @@ export default function(props) {
                 </div>),
               )
             }
-            <div className={styles.commmentListMore}>查看更多</div>
+            <div className={styles.commmentListMore} onClick={()=>setCommonPage({...commonPage,...{pageNum:commonPage.pageNum+1}})}>{commentsHasMore&&'查看更多'}</div>
           </div>
         </div>
         <div className={styles.contentRight}>
