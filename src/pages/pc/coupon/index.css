@@ -1,6 +1,8 @@
 .container {
-  width: 70%;
-  padding: 1% 15% 1% 15%;
+  width: 1200px;
+  margin: 0 auto;
+  zoom:1;
+  overflow: hidden;
 }
 
 .containerLeft {
@@ -77,6 +79,7 @@
   width: 100%;
   height: 1px;
   background: #bbbbbb;
+  margin-top: 10px;
 }
 
 .commentImg {
@@ -249,7 +252,7 @@
   width: 29%;
   float: left;
   margin-left: 1%;
-  height: 11rem;
+  /* height: 11rem; */
 }
 
 .rightMap {
@@ -261,11 +264,12 @@
 }
 
 .about {
-  width: 92%;
+  width: 100%;
   background: #fff;
   float: left;
   padding: 8%;
   margin-top: 1rem;
+  box-sizing: border-box;
   text-align: left;
 }
 
@@ -329,6 +333,11 @@
   border-radius: 100px;
 }
 
+.body{
+  background: #f6f6f6;
+  padding-top:30px; 
+  padding-bottom:60px 
+}
 @media (max-width: 980px) {
   .shopShare {
     display: none;

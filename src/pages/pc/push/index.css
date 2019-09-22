@@ -15,20 +15,23 @@
 }
 
 .commentContext {
-  width: 68%;
+  width: 100%;
   margin:auto;
-  height: 500px;
+  /* height: 500px; */
   background: #fff;
-  padding: 20px;
   text-align: left;
+  padding: 50px 0;
 }
 
 .commontInputTitle {
   border: none;
   width: 100%;
-  border-bottom: 1px solid #e5e5e5;
-  height: 30px;
-  margin-bottom: 10px;
+  border: 1px solid #e5e5e5;
+  height: 60px;
+  margin-bottom: 30px;
+  line-height: 60px;
+  padding-left: 20px;
+  box-sizing: border-box;
   margin-top:10px;
 }
 
@@ -245,25 +248,27 @@
   font-size: 2rem !important;
 }
 .buttonDiv{
-  width: 70%;
-  float:left;
+  width: 100%;
+  /* float:left; */
   margin-bottom: 2rem;
+  zoom:1;
+  overflow: hidden;
 }
 .button{
-  margin-top:1rem;
-  width:4rem;
-  height: 2rem;
+  width:60px;
   float:left;
   background: #999999;
   line-height: 2rem;
-  margin-left: 2rem;
   border-radius: 10px;
   text-align: center;
+  margin-right: 20px;
   color:#fff;
 }
 .header{
   background: #fff;
   color:#000;
+
+  text-align: right;
 }
 .buttonActive{
   background: #49acf3;
@@ -280,12 +285,17 @@
   text-align: center;
 }
 .classify{
-  width: 68%;
-  float:left;
+  width: 100%;
+  zoom:1;
+  overflow: hidden;
+  padding-bottom:20px;
 }
 .upload{
   clear: both;
-  padding:1rem;
+  padding-bottom:20px;
+
+  zoom:1;
+  overflow: hidden;
 }
 .uploadImg{
   width:4rem;
@@ -294,29 +304,73 @@
   text-align:center;
   line-height:4rem;
   float:left;
-  margin-left:1rem;
+  margin-right:20px;
   border-radius: 10px;
 }
 .headerImgTitle{
-  margin-top:1rem;
-  width:4rem;
+  width:60px;
   height: 2rem;
   float:left;
   line-height: 2rem;
-  margin-left: 1rem;
   border-radius: 10px;
-  text-align: center;
+  text-align: right;
+  margin-right: 20px;
 }
 @media (max-width: 980px) {
+  .zdyinput{
+    float: none;
+  }
+  .zdyinput >div {
+    position: relative;
+    width: 100%;
+  }
+  .zdyinput >div >div{
+    position: relative;
+    width: 100%;
+  }
+  .zdyinput >div >div >div{
+    position: relative;
+    width: 100%;
+  }
   .container {
-    width: 89%;
-    padding: 0;
+    padding: 0 35px;
+    box-sizing: border-box;
+    width: 100%;
   }
   .commentContext {
     width:100%;
   }
   .classify{
     width: 100%;
+  }
+  .button.header{
+    float: none;
+    width: 100%;
+    text-align: left;
+    padding-bottom: 12px;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .button{
+    float: none;
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    width: auto;
+    height: auto;
+    padding: 4px 12px;
+    border-radius: 50px;
+  }
+  .headerImgTitle{
+    float: none;
+    width: 100%;
+    padding-bottom: 12px;
+    text-align: left;
+    margin-bottom: 0;
+    font-size: 16px;
+    color: #000;
   }
 }
 

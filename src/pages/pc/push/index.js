@@ -1,4 +1,5 @@
 import styles from './index.css';
+import  '@/assets/style/style.css';
 import { EmojiEditor } from '@/component/editor/emoji';
 import { articleSave } from '@/api/article';
 import { useEffect, useState } from 'react';
@@ -74,14 +75,14 @@ export default function() {
         {
           article.type === 1 && <div className={styles.upload}>
             <div className={styles.headerImgTitle}>头图</div>
-            {article.image&&<img style={{width:'4rem',height:'4rem',float:'left',marginLeft:'1rem'}} src={article.image}/>}
+            {article.image&&<img style={{width:'4rem',height:'4rem',float:'left',marginRight:'1rem'}} src={article.image}/>}
             {!article.image &&<Qiniu onSuccess={imgSuccessUpload}><div className={styles.uploadImg}>+</div></Qiniu>}
           </div>
         }
         {
           article.type === 1 &&<div className={styles.upload}>
             <div className={styles.headerImgTitle}>图片详情</div>
-            {article.images&&article.images.split(',').map(m=><img key={m} style={{width:'4rem',height:'4rem',float:'left',marginLeft:'1rem'}} src={m}/>)}
+            {article.images&&article.images.split(',').map(m=><img key={m} style={{width:'4rem',height:'4rem',float:'left',marginRight:'1rem'}} src={m}/>)}
             {<Qiniu onSuccess={imgsSuccessUpload}><div className={styles.uploadImg}>+</div></Qiniu>}
           </div>
         }
@@ -94,7 +95,10 @@ export default function() {
         }
         <input className={styles.commontInputTitle} value={article.title} onChange={editorChange} placeholder='输入标题'/>
         {/*<textarea rows='25' className={styles.commontInputText} placeholder='添加正文'></textarea>*/}
-        <EmojiEditor emoji editorStyle={editorStyle} onChange={editroChange}/>
+        <div className={styles.zdy}>
+          <EmojiEditor emoji emojiStyleClass={styles.zdyinput} editorStyle={editorStyle} onChange={editroChange}/>
+
+        </div>
 
         <div className={styles.share} onClick={saveArticle}>发布分享</div>
       </div>

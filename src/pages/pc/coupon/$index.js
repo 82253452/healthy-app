@@ -27,10 +27,10 @@ export default function(props) {
       pageNum: 1,
       pageSize: 5,
     }).then(data => data && data.data ? setShopAbout(data.data) : console.log('无数据'));
-  }, []);
+  }, [props.match.params.index]);
   useEffect(() => {
     getCommonList();
-  }, [commonPage]);
+  }, [commonPage, getCommonList]);
   const editorStyle = {
     border: 'none',
     height: '4rem',
@@ -77,6 +77,7 @@ export default function(props) {
   var mapStyle = { height: '11rem' };
   return (
     isloding ? '' :
+    <div className={styles.body}>
       <div className={styles.container}>
         <div className={styles.containerLeft}>
           <div className={styles.shopHeader}>
@@ -215,6 +216,7 @@ export default function(props) {
           </div>
 
         </div>
+      </div>
       </div>
   );
 }

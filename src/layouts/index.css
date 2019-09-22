@@ -46,10 +46,12 @@
 }
 
 .centerHeader {
-  width: 70%;
-  height: 50px;
-  padding: 1% 15% 1% 15%;
-  border-bottom: 1px solid #fff;
+
+  width: 1200px;
+  height: 70px;
+  margin: 0 auto;
+  zoom: 1;
+  overflow: hidden;
   background: #49acf3;
 }
 
@@ -62,6 +64,10 @@
 }
 .top{
   border-bottom: 1px solid #999;
+}
+.centertop{
+  background: #49acf3;
+  border-bottom: 1px solid rgba(255, 255, 255, .2)
 }
 
 .footer {

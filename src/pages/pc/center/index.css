@@ -1,5 +1,7 @@
 .container {
   width: 100%;
+
+  background: #f1f1f1;
   /*padding: 1% 15% 1% 15%;*/
 }
 .hidden{
@@ -72,6 +74,7 @@
   background: #fff !important;
   border-radius: 50px !important;
   color: #49acf3 !important;
+  padding: 0 10px;
 }
 
 .headerList > span {
@@ -82,15 +85,17 @@
 
 
 .context {
-  width: 70%;
-  padding-left: 15%;
-  padding-right: 15%;
-  float: left;
+
+  width: 1200px;
+  margin: 0 auto;
+  zoom:1;
+  overflow: hidden;
+  margin-top: -200px;
+  padding-top: 50px;
 }
 
 .contextLeft {
-  width: 15rem;
-  height: 21em;
+  width: 20%;
   background: #fff;
   padding: 1rem;
   float: left;
@@ -109,15 +114,18 @@
 
 .hConetxtInfo {
   padding-top: 2rem;
+  clear: both;
+  text-align: center
 }
 
 .hConetxtInfo > div {
   width: 5rem;
-  float: left;
+  display: inline-block;
 }
 
 .hConetxtEdit {
   padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .hConetxtEdit > div {
@@ -133,7 +141,8 @@
 .contextRight {
   float: left;
   padding: 2rem;
-  width: 70%;
+  width: 78%;
+  box-sizing: border-box;
 
 }
 
@@ -286,7 +295,20 @@
   margin-top:5rem;
   text-align: center;
 }
-
+.menu{
+  text-align: left;
+  padding-top: 80px;
+  margin-bottom: 40px;
+}
+.menu div{
+  display: inline-block;
+  font-size: 16px;
+  color: #fff;
+}
+.menu span{
+ padding: 0 10px;
+ color: #fff;
+}
 
 
 

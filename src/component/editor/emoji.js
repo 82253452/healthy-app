@@ -34,7 +34,7 @@ export function EmojiEditor(props) {
                 onChange={editorState => editroChange(editorState)} readOnly={props.readOnly}/>
         {props.emoji && <EmojiSuggestions/>}
       </div>
-      <div className={styles.options} style={props.emojiStyle}>
+      <div className={styles.options+" "+ props.emojiStyleClass} style={props.emojiStyle}>
         {props.emoji && <EmojiSelect/>}
       </div>
     </div>
