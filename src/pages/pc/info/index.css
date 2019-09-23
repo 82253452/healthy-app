@@ -572,6 +572,10 @@
   bottom: 0;
   width: 100%;
 }
+.toUser{
+  float:left;
+  line-height: 5rem;
+}
 
 .phoneCommentInput {
   font-size: 2rem;

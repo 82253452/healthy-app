@@ -24,6 +24,8 @@ export default function(props) {
   const [replayIndex,setReplayIndex] = useState(null);
   const [videoStatus,setVideoStatus] = useState(false);
   const [commentsHasMore,setCommentsHasMore] = useState(true);
+  const [replayName,setReplayName] = useState('');
+  const [replayId,setReplayId] = useState('');
   useEffect(() => {
     getArticleInfo(props.match.params.index).then(data => {
       data && data.data ? setArticle(data.data) : console.log('无数据');
@@ -39,7 +41,7 @@ export default function(props) {
       data && data.data && data.data.list.length===0 &&setCommentsHasMore(false)
       data && data.data && setComments([...comments,...data.data.list])
     });
-  }, [commonPage, props.match.params.index, phoneComment]);
+  }, [commonPage, props.match.params.index]);
 
   function praise() {
     article.isPraise = !article.isPraise;
@@ -67,6 +69,8 @@ export default function(props) {
     addCommont({ topicId: article.id, type: 1, content: content }).then(data => {
       setContent('')
       setPhoneComment(false)
+      setReplayId('')
+      setReplayName('')
       Message.open('评论成功')
       setCommonPage({...commonPage})
     });
@@ -78,18 +82,30 @@ export default function(props) {
     }
     addCommont({ topicId: article.id, type: 1, content: content,pid:id }).then(data => {
       setContent('')
+      setPhoneComment(false)
+      setReplayId('')
+      setReplayName('')
       Message.open('回复成功')
       setReplayIndex(null)
       setCommonPage({...commonPage})
     });
   }
+  function checkContext() {
+    if(content==='<p><br></p>'){
+      Message.open('请填写评论内容！')
+      return false
+    }
+    return true
+  }
   function addPhoneCommontText() {
     if(content==='<p><br></p>'){
+      setReplayName('')
       setPhoneComment(false)
       return
     }
     // phoneComment&&setPhoneComment(false)
-    addCommontText()
+    replayId&&addCommontReplayText(replayId)
+    replayId||addCommontText()
   }
 
   function addCommentPraise(comment) {
@@ -377,7 +393,7 @@ export default function(props) {
         <div className={styles.phoneComment + ' ' + (phoneComment ? styles.showCainter : styles.hideCainter)}>
           <div className={styles.phoneCommentList}>
             {comments.map(comment => <div key={comment.id} className={styles.phoneCommentBlock}>
-              <div className={styles.phoneCommentUser}>
+              <div className={styles.phoneCommentUser} onClick={()=>{setReplayName(comment.nickName);setReplayId(comment.id)}}>
                 <img src={comment.avatar}
                      className={styles.userImgAvatarRadu}/>
                 <span className={styles.commentUserName}>{comment.nickName}</span>
@@ -388,13 +404,14 @@ export default function(props) {
                 <img src={child.avatar}
                      className={styles.userImgAvatarRaduSmal}/>
                 <span className={styles.userCommentChildUser}>@{child.nickName}</span>
-                <i className={'iconfont icon-icontypraise2 ' + styles.phoneConnmentPraise}></i>
+                <i className={'iconfont icon-icontypraise2 ' + (child.star ? styles.phoneConnmentPraise : styles.phoneConnmentPraiseNone)} onClick={() => addCommentPraise(child)}></i>
                 <br/>
                 <div  dangerouslySetInnerHTML={{__html: child.content}}></div>
               </div>)}
             </div>)}
           </div>
           <div className={styles.phonecommentInputDiv}>
+            <span className={styles.toUser}>{!!replayName && `@ ${replayName}`}</span>
             <EmojiEditor emoji content={content} editorStyle={{fontSize:'2rem',textAlign:'left',marginBottom:'.5rem'}} emojiStyle={{fontSize:'1rem',marginTop:'-3.2rem',marginRight:'6rem'}} onChange={commentChange} />
             <div className = {styles.phoneSend} onClick={addPhoneCommontText}>{(content==='<p><br></p>'||content==='')?'关闭':'发送'}</div>
             {/*<input placeholder='写下您的评论...' className={styles.phoneCommentInput}/>*/}
