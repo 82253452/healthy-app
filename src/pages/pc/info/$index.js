@@ -39,7 +39,8 @@ export default function(props) {
   useEffect(() => {
     commontList({id: props.match.params.index,...commonPage}).then(data => {
       data && data.data && data.data.list.length===0 &&setCommentsHasMore(false)
-      data && data.data && setComments([...comments,...data.data.list])
+      data && data.data &&commonPage.pageNum===1&& setComments(data.data.list)
+      data && data.data &&commonPage.pageNum!==1&& setComments([...comments,...data.data.list])
     });
   }, [commonPage, props.match.params.index]);
 
