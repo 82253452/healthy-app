@@ -37,14 +37,14 @@ export default function (props) {
       (classifyActive === -1 ? '' : classify[classifyActive]['id'])
     )
     setShopsParam({ ...shopsParam, ...{ classifyId }, ...{ addressId } })
-  }, [classifyActive, addressId, props.match.params.index, classify, shopsParam]);
+  }, [classifyActive, addressId, props.match.params.index, classify]);
 
   useEffect(() => {
     getShopIndex(shopsParam).then(data => {
       data.data && !data.data.length && setHasMore(false)
       data && data.data && setShops([...shops, ...data.data])
     });
-  }, [shopsParam, classify, props.match.params.index, shops]);
+  }, [shopsParam, classify, props.match.params.index]);
 
   function changeAddress(id, index) {
     setAddressActive(index);
@@ -119,7 +119,7 @@ export default function (props) {
             </div>
             <div className={styles.r} >
               <div className={styles.list + ' ' + (!phoneClassifyActive ? styles.phoneClassShow : styles.phoneClassHide)}>
-                <a className={styles.item} onClick={() => setClassifyActive(-1)}><span>不限</span></a>
+                <a className={styles.item+ ' ' + ((classifyActive===null||classifyActive===-1) && styles.classActive)} onClick={() => setClassifyActive(-1)}><span>不限</span></a>
                 {
                   classify.map(add => (<a key={add.id}
                     onClick={() => classifyClick(add.id, classify.indexOf(add))}
