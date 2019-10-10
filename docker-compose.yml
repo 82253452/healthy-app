@@ -4,7 +4,7 @@ networks:
     external:
       name: default-network
 services:
-  testadmin:
+  myapp:
     container_name: drone-myapp
     image: swr.cn-north-1.myhuaweicloud.com/a82253452/myapp
     ports:

@@ -10,7 +10,7 @@ steps:
       - name: cache-modules
         path: /drone/src/node_modules
       - name: cache-npm
-        path: /drone/src/npm-cache
+        path: /drone/src/.npm-cache
 
   - name: build-dist
     image: node:10
