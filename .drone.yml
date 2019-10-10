@@ -64,5 +64,5 @@ volumes:
     host:
       path: /tmp/cache/modules
   - name: cache-npm
-      host:
-        path: /tmp/cache/npmcache
+    host:
+      path: /tmp/cache/npmcache
