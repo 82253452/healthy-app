@@ -1,0 +1,702 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>特权服务</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="style/common.css">
+    <style>
+        .boxBg {
+            background: #fff;
+        }
+
+        .body {
+            padding-bottom: 50px;
+        }
+
+        .iconlist span {
+
+            background: #4db3f4;
+            color: #fff;
+            border-radius: 50px;
+            padding: 5px 15px;
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 12px;
+        }
+
+        .info {
+            padding: 15px;
+            box-sizing: border-box;
+            height: 145px;
+        }
+
+        .mapBox {
+            padding: 15px;
+            box-sizing: border-box;
+            height: 145px;
+        }
+
+        .info .ti {
+            font-size: 20px;
+            padding-bottom: 12px;
+        }
+
+        .info .ti span {
+            font-size: 14px;
+        }
+
+        .info p {}
+
+        .foinfo {
+            margin-top: 15px;
+        }
+
+        .riBox {
+            padding-left: 0 !important;
+        }
+
+        .message {
+            padding: 15px;
+        }
+
+        .message textarea {
+            width: 100%;
+            max-height: 50px;
+            border: 0;
+        }
+
+        .sumitBtn {
+            background: #4db3f4;
+            color: #fff;
+            border-radius: 50px;
+            padding: 5px 35px;
+            display: inline-block;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .Discount {
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        .boxTitle {
+            font-size: 14px;
+            border-bottom: 1px solid #dedede;
+            margin-bottom: 12px;
+        }
+
+        .boxTitle span {
+            padding-bottom: 10px;
+            display: inline-block;
+
+            border-bottom: 2px solid #4db3f4;
+        }
+
+        .listBoxX {
+            width: 100%;
+            overflow-x: scroll;
+            white-space: nowrap;
+        }
+
+        .listBoxX li {
+            display: inline-block;
+            border: 1px solid #eeeeee;
+            padding: 12px;
+            margin-right: 12px;
+            text-align: center;
+
+        }
+
+        .listBoxX li .top {
+            border-bottom: 1px solid #eeeeee;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+
+        .listBoxX li .top p {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .listBoxX li .PriceBox span {
+
+            background: #4db3f4;
+            color: #fff;
+            border-radius: 50px;
+            padding: 5px 35px;
+            display: inline-block;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .listBoxX li .PriceBox s {
+            display: block;
+            text-align: center;
+            color: #999;
+            font-size: 12px;
+            padding-top: 10px;
+        }
+
+        .listImg li {
+            float: left;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            width: 95px;
+            height: 95px;
+            overflow: hidden;
+        }
+
+        .messageList .msgBox {
+            overflow: hidden;
+        }
+
+        .messageList .tx {
+            margin-right: 15px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .messageList .tx img {
+            height: 100%;
+            width: auto
+        }
+
+        .messageList .tool .m {
+            text-align: right;
+        }
+
+        .messageList .tool .m img {
+            width: 15px;
+            height: auto;
+        }
+
+        .messageList .tool .bnt {
+            background: #4db3f4;
+            color: #fff;
+            font-size: 12px;
+            padding: 2px 10px;
+            margin-left: 20px;
+        }
+
+        .messageList .msgcn {
+            padding: 10px 0;
+        }
+
+        .messageList .msgBox {
+
+            border-bottom: 1px solid #e2e2e2;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+        }
+
+        @media (max-width: 767px) {
+
+            .listImg {
+                width: 100%;
+                overflow-x: scroll;
+                white-space: nowrap;
+            }
+
+            .listImg li {
+                float: none;
+                margin-right: 10px;
+                margin-bottom: 0;
+                width: 95px;
+                height: 95px;
+                display: inline-block;
+            }
+
+            .info {
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="header-upper">
+            <div class="auto-container clearfix">
+                <div class="logo left">
+                    <a href="index.html"><img src="images/logo.png" alt="Ecology"></a>
+                </div>
+
+                <div class="right clearfix">
+                    <div class="login  right">
+                        登录
+                    </div>
+                    <div class="tel right pc">
+                        +86 010-5826 4568
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </header>
+    <section class="body clearfix">
+        <div class="auto-container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="boxBg m_t20 clearfix info">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <div class="ti">慈铭奥亚体检中心 <span>私人医生组成的高端会员制体检中心</span></div>
+                                <div class="score"><span class="Star font_c">★★★★★</span> <span>2091条评论 客单价19000起</span>
+                                </div>
+                                <div class="foinfo">
+                                    <p>地址： 北京朝阳区北苑路91号院</p>
+                                    <p>电话： 400-010-0518</p>
+                                </div>
+                            </div>
+                            <div class="col-md-2 iconlist pc">
+                                <span>首次免费体验</span>
+                                <span>特价体验</span>
+                                <span>折扣特权</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="boxBg m_t15 clearfix message">
+                        <div class="row clearfix">
+                            <div class="col-md-12">
+                                <textarea name="" placeholder="写下我的点评吧" id="" cols="30" rows="10"></textarea>
+                                <div class="row clearfix">
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <img src="images/icon101.png" alt="">
+                                    </div>
+                                    <div class="col-md-6  col-sm-6  col-xs-6 clearfix">
+                                        <span class="right sumitBtn">发布</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="boxBg m_t15 clearfix Discount">
+                        <div class="boxTitle">
+                            <span>优惠</span>
+                        </div>
+                        <ul class="listBoxX">
+                            <li class="item">
+                                <div class="top">
+                                    <div class="name">体检A套餐</div>
+                                    <p>50+类；200+项</p>
+                                </div>
+                                <div class="PriceBox">
+                                    <span><i>¥</i>19,000</span>
+                                    <s>¥ 26000</s>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="top">
+                                    <div class="name">体检A套餐</div>
+                                    <p>50+类；200+项</p>
+                                </div>
+                                <div class="PriceBox">
+                                    <span><i>¥</i>19,000</span>
+                                    <s>¥ 26000</s>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="top">
+                                    <div class="name">体检A套餐</div>
+                                    <p>50+类；200+项</p>
+                                </div>
+                                <div class="PriceBox">
+                                    <span><i>¥</i>19,000</span>
+                                    <s>¥ 26000</s>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="top">
+                                    <div class="name">体检A套餐</div>
+                                    <p>50+类；200+项</p>
+                                </div>
+                                <div class="PriceBox">
+                                    <span><i>¥</i>19,000</span>
+                                    <s>¥ 26000</s>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="top">
+                                    <div class="name">体检A套餐</div>
+                                    <p>50+类；200+项</p>
+                                </div>
+                                <div class="PriceBox">
+                                    <span><i>¥</i>19,000</span>
+                                    <s>¥ 26000</s>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="top">
+                                    <div class="name">体检A套餐</div>
+                                    <p>50+类；200+项</p>
+                                </div>
+                                <div class="PriceBox">
+                                    <span><i>¥</i>19,000</span>
+                                    <s>¥ 26000</s>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="top">
+                                    <div class="name">体检A套餐</div>
+                                    <p>50+类；200+项</p>
+                                </div>
+                                <div class="PriceBox">
+                                    <span><i>¥</i>19,000</span>
+                                    <s>¥ 26000</s>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="top">
+                                    <div class="name">体检A套餐</div>
+                                    <p>50+类；200+项</p>
+                                </div>
+                                <div class="PriceBox">
+                                    <span><i>¥</i>19,000</span>
+                                    <s>¥ 26000</s>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="boxBg m_t15 clearfix Discount">
+                        <div class="boxTitle">
+                            <span>环境</span>
+                        </div>
+                        <ul class="listImg clearfix">
+                            <li class="item">
+                                <img src="images/my102.jpg" alt="">
+                            </li>
+                            <li class="item">
+                                <img src="images/my102.jpg" alt="">
+                            </li>
+                            <li class="item">
+                                <img src="images/my102.jpg" alt="">
+                            </li>
+                            <li class="item">
+                                <img src="images/my102.jpg" alt="">
+                            </li>
+                            <li class="item">
+                                <img src="images/my102.jpg" alt="">
+                            </li>
+                            <li class="item">
+                                <img src="images/my102.jpg" alt="">
+                            </li>
+                            <li class="item">
+                                <img src="images/my102.jpg" alt="">
+                            </li>
+                            <li class="item">
+                                <img src="images/my102.jpg" alt="">
+                            </li>
+                            <li class="item">
+                                <img src="images/my102.jpg" alt="">
+                            </li>
+                            <li class="item">
+                                <img src="images/my102.jpg" alt="">
+                            </li>
+                            <li class="item">
+                                <img src="images/my102.jpg" alt="">
+                            </li>
+                            <li class="item">
+                                <img src="images/my102.jpg" alt="">
+                            </li>
+                            <li class="item">
+                                <img src="images/my102.jpg" alt="">
+                            </li>
+                            <li class="item">
+                                <img src="images/my102.jpg" alt="">
+                            </li>
+                            <li class="item">
+                                <img src="images/my102.jpg" alt="">
+                            </li>
+                            <li class="item">
+                                <img src="images/my102.jpg" alt="">
+                            </li>
+                            <li class="item">
+                                <img src="images/my102.jpg" alt="">
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="boxBg m_t15 clearfix Discount ">
+                        <div class="boxTitle">
+                            <span>全部点评(699)</span>
+                        </div>
+                        <ul class="messageList clearfix">
+                            <li class="item clearfix">
+
+                                <div class="tx left">
+                                    <img src="images/my102.jpg" alt="">
+                                </div>
+                                <div class="msgBox">
+                                    <div class="name">我的ID</div>
+                                    <div class="msgcn">
+                                        终于在这个夏天回到了心心念念得北京了，so happy啦❗️第一件事就是找我最最爱的威廉老师设计一款全新的发
+                                        型～威廉老师特别有想法，在北京美发界是排的上名号的！我是被他......
+                                    </div>
+                                    <div class="tool row clearfix">
+                                        <div class="col-md-4 col-sm-4 col-xs-4">
+                                            7-19
+                                        </div>
+                                        <div class="col-md-8 col-sm-8  col-xs-8 m ">
+                                            <span><img src="images/like.png" alt=""> 233</span>
+                                            <span class="bnt">回复</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item clearfix">
+
+                                <div class="tx left">
+                                    <img src="images/my102.jpg" alt="">
+                                </div>
+                                <div class="msgBox">
+                                    <div class="name">我的ID</div>
+                                    <div class="msgcn">
+                                        终于在这个夏天回到了心心念念得北京了，so happy啦❗️第一件事就是找我最最爱的威廉老师设计一款全新的发
+                                        型～威廉老师特别有想法，在北京美发界是排的上名号的！我是被他......
+                                    </div>
+                                    <div class="tool row clearfix">
+                                        <div class="col-md-4 col-sm-4 col-xs-4">
+                                            7-19
+                                        </div>
+                                        <div class="col-md-8 col-sm-8  col-xs-8 m ">
+                                            <span><img src="images/like.png" alt=""> 233</span>
+                                            <span class="bnt">回复</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item clearfix">
+
+                                <div class="tx left">
+                                    <img src="images/my102.jpg" alt="">
+                                </div>
+                                <div class="msgBox">
+                                    <div class="name">我的ID</div>
+                                    <div class="msgcn">
+                                        终于在这个夏天回到了心心念念得北京了，so happy啦❗️第一件事就是找我最最爱的威廉老师设计一款全新的发
+                                        型～威廉老师特别有想法，在北京美发界是排的上名号的！我是被他......
+                                    </div>
+                                    <div class="tool row clearfix">
+                                        <div class="col-md-4 col-sm-4 col-xs-4">
+                                            7-19
+                                        </div>
+                                        <div class="col-md-8 col-sm-8  col-xs-8 m ">
+                                            <span><img src="images/like.png" alt=""> 233</span>
+                                            <span class="bnt">回复</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item clearfix">
+
+                                <div class="tx left">
+                                    <img src="images/my102.jpg" alt="">
+                                </div>
+                                <div class="msgBox">
+                                    <div class="name">我的ID</div>
+                                    <div class="msgcn">
+                                        终于在这个夏天回到了心心念念得北京了，so happy啦❗️第一件事就是找我最最爱的威廉老师设计一款全新的发
+                                        型～威廉老师特别有想法，在北京美发界是排的上名号的！我是被他......
+                                    </div>
+                                    <div class="tool row clearfix">
+                                        <div class="col-md-4 col-sm-4 col-xs-4">
+                                            7-19
+                                        </div>
+                                        <div class="col-md-8 col-sm-8  col-xs-8 m ">
+                                            <span><img src="images/like.png" alt=""> 233</span>
+                                            <span class="bnt">回复</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item clearfix">
+
+                                <div class="tx left">
+                                    <img src="images/my102.jpg" alt="">
+                                </div>
+                                <div class="msgBox">
+                                    <div class="name">我的ID</div>
+                                    <div class="msgcn">
+                                        终于在这个夏天回到了心心念念得北京了，so happy啦❗️第一件事就是找我最最爱的威廉老师设计一款全新的发
+                                        型～威廉老师特别有想法，在北京美发界是排的上名号的！我是被他......
+                                    </div>
+                                    <div class="tool row clearfix">
+                                        <div class="col-md-4 col-sm-4 col-xs-4">
+                                            7-19
+                                        </div>
+                                        <div class="col-md-8 col-sm-8  col-xs-8 m ">
+                                            <span><img src="images/like.png" alt=""> 233</span>
+                                            <span class="bnt">回复</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 riBox pc" >
+                    <div class="boxBg m_t20 clearfix mapBox">
+
+                    </div>
+
+                    <div class="boxBg m_t15 clearfix Discount  ">
+                        <div class="boxTitle">
+                            <span>相关推荐</span>
+                        </div>
+                        <ul class="messageList clearfix">
+                                <li class="item row clearfix" style="margin-bottom: 15px">
+    
+                                    <div class="col-md-4">
+                                        <img src="images/my102.jpg" alt="">
+                                    </div>
+                                    <div class="col-md-8"  style="padding-left: 0px">
+                                        <div class="name">店名店名店名(团结湖店)</div>
+                                        <span class="Star font_c">★★★★★</span> 
+                                        <div class="tool row clearfix">
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                    朝阳公园
+                                            </div>
+                                            <div class="col-md-6 col-sm-6  col-xs-6 ">
+                                                <span>人均693元</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="item row clearfix" style="margin-bottom: 15px">
+    
+                                    <div class="col-md-4">
+                                        <img src="images/my102.jpg" alt="">
+                                    </div>
+                                    <div class="col-md-8"  style="padding-left: 0px">
+                                        <div class="name">店名店名店名(团结湖店)</div>
+                                        <span class="Star font_c">★★★★★</span> 
+                                        <div class="tool row clearfix">
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                    朝阳公园
+                                            </div>
+                                            <div class="col-md-6 col-sm-6  col-xs-6 ">
+                                                <span>人均693元</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="item row clearfix" style="margin-bottom: 15px">
+    
+                                    <div class="col-md-4">
+                                        <img src="images/my102.jpg" alt="">
+                                    </div>
+                                    <div class="col-md-8"  style="padding-left: 0px">
+                                        <div class="name">店名店名店名(团结湖店)</div>
+                                        <span class="Star font_c">★★★★★</span> 
+                                        <div class="tool row clearfix">
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                    朝阳公园
+                                            </div>
+                                            <div class="col-md-6 col-sm-6  col-xs-6 ">
+                                                <span>人均693元</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="item row clearfix" style="margin-bottom: 15px">
+    
+                                    <div class="col-md-4">
+                                        <img src="images/my102.jpg" alt="">
+                                    </div>
+                                    <div class="col-md-8"  style="padding-left: 0px">
+                                        <div class="name">店名店名店名(团结湖店)</div>
+                                        <span class="Star font_c">★★★★★</span> 
+                                        <div class="tool row clearfix">
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                    朝阳公园
+                                            </div>
+                                            <div class="col-md-6 col-sm-6  col-xs-6 ">
+                                                <span>人均693元</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="item row clearfix" style="margin-bottom: 15px">
+    
+                                    <div class="col-md-4">
+                                        <img src="images/my102.jpg" alt="">
+                                    </div>
+                                    <div class="col-md-8"  style="padding-left: 0px">
+                                        <div class="name">店名店名店名(团结湖店)</div>
+                                        <span class="Star font_c">★★★★★</span> 
+                                        <div class="tool row clearfix">
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                    朝阳公园
+                                            </div>
+                                            <div class="col-md-6 col-sm-6  col-xs-6 ">
+                                                <span>人均693元</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer ">
+        <div class="auto-container pc ">
+            <div class="row clearfix">
+                <div class="col-md-2">
+                    <h3 class="ti">特权服务</h3>
+                    <ul class="navlist">
+                        <li><a href="#">美容</a></li>
+                        <li><a href="#">塑形</a></li>
+                        <li><a href="#">美甲</a></li>
+                        <li><a href="#">细胞</a></li>
+                        <li><a href="#">体检</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h3 class="ti">分享</h3>
+                    <ul class="navlist">
+                        <li><a href="#">美容</a></li>
+                        <li><a href="#">塑形</a></li>
+                        <li><a href="#">美甲</a></li>
+                        <li><a href="#">细胞</a></li>
+                        <li><a href="#">体检</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-8">
+                    <div class="row clearfix">
+
+                        <div class="col-md-6">
+
+                            <h3 class="ti">分享</h3>
+                            <div class="imglist">
+                                <img src="images/icon07.jpg" alt="">
+                                <img src="images/icon08.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+
+                            <h3 class="ti">联系我们</h3>
+                            <div class="navlist">
+                                <p>企业邮箱：yang@revering.cn</p>
+                                <p>联系电话：+86 010-5826 4568</p>
+                                <p><img src="images/icon09.png" alt=""></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="images/img003_01.jpg" class="h5" alt="">
+
+    </footer>
+</body>
+
+</html>

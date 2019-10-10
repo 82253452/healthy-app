@@ -162,264 +162,241 @@ export default function(props) {
 
   return (
     isloding ? '' :
-    <div className={styles.body}>
-      <div className={styles.container}>
-        <div onClick={goBack} className={styles.phoneHeader}>
-          <div className={styles.phoneHeaderBack}>
-            <img className={styles.phoneHeaderBackImg} src={back}/>
-          </div>
-          分享健康 分享美丽
-          <div onClick={goHome} className={styles.phoneHeaderHome}>
-            <img className={styles.phoneHeaderHomeImg} src={home}/>
-          </div>
-        </div>
-        <div className={styles.contentLeft}>
-          <div className={styles.video}>
-            {article.type===2&& <video controls='controls' className={styles.videoPlay}
-                                       src={article.video}/>}
-          </div>
-          <div className={styles.videoInfo}>
-            <div dangerouslySetInnerHTML={{__html: article.context}}></div>
-            {/*{article.context}*/}
-          </div>
-          <div className={styles.videoInfo}>
-            {article.type===1&&article.images&&article.images.split(',').map(m=><img style={{width:'4rem',height:'4rem',marginLeft:'1rem'}} src={m}/>)}
-          </div>
-          <div className={styles.videoPraise}>
-            <i className={'iconfont icon-like1 ' + styles.like + ' ' + (article.isPraise ? styles.red : '')}
-               onClick={praise}></i>
-            <div className={styles.num}>{article.praiseNum}</div>
-            <i className={'iconfont icon-pinglun ' + styles.like}></i>
-            <div className={styles.num}>{article.commentNum}</div>
-            {/*<img className={styles.like} src={keep}/>*/}
-            <i className={'iconfont icon-shoucang ' + styles.like + ' ' + (article.isKeep ? styles.red : '')}
-               onClick={keep}></i>
-            <div className={styles.num}>{article.keepNum}</div>
-          </div>
-          <div className={styles.videoComment}>
-            <div className={styles.userImgDiv}>
-              <img src={article.avatar} className={styles.userImgAvatar}/>
-            </div>
-            <div className={styles.userInputDiv}>
-              <EmojiEditor content={content} emoji onChange={commentChange}/>
-              {/*<input className={styles.userInput} value={content} onChange={commentChange}/>*/}
-              <div className={styles.videoCommentInfo}>
-                {/*<i className={'iconfont icon-like1 ' + styles.like} onClick={praise}></i>*/}
-                {/*<i className={'iconfont icon-like1 ' + styles.like} onClick={praise}></i>*/}
-                {/*<i className={'iconfont icon-like1 ' + styles.like} onClick={praise}></i>*/}
-                <div className={styles.addComment} onClick={addCommontText}>评论</div>
+      <section className="body clearfix">
+        {/*pc*/}
+        <div className="auto-container pc">
+          <div className={`${styles.filterBox} ${styles.boxBg} m_t20`}>
+            <div className={`${styles.classify} clearfix ${styles.lBox}`}>
+              <div className={`${styles.name}`}>
+                <span>分类:</span>
+              </div>
+              <div className={`${styles.list}`}>
+                <ul className="clearfix">
+                  <li><span>不限</span></li>
+                  <li className={`${styles.active}`}><span>美容/SPA</span></li>
+                  <li><span>美甲美瞳</span></li>
+                  <li><span>医学美容</span></li>
+                  <li><span>瑜伽</span></li>
+                  <li><span>舞蹈</span></li>
+                  <li><span>纹绣</span></li>
+                  <li><span>瘦身纤体</span></li>
+                  <li><span>纹身</span></li>
+                  <li><span>祛痘</span></li>
+                </ul>
               </div>
             </div>
-            </div>
-          <div className={styles.videoCommentAddress}>
-            <img className={styles.address} src={address}/>
-            <div className={styles.addressText}>地址：苹果社区 <br/><br/>网址：www.baidu.com 电话：000000</div>
-          </div>
-          <div className={styles.videoCommentSource}>
-            <ul className={styles.shareBox}>
-            <li><div className={styles.shareBlock}>
-              <img src={require('@/assets/icon001.png')}  alt=""/>
-              <img className={styles.shareBlockQrcode} src='http://pxczv9bs6.bkt.clouddn.com/Frhd-RKCPmYRta090EbusfC-1tJY'/>
-            </div>
-            </li>
-            <li><img src={require('@/assets/icon002.png')}  alt="" onClick={shareToXinlang}/></li>
-            <li><img src={require('@/assets/icon003.png')}  alt="" onClick={shareToQQ}/></li>
-            </ul>
-            <img className={styles.userImgAvatarRadu}
-                 src='http://www.goisoda.cn/d/file/2018-04-11/1523415683326223.jpg'/>
-            &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;{article.nickName} &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一起来分享给朋友们看看把
-            {/*<img className={styles.shareArticle} src={like}/>*/}
-          </div>
-          <div className={styles.videoCommentAuther}>
-            <div className={styles.textLine}></div>
-            <span>&nbsp;&nbsp;笔记评论</span>
-          </div>
-          <div className={styles.commmentList}>
-            {
-              comments.map((comment,index) =>
-                (<div key={comment.id} className={styles.commentBlock}>
-                  <div className={styles.commentBlockHeader}>
-                    <img className={styles.userImgAvatarRadu}
-                         src={comment.avatar}/>
-                    <div className={styles.userCommentNick}>{comment.nickName}<br/>{formatDate(new Date(comment.createTime),'MM-d')}</div>
-                    <div className={styles.usercommentLike}>
-                      <i className={'iconfont icon-like1 red ' + styles.like + ' ' + (comment.star ? styles.red : '')}
-                         onClick={() => addCommentPraise(comment)}></i>
-                      &nbsp;&nbsp;{comment.praiseNum}&nbsp;&nbsp; <span onClick={()=>setReplayIndex(index)}>回复</span>
-                    </div>
-                  </div>
-                  <div className={styles.usercommentContent}>
-                    <div dangerouslySetInnerHTML={{__html: comment.content}}></div>
-                    {replayIndex===index&& <div><EmojiEditor content={content} emoji onChange={commentChange}/>
-                    <div className={styles.videoCommentInfo}>
-                    <div className={styles.addComment} onClick={()=>addCommontReplayText(comment.id)}>确认</div></div>
-                    </div>}
-                    {comment.childList&&comment.childList.map(child=><div key={child.id} className={styles.phoneCommentChild}>
-                      <img src={child.avatar}
-                           className={styles.userImgAvatarRaduSmal}/>
-                      <span className={styles.userCommentChildUser}>@{child.nickName}</span>
-                      <br/>
-                      <div style={{fontSize:'1rem',paddingLeft:'2rem'}} dangerouslySetInnerHTML={{__html: child.content}}></div>
-                    </div>)}
-                  </div>
-                </div>),
-              )
-            }
-            <div className={styles.commmentListMore} onClick={()=>setCommonPage({...commonPage,...{pageNum:commonPage.pageNum+1}})}>{commentsHasMore&&'查看更多'}</div>
-          </div>
-        </div>
-        <div className={styles.contentRight}>
-          <div onClick={()=>router.push('/pc/push')} className={styles.share}>开始分享</div>
-          <div className={styles.auther}>
-            <div className={styles.autherTitle}>发布者</div>
-            <div className={styles.autherInfo}>
-              <img className={styles.userImgAvatarRadu}
-                   src='http://www.goisoda.cn/d/file/2018-04-11/1523415683326223.jpg'/>
-              <div className={styles.autherInfoText}>{article.nickName}<br/>分享世界 喜欢你我</div>
-            </div>
-            <div className={styles.show}>
-              浏览量<br/>{article.browseNum}
-            </div>
-            <div className={styles.keep}>
-              获赞与收藏<br/>{article.praiseNum + article.keepNum}
-            </div>
-
-          </div>
-          <div className={styles.about}>
-            相关笔记
-          </div>
-          <div className={styles.aboutList}>
-            {articleAbout.map(about => (
-              <div key={about.id} className={styles.aboutListBlock} onClick={()=>toInfo(about.id)}>
-                <img className={styles.aboutListImg} src={about.avatar}/>
-                <div>
-                  <div
-                    className={styles.aboutText}>{about.title && (about.title.lenght >= 20 ? about.title.substring(0, 20) : about.title)}</div>
-                  <div className={styles.aboutLikeDiv}>
-                    <i className={'iconfont icon-like1 ' + styles.like + ' ' + (about.isPraise ? styles.red : '')}></i>
-                    &nbsp;&nbsp;&nbsp;{about.praiseNum}
-                  </div>
+            <div className={`${styles.regionBox} ${styles.lBox} clearfix`}>
+              <div className={`${styles.name}`}>
+                <span>地区:</span>
+              </div>
+              <div className={`${styles.list}`}>
+                <ul className="clearfix">
+                  <li><span>不限</span></li>
+                  <li><span>热门商区</span></li>
+                  <li className={`${styles.active}`}><span>行政区</span></li>
+                  <li><span>地铁线</span></li>
+                </ul>
+                <div className={`${styles.childrenBox}`}>
+                  <a><span>国贸</span></a>
+                  <a className={`${styles.active}`}><span>三里屯</span></a>
+                  <a><span>南锣鼓巷</span></a>
+                  <a><span>王府井/东单</span> </a>
+                  <a><span>中关村</span></a>
+                  <a><span>五道口</span></a>
+                  <a><span>亚运村</span></a>
+                  <a><span>五棵松</span></a>
+                  <a><span>工人体育场</span></a>
                 </div>
               </div>
-            ))}
-          </div>
-          <div onClick={()=>router.push('/pc/article')} className={styles.more}>
-            查看更多
+            </div>
           </div>
         </div>
-        {article.type===1&&<div className={styles.phoneVideo}>
-          <div className={styles.phoneArticleContent}>
-            <div style={{float:'left',width:'100%'}}>
-              <img className={styles.userImgAvatarRadu} src={article.avatar}/>
-              <div style={{float:'left',marginLeft:'2rem',lineHeight:'2rem'}}>{article.nickName}</div>
-              <div className={styles.articleContext} dangerouslySetInnerHTML={{__html: article.context}}></div>
-              <div className={styles.articleImages}>
-                {article.images&&article.images.split(',').map(m=><img style={{width:'40%',height:'4rem'}} src={m}/>)}
+        {/*pc end*/}
+        {/*h5*/}
+        <div className={`container h5 ${styles.boxBg}`}>
+          <div className={`${styles.h5filterBox} row`}>
+            <div className={`${styles.navtop} clearfix`}>
+              <span className={`${styles.active} clearfix`}>分类<i></i></span>
+              <span>地区 <i></i></span>
+            </div>
+            <div className={`${styles.classify} hide`}>
+              <div className={`${styles.list}`}>
+                <ul className="clearfix">
+                  <li><span>不限</span></li>
+                  <li className={`${styles.active}`}><span>美容/SPA</span></li>
+                  <li><span>美甲美瞳</span></li>
+                  <li><span>医学美容</span></li>
+                  <li><span>瑜伽</span></li>
+                  <li><span>舞蹈</span></li>
+                  <li><span>纹绣</span></li>
+                  <li><span>瘦身纤体</span></li>
+                  <li><span>纹身</span></li>
+                  <li><span>祛痘</span></li>
+                </ul>
               </div>
             </div>
-            <div className={styles.videoCommentAuther}>
-              <div className={styles.textLine}></div>
-              <span>&nbsp;&nbsp;笔记评论</span>
+            <div className={`${styles.regionBox}`}>
+              <div className="list clearfix">
+                <ul>
+                  <li><span>不限</span></li>
+                  <li><span>热门商区</span></li>
+                  <li className="active"><span>行政区</span></li>
+                  <li><span>地铁线</span></li>
+                  <li><span>地铁线</span></li>
+                  <li><span>地铁线</span></li>
+                  <li><span>地铁线</span></li>
+                  <li><span>地铁线</span></li>
+                  <li><span>地铁线</span></li>
+                  <li><span>地铁线</span></li>
+                  <li><span>地铁线</span></li>
+                  <li><span>地铁线</span></li>
+                </ul>
+                <div className={`${styles.childrenBox}`}>
+                  <a><span>国贸</span></a>
+                  <a className="active"><span>三里屯</span></a>
+                  <a><span>南锣鼓巷</span></a>
+                  <a><span>王府井/东单</span> </a>
+                  <a><span>中关村</span></a>
+                  <a><span>五道口</span></a>
+                  <a><span>亚运村</span></a>
+                  <a><span>五棵松</span></a>
+                  <a><span>工人体育场</span></a>
+                </div>
+              </div>
             </div>
-            <div className={styles.commmentList}>
-              {
-                comments.map((comment,index) =>
-                  (<div key={comment.id} className={styles.commentBlock}>
-                    <div className={styles.commentBlockHeader}>
-                      <img className={styles.userImgAvatarRadu}
-                           src={comment.avatar}/>
-                      <div className={styles.userCommentNick}>{comment.nickName}<br/>07-18</div>
-                      <div className={styles.usercommentLike}>
-                        <i className={'iconfont icon-like1 red ' + styles.like + ' ' + (comment.star ? styles.red : '')}
-                           onClick={() => addCommentPraise(comment)}></i>
-                        &nbsp;&nbsp;{comment.praiseNum}&nbsp;&nbsp; <span onClick={()=>setReplayIndex(index)}>回复</span>
+          </div>
+        </div>
+        {/*h5 end*/}
+        <div className={`ReceiveVIP ${styles.boxBg} m_t20 container`}>
+          <div className="">
+            <img src={require("@/assets/vipimg.jpg")} alt=""/>
+          </div>
+        </div>
+        <div className={` ${styles.sortBox} container ${styles.boxBg} m_t20`}>
+          <a href="#">智能</a>
+          |
+          <a href="#">好评</a>
+          |
+          <a href="#">人气</a>
+          |
+          <a href="#">效果</a>
+        </div>
+        <div className={`auto-container ${styles.psListBox} clearfix`}>
+          <div className={`col-md-12 ${styles.boxBg} m_t20 clearfix`}>
+            <a>
+              <div className="img left" className={`img left`}>
+                <img src={require("@/assets/my04.jpg")} alt=""/>
+              </div>
+              <div className={` ${styles.ri}`}>
+                <div className={` ${styles.cn}`}>
+                  <div className={` ${styles.top} clearfix`}>
+                    <div className="row">
+                      <div className="col-md-10">
+                        <div className={` ${styles.ti}`}>医学美容店店名</div>
+                        <div className={` ${styles.score}`}><span className="Star font_c">★★★★★</span> <span
+                          className="font_c">5分 141人评论</span></div>
+                        <p>医学美容 朝阳公园/团结湖 甜水西园22号楼1层2号105 联系电话：0000000 </p>
+                        <p>人均¥148</p>
+                      </div>
+                      <div className={`col-md-2 ${styles.iconlist} pc`}>
+                        <span>首次免费体验</span>
+                        <span>特价体验</span>
+                        <span>折扣特权</span>
                       </div>
                     </div>
-                    <div className={styles.usercommentContent}>
-                      <div dangerouslySetInnerHTML={{__html: comment.content}}></div>
-                      {replayIndex===index&& <div><EmojiEditor content={content} emoji onChange={commentChange}/>
-                        <div className={styles.addComment} onClick={()=>addCommontReplayText(comment.id)}>确认</div>
-                      </div>}
-                      {comment.childList&&comment.childList.map(child=><div key={child.id} className={styles.phoneCommentChild}>
-                        <img src={child.avatar}
-                             className={styles.userImgAvatarRaduSmal}/>
-                        <span className={styles.userCommentChildUser}>@{child.nickName}</span>
-                        <br/>
-                        <div style={{fontSize:'1rem',paddingLeft:'2rem'}} dangerouslySetInnerHTML={{__html: child.content}}></div>
-                      </div>)}
-                    </div>
-                  </div>),
-                )
-              }
-            </div>
-          </div>
-
-        </div>}
-        {article.type===2&&<div className={styles.phoneVideo}>
-          <div className={styles.phoneVideoPlayDiv} onClick={playVideo}>
-            <video  className={styles.phoneVideoPlay} ref={videoRef} playsInline webkit-playsinline=""  x5-video-player-type="h5-page" preload="auto" x-webkit-airplay="allow"
-                   src={article.video} poster={`${article.video}?vframe/jpg/offset/1`}/>
-          </div>
-          {/*<img className={styles.phoneVideoPlayButton} src={play}/>*/}
-          {!videoStatus&&<i className={'iconfont icon-right ' + styles.phoneVideoPlayButton}  onClick={playVideo}></i>}
-          <div className={styles.phoneVideoPlayAvatar}>
-            <img className={styles.phoneUserImg} src={article.avatar}/>
-            {/*<i className={'iconfont icon-add1 '+ styles.phoneVideoPlayAvatarLike}></i>*/}
-            {/*<img className={styles.phoneVideoPlayAvatarLike} src={add}/>*/}
-          </div>
-          <div className={styles.phoneVideoPlayPrise}>
-            <i
-              className={'iconfont icon-icontypraise2 ' + styles.phoneVideoPlayPriseLike + ' ' + (article.isPraise ? styles.red : '')}
-              onClick={praise}></i>
-            <br/>
-            {article.praiseNum}
-            <br/>
-            <br/>
-            <i className={'iconfont icon-comment ' + styles.phoneVideoPlayPriseComment} src={commentFill}
-               onClick={() => {setPhoneComment(true)}}/><br/>
-            {comments.length}
-            <br/>
-            <br/>
-            <i className={'iconfont icon-share ' + styles.phoneVideoPlayPriseShare} src={share}/><br/>
-            {article.shareNum}
-          </div>
-        </div>}
-        <div className={styles.phoneFooter}>
-          <div className={styles.footerTrans}>
-            <div onClick={()=>router.push('/pc/push')} className={styles.footerAdd}>
-              +
-            </div>
-          </div>
-        </div>
-        <div className={styles.phoneComment + ' ' + (phoneComment ? styles.showCainter : styles.hideCainter)}>
-          <div className={styles.phoneCommentList}>
-            {comments.map(comment => <div key={comment.id} className={styles.phoneCommentBlock}>
-              <div className={styles.phoneCommentUser} onClick={()=>{setReplayName(comment.nickName);setReplayId(comment.id)}}>
-                <img src={comment.avatar}
-                     className={styles.userImgAvatarRadu}/>
-                <span className={styles.commentUserName}>{comment.nickName}</span>
-                <i className={'iconfont icon-icontypraise2 ' + (comment.star ? styles.phoneConnmentPraise : styles.phoneConnmentPraiseNone)} onClick={() => addCommentPraise(comment)}></i>
-                <div style={{fontSize:'1rem',paddingLeft:'5rem'}} dangerouslySetInnerHTML={{__html: comment.content}}></div>
+                  </div>
+                  <ul className={`${styles.list}`}>
+                    <li>
+                      <p>面部祛痘买它就对了（店长推荐）</p>
+                      <p><span className="font_c">¥66 </span> 门市价¥188 已售5460</p>
+                    </li>
+                    <li>
+                      <p>面部祛痘买它就对了（店长推荐）</p>
+                      <p><span className="font_c">¥66 </span> 门市价¥188 已售5460</p>
+                    </li>
+                    <span className={`${styles.more}`}>查看更多优惠</span>
+                  </ul>
+                </div>
               </div>
-              {comment.childList&&comment.childList.map(child=><div key={child.id} className={styles.phoneCommentChild}>
-                <img src={child.avatar}
-                     className={styles.userImgAvatarRaduSmal}/>
-                <span className={styles.userCommentChildUser}>@{child.nickName}</span>
-                <i className={'iconfont icon-icontypraise2 ' + (child.star ? styles.phoneConnmentPraise : styles.phoneConnmentPraiseNone)} onClick={() => addCommentPraise(child)}></i>
-                <br/>
-                <div  dangerouslySetInnerHTML={{__html: child.content}}></div>
-              </div>)}
-            </div>)}
+            </a>
           </div>
-          <div className={styles.phonecommentInputDiv}>
-            <span className={styles.toUser}>{!!replayName && `@ ${replayName}`}</span>
-            <EmojiEditor emoji content={content} editorStyle={{fontSize:'2rem',textAlign:'left',marginBottom:'.5rem'}} emojiStyle={{fontSize:'1rem',marginTop:'-3.2rem',marginRight:'6rem'}} onChange={commentChange} />
-            <div className = {styles.phoneSend} onClick={addPhoneCommontText}>{(content==='<p><br></p>'||content==='')?'关闭':'发送'}</div>
-            {/*<input placeholder='写下您的评论...' className={styles.phoneCommentInput}/>*/}
-            {/*<i className={'iconfont icon-icontypraise2 ' + styles.phoneCommentInputIcon}></i>*/}
+          <div className={`col-md-12 ${styles.boxBg} m_t20 clearfix`}>
+            <a href="serviceShow.html">
+              <div className="img left" className={`img left`}>
+                <img src={require("@/assets/my04.jpg")} alt=""/>
+              </div>
+              <div className={` ${styles.ri}`}>
+                <div className={` ${styles.cn}`}>
+                  <div className={` ${styles.top} clearfix`}>
+                    <div className="row">
+                      <div className="col-md-10">
+                        <div className={` ${styles.ti}`}>医学美容店店名</div>
+                        <div className={` ${styles.score}`}><span className="Star font_c">★★★★★</span> <span
+                          className="font_c">5分 141人评论</span></div>
+                        <p>医学美容 朝阳公园/团结湖 甜水西园22号楼1层2号105 联系电话：0000000 </p>
+                        <p>人均¥148</p>
+                      </div>
+                      <div className={`col-md-2 ${styles.iconlist} pc`}>
+                        <span>首次免费体验</span>
+                        <span>特价体验</span>
+                        <span>折扣特权</span>
+                      </div>
+                    </div>
+                  </div>
+                  <ul className={`${styles.list}`}>
+                    <li>
+                      <p>面部祛痘买它就对了（店长推荐）</p>
+                      <p><span className="font_c">¥66 </span> 门市价¥188 已售5460</p>
+                    </li>
+                    <li>
+                      <p>面部祛痘买它就对了（店长推荐）</p>
+                      <p><span className="font_c">¥66 </span> 门市价¥188 已售5460</p>
+                    </li>
+                    <span className={`${styles.more}`}>查看更多优惠</span>
+                  </ul>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div className={`col-md-12 ${styles.boxBg} m_t20 clearfix`}>
+            <a href="serviceShow.html">
+              <div className="img left" className={`img left`}>
+                <img src={require("@/assets/my04.jpg")} alt=""/>
+              </div>
+              <div className={` ${styles.ri}`}>
+                <div className={` ${styles.cn}`}>
+                  <div className={` ${styles.top} clearfix`}>
+                    <div className="row">
+                      <div className="col-md-10">
+                        <div className={` ${styles.ti}`}>医学美容店店名</div>
+                        <div className={` ${styles.score}`}><span className="Star font_c">★★★★★</span> <span
+                          className="font_c">5分 141人评论</span></div>
+                        <p>医学美容 朝阳公园/团结湖 甜水西园22号楼1层2号105 联系电话：0000000 </p>
+                        <p>人均¥148</p>
+                      </div>
+                      <div className={`col-md-2 ${styles.iconlist} pc`}>
+                        <span>首次免费体验</span>
+                        <span>特价体验</span>
+                        <span>折扣特权</span>
+                      </div>
+                    </div>
+                  </div>
+                  <ul className={`${styles.list}`}>
+                    <li>
+                      <p>面部祛痘买它就对了（店长推荐）</p>
+                      <p><span className="font_c">¥66 </span> 门市价¥188 已售5460</p>
+                    </li>
+                    <li>
+                      <p>面部祛痘买它就对了（店长推荐）</p>
+                      <p><span className="font_c">¥66 </span> 门市价¥188 已售5460</p>
+                    </li>
+                    <span className={`${styles.more}`}>查看更多优惠</span>
+                  </ul>
+                </div>
+              </div>
+            </a>
           </div>
         </div>
-      </div>
-      </div>
+      </section>
   );
 }

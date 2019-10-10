@@ -72,7 +72,7 @@ export default function (props) {
   function getRates(value) {
     const render = []
     for (let i = 0; i < value; i++) {
-      render.push(<i className={'iconfont icon-star'} style={{ color: '#49acf3' }}></i>)
+      render.push(<i>★</i>)
     }
     return render
   }
@@ -94,149 +94,162 @@ export default function (props) {
   }
 
   return (
-
-    <div className={styles.body}>
-      <div className={styles.container}>
-        <div onClick={goBack} className={styles.phoneHeader}>
-          <div className={styles.phoneHeaderBack}>
-            <img className={styles.phoneHeaderBackImg} src={back} />
-          </div>
-          分享健康 分享美丽
-        <div onClick={goHome} className={styles.phoneHeaderHome}>
-            <img className={styles.phoneHeaderHomeImg} src={home} />
-          </div>
-        </div>
-        <div className={styles.conHeader}>
-          {/* h5 */}
-          <ul className={styles.h5menu}>
-          <li onClick={() => setPhoneClassifyActive(false)}><span>分类</span></li>
-          <li onClick={() => setPhoneClassifyActive(true)}><span>地点</span></li>
-          </ul>
-          {/* menu */}
-          <div className={styles.menu}>
-            <div className={styles.l} onClick={() => setPhoneClassifyActive(false)}>
+    <section className="body clearfix">
+      {/*pc*/}
+      <div className="auto-container pc">
+        <div className={`${styles.filterBox} ${styles.boxBg} m_t20`}>
+          <div className={`${styles.classify} clearfix ${styles.lBox}`}>
+            <div className={`${styles.name}`}>
               <span>分类:</span>
             </div>
-            <div className={styles.r} >
-              <div className={styles.list + ' ' + (!phoneClassifyActive ? styles.phoneClassShow : styles.phoneClassHide)}>
-                <a className={styles.item+ ' ' + ((classifyActive===null||classifyActive===-1) && styles.classActive)} onClick={() => setClassifyActive(-1)}><span>不限</span></a>
+            <div className={`${styles.list}`}>
+              <ul className="clearfix">
+                <li className={styles.item+ ' ' + ((classifyActive===null||classifyActive===-1) && styles.active)} onClick={() => setClassifyActive(-1)}><span>不限</span></li>
                 {
-                  classify.map(add => (<a key={add.id}
-                    onClick={() => classifyClick(add.id, classify.indexOf(add))}
-                    className={styles.item + ' ' + (classify.indexOf(add) === classifyActive && styles.classActive)}><span>{add.name}</span></a>))
+                  classify.map(add => ( <li key={add.id} onClick={() => classifyClick(add.id, classify.indexOf(add))} className={classify.indexOf(add) === classifyActive && styles.active}><span>{add.name}</span></li>))
                 }
-              </div>
+              </ul>
             </div>
           </div>
-
-          {/* menu */}
-          <div className={styles.menu}>
-            <div className={styles.l} onClick={() => setPhoneClassifyActive(true)}>
-              <span>地点:</span>
+          <div className={`${styles.regionBox} ${styles.lBox} clearfix`}>
+            <div className={`${styles.name}`}>
+              <span>地区:</span>
             </div>
-            <div className={styles.r} >
-              <div className={styles.list+' '+ styles.addressBox+ ' ' + (phoneClassifyActive ? styles.phoneClassShow : styles.phoneClassHide)} >
-                <div className={styles.itemlistBox}>
-                <a onClick={() => { setAddressActive(null); setAddressSec([]); setAddressId(null) }} className={styles.item}><span>不限</span></a>
+            <div className={`${styles.list}`}>
+              <ul className="clearfix">
+                <li  onClick={() => { setAddressActive(null); setAddressSec([]); setAddressId(null) }}><span>不限</span></li>
                 {
                   addressFir.map(address => (
-                    <a key={address.id}
-                      className={styles.item + ' ' + (addressFir.indexOf(address) === addressActive ? styles.active : '')}
-                      onClick={() => changeAddress(address.id, addressFir.indexOf(address))}><span>{address.name}</span></a>))
+                    <li key={address.id}
+                       className={styles.item + ' ' + (addressFir.indexOf(address) === addressActive ? styles.active : '')}
+                       onClick={() => changeAddress(address.id, addressFir.indexOf(address))}><span>{address.name}</span></li>))
                 }
-                </div>
-                <div className={styles.itemAddressChild}>
-                  {
-                    addressSec.map(address => (
-                      <a onClick={() => setAddressId(address.id)} key={address.id}
-                        className={styles.item + ' ' + styles.classActive}><span>{address.name}</span></a>))
-                  }
-                </div>
+              </ul>
+              <div className={`${styles.childrenBox}`}>
+                {
+                  addressSec.map(address => (
+                    <a onClick={() => setAddressId(address.id)} key={address.id}
+                       className={styles.item + ' ' + styles.classActive}><span>{address.name}</span></a>))
+                }
               </div>
             </div>
           </div>
-          {/* <div className={styles.classHeaterDiv}>
-
-            <div className={styles.classHeader} onClick={()=>setPhoneClassifyActive(false)}>
-            <span>分类</span>
-            <i className={'iconfont '+(phoneClassifyActive?'icon-right':'icon-bottom')+' ' + styles.classHeaderRightIcon}></i>
-          </div>
-          <div className={styles.classHeader} onClick={()=>setPhoneClassifyActive(true)}>
-            <span>地点</span>
-            <i className={'iconfont '+(!phoneClassifyActive?'icon-right':'icon-bottom')+' ' + styles.classHeaderRightIcon}></i>
-          </div>
-          </div> */}
-          {/* <div className={styles.classInfoDiv}>
-            <div className={styles.classInfo + ' ' + (!phoneClassifyActive ? styles.phoneClassShow : styles.phoneClassHide)}>
-              <a className={styles.classButton} onClick={() => setClassifyActive(-1)}>不限</a>
-              {
-                classify.map(add => (<a key={add.id}
-                  onClick={() => classifyClick(add.id, classify.indexOf(add))}
-                  className={styles.classButton + ' ' + (classify.indexOf(add) === classifyActive && styles.classActive)}>{add.name}</a>))
-              }
-            </div>
-            <div className={styles.addressInfo + ' ' + (phoneClassifyActive ? styles.phoneClassShow : styles.phoneClassHide)}>
-              <a onClick={() => { setAddressActive(null); setAddressSec([]); setAddressId(null) }} className={styles.classButton + ' ' + styles.classButtonLeft}>不限</a>
-              <div className={styles.addressAdd}>
-                <div className={styles.hotAddress}>
-                  {
-                    addressFir.map(address => (
-                      <a key={address.id}
-                        className={styles.addressButton + ' ' + (addressFir.indexOf(address) === addressActive ? styles.active : '')}
-                        onClick={() => changeAddress(address.id, addressFir.indexOf(address))}>{address.name}</a>))
-                  }
-                </div>
-                <div className={styles.addressChild}>
-                  {
-                    addressSec.map(address => (
-                      <a onClick={() => setAddressId(address.id)} key={address.id}
-                        className={styles.addressButton + ' ' + styles.active}>{address.name}</a>))
-                  }
-                </div>
-              </div>
-            </div>
-          </div> */}
-        </div>
-        <div className={styles.advertise} onClick={getPrivilege}>
-          <img className={styles.adImg} src={privilege} />
-        </div>
-        <div className={styles.list}>
-          <Scrollbar
-            loadData={loadData}
-            hasMore={hasMore}
-          >
-            {
-              shops.map(shop => (
-                <div key={shop.id} className={styles.block}>
-                  <img className={styles.shopImg} src={shop.image} />
-                  <div className={styles.shopInfo}>
-                    <div className={styles.shopInfoTop}>
-                      <div className={styles.shopText}>
-                        <div style={{ fontSize: '2rem' }}>{shop.name}</div>
-                        <div style={{ paddingTop: '1rem' }}>
-                          {getRates(shop.rate)}
-                          {shop.rate} 分</div>
-                        <div style={{ paddingTop: '1rem' }}>{shop.classifyName} {shop.address} {shop.phone}</div>
-                        <div style={{ paddingTop: '1rem' }}>人均 ￥{shop.percapita}</div>
-                      </div>
-                      <div className={styles.shopButtonDiv}>
-                        <div className={styles.shopButton}>首次免费体检</div>
-                        <div className={styles.shopButton}>提价体检</div>
-                        <div className={styles.shopButton}>折扣特权</div>
-                      </div>
-                    </div>
-                    <div className={styles.shopContext}>
-                      {/*<div>面部祛痘买它就对</div>*/}
-                      {/*<div>66 门市价188 已售5460</div>*/}
-                      <div className={styles.shopMore} onClick={() => toCoupon(shop.id)}>查看更多优惠</div>
-                    </div>
-                  </div>
-                </div>
-              ))
-            }
-          </Scrollbar>
         </div>
       </div>
-    </div>
+      {/*pc end*/}
+      {/*h5*/}
+      <div className={`container h5 ${styles.boxBg}`}>
+        <div className={`${styles.h5filterBox} row`}>
+          <div className={`${styles.navtop} clearfix`}>
+            <span className={`${styles.active} clearfix`}>分类<i></i></span>
+            <span>地区 <i></i></span>
+          </div>
+          <div className={`${styles.classify} hide`}>
+            <div className={`${styles.list}`}>
+              <ul className="clearfix">
+                <li><span>不限</span></li>
+                <li className={`${styles.active}`}><span>美容/SPA</span></li>
+                <li><span>美甲美瞳</span></li>
+                <li><span>医学美容</span></li>
+                <li><span>瑜伽</span></li>
+                <li><span>舞蹈</span></li>
+                <li><span>纹绣</span></li>
+                <li><span>瘦身纤体</span></li>
+                <li><span>纹身</span></li>
+                <li><span>祛痘</span></li>
+              </ul>
+            </div>
+          </div>
+          <div className={`${styles.regionBox}`}>
+            <div className="list clearfix">
+              <ul>
+                <li><span>不限</span></li>
+                <li><span>热门商区</span></li>
+                <li className="active"><span>行政区</span></li>
+                <li><span>地铁线</span></li>
+                <li><span>地铁线</span></li>
+                <li><span>地铁线</span></li>
+                <li><span>地铁线</span></li>
+                <li><span>地铁线</span></li>
+                <li><span>地铁线</span></li>
+                <li><span>地铁线</span></li>
+                <li><span>地铁线</span></li>
+                <li><span>地铁线</span></li>
+              </ul>
+              <div className={`${styles.childrenBox}`}>
+                <a><span>国贸</span></a>
+                <a className="active"><span>三里屯</span></a>
+                <a><span>南锣鼓巷</span></a>
+                <a><span>王府井/东单</span> </a>
+                <a><span>中关村</span></a>
+                <a><span>五道口</span></a>
+                <a><span>亚运村</span></a>
+                <a><span>五棵松</span></a>
+                <a><span>工人体育场</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/*h5 end*/}
+      <div className={`ReceiveVIP ${styles.boxBg} m_t20 container`}>
+        <div className="">
+          <img src={require("@/assets/vipimg.jpg")} alt=""/>
+        </div>
+      </div>
+      <div className={` ${styles.sortBox} container ${styles.boxBg} m_t20`}>
+        <a href="#">智能</a>
+        |
+        <a href="#">好评</a>
+        |
+        <a href="#">人气</a>
+        |
+        <a href="#">效果</a>
+      </div>
+      <div className={`auto-container ${styles.psListBox} clearfix`}>
+        {
+          shops.map(shop => (
+            <div className={`col-md-12 ${styles.boxBg} m_t20 clearfix`}>
+              <a>
+                <div className="img left">
+                  <img src={shop.image} alt=""/>
+                </div>
+                <div className={`${styles.ri}`}>
+                  <div className={`${styles.cn}`}>
+                    <div className={`${styles.top} clearfix`}>
+                      <div className="row">
+                        <div className="col-md-10">
+                          <div className={` ${styles.ti}`}>{shop.name}</div>
+                          <div className={` ${styles.score}`}><span className="Star font_c">{getRates(shop.rate)}</span> <span
+                            className="font_c">{shop.rate}分 141人评价</span></div>
+                          <p>{shop.classifyName} {shop.address} 联系电话： {shop.phone}</p>
+                          <p>人均¥{shop.percapita}</p>
+                        </div>
+                        <div className={`col-md-2 ${styles.iconlist} pc`}>
+                          <span>首次免费体验</span>
+                          <span>特价体验</span>
+                          <span>折扣特权</span>
+                        </div>
+                      </div>
+                    </div>
+                    <ul className={`${styles.list}`}>
+                      <li>
+                        <p>面部祛痘买它就对了（店长推荐）</p>
+                        <p><span className="font_c">¥66 </span> 门市价¥188 已售5460</p>
+                      </li>
+                      <li>
+                        <p>面部祛痘买它就对了（店长推荐）</p>
+                        <p><span className="font_c">¥66 </span> 门市价¥188 已售5460</p>
+                      </li>
+                      <span className={`${styles.more}`} onClick={() => toCoupon(shop.id)}>查看更多优惠</span>
+                    </ul>
+                  </div>
+                </div>
+              </a>
+            </div>
+          ))
+        }
+      </div>
+    </section>
   );
 }

@@ -1,0 +1,707 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>特权服务</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="style/common.css">
+    <style>
+        .boxBg {
+            background: #fff;
+        }
+
+        .filterBox {
+            padding: 10px 0;
+        }
+
+        .filterBox .lBox {
+            padding: 10px 0;
+        }
+
+        .filterBox .lBox .name span {
+            padding: 3px 0px;
+            display: inline-block;
+        }
+
+        .filterBox .lBox .name {
+            float: left;
+            width: 5%;
+            text-align: center;
+        }
+
+        .filterBox .lBox .list {
+            float: left;
+            width: 95%;
+        }
+
+        .filterBox .lBox .list ul li {
+            float: left;
+            margin-left: 15px;
+            margin-right: 15px;
+            cursor: pointer;
+        }
+
+        .filterBox .lBox .list ul li:hover span {
+            color: #4db3f4
+        }
+
+        .filterBox .lBox .list ul li span {
+            padding: 3px 10px;
+            border-radius: 50px;
+            display: inline-block;
+        }
+
+        .filterBox .lBox .list ul li.active span {
+            background: #4db3f4;
+            color: #fff;
+        }
+
+        .filterBox .lBox .childrenBox {
+            background: #fafafa;
+            margin-left: 15px;
+            margin-right: 15px;
+            border: 1px solid #f4f4f4;
+            padding: 10px 0;
+            margin-top: -1px;
+
+        }
+
+        .filterBox .lBox .childrenBox a {
+
+            margin-left: 15px;
+            margin-right: 15px;
+            color: #000;
+            cursor: pointer;
+        }
+
+        .filterBox .lBox .childrenBox a.active {
+            color: #4db3f4
+        }
+
+        .filterBox .lBox.regionBox .list ul li span {
+            padding: 5px 15px;
+        }
+
+        .filterBox .lBox.regionBox .list ul li.active span {
+            background: #fafafa;
+            color: #000;
+            border-radius: 0;
+            border: 1px solid #f4f4f4;
+            border-bottom: 0;
+        }
+
+        .sortBox {
+            text-align: right;
+            padding: 10px 20px;
+
+        }
+
+        .sortBox a {
+            color: #333;
+            padding: 0 15px;
+
+        }
+
+        .psListBox {
+            padding-bottom: 80px;
+        }
+
+        .psListBox .boxBg {
+            padding: 15px;
+        }
+
+        .psListBox .boxBg a {
+            color: #333;
+        }
+
+        .psListBox .boxBg .ri {
+            overflow: hidden;
+        }
+
+        .psListBox .boxBg .ri .cn {
+            margin-left: 15px;
+        }
+
+        .psListBox .boxBg .ri .cn .top {
+            border-bottom: 1px dashed #f4f4f4;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+        .psListBox .boxBg .ri .cn .top .ti {
+           font-size: 16px;
+           padding-bottom: 10px;
+        }
+        .psListBox .boxBg .ri .cn .top .score {
+           padding-bottom: 10px;
+        }
+        .psListBox .boxBg .ri .cn .list li {
+           padding-bottom: 10px;
+        }
+        .psListBox .boxBg .ri .cn .list .more {
+           
+            background: #4db3f4;
+            color: #fff;
+            border-radius: 50px;
+            padding: 5px 15px;
+            display: inline-block
+        }
+        .iconlist span{
+            
+            background: #4db3f4;
+            color: #fff;
+            border-radius: 50px;
+            padding: 2px 15px;
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 12px;
+        }
+
+        @media (max-width: 767px) {
+            .psListBox.auto-container {
+                padding: 0 0 10px 0;
+            }
+
+            .psListBox.auto-container .left {
+                float: none;
+                width: 100%;
+                overflow: hidden;
+            }
+
+            .psListBox.auto-container .left img {
+                width: 100%;
+            }
+
+            .psListBox .boxBg .ri .cn {
+                margin-left: 0px;
+                margin-top: 15px;
+            }
+
+            .sortBox {
+                text-align: center
+            }
+
+            .h5filterBox .navtop {
+                border-bottom: 1px solid #f4f4f4;
+            }
+
+            .h5filterBox .navtop span {
+                float: left;
+                width: 50%;
+                line-height: 40px;
+                text-align: center;
+            }
+
+            .h5filterBox .navtop span i {
+                display: inline-block;
+                width: 0;
+                height: 0;
+                border-left: 5px solid transparent;
+                border-right: 5px solid transparent;
+                border-top: 5px solid #333;
+                margin-left: 10px;
+                transform: rotate(-90deg);
+                -ms-transform: rotate(-90deg);
+                /* IE 9 */
+                -moz-transform: rotate(-90deg);
+                /* Firefox */
+                -webkit-transform: rotate(-90deg);
+                /* Safari 和 Chrome */
+                margin-bottom: 3px;
+            }
+
+            .h5filterBox .navtop span.active i {
+                transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                /* IE 9 */
+                -moz-transform: rotate(0deg);
+                /* Firefox */
+                -webkit-transform: rotate(0deg);
+                /* Safari 和 Chrome */
+
+                border-top: 5px solid #4db3f4;
+            }
+
+            .h5filterBox .classify .list {
+                padding: 15px;
+            }
+
+            .h5filterBox .classify li {
+                float: left;
+                padding: 5px 10px;
+            }
+
+            .h5filterBox .classify li.active span {
+                color: #4db3f4;
+                border: 1px solid #4db3f4;
+                border-radius: 50px;
+                padding: 2px 10px;
+            }
+
+            .h5filterBox .regionBox ul {
+                float: left;
+                width: 30%;
+                height: 200px;
+                overflow-y: scroll;
+            }
+
+            .h5filterBox .regionBox ul li {
+                text-align: center;
+                line-height: 35px;
+
+                border-bottom: 1px solid #f4f4f4;
+            }
+
+            .h5filterBox .regionBox ul li.active {
+                background: #fbfbfb;
+            }
+
+            .h5filterBox .regionBox .childrenBox {
+                float: left;
+                width: 70%;
+                background: #fbfbfb;
+                height: 200px;
+                overflow-y: scroll;
+            }
+
+            .h5filterBox .regionBox .childrenBox a {
+                display: block;
+                border-bottom: 1px solid #f4f4f4;
+                line-height: 35px;
+                color: #000;
+                padding: 0 20px;
+            }
+
+            .h5filterBox .regionBox .childrenBox a.active {
+                color: #4db3f4;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="header-upper">
+            <div class="auto-container clearfix">
+                <div class="logo left">
+                    <a href="index.html"><img src="images/logo.png" alt="Ecology"></a>
+                </div>
+
+                <div class="right clearfix">
+                    <div class="login  right">
+                        登录
+                    </div>
+                    <div class="tel right pc">
+                        +86 010-5826 4568
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </header>
+    <section class="body clearfix">
+        <!-- pc -->
+        <div class="auto-container pc">
+            <div class="filterBox  boxBg m_t20 ">
+                <div class="classify clearfix lBox">
+                    <div class="name">
+                        <span>分类:</span>
+                    </div>
+                    <div class="list">
+                        <ul class="clearfix">
+                            <li><span>不限</span></li>
+                            <li class="active"><span>美容/SPA</span></li>
+                            <li><span>美甲美瞳</span></li>
+                            <li><span>医学美容</span></li>
+                            <li><span>瑜伽</span></li>
+                            <li><span>舞蹈</span></li>
+                            <li><span>纹绣</span></li>
+                            <li><span>瘦身纤体</span></li>
+                            <li><span>纹身</span></li>
+                            <li><span>祛痘</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="regionBox clearfix lBox">
+                    <div class="name">
+                        <span>地区:</span>
+                    </div>
+                    <div class="list">
+                        <ul class="clearfix">
+                            <li><span>不限</span> </li>
+                            <li><span>热门商区</span> </li>
+                            <li class="active"><span>行政区</span> </li>
+                            <li><span>地铁线</span></li>
+                        </ul>
+                        <div class="childrenBox">
+                            <a><span>国贸</span></a>
+                            <a class="active"><span>三里屯</span></a>
+                            <a><span>南锣鼓巷</span></a>
+                            <a><span>王府井/东单</span> </a>
+                            <a><span>中关村</span></a>
+                            <a><span>五道口</span></a>
+                            <a><span>亚运村</span></a>
+                            <a><span>五棵松</span></a>
+                            <a><span>工人体育场</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- pc end -->
+        <!-- h5 -->
+        <div class="container h5 boxBg">
+            <div class="h5filterBox row">
+                <div class="navtop clearfix">
+                    <span class="active">分类<i></i></span>
+                    <span>地区 <i></i></span>
+                </div>
+                <div class="classify hide">
+                    <div class="list">
+                        <ul class="clearfix">
+                            <li><span>不限</span></li>
+                            <li class="active"><span>美容/SPA</span></li>
+                            <li><span>美甲美瞳</span></li>
+                            <li><span>医学美容</span></li>
+                            <li><span>瑜伽</span></li>
+                            <li><span>舞蹈</span></li>
+                            <li><span>纹绣</span></li>
+                            <li><span>瘦身纤体</span></li>
+                            <li><span>纹身</span></li>
+                            <li><span>祛痘</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="regionBox">
+                    <div class="list clearfix">
+                        <ul>
+                            <li><span>不限</span> </li>
+                            <li><span>热门商区</span> </li>
+                            <li class="active"><span>行政区</span> </li>
+                            <li><span>地铁线</span></li>
+                            <li><span>地铁线</span></li>
+                            <li><span>地铁线</span></li>
+                            <li><span>地铁线</span></li>
+                            <li><span>地铁线</span></li>
+                            <li><span>地铁线</span></li>
+                            <li><span>地铁线</span></li>
+                            <li><span>地铁线</span></li>
+                            <li><span>地铁线</span></li>
+                        </ul>
+                        <div class="childrenBox">
+                            <a><span>国贸</span></a>
+                            <a class="active"><span>三里屯</span></a>
+                            <a><span>南锣鼓巷</span></a>
+                            <a><span>王府井/东单</span> </a>
+                            <a><span>中关村</span></a>
+                            <a><span>五道口</span></a>
+                            <a><span>亚运村</span></a>
+                            <a><span>五棵松</span></a>
+                            <a><span>工人体育场</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- h5 end -->
+        <div class="ReceiveVIP boxBg m_t20  container">
+            <div class="">
+                <img src="images/vipimg.jpg" alt="">
+            </div>
+        </div>
+        <div class="sortBox container  boxBg m_t20 ">
+            <a href="#">智能</a>
+            |
+            <a href="#">好评</a>
+            |
+            <a href="#">人气</a>
+            |
+            <a href="#">效果</a>
+        </div>
+        <div class="auto-container psListBox clearfix ">
+            <div class="col-md-12 boxBg m_t20 clearfix">
+                <a href="serviceShow.html">
+                    <div class="img left">
+                        <img src="images/my04.jpg" alt="">
+                    </div>
+                    <div class="ri">
+                        <div class="cn">
+                            <div class="top clearfix">
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <div class="ti">医学美容店店名</div>
+                                        <div class="score"><span class="Star font_c">★★★★★</span> <span
+                                                class="font_c">5分 141人评论</span></div>
+                                        <p>医学美容 朝阳公园/团结湖 甜水西园22号楼1层2号105 联系电话：0000000 </p>
+                                        <p>人均¥148</p>
+                                    </div>
+                                    <div class="col-md-2 iconlist pc">
+                                        <span>首次免费体验</span>
+                                        <span>特价体验</span>
+                                        <span>折扣特权</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="list">
+                                <li>
+                                    <p>面部祛痘买它就对了（店长推荐）</p>
+                                    <p><span class="font_c">¥66 </span> 门市价¥188 已售5460</p>
+                                </li>
+                                <li>
+                                    <p>面部祛痘买它就对了（店长推荐）</p>
+                                    <p><span class="font_c">¥66 </span> 门市价¥188 已售5460</p>
+                                </li>
+                                <span class="more">查看更多优惠</span>
+                            </ul>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-12 boxBg m_t20 clearfix">
+                <a href="serviceShow.html">
+                    <div class="img left">
+                        <img src="images/my04.jpg" alt="">
+                    </div>
+                    <div class="ri">
+                        <div class="cn">
+                            <div class="top clearfix">
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <div class="ti">医学美容店店名</div>
+                                        <div class="score"><span class="Star font_c">★★★★★</span> <span
+                                                class="font_c">5分 141人评论</span></div>
+                                        <p>医学美容 朝阳公园/团结湖 甜水西园22号楼1层2号105 联系电话：0000000 </p>
+                                        <p>人均¥148</p>
+                                    </div>
+                                    <div class="col-md-2 iconlist pc">
+                                        <span>首次免费体验</span>
+                                        <span>特价体验</span>
+                                        <span>折扣特权</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="list">
+                                <li>
+                                    <p>面部祛痘买它就对了（店长推荐）</p>
+                                    <p><span class="font_c">¥66 </span> 门市价¥188 已售5460</p>
+                                </li>
+                                <li>
+                                    <p>面部祛痘买它就对了（店长推荐）</p>
+                                    <p><span class="font_c">¥66 </span> 门市价¥188 已售5460</p>
+                                </li>
+                                <span class="more">查看更多优惠</span>
+                            </ul>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-12 boxBg m_t20 clearfix">
+                <a href="serviceShow.html">
+                    <div class="img left">
+                        <img src="images/my04.jpg" alt="">
+                    </div>
+                    <div class="ri">
+                        <div class="cn">
+                            <div class="top clearfix">
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <div class="ti">医学美容店店名</div>
+                                        <div class="score"><span class="Star font_c">★★★★★</span> <span
+                                                class="font_c">5分 141人评论</span></div>
+                                        <p>医学美容 朝阳公园/团结湖 甜水西园22号楼1层2号105 联系电话：0000000 </p>
+                                        <p>人均¥148</p>
+                                    </div>
+                                    <div class="col-md-2 iconlist pc">
+                                        <span>首次免费体验</span>
+                                        <span>特价体验</span>
+                                        <span>折扣特权</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="list">
+                                <li>
+                                    <p>面部祛痘买它就对了（店长推荐）</p>
+                                    <p><span class="font_c">¥66 </span> 门市价¥188 已售5460</p>
+                                </li>
+                                <li>
+                                    <p>面部祛痘买它就对了（店长推荐）</p>
+                                    <p><span class="font_c">¥66 </span> 门市价¥188 已售5460</p>
+                                </li>
+                                <span class="more">查看更多优惠</span>
+                            </ul>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-12 boxBg m_t20 clearfix">
+                <a href="serviceShow.html">
+                    <div class="img left">
+                        <img src="images/my04.jpg" alt="">
+                    </div>
+                    <div class="ri">
+                        <div class="cn">
+                            <div class="top clearfix">
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <div class="ti">医学美容店店名</div>
+                                        <div class="score"><span class="Star font_c">★★★★★</span> <span
+                                                class="font_c">5分 141人评论</span></div>
+                                        <p>医学美容 朝阳公园/团结湖 甜水西园22号楼1层2号105 联系电话：0000000 </p>
+                                        <p>人均¥148</p>
+                                    </div>
+                                    <div class="col-md-2 iconlist pc">
+                                        <span>首次免费体验</span>
+                                        <span>特价体验</span>
+                                        <span>折扣特权</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="list">
+                                <li>
+                                    <p>面部祛痘买它就对了（店长推荐）</p>
+                                    <p><span class="font_c">¥66 </span> 门市价¥188 已售5460</p>
+                                </li>
+                                <li>
+                                    <p>面部祛痘买它就对了（店长推荐）</p>
+                                    <p><span class="font_c">¥66 </span> 门市价¥188 已售5460</p>
+                                </li>
+                                <span class="more">查看更多优惠</span>
+                            </ul>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-12 boxBg m_t20 clearfix">
+                <a href="serviceShow.html">
+                    <div class="img left">
+                        <img src="images/my04.jpg" alt="">
+                    </div>
+                    <div class="ri">
+                        <div class="cn">
+                            <div class="top clearfix">
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <div class="ti">医学美容店店名</div>
+                                        <div class="score"><span class="Star font_c">★★★★★</span> <span
+                                                class="font_c">5分 141人评论</span></div>
+                                        <p>医学美容 朝阳公园/团结湖 甜水西园22号楼1层2号105 联系电话：0000000 </p>
+                                        <p>人均¥148</p>
+                                    </div>
+                                    <div class="col-md-2 iconlist pc">
+                                        <span>首次免费体验</span>
+                                        <span>特价体验</span>
+                                        <span>折扣特权</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="list">
+                                <li>
+                                    <p>面部祛痘买它就对了（店长推荐）</p>
+                                    <p><span class="font_c">¥66 </span> 门市价¥188 已售5460</p>
+                                </li>
+                                <li>
+                                    <p>面部祛痘买它就对了（店长推荐）</p>
+                                    <p><span class="font_c">¥66 </span> 门市价¥188 已售5460</p>
+                                </li>
+                                <span class="more">查看更多优惠</span>
+                            </ul>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-12 boxBg m_t20 clearfix">
+                <a href="serviceShow.html">
+                    <div class="img left">
+                        <img src="images/my04.jpg" alt="">
+                    </div>
+                    <div class="ri">
+                        <div class="cn">
+                            <div class="top clearfix">
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <div class="ti">医学美容店店名</div>
+                                        <div class="score"><span class="Star font_c">★★★★★</span> <span
+                                                class="font_c">5分 141人评论</span></div>
+                                        <p>医学美容 朝阳公园/团结湖 甜水西园22号楼1层2号105 联系电话：0000000 </p>
+                                        <p>人均¥148</p>
+                                    </div>
+                                    <div class="col-md-2 iconlist pc">
+                                        <span>首次免费体验</span>
+                                        <span>特价体验</span>
+                                        <span>折扣特权</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="list">
+                                <li>
+                                    <p>面部祛痘买它就对了（店长推荐）</p>
+                                    <p><span class="font_c">¥66 </span> 门市价¥188 已售5460</p>
+                                </li>
+                                <li>
+                                    <p>面部祛痘买它就对了（店长推荐）</p>
+                                    <p><span class="font_c">¥66 </span> 门市价¥188 已售5460</p>
+                                </li>
+                                <span class="more">查看更多优惠</span>
+                            </ul>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer ">
+        <div class="auto-container pc ">
+            <div class="row clearfix">
+                <div class="col-md-2">
+                    <h3 class="ti">特权服务</h3>
+                    <ul class="navlist">
+                        <li><a href="#">美容</a></li>
+                        <li><a href="#">塑形</a></li>
+                        <li><a href="#">美甲</a></li>
+                        <li><a href="#">细胞</a></li>
+                        <li><a href="#">体检</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h3 class="ti">分享</h3>
+                    <ul class="navlist">
+                        <li><a href="#">美容</a></li>
+                        <li><a href="#">塑形</a></li>
+                        <li><a href="#">美甲</a></li>
+                        <li><a href="#">细胞</a></li>
+                        <li><a href="#">体检</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-8">
+                    <div class="row clearfix">
+
+                        <div class="col-md-6">
+
+                            <h3 class="ti">分享</h3>
+                            <div class="imglist">
+                                <img src="images/icon07.jpg" alt="">
+                                <img src="images/icon08.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+
+                            <h3 class="ti">联系我们</h3>
+                            <div class="navlist">
+                                <p>企业邮箱：yang@revering.cn</p>
+                                <p>联系电话：+86 010-5826 4568</p>
+                                <p><img src="images/icon09.png" alt=""></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="images/img003_01.jpg" class="h5" alt="">
+
+    </footer>
+</body>
+
+</html>

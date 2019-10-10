@@ -4,10 +4,8 @@ networks:
     external:
       name: default-network
 services:
-  healthyapp:
-    container_name: healthyapp
-    image: yp/healthyapp
-    environment:
-      SPRING_PROFILES_ACTIVE: prod
+  testadmin:
+    container_name: drone-myapp
+    image: swr.cn-north-1.myhuaweicloud.com/a82253452/myapp
     ports:
-      - 8009:80
+      - 8011:80

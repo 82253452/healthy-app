@@ -1,4 +1,4 @@
-import styles from './index.css';
+
 import { useEffect, useState } from 'react';
 import Swiper from 'swiper/dist/js/swiper.js';
 import 'swiper/dist/css/swiper.min.css';
@@ -8,7 +8,7 @@ import { getClassify } from '@/api/classify';
 import { getArticles } from '@/api/article';
 import { getShopIndex } from '@/api/shop';
 import { isMobile } from '@/utils/utils';
-
+import styles from  './index.css';
 export default function () {
   const [count, setCount] = useState(0);
   const [classifys, setClassifys] = useState([]);
@@ -44,95 +44,95 @@ export default function () {
     //   slidesPerView: 5,
     //   spaceBetween:0,
     // }))
-    setSwiper(new Swiper('.swiper-container1', {
-      slidesPerView: 4,
-      spaceBetween: 70,
-      pagination: {  //分页器
-        el: '.swiper-pagination'
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-    }))
-    setshopSwiper(new Swiper('.container3', {
-      watchSlidesProgress: true,
-      slidesPerView: 'auto',
-      centeredSlides: true,
-      // loop: true,
-      // loopedSlides: 30,
-      autoplay: true,
-      on:{
-        progress: function(progress) {
-          for (var i = 0; i < this.slides.length; i++) {
-            var slide = this.slides.eq(i);
-            var slideProgress = this.slides[i].progress;
-            var modify = 1;
-            var translate = slideProgress * modify * 90 + 'px';
-            var scale = 1 - Math.abs(slideProgress) / 5;
-            var zIndex = 999 - Math.abs(Math.round(10 * slideProgress));
-            slide.transform('translateX(' + translate + ') scale(1)');
-            slide.css('zIndex', zIndex);
-            slide.css('opacity', 1);
-            if (Math.abs(slideProgress) > 3) {
-              slide.css('opacity', 0);
-            }
-          }
-        },
-        setTransition: function(transition) {
-          for (var i = 0; i < this.slides.length; i++) {
-            var slide = this.slides.eq(i)
-            slide.transition(transition);
-          }
+    // setSwiper(new Swiper('.swiper-container1', {
+    //   slidesPerView: 4,
+    //   spaceBetween: 70,
+    //   pagination: {  //分页器
+    //     el: '.swiper-pagination'
+    //   },
+    //   navigation: {
+    //     nextEl: '.swiper-button-next',
+    //     prevEl: '.swiper-button-prev',
+    //   },
+    // }))
+    // setshopSwiper(new Swiper('.container3', {
+    //   watchSlidesProgress: true,
+    //   slidesPerView: 'auto',
+    //   centeredSlides: true,
+    //   // loop: true,
+    //   // loopedSlides: 30,
+    //   autoplay: true,
+    //   on:{
+    //     progress: function(progress) {
+    //       for (var i = 0; i < this.slides.length; i++) {
+    //         var slide = this.slides.eq(i);
+    //         var slideProgress = this.slides[i].progress;
+    //         var modify = 1;
+    //         var translate = slideProgress * modify * 90 + 'px';
+    //         var scale = 1 - Math.abs(slideProgress) / 5;
+    //         var zIndex = 999 - Math.abs(Math.round(10 * slideProgress));
+    //         slide.transform('translateX(' + translate + ') scale(1)');
+    //         slide.css('zIndex', zIndex);
+    //         slide.css('opacity', 1);
+    //         if (Math.abs(slideProgress) > 3) {
+    //           slide.css('opacity', 0);
+    //         }
+    //       }
+    //     },
+    //     setTransition: function(transition) {
+    //       for (var i = 0; i < this.slides.length; i++) {
+    //         var slide = this.slides.eq(i)
+    //         slide.transition(transition);
+    //       }
+    //
+    //     }
+    //   },
+    //   // loop: true,
+    //   // centeredSlides: true,
+    //   pagination: {  //分页器
+    //     el: '.swiper-pagination3',
+    //   },
+    // }));
 
-        }
-      },
-      // loop: true,
-      // centeredSlides: true,
-      pagination: {  //分页器
-        el: '.swiper-pagination3',
-      },
-    }));
 
 
-
-    setSwiper01(new Swiper('.container4', {
-      watchSlidesProgress: true,
-      slidesPerView: 'auto',
-      centeredSlides: true,
-      // loop: true,
-      // loopedSlides: 30,
-      autoplay: true,
-      on:{
-        progress: function(progress) {
-          for (var i = 0; i < this.slides.length; i++) {
-            var slide = this.slides.eq(i);
-            var slideProgress = this.slides[i].progress;
-            var modify = 1;
-            var translate = slideProgress * modify * 90 + 'px';
-            var zIndex = 999 - Math.abs(Math.round(10 * slideProgress));
-            slide.transform('translateX(' + translate + ') scale(1)');
-            slide.css('zIndex', zIndex);
-            slide.css('opacity', 1);
-            if (Math.abs(slideProgress) > 3) {
-              slide.css('opacity', 0);
-            }
-          }
-        },
-        setTransition: function(transition) {
-          for (var i = 0; i < this.slides.length; i++) {
-            var slide = this.slides.eq(i)
-            slide.transition(transition);
-          }
-
-        }
-      },
-      // loop: true,
-      // centeredSlides: true,
-      pagination: {  //分页器
-        el: '.swiper-pagination3',
-      },
-    }));
+    // setSwiper01(new Swiper('.container4', {
+    //   watchSlidesProgress: true,
+    //   slidesPerView: 'auto',
+    //   centeredSlides: true,
+    //   // loop: true,
+    //   // loopedSlides: 30,
+    //   autoplay: true,
+    //   on:{
+    //     progress: function(progress) {
+    //       for (var i = 0; i < this.slides.length; i++) {
+    //         var slide = this.slides.eq(i);
+    //         var slideProgress = this.slides[i].progress;
+    //         var modify = 1;
+    //         var translate = slideProgress * modify * 90 + 'px';
+    //         var zIndex = 999 - Math.abs(Math.round(10 * slideProgress));
+    //         slide.transform('translateX(' + translate + ') scale(1)');
+    //         slide.css('zIndex', zIndex);
+    //         slide.css('opacity', 1);
+    //         if (Math.abs(slideProgress) > 3) {
+    //           slide.css('opacity', 0);
+    //         }
+    //       }
+    //     },
+    //     setTransition: function(transition) {
+    //       for (var i = 0; i < this.slides.length; i++) {
+    //         var slide = this.slides.eq(i)
+    //         slide.transition(transition);
+    //       }
+    //
+    //     }
+    //   },
+    //   // loop: true,
+    //   // centeredSlides: true,
+    //   pagination: {  //分页器
+    //     el: '.swiper-pagination3',
+    //   },
+    // }));
 
 
 
@@ -154,164 +154,97 @@ export default function () {
   }, [articles, swiper]);
 
   return (
-    <div className={styles.normasl}>
-      <div className={styles.pc}>
-        <div className={styles.headerText}>
-          <div className={styles.headerTextImgBox}>
-            <img className={styles.headerTextImg}
-                 src='http://pxczv9bs6.bkt.clouddn.com/4b2bde58-8bab-4b46-bb9e-12e658445ca9' /></div>
-          <div className={styles.title01}><img src={require('@/assets/img01.png')} />
-          </div>
-          <div className={styles.privilege}>
-            <div className={styles.mainWidth}>
-              <div className={styles.privilegeListDiv}>
-
-                {classifys.map((classify,i) => <div className={styles.item}><div onClick={() => router.push(`/pc/privilege/${classify.id}`)} className={styles.privilegeList}>
-                  {/* 这里文字标题不要了留图片，图片我全切出来了，明天你上传一下就行了，这里我先注释下，明天你在改回来啊 */}
-                  <img src={classify.image} />
-                  {/* <img src={classify.image} /> */}
-                  {/* <div>{classify.name}</div> */}
-                </div></div>)}
-              </div>
-
+    <div>
+      <section className={`${styles.pages1} page`}>
+        <div className="container">
+          <div className="row">
+            <div className={styles.pageBox}>
+              <img src={require("@/assets/icon01.png")} alt=""/>
             </div>
+            <h1 className="title">
+              <img src={require("@/assets/icon02.png")} alt=""/>
+            </h1>
+            <ul className={`${styles.list} clearfix`}>
+              {classifys.map(classify => <li><a onClick={() => router.push(`/pc/privilege/${classify.id}`)}><img src={classify.image} alt=""/></a></li>)}
+              <li className="h5"><a href="PrivilegedService.html"><img src={require("@/assets/imglist06.png")} alt="" /></a></li>
+            </ul>
           </div>
         </div>
-        <div className={styles.centerDiv}>
-          <img src='http://pxczv9bs6.bkt.clouddn.com/7c587ca9-160a-4c7e-af86-68b8d549f98e' />
-          <div>
-            <div className={`${styles['headerHav']} ${styles['mainWidth']}` } >
-              <span className={styles.more} onClick={() => router.push('/pc/article')}>更多 &nbsp;&nbsp; >>></span>
-              {classifys.map(classify => <div onClick={() => setPage({ ...page, ...{ classifyId: classify.id } })}
-                                              className={styles.button + ' ' + (page.classifyId === classify.id ? styles.buttonActive : '')}>{classify.name}</div>)}
+      </section>
+      <section className={`${styles.pages2} page`}>
+        <div className="auto-container">
+          <div className={`${styles.box}`}>
+            <h1 className="title">
+              <img src={require("@/assets/icon03.png")} className="pc " alt=""/>
+                <img src={require("@/assets/icon03_h5.png")} className="h5" alt=""/>
+            </h1>
+            <div className={`${styles.menuList} pc`}>
+              <span>美容</span>
+              <span>塑形</span>
+              <span>母婴</span>
+              <span>细胞</span>
+              <span>体检</span>
+              <a href="shareList.html" className="more">更多>>></a>
             </div>
-
-          </div>
-          <div className={`${styles['swiper']} ${styles['mainWidth']}` }>
-
-            <div className={`swiper-button-prev ${styles['SW_swiper-button-prev']}`}> </div>
-            <div className={`swiper-button-next ${styles['SW_swiper-button-next']}`}></div>
-            <div className="swiper-container swiper-container1">
-              <div className="swiper-wrapper">
-                {articles.map(article => <div key={article.id} className="swiper-slide"><img
-                  className={styles.swiperImg} onClick={() => router.push(`/pc/info/${article.id}`)}
-                  src={article.type===1?article.image:(article.video+"?vframe/jpg/offset/1")} />
-                  <div className={styles.listitemtitle}>
-                    {article.title&&(article.title.length>5?article.title.substring(0,5):article.title)}
-                    {/*<p>{article.context&&article.context.length>5?article.context.substring(0,5):article.context}</p>*/}
+            <ul className={`${styles.list} clearfix pc`}>
+              {articles.map(article => <li className={`col-md-3 ${styles.item}`}>
+                <a onClick={() => router.push(`/pc/info/${article.id}`)}>
+                  <div className={styles.imgBox}
+                       style={{background: `url(${article.type===1?article.image:(article.video+"?vframe/jpg/offset/1")}) no-repeat center center / cover`}}>
+                    <img src={require("@/assets/icon06.png")}  className={styles.icon} alt=""/>
                   </div>
-                </div>)}
-              </div>
-              {/* <div className="swiper-pagination"></div> */}
-            </div>
-            <div className={styles.startShare} onClick={() => router.push('/pc/push')}>开始分享</div>
+                  <h2>{article.title&&(article.title.length>5?article.title.substring(0,5):article.title)}</h2>
+                  <p>{article.context&&article.context.length>5?article.context.substring(0,5):article.context}</p>
+                </a>
+              </li>)}
+              <a className={styles.arrowLeft}></a>
+              <a className={styles.arrowRight}></a>
+            </ul>
+            {/*这里是h5部分 *********注意这里是分类不是内容*/}
+            <ul className={`${styles.h5List} clearfix h5`}>
+              {classifys.map(classify => <li><a onClick={() => router.push(`/pc/privilege/${classify.id}`)}><img src={classify.image} alt=""/></a></li>)}
+              {/*<li><a href="shareShow.html"><img src={require("@/assets/share_icon06.png")} alt=""/></a></li>*/}
+              {/*<li><a href="shareShow.html"><img src={require("@/assets/share_icon05.png")} alt=""/></a></li>*/}
+              {/*<li><a href="shareShow.html"><img src={require("@/assets/share_icon04.png")} alt=""/></a></li>*/}
+              {/*<li><a href="shareShow.html"><img src={require("@/assets/share_icon03.png")} alt=""/></a></li>*/}
+              {/*<li><a href="shareShow.html"><img src={require("@/assets/share_icon02.png")} alt=""/></a></li>*/}
+              <li><a href="shareShow.html"><img src={require("@/assets/share_icon01.png")} alt=""/></a></li>
+            </ul>
+            <a  onClick={() => router.push('/pc/push')}  className={styles.h5More}>开始分享</a>
           </div>
         </div>
-        <div>
-          <div className={styles.pages01}>
-            <img src={require(`@/assets/img001.png`)} />
+      </section>
 
-          </div>
-
-          <div className={styles.pages02}>
-            <div><img style={{ padding: '5rem' }}
-                      src='http://pxczv9bs6.bkt.clouddn.com/8abd3257-9514-43dc-a511-17f9bb3ad314' /></div>
-            <img src='http://pxczv9bs6.bkt.clouddn.com/607740bd-dbdd-48cc-8277-6e480a32de4d' />
-
-          </div>
-          <div>
-            <img style={{ paddingTop: '5rem' }}
-                 src='http://pxczv9bs6.bkt.clouddn.com/c1dbbf88-9dd1-4bed-a117-875ab1cf5056' /></div>
-          <img style={{ marginTop: '10rem', marginBottom: '10rem' }}
-               src='http://pxczv9bs6.bkt.clouddn.com/40564633-3368-4334-823e-2a3dc9c56721' />
+      <section className={`${styles.pages3} page`}>
+        <div className="cn">
+          <img src={require("@/assets/img001.png")} className="pc" alt=""/>
+            <img src={require("@/assets/img002.jpg")} className="h5" alt=""/>
         </div>
+      </section>
 
-      </div>
-      <div className={styles.phone}>
-        <div>
-          <div className={styles.headerText}>
-            <div className={styles.headerTextImgBox}>
-              <img className={styles.headerTextImg}
-                   src='http://pxczv9bs6.bkt.clouddn.com/4b2bde58-8bab-4b46-bb9e-12e658445ca9' />
-            </div>
-            <div className={styles.title01}><img  src={require('@/assets/img01.png')}  /></div>
-            {/*{classifys.map(classify=><div className={styles.privilegeList}>*/}
-            {/*  <img src={classify.image}/>*/}
-            {/*  <div>{classify.name}</div>*/}
-            {/*</div> )}*/}
-            <div className={styles.swiper}>
-              <div className="swiper-container container3">
-                <div className="swiper-wrapper">
-                  {classifys.map(classify => <div onClick={() => {
-                    router.push(`/pc/privilege/${classify.id}`);
-                  }} key={classify.id} className={styles.privilegeList + ' swiper-slide'}>
-                    {/* 这里文字标题不要了留图片，图片我全切出来了，明天你上传一下就行了，这里我先注释下，明天你在改回来啊 */}
-                    <img src={classify.image} />
-                    {/* <img  src={classify.image} /> */}
-                    {/* <div>{classify.name}</div> */}
-                  </div>)}
-                </div>
-                {/* <div className="swiper-pagination3"></div> */}
-              </div>
-            </div>
+      <section className={`${styles.pages4} page`}>
 
-          </div>
-          <div className={styles.centerDiv}>
-            <div className={styles.title01}><img style={{ width: '100%' }}  src='http://pxczv9bs6.bkt.clouddn.com/7c587ca9-160a-4c7e-af86-68b8d549f98e'  /></div>
-            <div>
-              <div className={styles.headerHav}>
-                {classifys.map(classify => <div onClick={() => setPage({ ...page, ...{ classifyId: classify.id } })}
-                                                className={styles.button + ' ' + (page.classifyId === classify.id ? styles.buttonActive : '')}>{classify.name}</div>)}
-              </div>
-              <span className={styles.more} onClick={() => router.push('/pc/article')}>更多 >>></span>
-            </div>
-            {articles.map((article, index) => index < 4 && <div key={article.id} className={styles.phoneImagesContent}>
-              <div className={styles.imgbox}><img onClick={() => router.push(`/pc/info/${article.id}`)} src={article.image} /></div>
-              <div className={styles.listitemtitle}>
-                {article.title && (article.title.length > 5 ? article.title.substring(0, 5) : '')}
-                <p>描述</p>
-              </div>
-
-            </div>)}
-            <div className={styles.startShare} onClick={() => router.push('/pc/push')}>开始分享</div>
-          </div>
-          <div>
-          </div>
-
-          <div className={styles.pages02}>
-            <img style={{ padding: '5rem' }}
-                 src='http://pxczv9bs6.bkt.clouddn.com/8abd3257-9514-43dc-a511-17f9bb3ad314' />
-
-            <div className={styles.swiper}>
-              <div className="swiper-container container4">
-                <div className="swiper-wrapper">
-                  <div  className={styles.privilegeList + ' swiper-slide'}>
-                    <img src={require(`@/assets/img004.jpg`)} />
-                  </div>
-                  <div  className={styles.privilegeList + ' swiper-slide'}>
-                    <img src={require(`@/assets/img004.jpg`)} />
-                  </div>
-                  <div  className={styles.privilegeList + ' swiper-slide'}>
-                    <img src={require(`@/assets/img004.jpg`)} />
-                  </div>
-                  <div  className={styles.privilegeList + ' swiper-slide'}>
-                    <img src={require(`@/assets/img004.jpg`)} />
-                  </div>
-                </div>
-                {/* <div className="swiper-pagination3"></div> */}
-              </div>
-            </div>
-          </div>
-          <img src={require(`@/assets/img003.jpg`)} />
-
-          <div className={styles.h5foter}>
-          <img src={require(`@/assets/img003_01.jpg`)} className={styles.h5_phone} />
-
-          </div>
-
+        <h1 className="title">
+          <img src={require("@/assets/pctitle01.png")} className="pc" alt=""/>
+            <img src={require("@/assets/h5title01.png")} className="h5" alt=""/>
+        </h1>
+        <div  className={`${styles.cn}`}>
+          <img src={require("@/assets/my02.png")} className="pc" alt=""/>
+            <img src={require("@/assets/h5my02.png")} className="h5" alt=""/>
         </div>
-      </div>
+      </section>
 
+      <section className={`${styles.pages5} page`}>
+
+        <h1 className="title">
+          <img src={require("@/assets/pctitle02.png")} className="pc" alt=""/>
+            <img src={require("@/assets/h5title02.png")} className="h5" alt=""/>
+        </h1>
+        <div  className={`${styles.cn}`}>
+          <img src={require("@/assets/my03.png")} className="pc" alt=""/>
+            <img src={require("@/assets/h5my03.png")} className="h5" alt=""/>
+        </div>
+      </section>
     </div>
   );
 }

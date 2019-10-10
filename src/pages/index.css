@@ -1,362 +1,191 @@
-.normasl {
-  font-family: Georgia, sans-serif;
-  text-align: center;
-  /*background: url("http://pxczv9bs6.bkt.clouddn.com/535e6721-e93a-4b85-9824-e45df821231f") no-repeat;*/
-  /*background-size:100%;*/
-  width: 100%;
-  margin: 0 auto;
-}
-.mainWidth{
-  width: 1200px;
-  margin: 0 auto;
+.pages1 {
+  background: url(../assets/bg01.jpg) no-repeat center top / cover;
 }
 
-.headerText {
-  width: 100%;
-  background: url("http://pxczv9bs6.bkt.clouddn.com/7c26a080-0762-4344-a69a-7afe2962650e") no-repeat center;
-  background-size: cover;
-}
-.headerTextImgBox{
-  padding-top: 100px;
+.pages1 .pageBox {
+  padding: 0px 0 120px 0;
+  margin: 0;
 }
 
-.more {
+.pages1 .list li {
+  float: left;
+  width: 20%;
+  font-size: 0;
+  padding: 0 15px;
+}
+
+.pages2 {
+  background: url(@/assets/bg02.jpg) no-repeat center top / cover;
+}
+
+.pages2 .list .item {}
+
+.pages2 .list .item .icon {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.pages2 .list .item .imgBox {
+  position: relative;
+  height: 350px;
+  border-radius: 15px;
+
+}
+
+.pages2 .list .item h2,
+.pages2 .list .item p {
+  text-align: left;
+  font-size: 18px;
   color: #fff;
+}
+
+.pages2 .list .item p {
+  font-size: 12px;
+}
+
+.pages2 .box .list {
+  position: relative;
+}
+
+.pages2 .box .arrowLeft {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: url(@/assets/icon04.png) no-repeat center center / 50% auto;
+  display: block;
+  top: 150px;
+  left: -40px;
+}
+
+.pages2 .box .arrowRight {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: url(@/assets/icon05.png) no-repeat center center / 50% auto;
+  display: block;
+  top: 150px;
+  right: -40px;
+}
+
+.menuList {
+  text-align: center;
+  font-size: 0;
+  padding-bottom: 50px;
+  position: relative;
+}
+
+.menuList a {
   position: absolute;
   right: 0;
-  bottom: 0;
-  line-height: 40px;
-}
-
-/* .headerText img {
-    width: 100%;
-} */
-.SW_swiper-button-prev{
-  background: url(@/assets/icon01.png) no-repeat !important;
-  left: -50px !important;
-  top: 200px !important;
-}
-.SW_swiper-button-next{
-  background: url(@/assets/icon02.png) no-repeat !important;
-  right: -50px !important;
-  top: 200px !important;
-}
-.swiper {
-  margin: 70px auto  0 auto;
-  padding-bottom: 70px;
-  position: relative;
-}
-.listitemtitle{
-  font-size: 18px;
+  font-size: 14px;
   color: #fff;
-  text-align: left;
-  padding-top: 20px;
-  padding-left: 15px;
-}
-.listitemtitle p{
-  font-size: 12px;
-  color: #999;
-  text-align: left;
-  margin: 4px 0 0 0 ;
+  padding: 5px 25px;
+
 }
 
-.swiperImg {
-  width: 100%;
-  height: 350px;
-  border-radius: 10px;
-}
-
-.shareText {
-  margin: auto;
-  width: 50%;
-}
-
-.shareText img {
-  width: 100%;
-}
-
-.headerHav {
-  text-align: center;
-  padding-top: 40px;
-  position: relative;
-}
-
-.button {
-
+.menuList span {
+  background: #fff;
+  font-size: 16px;
+  color: #333;
+  padding: 5px 25px;
   display: inline-block;
-  padding: 7px 35px;
-  border-radius: 2rem;
-  margin: 0 8px;
-  font-size: 18px;
-  background: #fff;
+  border-radius: 50px;
+  margin: 0 15px;
 }
 
-.buttonActive {
-  background: #49acf3 !important;
+.pages2 .h5More {
+  background: #34aaff;
   color: #fff;
+  font-size: 25px;
+  border-radius: 50px;
+  padding: 20px 160px;
+  margin-top: 80px;
+  display: inline-block;
 }
 
-.startShare {
-  width: 560px;
-  height: 80px;
-  line-height: 80px;
-  color: #fff;
-  font-weight: bold;
-  font-size: 22px;
-  border-radius: 80px;
-  background: #49acf3;
-  margin: 70px auto  0 auto;
+/* 会员专享 */
+.pages3 {
+  background: url(@/assets/bg01.png) repeat center top;
+  text-align: center;
 }
 
-.nb {
-  width: 80%;
-  margin: auto;
+.pages3 img {
+  margin: 0 auto;
 }
 
-.nb img {
-  width: 100%;
+.pages4 {
+  background: url(@/assets/icon01_01.gif) repeat center top;
+  text-align: center;
 }
 
-.welcome {
-  height: 328px;
-  background: url(../assets/yay.jpg) no-repeat center 0;
-  background-size: 388px 328px;
+.pages4 .cn {
+  text-align: center;
 }
 
-.list {
-  font-size: 1.2em;
-  margin-top: 1.8em;
-  list-style: none;
-  line-height: 1.5em;
+.pages4 .cn img {
+
+  margin: 0 auto;
 }
 
-.list code {
-  background: #f7f7f7;
+.pages5 .cn img {
+
+  margin: 0 auto;
 }
 
-.upload {
-  width: 100px;
-  height: 100px;
-  border: 1px solid red;
-  border-radius: 2rem;
-  line-height: 100px;
-}
-
-.privilege {
-  margin-top: 20px;
-  padding-bottom: 140px;
-}
-
-.privilegeList {
-  background: #fff;
-  border-radius: 1rem;
-
-  /* margin-right: 2%; */
-
-}
-.privilegeList:last-child {
-
-  margin-right:0;
-
-}
-.privilegeListDiv .item{
-  width: 212px;
-  float: left;
-  margin-right: 35px;
-}
-.privilegeListDiv .item:last-child{
-  margin-right: 0px;
-}
-
-.privilegeList>img {
-  border-radius: 1rem;
-  width: 100%!important;
-  height: auto;
-}
-
-.privilegeListDiv {
-  zoom:1;
-  overflow: hidden;
-}
-
-.centerDiv {
-  padding-top: 70px;
-  padding-bottom: 30px;
-  width: 100%;
-  background: url("http://pxczv9bs6.bkt.clouddn.com/0d4afddb-3fe3-4bc6-a69a-b0aecf4329f9") no-repeat center;
-  background-size: cover;
-}
-
-.footer {
-  width: 100%;
-  height: 30rem;
-  background: #343b5f;
-  padding-top: 5rem
-}
-
-.footerBlock {
-  width: 10rem;
-  padding: 5rem 15rem 0 0;
-  float: left;
-}
-
-.blockHeader {
-  color: #fff;
-  padding: 2rem;
-}
-
-.blockText {
-  color: #65768e;
-  padding: .2rem;
-}
-
-.headerTextImg {
-  width: 610px !important;
-  height: 201px;
-}
-
-.pc {
-  display: block;
-}
-
-.phone {
-  display: none;
-}
-img{
-  max-width: 100%;
-}
-.title01{
-  margin-top: 140px;
-  margin-bottom: 70px;
-}
-.pages02{
-  background: url(@/assets/icon01_01.gif) repeat;
-  padding-bottom: 40px;
-
-}
-.swiper-container1{
-  
-  margin-top: 70px;
-}
-.pages01{
-  background: url(@/assets/bg01.png) repeat;
-}
-@media (max-width: 980px) {
-  .headerTextImgBox{
-    text-align: center;
-    padding-top: 50px;
+@media (max-width: 767px) {
+  .pages1 {
+    padding: 50px 0;
   }
 
-  .title01 {
-    margin-top: 70px;
-    margin-bottom: 40px;
-  }
-  .title01 img{
-    max-width: 70%;
-  }
-  .mainWidth{
-    width: 100%;
-    margin: 0 auto;
-  }
-  .privilegeList {
-    background: none;
+  .pages1 .pageBox {
+    padding: 0px 0 60px 0;
   }
 
-  .privilegeList.swiper-slide-prev{
-    font-size: 100px;
+  .pages1 .pageBox img {
+    height: 80px;
+    width: auto;
   }
-  .privilegeList img{
-    width: 70% !important;
-  }
-  .pc {
-    display: none;
-  }
-  .phone {
-    display: block;
-  }
-  .normasl {
-    width: 100%;
-    /* overflow-y: auto;
-    height: 100vh; */
-  }
-  .headerText {
-    width: 100%;
-    padding: 0;
-  }
-  .headerTextImg {
-    width: 70% !important;
-    height: auto;
-  }
-  .headerTextImgList {
-    margin-top: 2rem;
-    width: 15rem !important;
-    height: 20rem;
-  }
-  .headerHav {
-    text-align: center;
-    padding-top: 20px;
-    padding-bottom: 40px;
-  }
-  .button {
-    display: inline-block;
-    padding: 4px 25px;
-    border-radius: 1rem;
-    font-size: 14px;
-    background: #fff;
-  }
-  .more {
-    color: #fff;
-    position: absolute;
-    right: 0;
-    display: none
 
+  .pages1 .list {
+    margin: 0 30px;
   }
-  .centerDiv {
-    padding-top: 1rem;
-    width: 100%;
-    background: url("http://pxczv9bs6.bkt.clouddn.com/0d4afddb-3fe3-4bc6-a69a-b0aecf4329f9") no-repeat center top ;
-    background-size: cover;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-  }
-  .centerDiv  .imgbox{
-    background: #fff;
+
+  .pages1 .list li {
+    width: 33.333333%;
     font-size: 0;
-    border-radius: 1rem;
-    overflow: hidden;
-    min-height: 350px;
-    height: 350px
+    padding: 0 6px;
+    margin-bottom: 12px;
   }
-  .phoneImagesContent {
 
-    box-sizing: border-box;
-    padding: 0 20px  30px 20px;
-    width: 50%;
+  /* 分享 */
 
+  .pages2 {
+    background: url(@/assets/icon01_01.gif) repeat center top;
   }
-  .phoneImagesContent img {
 
+  .pages2 .h5List {
+    margin: 0 15px;
+  }
 
-    width: auto;
-    height: 100%;
-  }
-  .startShare {
-    margin: auto;
-    width: auto;
-    height: auto;
-    line-height: normal;
-    padding: 10px 45px;
-  }
-  .footerBlock {
-    padding: 1rem 0 0 0;
+  .pages2 .h5List li {
+    width: 33.333333%;
+    font-size: 0;
+    padding: 0 6px;
+    margin-bottom: 12px;
     float: left;
   }
-  .footer {
-    padding-top: 1rem
+
+  .pages2 .h5More {
+    font-size: 20px;
+    padding: 10px 100px;
+    margin-top: 40px;
   }
-  .swiper {
-    width: 100% !important;
-    /* height: 17rem; */
+
+  .pages5 {
+    background: #ebebeb;
   }
 }

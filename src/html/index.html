@@ -1,0 +1,408 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>官网</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="style/common.css">
+    <style>
+        .pages1 {
+            background: url(images/bg01.jpg) no-repeat center top / cover;
+        }
+
+        .pages1 .pageBox {
+            padding: 0px 0 120px 0;
+            margin: 0;
+        }
+
+        .pages1 .list li {
+            float: left;
+            width: 20%;
+            font-size: 0;
+            padding: 0 15px;
+        }
+
+        .pages2 {
+            background: url(images/bg02.jpg) no-repeat center top / cover;
+        }
+
+        .pages2 .list .item {}
+
+        .pages2 .list .item .icon {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        .pages2 .list .item .imgBox {
+            position: relative;
+            height: 350px;
+            border-radius: 15px;
+
+        }
+
+        .pages2 .list .item h2,
+        .pages2 .list .item p {
+            text-align: left;
+            font-size: 18px;
+            color: #fff;
+        }
+
+        .pages2 .list .item p {
+            font-size: 12px;
+        }
+
+        .pages2 .box .list {
+            position: relative;
+        }
+
+        .pages2 .box .arrow-left {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: url(images/icon04.png) no-repeat center center / 50% auto;
+            display: block;
+            top: 150px;
+            left: -40px;
+        }
+
+        .pages2 .box .arrow-right {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: url(images/icon05.png) no-repeat center center / 50% auto;
+            display: block;
+            top: 150px;
+            right: -40px;
+        }
+
+        .menuList {
+            text-align: center;
+            font-size: 0;
+            padding-bottom: 50px;
+            position: relative;
+        }
+
+        .menuList a {
+            position: absolute;
+            right: 0;
+            font-size: 14px;
+            color: #fff;
+            padding: 5px 25px;
+
+        }
+
+        .menuList span {
+            background: #fff;
+            font-size: 16px;
+            color: #333;
+            padding: 5px 25px;
+            display: inline-block;
+            border-radius: 50px;
+            margin: 0 15px;
+        }
+
+        .pages2 .h5More {
+            background: #34aaff;
+            color: #fff;
+            font-size: 25px;
+            border-radius: 50px;
+            padding: 20px 160px;
+            margin-top: 80px;
+            display: inline-block;
+        }
+
+        /* 会员专享 */
+        .pages3 {
+            background: url(images/bg01.png) repeat center top;
+            text-align: center;
+        }
+
+        .pages3 img {
+            margin: 0 auto;
+        }
+
+        .pages4 {
+            background: url(images/icon01_01.gif) repeat center top;
+            text-align: center;
+        }
+
+        .pages4 .cn {
+            text-align: center;
+        }
+
+        .pages4 .cn img {
+
+            margin: 0 auto;
+        }
+
+        .pages5 .cn img {
+
+            margin: 0 auto;
+        }
+
+        @media (max-width: 767px) {
+            .pages1 {
+                padding: 50px 0;
+            }
+
+            .pages1 .pageBox {
+                padding: 0px 0 60px 0;
+            }
+
+            .pages1 .pageBox img {
+                height: 80px;
+                width: auto;
+            }
+
+            .pages1 .list {
+                margin: 0 30px;
+            }
+
+            .pages1 .list li {
+                width: 33.333333%;
+                font-size: 0;
+                padding: 0 6px;
+                margin-bottom: 12px;
+            }
+
+            /* 分享 */
+
+            .pages2 {
+                background: url(images/icon01_01.gif) repeat center top;
+            }
+
+            .pages2 .h5List {
+                margin: 0 15px;
+            }
+
+            .pages2 .h5List li {
+                width: 33.333333%;
+                font-size: 0;
+                padding: 0 6px;
+                margin-bottom: 12px;
+                float: left;
+            }
+
+            .pages2 .h5More {
+                font-size: 20px;
+                padding: 10px 100px;
+                margin-top: 40px;
+            }
+
+            .pages5 {
+                background: #ebebeb;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="header-upper">
+            <div class="auto-container clearfix">
+                <div class="logo left">
+                    <a href="index.html"><img src="images/logo.png" alt="Ecology"></a>
+                </div>
+
+                <div class="right clearfix">
+                    <div class="login  right">
+                        登录
+                    </div>
+                    <div class="tel right pc">
+                        +86 010-5826 4568
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </header>
+    <section class="pages1 page">
+        <div class="container">
+            <div class="row">
+                <div class="pageBox">
+                    <img src="images/icon01.png" alt="">
+                </div>
+                <h1 class="title">
+                    <img src="images/icon02.png" alt="">
+                </h1>
+                <ul class="list clearfix">
+                  {classifys.map((classify,i) => <div className={styles.item}><div onClick={() => router.push(`/pc/privilege/${classify.id}`)} className={styles.privilegeList}>
+                  {/* 这里文字标题不要了留图片，图片我全切出来了，明天你上传一下就行了，这里我先注释下，明天你在改回来啊 */}
+                  <img src={classify.image} />
+                  {/* <img src={classify.image} /> */}
+                  {/* <div>{classify.name}</div> */}
+                </div></div>)}
+                    <li><a href="PrivilegedService.html"><img src="images/imglist01.png" alt=""></a></li>
+                    <li><a href="PrivilegedService.html"><img src="images/imglist02.png" alt=""></a></li>
+                    <li><a href="PrivilegedService.html"><img src="images/imglist03.png" alt=""></a></li>
+                    <li><a href="PrivilegedService.html"><img src="images/imglist04.png" alt=""></a></li>
+                    <li><a href="PrivilegedService.html"><img src="images/imglist05.png" alt=""></a></li>
+                    <!-- 这里h5显示更多，pc不显示**********注意 -->
+                    <li class="h5"><a href="PrivilegedService.html"><img src="images/imglist06.png" alt=""></a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="pages2 page">
+        <div class="auto-container">
+            <div class="box">
+                <h1 class="title">
+                    <img src="images/icon03.png" class="pc" alt="">
+                    <img src="images/icon03_h5.png" class="h5" alt="">
+                </h1>
+                <div class="menuList pc">
+                    <span>美容</span>
+                    <span>塑形</span>
+                    <span>母婴</span>
+                    <span>细胞</span>
+                    <span>体检</span>
+                    <a href="shareList.html" class="more">更多>>></a>
+                </div>
+                <ul class="list clearfix pc">
+                    <li class="col-md-3 item">
+                        <a href="shareShow.html">
+                            <div class="imgBox"
+                                style="background: url(images/my01.jpg) no-repeat center center / cover">
+                                <img src="images/icon06.png" class="icon" alt="">
+                            </div>
+                            <h2>美容频道1</h2>
+                            <p>更新至第01集</p>
+                        </a>
+                    </li>
+                    <li class="col-md-3 item">
+                        <a href="shareShow.html">
+                            <div class="imgBox"
+                                style="background: url(images/my01.jpg) no-repeat center center / cover">
+                                <img src="images/icon06.png" class="icon" alt="">
+                            </div>
+                            <h2>美容频道1</h2>
+                            <p>更新至第01集</p>
+                        </a>
+                    </li>
+                    <li class="col-md-3 item">
+                        <a href="shareShow.html">
+                            <div class="imgBox"
+                                style="background: url(images/my01.jpg) no-repeat center center / cover">
+                                <img src="images/icon06.png" class="icon" alt="">
+                            </div>
+                            <h2>美容频道1</h2>
+                            <p>更新至第01集</p>
+                        </a>
+                    </li>
+                    <li class="col-md-3 item">
+                        <a href="shareShow.html">
+                            <div class="imgBox"
+                                style="background: url(images/my01.jpg) no-repeat center center / cover">
+                                <img src="images/icon06.png" class="icon" alt="">
+                            </div>
+                            <h2>美容频道1</h2>
+                            <p>更新至第01集</p>
+                        </a>
+                    </li>
+
+                    <a class="arrow-left"></a>
+                    <a class="arrow-right"></a>
+                </ul>
+                <!--   这里是h5部分 *********注意这里是分类不是内容 -->
+                <ul class="h5List clearfix h5">
+                    <li><a href="shareShow.html"><img src="images/share_icon06.png" alt=""></a></li>
+                    <li><a href="shareShow.html"><img src="images/share_icon05.png" alt=""></a></li>
+                    <li><a href="shareShow.html"><img src="images/share_icon04.png" alt=""></a></li>
+                    <li><a href="shareShow.html"><img src="images/share_icon03.png" alt=""></a></li>
+                    <li><a href="shareShow.html"><img src="images/share_icon02.png" alt=""></a></li>
+                    <li><a href="shareShow.html"><img src="images/share_icon01.png" alt=""></a></li>
+                </ul>
+                <a href="shaerList.html" class="h5More">开始分享</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="pages3 ">
+        <div class="cn">
+            <img src="images/img001.png" class="pc" alt="">
+            <img src="images/img002.jpg" class="h5" alt="">
+        </div>
+    </section>
+
+    <section class="pages4 page">
+
+        <h1 class="title">
+            <img src="images/pctitle01.png" class="pc" alt="">
+            <img src="images/h5title01.png" class="h5" alt="">
+        </h1>
+        <div class="cn">
+            <img src="images/my02.png" class="pc" alt="">
+            <img src="images/h5my02.png" class="h5" alt="">
+        </div>
+    </section>
+
+    <section class="pages5 page">
+
+        <h1 class="title">
+            <img src="images/pctitle02.png" class="pc" alt="">
+            <img src="images/h5title02.png" class="h5" alt="">
+        </h1>
+        <div class="cn">
+            <img src="images/my03.png" class="pc" alt="">
+            <img src="images/h5my03.png" class="h5" alt="">
+        </div>
+    </section>
+    <footer class="main-footer ">
+        <div class="auto-container pc ">
+            <div class="row clearfix">
+                <div class="col-md-2">
+                    <h3 class="ti">特权服务</h3>
+                    <ul class="navlist">
+                        <li><a href="#">美容</a></li>
+                        <li><a href="#">塑形</a></li>
+                        <li><a href="#">美甲</a></li>
+                        <li><a href="#">细胞</a></li>
+                        <li><a href="#">体检</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h3 class="ti">分享</h3>
+                    <ul class="navlist">
+                        <li><a href="#">美容</a></li>
+                        <li><a href="#">塑形</a></li>
+                        <li><a href="#">美甲</a></li>
+                        <li><a href="#">细胞</a></li>
+                        <li><a href="#">体检</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-8">
+                    <div class="row clearfix">
+
+                        <div class="col-md-6">
+
+                            <h3 class="ti">分享</h3>
+                            <div class="imglist">
+                                <img src="images/icon07.jpg" alt="">
+                                <img src="images/icon08.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+
+                                <h3 class="ti">联系我们</h3>
+                                <div class="navlist">
+                                       <p>企业邮箱：yang@revering.cn</p>
+                                       <p>联系电话：+86 010-5826 4568</p>
+                                       <p><img src="images/icon09.png" alt=""></p>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="images/img003_01.jpg" class="h5" alt="">
+
+    </footer>
+</body>
+
+</html>

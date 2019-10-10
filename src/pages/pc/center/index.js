@@ -16,7 +16,7 @@ export default function () {
   const [headerIndex, setHeaderIndex] = useState(2);
   const [privilege, setPrivilege] = useState(2);
   const [paramArticle, setParamArticle] = useState({ pageSize: 10, pageNum: 1 });
-  const url = 'http://pxczv9bs6.bkt.clouddn.com/';
+  const url = 'http://images.y456.cn/';
   useEffect(() => {
     getUserInfo().then(data => {
       data && data.data ? setUser(data.data) : console.log('无数据');

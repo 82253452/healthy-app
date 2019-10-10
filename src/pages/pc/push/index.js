@@ -12,7 +12,7 @@ export default function() {
 
   const [article, setArticle] = useState({ type: 1 });
   const [classifys, setClassifys] = useState([]);
-  const url = 'http://pxczv9bs6.bkt.clouddn.com/';
+  const url = 'http://images.y456.cn/';
 
   const editorStyle = {
     height: '20rem',
