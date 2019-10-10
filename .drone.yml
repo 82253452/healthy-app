@@ -9,7 +9,7 @@ steps:
       - npm install
     volumes:
       - name: cache
-        path: /82253452/healthy-app/node_modules
+        path: /drone/src/node_modules
 
   - name: build-dist
     image: node:10
