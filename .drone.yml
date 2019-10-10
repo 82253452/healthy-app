@@ -4,7 +4,7 @@ steps:
   - name: npm-install
     image: node:10
     commands:
-      - ls
+      - pwd
       - npm config set cache ./.npm-cache --global
       - npm install
     volumes:
