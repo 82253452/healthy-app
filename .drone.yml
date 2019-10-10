@@ -1,38 +1,19 @@
 kind: pipeline
 name: drone
 steps:
-  - name: restore-cache
-    image: drillster/drone-volume-cache
-    settings:
-      restore: true
-      mount:
-        - ./.npm-cache
-        - ./node_modules
-    volumes:
-      - name: cache
-        path: /cache
-
   - name: npm-install
     image: node:10
     commands:
       - npm config set cache ./.npm-cache --global
       - npm install
+    volumes:
+      - name: cache
+        path: ./node_modules
 
   - name: build-dist
     image: node:10
     commands:
       - npm run build
-
-  - name: rebuild-cache
-    image: drillster/drone-volume-cache
-    settings:
-      rebuild: true
-      mount:
-        - ./.npm-cache
-        - ./node_modules
-    volumes:
-      - name: cache
-        path: /cache
 
   - name: build
     image: plugins/docker
