@@ -8,9 +8,9 @@ steps:
       - npm install
     volumes:
       - name: cache-modules
-        path: ./node_modules
+        path: /drone/src/node_modules
       - name: cache-npm
-        path: ./.npm-cache
+        path: /drone/src/npm-cache
 
   - name: build-dist
     image: node:10
