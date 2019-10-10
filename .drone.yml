@@ -4,11 +4,12 @@ steps:
   - name: npm-install
     image: node:10
     commands:
+      - ls
       - npm config set cache ./.npm-cache --global
       - npm install
     volumes:
       - name: cache
-        path: ./node_modules
+        path: /82253452/healthy-app/node_modules
 
   - name: build-dist
     image: node:10
