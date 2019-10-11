@@ -11,7 +11,6 @@ export function render(oldRender) {
   }else{
     localStorage.getItem('TOKEN')|| (isMobile() && (window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx4ff80217b55375b5&redirect_uri=https%3A%2F%2Fzhihuizhan.net&response_type=code&scope=snsapi_userinfo&state=STATE&component_appid=wx45a4a88f12821319&connect_redirect=1#wechat_redirect'))
   }
-  console.log(12)
   oldRender();
 }
 
