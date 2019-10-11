@@ -7,5 +7,7 @@ services:
   myapp:
     container_name: drone-myapp
     image: swr.cn-north-1.myhuaweicloud.com/a82253452/myapp
-    ports:
-      - 8011:80
+    labels:
+      - traefik.http.routers.drone-server.rule=Host(`zhihuizhan.net`)
+      - traefik.http.routers.myapp.tls.certresolver=mytlschallenge
+
