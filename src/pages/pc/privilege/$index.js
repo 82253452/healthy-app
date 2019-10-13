@@ -189,13 +189,13 @@ export default function (props) {
         </div>
       </div>
       <div className={` ${styles.sortBox} container ${styles.boxBg} m_t20`}>
-        <a href="#">智能</a>
+        <a >智能</a>
         |
-        <a href="#">好评</a>
+        <a >好评</a>
         |
-        <a href="#">人气</a>
+        <a >人气</a>
         |
-        <a href="#">效果</a>
+        <a >效果</a>
       </div>
       <div className={`auto-container ${styles.psListBox} clearfix`} style={{paddingBottom:'22px'}}>
         {
