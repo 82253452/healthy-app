@@ -217,7 +217,7 @@ export default function () {
         </div>
       </section>
 
-      <section className={`${styles.pages4} page`}>
+      <section className={`${styles.pages4} page pc`}>
 
         <h1 className="title">
           <img src={require("@/assets/pctitle01.png")} className="pc" alt=""/>
@@ -229,7 +229,7 @@ export default function () {
         </div>
       </section>
 
-      <section className={`${styles.pages5} page`}>
+      <section className={`${styles.pages5} page pc`}>
 
         <h1 className="title">
           <img src={require("@/assets/pctitle02.png")} className="pc" alt=""/>
