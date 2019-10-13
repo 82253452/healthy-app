@@ -179,11 +179,8 @@ export default function () {
                 <img src={require("@/assets/icon03_h5.png")} className="h5" alt=""/>
             </h1>
             <div className={`${styles.menuList} pc`}>
-              <span>美容</span>
-              <span>塑形</span>
-              <span>母婴</span>
-              <span>细胞</span>
-              <span>体检</span>
+              {classifys.map(classify => <span onClick={() => setPage({ ...page, ...{ classifyId: classify.id } })}
+                                              className={styles.button + ' ' + (page.classifyId === classify.id ? styles.buttonActive : '')}>{classify.name}</span>)}
               <a  onClick={() => router.push('/pc/article')} className="more">更多>>></a>
             </div>
             <ul className={`${styles.list} clearfix pc`}>
