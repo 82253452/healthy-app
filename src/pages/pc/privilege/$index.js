@@ -44,7 +44,7 @@ export default function (props) {
       data.data && !data.data.length && setHasMore(false)
       data && data.data && setShops([...shops, ...data.data])
     });
-  }, [shopsParam, classify, props.match.params.index, shops]);
+  }, [shopsParam, classify, props.match.params.index]);
 
   function changeAddress(id, index) {
     setAddressActive(index);
