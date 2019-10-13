@@ -34,7 +34,7 @@ export default function (props) {
       data && data.data && setAddressFir(data.data);
     });
     setIsloding(false);
-  }, []);
+  }, [props.match.params.index]);
   useEffect(() => {
     setShops([])
     let classifyId = props.match.params.index
@@ -43,14 +43,14 @@ export default function (props) {
     )
     classifyId==-1&&(classifyId='')
     setShopsParam({ ...shopsParam, ...{ classifyId }, ...{ addressId } })
-  }, [classifyActive, addressId, props.match.params.index]);
+  }, [classifyActive, addressId, props.match.params.index, classify, shopsParam]);
 
   useEffect(() => {
     getShopIndex(shopsParam).then(data => {
       data.data && !data.data.length && setHasMore(false)
       data && data.data && setShops([...shops, ...data.data])
     });
-  }, [shopsParam, classify, props.match.params.index]);
+  }, [shopsParam, classify, props.match.params.index, shops]);
 
   function changeAddress(id, index) {
     setAddressActive(index);
@@ -197,7 +197,7 @@ export default function (props) {
         |
         <a href="#">效果</a>
       </div>
-      <div className={`auto-container ${styles.psListBox} clearfix`}>
+      <div className={`auto-container ${styles.psListBox} clearfix`} style={{paddingBottom:'22px'}}>
         {
           shops.map(shop => (
             <div className={`col-md-12 ${styles.boxBg} m_t20 clearfix`}>
