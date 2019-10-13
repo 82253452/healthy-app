@@ -2,7 +2,7 @@
 
 }
 .uplaodInput{
-  display: none;
+  display: none !important;
 }
 .uplaod{
 

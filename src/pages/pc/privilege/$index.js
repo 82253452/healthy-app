@@ -24,7 +24,12 @@ export default function (props) {
   const [phoneClassifyActive, setPhoneClassifyActive] = useState(false);
   const [hasMore, setHasMore] = useState(true);
   useEffect(() => {
-    getClassify().then(data => data && data.data && setClassify(data.data));
+    getClassify().then(data => {
+      data && data.data && setClassify(data.data)
+      data.data.forEach(d=>{
+        (d.id==props.match.params.index)&&setClassifyActive(data.data.indexOf(d))
+      })
+    });
     getAddressyFir().then(data => {
       data && data.data && setAddressFir(data.data);
     });
@@ -38,7 +43,7 @@ export default function (props) {
     )
     classifyId==-1&&(classifyId='')
     setShopsParam({ ...shopsParam, ...{ classifyId }, ...{ addressId } })
-  }, [classifyActive, addressId, props.match.params.index, classify]);
+  }, [classifyActive, addressId, props.match.params.index]);
 
   useEffect(() => {
     getShopIndex(shopsParam).then(data => {
@@ -126,7 +131,7 @@ export default function (props) {
                        onClick={() => changeAddress(address.id, addressFir.indexOf(address))}><span>{address.name}</span></li>))
                 }
               </ul>
-              <div className={`${styles.childrenBox}`}>
+              <div className={`${addressSec&&addressSec.length&&styles.childrenBox}`}>
                 {
                   addressSec.map(address => (
                     <a onClick={() => setAddressId(address.id)} key={address.id}
@@ -179,7 +184,7 @@ export default function (props) {
       </div>
       {/*h5 end*/}
       <div className={`ReceiveVIP ${styles.boxBg} m_t20 container`}>
-        <div className="">
+        <div className="" onClick={getPrivilege}>
           <img src={require("@/assets/vipimg.jpg")} alt=""/>
         </div>
       </div>
@@ -219,14 +224,14 @@ export default function (props) {
                       </div>
                     </div>
                     <ul className={`${styles.list}`}>
-                      <li>
-                        <p>面部祛痘买它就对了（店长推荐）</p>
-                        <p><span className="font_c">¥66 </span> 门市价¥188 已售5460</p>
-                      </li>
-                      <li>
-                        <p>面部祛痘买它就对了（店长推荐）</p>
-                        <p><span className="font_c">¥66 </span> 门市价¥188 已售5460</p>
-                      </li>
+                      {/*<li>*/}
+                      {/*  <p>面部祛痘买它就对了（店长推荐）</p>*/}
+                      {/*  <p><span className="font_c">¥66 </span> 门市价¥188 已售5460</p>*/}
+                      {/*</li>*/}
+                      {/*<li>*/}
+                      {/*  <p>面部祛痘买它就对了（店长推荐）</p>*/}
+                      {/*  <p><span className="font_c">¥66 </span> 门市价¥188 已售5460</p>*/}
+                      {/*</li>*/}
                       <span className={`${styles.more}`} onClick={() => toCoupon(shop.id)}>查看更多优惠</span>
                     </ul>
                   </div>

@@ -59,7 +59,7 @@ export default function () {
         <div className={`${styles.h5CenterTop} clearfix h5`}>
           <div className={`left ${styles.left}`}>
             <div className={`${styles.portrait}`}>
-              <img src={require("@/assets/imglist01.png")} alt=""/>
+              <img src={user.avatar} alt=""/>
             </div>
             <div className="nickname" >{user.nickName}</div>
             <div className={`${styles.describe}`}>{user.introduction}</div>
@@ -150,7 +150,7 @@ export default function () {
                     <li>
                       <p>上传头像</p>
                       <div className={`${styles.UploadAvatar}`}>
-                        <img src={require("@/assets/20190719182810.jpg")}  alt=""/>
+                        <Qiniu onSuccess={imgSuccessUpload}><img className={styles.userInfoAvatar} src={user.avatar}/></Qiniu>
                       </div>
                     </li>
                     <li>
