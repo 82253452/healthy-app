@@ -91,6 +91,7 @@ function BasicLayout(props) {
                     <p>企业邮箱：yang@revering.cn</p>
                     <p>联系电话：+86 010-5826 4568</p>
                     <p><img src={require("@/assets/icon09.png")} alt=""/></p>
+
                   </div>
                 </div>
               </div>
