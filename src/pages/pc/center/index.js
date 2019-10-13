@@ -77,7 +77,7 @@ export default function () {
             <ul className={`${styles.cneterNavlist}`}>
               <li><a onClick={() => setClickType(2)}>编辑资料</a></li>
               {/*开始分享*/}
-              <li className={`${styles.bnt}`}><a href="myPrivilegeCard.html">我的特权卡</a></li>
+              <li className={`${styles.bnt}`}><a onClick={() => setClickType(3)}>我的特权卡</a></li>
             </ul>
           </div>
           <div className={`${styles.Release}`}><a onClick={() => router.push('/pc/push')}>开始分享</a></div>
