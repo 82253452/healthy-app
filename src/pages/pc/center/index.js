@@ -61,17 +61,17 @@ export default function () {
             <div className={`${styles.portrait}`}>
               <img src={require("@/assets/imglist01.png")} alt=""/>
             </div>
-            <div className="nickname" >昵称</div>
-            <div className={`${styles.describe}`}>描述</div>
+            <div className="nickname" >{user.nickName}</div>
+            <div className={`${styles.describe}`}>{user.introduction}</div>
           </div>
           <div className={`${styles.ri}`}>
 
             <ul className={`${styles.follow} clearfix`}>
-              <li>100 <p>粉丝</p>
+              <li>{user.userFenNums} <p>粉丝</p>
               </li>
-              <li>100 <p>浏览量</p>
+              <li>{user.userViewedNums} <p>浏览量</p>
               </li>
-              <li>100 <p>关注</p>
+              <li>{user.userAttentionNums} <p>关注</p>
               </li>
             </ul>
             <ul className={`${styles.cneterNavlist}`}>
