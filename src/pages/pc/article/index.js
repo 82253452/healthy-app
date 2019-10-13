@@ -23,7 +23,7 @@ export default function() {
       data && (data.data ? setArticles([...articles, ...data.data]) : console.log('无数据'));
       setIsLoding(false)
     });
-  }, [articles, page]);
+  }, [page]);
   const goBack = () => {
     window.history.go(-1);
   };
