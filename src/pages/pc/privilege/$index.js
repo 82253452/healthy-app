@@ -37,7 +37,7 @@ export default function (props) {
       (classifyActive === -1 ? '' : classify[classifyActive]['id'])
     )
     setShopsParam({ ...shopsParam, ...{ classifyId }, ...{ addressId } })
-  }, [classifyActive, addressId, props.match.params.index, classify, shopsParam]);
+  }, [classifyActive, addressId, props.match.params.index, classify]);
 
   useEffect(() => {
     getShopIndex(shopsParam).then(data => {
