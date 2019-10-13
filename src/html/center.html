@@ -1,0 +1,713 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>特权服务</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <link rel="stylesheet" href="style/common.css">
+  <style>
+    .bgBox {
+      background: #49acf3;
+      height: 225px;
+    }
+
+    .body {
+      padding-bottom: 50px;
+    }
+
+    .center_left {
+      background: #fff;
+      border-radius: 10px;
+      position: relative;
+      margin-top: 60px;
+      padding-top: 50px;
+      text-align: center;
+    }
+
+    .center_left .portrait {
+      border-radius: 50%;
+      overflow: hidden;
+      width: 80px;
+      height: 80px;
+      margin: 0 auto;
+      position: absolute;
+      top: -40px;
+      left: 0;
+      right: 0;
+      border: 5px solid #fff;
+    }
+
+    .center_left .describe {
+      color: #999;
+      font-size: 12px;
+      padding-top: 10px;
+    }
+
+    .follow {
+      text-align: center;
+      margin-top: 20px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      border-top: 1px solid #e8e8e8;
+      border-bottom: 1px solid #e8e8e8;
+      margin-left: 30px;
+      margin-right: 30px;
+    }
+
+    .follow li {
+      display: inline-block;
+      width: 30%;
+      text-align: center;
+      font-size: 20px;
+    }
+
+    .follow li p {
+      font-size: 12px;
+    }
+
+    .centerBox {
+      margin-top: -150px;
+    }
+
+    .cneter_navlist {
+      padding-bottom: 100px;
+    }
+
+    .cneter_navlist li {
+
+      margin-left: 30px;
+      margin-right: 30px;
+      border-bottom: 1px solid #e8e8e8;
+      text-align: center;
+      padding: 20px 0;
+
+    }
+
+    .cneter_navlist li a {
+      display: inline-block;
+      width: 150px;
+      background: #49acf3;
+      line-height: 40px;
+      border-radius: 40px;
+      color: #fff;
+
+    }
+
+    .center_right {
+      padding-top: 90px;
+    }
+
+    .center_right .menu {
+      height: 60px;
+      color: #fff;
+    }
+
+    .center_right .menu a {
+      color: #fff;
+      font-size: 16px;
+      margin: 0 15px;
+      display: inline-block;
+    }
+
+    .center_right .menu a span {
+      color: #fff;
+      background: #49acf3;
+      border-radius: 50px;
+      display: block;
+      margin: 12px 12px;
+      padding: 3px 12px;
+    }
+
+    .center_right .menu a.avtive span {
+      color: #49acf3;
+      background: #fff;
+      border-radius: 50px;
+      display: block;
+      margin: 12px 12px;
+      padding: 3px 12px;
+
+
+    }
+
+    .center_right .typeBtn {
+      padding: 25px 0;
+    }
+
+    .center_right .typeBtn a {
+      display: inline-block;
+      width: 80px;
+      background: #fff;
+      line-height: 35px;
+      border-radius: 35px;
+      color: #999;
+      text-align: center;
+      border: 1px solid #c2c2c3;
+      margin-right: 20px;
+    }
+
+    .center_right .typeBtn a.avtive {
+      background: #dde7f6;
+      border: 1px solid #dde7f6;
+      color: #49acf3;
+    }
+
+    .item_list li {
+      margin-bottom: 20px;
+    }
+
+    .item_list li a {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      display: block;
+      border: 1px solid #e4e8e9;
+      padding-bottom: 20px;
+    }
+
+    .item_list li a .img {
+      height: 265px;
+      display: block;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .item_list li a .ti {
+      color: #333;
+      font-size: 14px;
+      margin: 15px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box !important;
+      -webkit-line-clamp: 2;
+      /*! autoprefixer: off */
+      -webkit-box-orient: vertical;
+      height: 38px;
+
+    }
+
+    .item_list li a .fot {
+      margin: 0 15px;
+      color: #333;
+      font-size: 12px;
+    }
+
+    .item_list li a .fot .left img {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 6px;
+    }
+
+    .item_list li a .fot .right img {
+      width: 16px;
+      height: 16px;
+      margin-right: 6px;
+    }
+
+    @media (max-width: 767px) {
+
+      .centerBox {
+        margin-top: 0px;
+      }
+
+      .h5CenterTop {
+        background: #fff;
+        padding: 15px;
+      }
+
+      .h5CenterTop .portrait {
+        border-radius: 50%;
+        overflow: hidden;
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 12px auto;
+      }
+
+      .h5CenterTop .describe {
+        color: #999;
+        font-size: 12px;
+        padding-top: 10px;
+        clear: both;
+        text-align: left;
+      }
+
+      .h5CenterTop .left {
+        text-align: center;
+      }
+
+      .h5CenterTop .ri {
+        overflow: hidden;
+      }
+
+      .h5CenterTop .follow {
+        text-align: center;
+        margin-top: 0px;
+        padding-top: 10px;
+        padding-bottom: 0px;
+        border-top: 0;
+        border-bottom: 0;
+        margin-left: 0px;
+        margin-right: 0px;
+      }
+
+      .h5CenterTop .follow li {
+        display: inline-block;
+        width: 30%;
+        text-align: center;
+        font-size: 20px;
+      }
+
+      .h5CenterTop .follow li p {
+        font-size: 12px;
+      }
+
+      .h5CenterTop .cneter_navlist {
+        padding-top: 15px;
+        padding-bottom: 0px;
+        text-align: center;
+      }
+
+      .h5CenterTop .cneter_navlist li.bnt a {
+        color: #fff;
+        background: #e83032;
+        border: 1px solid #e83032;
+      }
+
+      .h5CenterTop .cneter_navlist li {
+
+        margin-left: 0px;
+        margin-right: 0px;
+        border-bottom: 0;
+        text-align: center;
+        padding: 0px 0;
+        display: inline-block;
+
+      }
+
+      .h5CenterTop .cneter_navlist li a {
+        display: inline-block;
+        width: auto;
+        background: #fff;
+        line-height: normal;
+        border: 1px solid #bbbbbb;
+        margin-right: 10px;
+        border-radius: 50px;
+        padding: 4px 12px;
+        color: #424242;
+
+
+      }
+
+      .Release {
+        clear: both;
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      .Release a {
+        border: 1px solid #bbbbbb;
+        color: #424242;
+        border-radius: 50px;
+        text-align: center;
+        height: 50px;
+        line-height: 50px;
+        font-size: 16px;
+        display: block;
+      }
+
+      .center_right {
+        padding-top: 0px;
+      }
+
+      .center_right .menu {
+        height: auto;
+        color: #999;
+        background: #fff;
+        margin: 0 -15px;
+        text-align: center;
+      }
+
+      .center_right .menu a {
+        color: #fff;
+        font-size: 16px;
+        margin: 0px;
+        display: inline-block;
+        line-height: 45px;
+        padding: 0 3px;
+      }
+
+      .center_right .menu a span {
+        color: #333;
+        background: #fff;
+        border-radius: 50px;
+        display: block;
+
+        margin: 0px;
+        padding: 0px;
+      }
+
+      .center_right .menu a.avtive span {
+        color: #49acf3;
+        background: #fff;
+        border-radius: 50px;
+        display: block;
+        margin: 0px;
+        padding: 0px;
+
+
+      }
+
+      .item_list li a .img {
+        height: 200px;
+      }
+
+      .center_right .typeBtn {
+        text-align: center;
+      }
+
+      .center_right .typeBtn a {
+        display: inline-block;
+        width: 80px;
+        background: #fff;
+        line-height: 35px;
+        border-radius: 35px;
+        color: #999;
+        text-align: center;
+        border: 1px solid #c2c2c3;
+        margin: 0 10px;
+      }
+
+      .item_list li a .fot .left {
+        width: 50%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .item_list li:nth-child(2n){
+        padding-left: 0 !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="main-header center">
+    <div class="header-upper">
+      <div class="auto-container clearfix">
+        <div class="logo left">
+          <a href="index.html" class="pc"><img src="images/logo_w.png" alt="Ecology"></a>
+          <a href="index.html" class="h5"><img src="images/logo.png" alt="Ecology"></a>
+        </div>
+
+        <div class="right clearfix">
+          <div class="login  right">
+            登录
+          </div>
+          <div class="tel right pc">
+            +86 010-5826 4568
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </header>
+  <section class="body clearfix">
+    <div class="bgBox pc">
+
+    </div>
+    <!-- 这是手机的 -->
+    <div class="h5CenterTop clearfix h5">
+      <div class="left">
+        <div class="portrait">
+          <img src="images/imglist01.png" alt="">
+        </div>
+        <div class="Nickname">昵称</div>
+      </div>
+      <div class="ri">
+
+        <ul class="follow clearfix">
+          <li>100 <p>粉丝</p>
+          </li>
+          <li>100 <p>浏览量</p>
+          </li>
+          <li>100 <p>关注</p>
+          </li>
+        </ul>
+        <ul class="cneter_navlist">
+          <li><a href="EditorialMaterials.html">编辑资料</a> </li>
+          <!-- <li><a href="">开始分享</a> </li> -->
+          <li class="bnt"><a href="myPrivilegeCard.html">我的特权卡</a> </li>
+        </ul>
+      </div>
+      <!-- <div class="describe">描述</div> -->
+
+      <div class="Release"><a href="">开始分享</a> </div>
+    </div>
+    <!-- 这是pc的 -->
+    <div class="auto-container centerBox">
+      <div class="row">
+        <div class="col-md-3 clearfix">
+          <div class="center_left pc">
+            <div class="portrait">
+              <img src="images/imglist01.png" alt="">
+            </div>
+            <div class="Nickname">昵称</div>
+            <div class="describe">描述</div>
+            <ul class="follow clearfix">
+              <li>100 <p>粉丝</p>
+              </li>
+              <li>100 <p>浏览量</p>
+              </li>
+              <li>100 <p>关注</p>
+              </li>
+            </ul>
+            <ul class="cneter_navlist">
+              <li><a href="EditorialMaterials.html">编辑资料</a> </li>
+              <li><a href="">开始分享</a> </li>
+              <li><a href="myPrivilegeCard.html">我的特权卡</a> </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="center_right">
+            <div class="menu">
+              <a href="#" class="avtive"><span>我的收藏 100</span></a>
+              |
+              <a href="#"><span>我的分享 100</span></a>
+              |
+              <a href="#"><span>浏览记录 100</span></a>
+            </div>
+            <div class="typeBtn">
+              <a href="#" class="avtive">文章</a>
+              <a href="#">视频</a>
+            </div>
+            <ul class="item_list row clearfix">
+              <li class="col-md-3 col-sm-6  col-xs-6">
+                <a href="#">
+                  <div class="img" style="background-image: url(images/my103.jpg)"></div>
+                  <div class="ti">
+                    羡慕大S满满的少女感？
+                  </div>
+                  <div class="fot clearfix">
+                    <div class="left">
+                      <img src="images/my103.jpg" alt="">
+                      <span>一只小可爱</span>
+                    </div>
+                    <div class="right">
+                      <img src="images/like.png" alt="">
+                      <span>100</span>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="col-md-3  col-sm-6  col-xs-6">
+                <a href="#">
+                  <div class="img" style="background-image: url(images/my103.jpg)"></div>
+                  <div class="ti">
+                    羡慕大S满满的少女感？
+                  </div>
+                  <div class="fot clearfix">
+                    <div class="left">
+                      <img src="images/my103.jpg" alt="">
+                      <span>一只小可爱</span>
+                    </div>
+                    <div class="right">
+                      <img src="images/like.png" alt="">
+                      <span>100</span>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="col-md-3  col-sm-6  col-xs-6">
+                <a href="#">
+                  <div class="img" style="background-image: url(images/my103.jpg)"></div>
+                  <div class="ti">
+                    羡慕大S满满的少女感？
+                  </div>
+                  <div class="fot clearfix">
+                    <div class="left">
+                      <img src="images/my103.jpg" alt="">
+                      <span>一只小可爱</span>
+                    </div>
+                    <div class="right">
+                      <img src="images/like.png" alt="">
+                      <span>100</span>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="col-md-3 col-sm-6  col-xs-6">
+                <a href="#">
+                  <div class="img" style="background-image: url(images/my103.jpg)"></div>
+                  <div class="ti">
+                    羡慕大S满满的少女感？同样是抗氧化为
+                    什么她看起来比你年轻5岁！
+                  </div>
+                  <div class="fot clearfix">
+                    <div class="left">
+                      <img src="images/my103.jpg" alt="">
+                      <span>一只小可爱</span>
+                    </div>
+                    <div class="right">
+                      <img src="images/like.png" alt="">
+                      <span>100</span>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="col-md-3 col-sm-6  col-xs-6">
+                <a href="#">
+                  <div class="img" style="background-image: url(images/my103.jpg)"></div>
+                  <div class="ti">
+                    羡慕大S满满的少女感？！
+                  </div>
+                  <div class="fot clearfix">
+                    <div class="left">
+                      <img src="images/my103.jpg" alt="">
+                      <span>一只小可爱</span>
+                    </div>
+                    <div class="right">
+                      <img src="images/like.png" alt="">
+                      <span>100</span>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="col-md-3 col-sm-6  col-xs-6">
+                <a href="#">
+                  <div class="img" style="background-image: url(images/my103.jpg)"></div>
+                  <div class="ti">
+                    羡慕大S满满的少女感？同样是抗氧化为
+                    什么她看起来比你年轻5岁！
+                  </div>
+                  <div class="fot clearfix">
+                    <div class="left">
+                      <img src="images/my103.jpg" alt="">
+                      <span>一只小可爱</span>
+                    </div>
+                    <div class="right">
+                      <img src="images/like.png" alt="">
+                      <span>100</span>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="col-md-3 col-sm-6  col-xs-6">
+                <a href="#">
+                  <div class="img" style="background-image: url(images/my103.jpg)"></div>
+                  <div class="ti">
+                    羡慕大S满满的少女感？同样是抗氧化为
+                    什么她看起来比你年轻5岁！
+                  </div>
+                  <div class="fot clearfix">
+                    <div class="left">
+                      <img src="images/my103.jpg" alt="">
+                      <span>一只小可爱</span>
+                    </div>
+                    <div class="right">
+                      <img src="images/like.png" alt="">
+                      <span>100</span>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="col-md-3 col-sm-6  col-xs-6">
+                <a href="#">
+                  <div class="img" style="background-image: url(images/my103.jpg)"></div>
+                  <div class="ti">
+                    羡慕大S满满的少女感？同样是抗氧化为
+                    什么她看起来比你年轻5岁！
+                  </div>
+                  <div class="fot clearfix">
+                    <div class="left">
+                      <img src="images/my103.jpg" alt="">
+                      <span>一只小可爱</span>
+                    </div>
+                    <div class="right">
+                      <img src="images/like.png" alt="">
+                      <span>100</span>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="col-md-3 col-sm-6  col-xs-6">
+                <a href="#">
+                  <div class="img" style="background-image: url(images/my103.jpg)"></div>
+                  <div class="ti">
+                    羡慕大S满满的少女感？同样是抗氧化为
+                    什么她看起来比你年轻5岁！
+                  </div>
+                  <div class="fot clearfix">
+                    <div class="left">
+                      <img src="images/my103.jpg" alt="">
+                      <span>一只小可爱</span>
+                    </div>
+                    <div class="right">
+                      <img src="images/like.png" alt="">
+                      <span>100</span>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="main-footer ">
+    <div class="auto-container pc ">
+      <div class="row clearfix">
+        <div class="col-md-2">
+          <h3 class="ti">特权服务</h3>
+          <ul class="navlist">
+            <li><a href="#">美容</a></li>
+            <li><a href="#">塑形</a></li>
+            <li><a href="#">美甲</a></li>
+            <li><a href="#">细胞</a></li>
+            <li><a href="#">体检</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2">
+          <h3 class="ti">分享</h3>
+          <ul class="navlist">
+            <li><a href="#">美容</a></li>
+            <li><a href="#">塑形</a></li>
+            <li><a href="#">美甲</a></li>
+            <li><a href="#">细胞</a></li>
+            <li><a href="#">体检</a></li>
+          </ul>
+        </div>
+        <div class="col-md-8">
+          <div class="row clearfix">
+
+            <div class="col-md-6">
+
+              <h3 class="ti">分享</h3>
+              <div class="imglist">
+                <img src="images/icon07.jpg" alt="">
+                <img src="images/icon08.jpg" alt="">
+              </div>
+            </div>
+            <div class="col-md-6">
+
+              <h3 class="ti">联系我们</h3>
+              <div class="navlist">
+                <p>企业邮箱：yang@revering.cn</p>
+                <p>联系电话：+86 010-5826 4568</p>
+                <p><img src="images/icon09.png" alt=""></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <img src="images/img003_01.jpg" class="h5" alt="">
+
+  </footer>
+</body>
+
+</html>

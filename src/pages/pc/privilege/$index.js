@@ -37,14 +37,14 @@ export default function (props) {
       (classifyActive === -1 ? '' : classify[classifyActive]['id'])
     )
     setShopsParam({ ...shopsParam, ...{ classifyId }, ...{ addressId } })
-  }, [classifyActive, addressId, props.match.params.index, classify]);
+  }, [classifyActive, addressId, props.match.params.index, classify, shopsParam]);
 
   useEffect(() => {
     getShopIndex(shopsParam).then(data => {
       data.data && !data.data.length && setHasMore(false)
       data && data.data && setShops([...shops, ...data.data])
     });
-  }, [shopsParam, classify, props.match.params.index]);
+  }, [shopsParam, classify, props.match.params.index, shops]);
 
   function changeAddress(id, index) {
     setAddressActive(index);
@@ -141,51 +141,36 @@ export default function (props) {
       <div className={`container h5 ${styles.boxBg}`}>
         <div className={`${styles.h5filterBox} row`}>
           <div className={`${styles.navtop} clearfix`}>
-            <span className={`${styles.active} clearfix`}>分类<i></i></span>
-            <span>地区 <i></i></span>
+            <span className={`${phoneClassifyActive?'':styles.active} clearfix`} onClick={() => setPhoneClassifyActive(false)}>分类<i></i></span>
+            <span  className={`${phoneClassifyActive?styles.active:''} clearfix`} onClick={() => setPhoneClassifyActive(true)}>地区 <i></i></span>
           </div>
-          <div className={`${styles.classify} hide`}>
+          <div className={`${styles.classify} ${phoneClassifyActive?'hide':''}`}>
             <div className={`${styles.list}`}>
               <ul className="clearfix">
-                <li><span>不限</span></li>
-                <li className={`${styles.active}`}><span>美容/SPA</span></li>
-                <li><span>美甲美瞳</span></li>
-                <li><span>医学美容</span></li>
-                <li><span>瑜伽</span></li>
-                <li><span>舞蹈</span></li>
-                <li><span>纹绣</span></li>
-                <li><span>瘦身纤体</span></li>
-                <li><span>纹身</span></li>
-                <li><span>祛痘</span></li>
+                <li className={styles.item+ ' ' + ((classifyActive===null||classifyActive===-1) && styles.active)} onClick={() => setClassifyActive(-1)}><span>不限</span></li>
+                {
+                  classify.map(add => ( <li key={add.id} onClick={() => classifyClick(add.id, classify.indexOf(add))} className={classify.indexOf(add) === classifyActive && styles.active}><span>{add.name}</span></li>))
+                }
               </ul>
             </div>
           </div>
-          <div className={`${styles.regionBox}`}>
+          <div className={`${styles.regionBox} ${phoneClassifyActive?'':'hide'}`}>
             <div className="list clearfix">
               <ul>
-                <li><span>不限</span></li>
-                <li><span>热门商区</span></li>
-                <li className="active"><span>行政区</span></li>
-                <li><span>地铁线</span></li>
-                <li><span>地铁线</span></li>
-                <li><span>地铁线</span></li>
-                <li><span>地铁线</span></li>
-                <li><span>地铁线</span></li>
-                <li><span>地铁线</span></li>
-                <li><span>地铁线</span></li>
-                <li><span>地铁线</span></li>
-                <li><span>地铁线</span></li>
+                <li  onClick={() => { setAddressActive(null); setAddressSec([]); setAddressId(null) }}><span>不限</span></li>
+                {
+                  addressFir.map(address => (
+                    <li key={address.id}
+                        className={styles.item + ' ' + (addressFir.indexOf(address) === addressActive ? styles.active : '')}
+                        onClick={() => changeAddress(address.id, addressFir.indexOf(address))}><span>{address.name}</span></li>))
+                }
               </ul>
               <div className={`${styles.childrenBox}`}>
-                <a><span>国贸</span></a>
-                <a className="active"><span>三里屯</span></a>
-                <a><span>南锣鼓巷</span></a>
-                <a><span>王府井/东单</span> </a>
-                <a><span>中关村</span></a>
-                <a><span>五道口</span></a>
-                <a><span>亚运村</span></a>
-                <a><span>五棵松</span></a>
-                <a><span>工人体育场</span></a>
+                {
+                  addressSec.map(address => (
+                    <a onClick={() => setAddressId(address.id)} key={address.id}
+                       className={styles.item + ' ' + styles.classActive}><span>{address.name}</span></a>))
+                }
               </div>
             </div>
           </div>

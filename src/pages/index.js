@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Swiper from 'swiper/dist/js/swiper.js';
 import 'swiper/dist/css/swiper.min.css';
 import headerImg from '@/assets/header_img.png';
@@ -166,7 +166,7 @@ export default function () {
             </h1>
             <ul className={`${styles.list} clearfix`}>
               {classifys.map(classify => <li><a onClick={() => router.push(`/pc/privilege/${classify.id}`)}><img src={classify.image} alt=""/></a></li>)}
-              <li className="h5"><a href="PrivilegedService.html"><img src={require("@/assets/imglist06.png")} alt="" /></a></li>
+              <li className="h5"><a nClick={() => router.push(`/pc/privilege/0`)}><img src={require("@/assets/imglist06.png")} alt="" /></a></li>
             </ul>
           </div>
         </div>
@@ -184,7 +184,7 @@ export default function () {
               <span>母婴</span>
               <span>细胞</span>
               <span>体检</span>
-              <a href="shareList.html" className="more">更多>>></a>
+              <a  onClick={() => router.push('/pc/article')} className="more">更多>>></a>
             </div>
             <ul className={`${styles.list} clearfix pc`}>
               {articles.map(article => <li className={`col-md-3 ${styles.item}`}>
@@ -194,7 +194,7 @@ export default function () {
                     <img src={require("@/assets/icon06.png")}  className={styles.icon} alt=""/>
                   </div>
                   <h2>{article.title&&(article.title.length>5?article.title.substring(0,5):article.title)}</h2>
-                  <p>{article.context&&article.context.length>5?article.context.substring(0,5):article.context}</p>
+                  <p dangerouslySetInnerHTML={{__html:article.context&&article.context.length>5?article.context.substring(0,5):article.context}}></p>
                 </a>
               </li>)}
               <a className={styles.arrowLeft}></a>
@@ -203,12 +203,7 @@ export default function () {
             {/*这里是h5部分 *********注意这里是分类不是内容*/}
             <ul className={`${styles.h5List} clearfix h5`}>
               {classifys.map(classify => <li><a onClick={() => router.push(`/pc/privilege/${classify.id}`)}><img src={classify.image} alt=""/></a></li>)}
-              {/*<li><a href="shareShow.html"><img src={require("@/assets/share_icon06.png")} alt=""/></a></li>*/}
-              {/*<li><a href="shareShow.html"><img src={require("@/assets/share_icon05.png")} alt=""/></a></li>*/}
-              {/*<li><a href="shareShow.html"><img src={require("@/assets/share_icon04.png")} alt=""/></a></li>*/}
-              {/*<li><a href="shareShow.html"><img src={require("@/assets/share_icon03.png")} alt=""/></a></li>*/}
-              {/*<li><a href="shareShow.html"><img src={require("@/assets/share_icon02.png")} alt=""/></a></li>*/}
-              <li><a href="shareShow.html"><img src={require("@/assets/share_icon01.png")} alt=""/></a></li>
+              <li><a onClick={() => router.push(`/pc/privilege/0`)}><img src={require("@/assets/share_icon01.png")} alt=""/></a></li>
             </ul>
             <a  onClick={() => router.push('/pc/push')}  className={styles.h5More}>开始分享</a>
           </div>

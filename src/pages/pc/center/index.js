@@ -1,6 +1,6 @@
 import styles from './index.css';
 import { getUserInfo, save } from '@/api/user';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { getUserArticles } from '@/api/article';
 import { getUser } from '@/api/privilege';
 import router from 'umi/router';
@@ -51,118 +51,127 @@ export default function () {
   }
   return (
     isloding ? '' :
-      <div className={styles.container}>
-        <div className={styles.header}>
-        </div>
-        <div className={styles.context}>
-          <div className={styles.contextLeft}>
+      <section className="body clearfix">
+        <div className={`${styles.bgBox} pc`}>
 
-            <div className={styles.userAvatarDiv}><img className={styles.userAvatar}
-              src={user.avatar} />
+        </div>
+        {/*这是手机的*/}
+        <div className={`${styles.h5CenterTop} clearfix h5`}>
+          <div className={`left ${styles.left}`}>
+            <div className={`${styles.portrait}`}>
+              <img src={require("@/assets/imglist01.png")} alt=""/>
             </div>
-            <div className={styles.userName}>{user.nickName}</div>
-            <div className={styles.userContext}>{user.introduction}</div>
-            <div className={styles.hTop}></div>
-            <div className={styles.hConetxt}>
-              <div className={styles.hConetxtInfo}>
-                <div>
-                  {user.userFenNums}<br />
-                  粉丝
-                </div>
-                <div>
-                  {user.userViewedNums}<br />
-                  浏览量
-                </div>
-                <div>
-                  {user.userAttentionNums}<br />
-                  关注
-                </div>
-              </div>
-              <div className={styles.hConetxtEdit}>
-                <div onClick={() => setClickType(2)}>编辑资料</div>
-                <div onClick={() => router.push('/pc/push')}>开始分享</div>
-                <div onClick={() => setClickType(3)}>我的特权卡</div>
-              </div>
-            </div>
+            <div className="nickname" >昵称</div>
+            <div className={`${styles.describe}`}>描述</div>
           </div>
-          <div className={styles.contextRight}>
-            <div className={styles.menu}>
-            <div className={headerIndex === 0 ? styles.headerListClick : ''} onClick={() => {
-              setHeaderIndex(0);
-            }}>我的收藏 {user.userPraiseNum}
-            </div>
-            <span>|</span>
-            <div className={headerIndex === 1 ? styles.headerListClick : ''} onClick={() => {
-              setHeaderIndex(1);
-            }}>我的点评 {user.userCommentsNum}
-            </div>
-            <span>|</span>
-            <div className={headerIndex === 2 ? styles.headerListClick : ''} onClick={() => {
-              setHeaderIndex(2);
-            }}>我的分享 {user.userShareNum}
-            </div>
-            <span>|</span>
-            <div className={headerIndex === 3 ? styles.headerListClick : ''} onClick={() => {
-              setHeaderIndex(3);
-            }}>浏览记录 {user.userBrowseNum}
-            </div>
-            </div>
-            <div className={styles.contextRightHeader + ' ' + (clickType === 1 ? styles.show : styles.hidden)}>
-              <div className={articleType === 2 ? styles.contextRightHeaderSelect : null}
-                onClick={() => setArticleType(2)}>视频
+          <div className={`${styles.ri}`}>
+
+            <ul className={`${styles.follow} clearfix`}>
+              <li>100 <p>粉丝</p>
+              </li>
+              <li>100 <p>浏览量</p>
+              </li>
+              <li>100 <p>关注</p>
+              </li>
+            </ul>
+            <ul className={`${styles.cneterNavlist}`}>
+              <li><a href="EditorialMaterials.html">编辑资料</a></li>
+              {/*开始分享*/}
+              <li className={`${styles.bnt}`}><a href="myPrivilegeCard.html">我的特权卡</a></li>
+            </ul>
+          </div>
+          <div className={`${styles.Release}`}><a href="">开始分享</a></div>
+        </div>
+        {/*这是pc的*/}
+        <div className={`auto-container ${styles.centerBox}`}>
+          <div className="row">
+            <div className="col-md-3 clearfix">
+              <div className={`${styles.centerLeft} pc`}>
+                <div  className={`${styles.portrait}`}>
+                  <img  src={require("@/assets/imglist01.png")}  alt=""/>
+                </div>
+                <div className="Nickname">{user.nickName}</div>
+                <div className={`${styles.describe}`}>{user.introduction}</div>
+                <ul  className={`${styles.follow} clearfix`}>
+                  <li>{user.userFenNums} <p>粉丝</p>
+                  </li>
+                  <li>{user.userViewedNums} <p>浏览量</p>
+                  </li>
+                  <li>{user.userAttentionNums} <p>关注</p>
+                  </li>
+                </ul>
+                <ul className={`${styles.cneterNavlist}`}>
+                  <li><a onClick={() => setClickType(2)}>编辑资料</a></li>
+                  <li><a onClick={() => router.push('/pc/push')} href="">开始分享</a></li>
+                  <li><a onClick={() => setClickType(3)}>我的特权卡</a></li>
+                </ul>
               </div>
-              <div className={articleType === 1 ? styles.contextRightHeaderSelect : null}
-                onClick={() => setArticleType(1)}>文章
-              </div>
             </div>
-            <div className={styles.list + ' ' + (clickType === 1 ? styles.show : styles.hidden)}>
-              {articles.map(article => (
-                <div onClick={() => toInfo(article.id)} key={article.id} className={styles.block}>
-                  <div className={styles.headerImg}><img className={styles.img}
-                    src={article.type === 1 ? article.image : `${article.video}?vframe/jpg/offset/1`} />
-                  </div>
-                  <div className={styles.blockInfo}>
-                    <div className={styles.text}>{article.title}</div>
-                    <div className={styles.userInfo}>
-                      <div className={styles.userImg}><img className={styles.userImgAvatar}
-                        src={article.avatar} />
+            <div className="col-md-9">
+              <div className={`${styles.centerRight}`}>
+                <div className={`${styles.menu}`}>
+                  <a onClick={() => {setHeaderIndex(0)}} className={headerIndex === 0 ? styles.avtive : ''}><span>我的收藏 {user.userPraiseNum}</span></a>
+                  |
+                  <a onClick={() => {setHeaderIndex(2)}} className={headerIndex === 2 ? styles.avtive : ''}><span>我的分享 {user.userShareNum}</span></a>
+                  |
+                  <a onClick={() => {setHeaderIndex(3)}} className={headerIndex === 3 ? styles.avtive : ''}><span>浏览记录 {user.userBrowseNum}</span></a>
+                </div>
+                <div className={`${styles.typeBtn} ${clickType === 1 ? '' : 'hide'}`}>
+                  <a  className={articleType === 1 ? styles.avtive : ''} onClick={() => setArticleType(1)}>文章</a>
+                  <a className={articleType === 2 ? styles.avtive : ''} onClick={() => setArticleType(2)}>视频</a>
+                </div>
+                <ul className={`${styles.itemList} row clearfix ${clickType === 1 ? '' : 'hide'}`}>
+                  {articles.map(article => (
+                    <li className="col-md-3 col-sm-6  col-xs-6" onClick={() => toInfo(article.id)} key={article.id}>
+                      <a>
+                        <div className={`${styles.img}`} style={{backgroundImage: `url(${article.type === 1 ? article.image : article.video&&'vframe/jpg/offset/1'})`}}></div>
+                        <div className={`${styles.ti}`}>
+                          {article.title}
+                        </div>
+                        <div className={`${styles.fot} clearfix`}>
+                          <div className={`${styles.left} left`}>
+                            <img src={require("@/assets/my103.jpg")} alt=""/>
+                            <span>{article.nickName}</span>
+                          </div>
+                          <div className={`${styles.right} right`}>
+                            <img src={require("@/assets/like.png")} alt=""/>
+                            <span>{styles.praiseNum}</span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+                <div className={`${styles.inputBox} ${clickType === 2 ? '' : 'hide'}`}>
+                  <h2 className={`${styles.h2}`}>
+                    编辑资料
+                  </h2>
+                  <ul className="inpuList">
+                    <li>
+                      <p>上传头像</p>
+                      <div className={`${styles.UploadAvatar}`}>
+                        <img src={require("@/assets/20190719182810.jpg")}  alt=""/>
                       </div>
-                      <div className={styles.userNick}>{article.nickName}</div>
-                      <div className={styles.num}>{article.praiseNum}</div>
-                      <div className={styles.praise}>心</div>
-                    </div>
-                  </div>
+                    </li>
+                    <li>
+                      <p>昵称</p>
+                      <div>
+                        <input defaultValue={user.nickName} onChange={changeUserName} type="text" placeholder="输入昵称"/>
+                      </div>
+                    </li>
+                    <li>
+                      <p>自我介绍</p>
+                      <div>
+                        <textarea value={user.introduction} onChange={(e) => setUser({ ...user, introduction: e.target.value })} name="" id="" cols="30" rows="10" placeholder="输入自我介绍"></textarea>
+                      </div>
+                    </li>
+                    <div className={`${styles.Submitted}`} onClick={saveUser}>保存</div>
+                  </ul>
                 </div>
-              ))}
-            </div>
-            <div className={styles.contextRightCenter + ' ' + (clickType === 2 ? styles.show : styles.hidden)}>
-              <div className={styles.userInfoDiv}>
-                <div className={styles.baseInfo}>
-                  <div>基本信息</div>
-                  <div className={styles.baseInputDiv}>(<span className={styles.red}>*</span>为必须填写项目)</div>
-                </div>
-                <div className={styles.baseInputDiv}>(为了让各位更了解你，以下信息将显示在个人资料页）</div>
-                <div className={styles.userInfoAvatarDiv}>
-                  <Qiniu onSuccess={imgSuccessUpload}><img className={styles.userInfoAvatar} src={user.avatar} /></Qiniu>
-                </div>
-                <div className={styles.userInfoAvatarDiv}>
-                  <h3>{user.nickName}</h3>
-                </div>
-                <div className={styles.userNickName}><span className={styles.red}>*</span>昵称 <input defaultValue={user.nickName} onChange={changeUserName} />
-                </div>
-                <div className={styles.introduction}>
-                  <div>自我介绍</div>
-                  <textarea rows={5} value={user.introduction} onChange={(e) => setUser({ ...user, introduction: e.target.value })}></textarea></div>
-                <div className={styles.share} onClick={saveUser}>保存</div>
               </div>
             </div>
-            <div className={styles.contextRightCenter + ' ' + (clickType === 3 ? styles.show : styles.hidden)}>
-              <img src={privilege} />
-            </div>
-          </div>
-          <div>
           </div>
         </div>
-      </div>
+      </section>
   );
 }
