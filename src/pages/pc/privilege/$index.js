@@ -36,6 +36,7 @@ export default function (props) {
     classifyId = (classifyActive === null ? classifyId :
       (classifyActive === -1 ? '' : classify[classifyActive]['id'])
     )
+    classifyId==-1&&(classifyId='')
     setShopsParam({ ...shopsParam, ...{ classifyId }, ...{ addressId } })
   }, [classifyActive, addressId, props.match.params.index, classify]);
 

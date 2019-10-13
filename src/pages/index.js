@@ -166,7 +166,7 @@ export default function () {
             </h1>
             <ul className={`${styles.list} clearfix`}>
               {classifys.map(classify => <li><a onClick={() => router.push(`/pc/privilege/${classify.id}`)}><img src={classify.image} alt=""/></a></li>)}
-              <li className="h5"><a nClick={() => router.push(`/pc/privilege/0`)}><img src={require("@/assets/imglist06.png")} alt="" /></a></li>
+              <li className="h5"><a onClick={() => router.push(`/pc/privilege/-1`)}><img src={require("@/assets/imglist06.png")} alt="" /></a></li>
             </ul>
           </div>
         </div>
@@ -203,7 +203,7 @@ export default function () {
             {/*这里是h5部分 *********注意这里是分类不是内容*/}
             <ul className={`${styles.h5List} clearfix h5`}>
               {classifys.map(classify => <li><a onClick={() => router.push(`/pc/privilege/${classify.id}`)}><img src={classify.image} alt=""/></a></li>)}
-              <li><a onClick={() => router.push(`/pc/privilege/0`)}><img src={require("@/assets/share_icon01.png")} alt=""/></a></li>
+              <li><a onClick={() => router.push(`/pc/privilege/-1`)}><img src={require("@/assets/share_icon01.png")} alt=""/></a></li>
             </ul>
             <a  onClick={() => router.push('/pc/push')}  className={styles.h5More}>开始分享</a>
           </div>

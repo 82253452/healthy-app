@@ -75,12 +75,12 @@ export default function () {
               </li>
             </ul>
             <ul className={`${styles.cneterNavlist}`}>
-              <li><a href="EditorialMaterials.html">编辑资料</a></li>
+              <li><a onClick={() => setClickType(2)}>编辑资料</a></li>
               {/*开始分享*/}
               <li className={`${styles.bnt}`}><a href="myPrivilegeCard.html">我的特权卡</a></li>
             </ul>
           </div>
-          <div className={`${styles.Release}`}><a href="">开始分享</a></div>
+          <div className={`${styles.Release}`}><a onClick={() => router.push('/pc/push')}>开始分享</a></div>
         </div>
         {/*这是pc的*/}
         <div className={`auto-container ${styles.centerBox}`}>
@@ -102,7 +102,7 @@ export default function () {
                 </ul>
                 <ul className={`${styles.cneterNavlist}`}>
                   <li><a onClick={() => setClickType(2)}>编辑资料</a></li>
-                  <li><a onClick={() => router.push('/pc/push')} href="">开始分享</a></li>
+                  <li><a onClick={() => router.push('/pc/push')}>开始分享</a></li>
                   <li><a onClick={() => setClickType(3)}>我的特权卡</a></li>
                 </ul>
               </div>
@@ -168,6 +168,9 @@ export default function () {
                     <div className={`${styles.Submitted}`} onClick={saveUser}>保存</div>
                   </ul>
                 </div>
+              </div>
+              <div className={`${styles.cardBox} ${clickType === 3 ? '' : 'hide'}`}>
+                <img src={require("@/assets/ka.png")} alt=""/>
               </div>
             </div>
           </div>
