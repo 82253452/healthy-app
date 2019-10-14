@@ -39,105 +39,25 @@ export default function () {
 
       // return;
     }
-    getClassify().then(data => data && data.data && setClassifys(data.data));
+    getClassify().then(data =>
+    {
+      data && data.data && setClassifys(data.data)
+      shopSwiper && shopSwiper.updateSlides();
+    });
     // setshopSwiper(new Swiper('.swiper-container1', {
     //   slidesPerView: 5,
     //   spaceBetween:0,
     // }))
-    // setSwiper(new Swiper('.swiper-container1', {
-    //   slidesPerView: 4,
-    //   spaceBetween: 70,
-    //   pagination: {  //分页器
-    //     el: '.swiper-pagination'
-    //   },
-    //   navigation: {
-    //     nextEl: '.swiper-button-next',
-    //     prevEl: '.swiper-button-prev',
-    //   },
-    // }))
-    // setshopSwiper(new Swiper('.container3', {
-    //   watchSlidesProgress: true,
-    //   slidesPerView: 'auto',
-    //   centeredSlides: true,
-    //   // loop: true,
-    //   // loopedSlides: 30,
-    //   autoplay: true,
-    //   on:{
-    //     progress: function(progress) {
-    //       for (var i = 0; i < this.slides.length; i++) {
-    //         var slide = this.slides.eq(i);
-    //         var slideProgress = this.slides[i].progress;
-    //         var modify = 1;
-    //         var translate = slideProgress * modify * 90 + 'px';
-    //         var scale = 1 - Math.abs(slideProgress) / 5;
-    //         var zIndex = 999 - Math.abs(Math.round(10 * slideProgress));
-    //         slide.transform('translateX(' + translate + ') scale(1)');
-    //         slide.css('zIndex', zIndex);
-    //         slide.css('opacity', 1);
-    //         if (Math.abs(slideProgress) > 3) {
-    //           slide.css('opacity', 0);
-    //         }
-    //       }
-    //     },
-    //     setTransition: function(transition) {
-    //       for (var i = 0; i < this.slides.length; i++) {
-    //         var slide = this.slides.eq(i)
-    //         slide.transition(transition);
-    //       }
-    //
-    //     }
-    //   },
-    //   // loop: true,
-    //   // centeredSlides: true,
-    //   pagination: {  //分页器
-    //     el: '.swiper-pagination3',
-    //   },
-    // }));
-
-
-
-    // setSwiper01(new Swiper('.container4', {
-    //   watchSlidesProgress: true,
-    //   slidesPerView: 'auto',
-    //   centeredSlides: true,
-    //   // loop: true,
-    //   // loopedSlides: 30,
-    //   autoplay: true,
-    //   on:{
-    //     progress: function(progress) {
-    //       for (var i = 0; i < this.slides.length; i++) {
-    //         var slide = this.slides.eq(i);
-    //         var slideProgress = this.slides[i].progress;
-    //         var modify = 1;
-    //         var translate = slideProgress * modify * 90 + 'px';
-    //         var zIndex = 999 - Math.abs(Math.round(10 * slideProgress));
-    //         slide.transform('translateX(' + translate + ') scale(1)');
-    //         slide.css('zIndex', zIndex);
-    //         slide.css('opacity', 1);
-    //         if (Math.abs(slideProgress) > 3) {
-    //           slide.css('opacity', 0);
-    //         }
-    //       }
-    //     },
-    //     setTransition: function(transition) {
-    //       for (var i = 0; i < this.slides.length; i++) {
-    //         var slide = this.slides.eq(i)
-    //         slide.transition(transition);
-    //       }
-    //
-    //     }
-    //   },
-    //   // loop: true,
-    //   // centeredSlides: true,
-    //   pagination: {  //分页器
-    //     el: '.swiper-pagination3',
-    //   },
-    // }));
-
-
-
-
-  }, []);
+    setSwiper(new Swiper('.swiper-container', {
+      slidesPerView: 4,
+      spaceBetween: 70,
+      paginationClickable :true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    }))
+  }, [shopSwiper]);
 
   useEffect(() => {
     getArticles(page).then(data => data && (data.data && setArticles(data.data)));
@@ -183,20 +103,22 @@ export default function () {
                                               className={styles.button + ' ' + (page.classifyId === classify.id ? styles.buttonActive : '')}>{classify.name}</span>)}
               <a  onClick={() => router.push('/pc/article/-1')} className="more">更多>>></a>
             </div>
-            <ul className={`${styles.list} clearfix pc`}>
-              {articles.map(article => <li className={`col-md-3 ${styles.item}`}>
-                <a onClick={() => router.push(`/pc/info/${article.id}`)}>
-                  <div className={styles.imgBox}
-                       style={{background: `url(${article.type===1?article.image:(article.video+"?vframe/jpg/offset/1")}) no-repeat center center / cover`}}>
-                    <img src={require("@/assets/icon06.png")}  className={styles.icon} alt=""/>
-                  </div>
-                  <h2>{article.title&&(article.title.length>5?article.title.substring(0,5):article.title)}</h2>
-                  <p dangerouslySetInnerHTML={{__html:article.context&&article.context.length>5?article.context.substring(0,5):article.context}}></p>
-                </a>
-              </li>)}
-              <a className={styles.arrowLeft}></a>
-              <a className={styles.arrowRight}></a>
-            </ul>
+            <div className={`swiper-container`}>
+              <div className={`${styles.list} swiper-wrapper`}>
+                {articles.map(article => <div className={`${styles.item} swiper-slide`}>
+                  <a onClick={() => router.push(`/pc/info/${article.id}`)}>
+                    <div className={styles.imgBox}
+                         style={{background: `url(${article.type===1?article.image:(article.video+"?vframe/jpg/offset/1")}) no-repeat center center / cover`}}>
+                      <img src={require("@/assets/icon06.png")}  className={`${styles.icon} ${article.type===1&&'hide'}`} alt=""/>
+                    </div>
+                    <h2>{article.title&&(article.title.length>5?article.title.substring(0,5):article.title)}</h2>
+                    <p dangerouslySetInnerHTML={{__html:article.context&&article.context.length>5?article.context.substring(0,5):article.context}}></p>
+                  </a>
+                </div>)}
+              </div>
+              <div className="swiper-button-next" style={{backgroundImage:`url(${require('@/assets/icon05.png')})`,zIndex:'9999'}}></div>
+              <div className="swiper-button-prev" style={{backgroundImage:`url(${require('@/assets/icon04.png')})`}}></div>
+            </div>
             {/*这里是h5部分 *********注意这里是分类不是内容*/}
             <ul className={`${styles.h5List} clearfix h5`}>
               {classifys.map(classify => <li><a onClick={() => router.push(`/pc/article/${classify.id}`)}><img src={classify.image} alt=""/></a></li>)}

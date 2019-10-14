@@ -17,8 +17,9 @@
 .pages2 {
   background: url(@/assets/bg02.jpg) no-repeat center top / cover;
 }
-
-.pages2 .list .item {}
+.pages2 .list .item {
+  width:100%;
+}
 
 .pages2 .list .item .icon {
   position: absolute;
