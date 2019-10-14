@@ -191,9 +191,9 @@ export default function (props) {
         </div>
       </div>
       <div className={` ${styles.sortBox} container ${styles.boxBg} m_t20`}>
-        <a >最新</a>
+        <a onClick={()=>setShopsParam({sortColumn:'create_time',sortWay:'desc'})}>最新</a>
         |
-        <a >好评</a>
+        <a onClick={()=>setShopsParam({sortColumn:'commontsNum',sortWay:'desc'})}>好评</a>
       </div>
       <div className={`auto-container ${styles.psListBox} clearfix`} style={{paddingBottom:'22px'}}>
         {

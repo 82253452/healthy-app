@@ -30,7 +30,7 @@ export default function(props) {
   }, [props.match.params.index]);
   useEffect(() => {
     getCommonList();
-  }, [commonPage]);
+  }, [commonPage, getCommonList]);
   const editorStyle = {
     border: 'none',
     height: '4rem',
@@ -148,7 +148,7 @@ export default function(props) {
               </div>
               <div className={`${styles.boxBg} m_t15 clearfix ${styles.Discount}`}>
                 <div className={`${styles.boxTitle}`}>
-                  <span>全部点评(699)</span>
+                  <span>全部点评</span>
                 </div>
                 <ul className={`${styles.messageList} clearfix`}>
                   {/*{*/}
@@ -207,7 +207,7 @@ export default function(props) {
                             </div>
                             <div className={`col-md-8 col-sm-8  col-xs-8 ${styles.m}`}>
                               <span><img src={require("@/assets/like.png")} alt=""/> {comment.praiseNum}</span>
-                              <span className={`${styles.bnt}`}>回复</span>
+                              {/*<span className={`${styles.bnt}`}>回复</span>*/}
                             </div>
                           </div>
                         </div>
