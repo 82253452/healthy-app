@@ -195,12 +195,12 @@ export default function (props) {
         |
         <a onClick={()=>setShopsParam({sortColumn:'commontsNum',sortWay:'desc'})}>好评</a>
       </div>
-      <div className={`auto-container ${styles.psListBox} clearfix`} style={{paddingBottom:'22px'}}>
+      <div className={`auto-container ${styles.psListBox} ${styles.autoContainer} clearfix`} style={{paddingBottom:'22px'}}>
         {
           shops.map(shop => (
             <div className={`col-md-12 ${styles.boxBg} m_t20 clearfix`}>
               <a>
-                <div className="img left">
+                <div className={`img left ${styles.left}`}>
                   <img src={shop.image} alt=""/>
                 </div>
                 <div className={`${styles.ri}`}>
