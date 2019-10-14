@@ -11,13 +11,15 @@ import privilege from '@/assets/prililege.png'
 import Mask from '@/component/alert/model'
 import Message from '@/component/alert/message'
 import Scrollbar from '@/component/scrollBar';
+import { useList, useSetState, useUpdateEffect } from 'react-use';
+import { Actions } from 'react-use/lib/useList';
 export default function (props) {
   const [isloding, setIsloding] = useState(true);
   const [classify, setClassify] = useState([]);
   const [addressFir, setAddressFir] = useState([]);
   const [addressSec, setAddressSec] = useState([]);
-  const [shops, setShops] = useState([]);
-  const [shopsParam, setShopsParam] = useState({ pageSize: 5, pageNum: 1 });
+  const [shops, shopsActions] = useList();
+  const [shopsParam, setShopsParam] = useSetState({ pageSize: 5, pageNum: 1 });
   const [addressActive, setAddressActive] = useState(null);
   const [addressId, setAddressId] = useState(null);
   const [classifyActive, setClassifyActive] = useState(null);
@@ -35,22 +37,22 @@ export default function (props) {
     });
     setIsloding(false);
   }, [props.match.params.index]);
-  useEffect(() => {
-    setShops([])
+  useUpdateEffect(() => {
     let classifyId = props.match.params.index
     classifyId = (classifyActive === null ? classifyId :
       (classifyActive === -1 ? '' : classify[classifyActive]['id'])
     )
     classifyId==-1&&(classifyId='')
-    setShopsParam({ ...shopsParam, ...{ classifyId }, ...{ addressId } })
+    setShopsParam({ ...{ classifyId }, ...{ addressId } })
   }, [classifyActive, addressId, props.match.params.index]);
 
-  useEffect(() => {
+  useUpdateEffect(() => {
+    console.log(shopsParam)
     getShopIndex(shopsParam).then(data => {
       data.data && !data.data.length && setHasMore(false)
-      data && data.data && setShops([...shops, ...data.data])
+      data && data.data && (shopsParam.pageNum ===1?shopsActions.set(data.data):shopsActions.push(data.data))
     });
-  }, [shopsParam, classify, props.match.params.index]);
+  }, [shopsParam, props.match.params.index]);
 
   function changeAddress(id, index) {
     setAddressActive(index);

@@ -1,4 +1,5 @@
 import styles from './index.css';
+import {useList} from 'react-use'
 import address from '../../../assets/address.png';
 import share from '../../../assets/share.png';
 import commentFill from '../../../assets/comment_fill.png';
@@ -16,7 +17,8 @@ export default function(props) {
   const [isloding, setIsloding] = useState(true);
   const [article, setArticle] = useState({});
   const [articleAbout, setArticleAbout] = useState([]);
-  const [comments, setComments] = useState([]);
+  // const [comments, setComments] = useState([]);
+  const [comments,commentsAction] = useList();
   const [content, setContent] = useState('');
   const [phoneComment, setPhoneComment] = useState(false);
   const [commonPage, setCommonPage] = useState({type: 1,pageNum:1,pageSize:5});
@@ -39,10 +41,9 @@ export default function(props) {
   useEffect(() => {
     commontList({id: props.match.params.index,...commonPage}).then(data => {
       data && data.data && data.data.list.length===0 &&setCommentsHasMore(false)
-      data && data.data &&commonPage.pageNum===1&& setComments(data.data.list)
-      data && data.data &&commonPage.pageNum!==1&& setComments([...comments,...data.data.list])
+      data && data.data &&(commonPage.pageNum===1?commentsAction.set(data.data.list):commentsAction.push(data.data.list))
     });
-  }, [comments, commonPage, props.match.params.index]);
+  }, [commentsAction, commonPage, props.match.params.index]);
 
   function praise() {
     article.isPraise = !article.isPraise;
@@ -112,7 +113,7 @@ export default function(props) {
   function addCommentPraise(comment) {
     comment.star ? --comment.praiseNum : ++comment.praiseNum;
     comment.star = !comment.star;
-    setComments([...comments]);
+    commentsAction.set(comments);
     commentPraise(comment.id).then(data => console.log(123));
   };
 

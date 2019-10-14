@@ -25,6 +25,7 @@
     "react-google-maps": "^9.4.5",
     "react-infinite-scroller": "^1.2.4",
     "react-scroll": "^1.7.14",
+    "react-use": "^12.5.0",
     "social-share.js": "^1.0.16",
     "swiper": "^4.5.0",
     "umi-request": "^1.2.3",
