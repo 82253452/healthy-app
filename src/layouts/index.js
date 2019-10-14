@@ -1,6 +1,7 @@
 import styles from './index.css';
 import SimpleLayout from './simpleLayout';
 import CenterLayout from './centerLayout';
+import ArticleLayout from './articleLayout';
 import React, { useEffect, useState } from 'react';
 import router from 'umi/router';
 import { getUserInfo } from '@/api/user';
@@ -28,6 +29,9 @@ function BasicLayout(props) {
   }
   if (props.location.pathname === '/pc/center') {
     return <CenterLayout user={user} login={login}>{props.children}</CenterLayout>;
+  }
+  if (props.location.pathname.indexOf('/pc/article')!==-1) {
+    return <ArticleLayout user={user} login={login}>{props.children}</ArticleLayout>;
   }
   return (
     <div className={styles.normal}>
