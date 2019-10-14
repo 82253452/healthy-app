@@ -30,7 +30,7 @@ function BasicLayout(props) {
   if (props.location.pathname === '/pc/center') {
     return <CenterLayout user={user} login={login}>{props.children}</CenterLayout>;
   }
-  if (props.location.pathname.indexOf('/pc/article')!==-1) {
+  if (props.location.pathname.indexOf('/pc/article')!==-1 || props.location.pathname.indexOf('/pc/info')!==-1) {
     return <ArticleLayout user={user} login={login}>{props.children}</ArticleLayout>;
   }
   return (
