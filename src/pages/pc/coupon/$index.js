@@ -30,7 +30,7 @@ export default function(props) {
   }, [props.match.params.index]);
   useEffect(() => {
     getCommonList();
-  }, [commonPage, getCommonList]);
+  }, [commonPage]);
   const editorStyle = {
     border: 'none',
     height: '4rem',
