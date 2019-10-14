@@ -103,7 +103,7 @@ export default function () {
                                               className={styles.button + ' ' + (page.classifyId === classify.id ? styles.buttonActive : '')}>{classify.name}</span>)}
               <a  onClick={() => router.push('/pc/article/-1')} className="more">更多>>></a>
             </div>
-            <div className={`swiper-container pc`}>
+            <div className={`swiper-container pc `}>
               <div className={`${styles.list} swiper-wrapper`}>
                 {articles.map(article => <div className={`${styles.item} swiper-slide`}>
                   <a onClick={() => router.push(`/pc/info/${article.id}`)}>
