@@ -189,13 +189,9 @@ export default function (props) {
         </div>
       </div>
       <div className={` ${styles.sortBox} container ${styles.boxBg} m_t20`}>
-        <a >智能</a>
+        <a >最新</a>
         |
         <a >好评</a>
-        |
-        <a >人气</a>
-        |
-        <a >效果</a>
       </div>
       <div className={`auto-container ${styles.psListBox} clearfix`} style={{paddingBottom:'22px'}}>
         {
@@ -212,7 +208,7 @@ export default function (props) {
                         <div className="col-md-10">
                           <div className={` ${styles.ti}`}>{shop.name}</div>
                           <div className={` ${styles.score}`}><span className="Star font_c">{getRates(shop.rate)}</span> <span
-                            className="font_c">{shop.rate}分 141人评价</span></div>
+                            className="font_c">{shop.rate}分 {shop.commontsNum}人评价</span></div>
                           <p>{shop.classifyName} {shop.address} 联系电话： {shop.phone}</p>
                           <p>人均¥{shop.percapita}</p>
                         </div>
