@@ -152,17 +152,17 @@
 }
 
 @media (max-width: 767px) {
-  .psListBox.auto-container {
+  .psListBox.autoContainer {
     padding: 0 0 10px 0;
   }
 
-  .psListBox.auto-container .left {
+  .psListBox.autoContainer .left {
     float: none;
     width: 100%;
     overflow: hidden;
   }
 
-  .psListBox.auto-container .left img {
+  .psListBox.autoContainer .left img {
     width: 100%;
   }
 
