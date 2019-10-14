@@ -9,8 +9,8 @@ function SimpleLayout(props) {
         <div className="header-upper">
           <div className="auto-container clearfix">
             <div className="logo left">
-              <a href="index.html" className="pc"><img src={require("@/assets/logo_w.png")}  alt="Ecology"/></a>
-              <a href="index.html" className="h5"><img src={require("@/assets/logo.png")} alt="Ecology"/></a>
+              <a onClick={() => router.push('/')} className="pc"><img src={require("@/assets/logo_w.png")}  alt="Ecology"/></a>
+              <a onClick={() => router.push('/')} className="h5"><img src={require("@/assets/logo.png")} alt="Ecology"/></a>
             </div>
 
             <div className="right clearfix">

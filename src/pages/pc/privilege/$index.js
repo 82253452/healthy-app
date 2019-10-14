@@ -43,14 +43,14 @@ export default function (props) {
     )
     classifyId==-1&&(classifyId='')
     setShopsParam({ ...shopsParam, ...{ classifyId }, ...{ addressId } })
-  }, [classifyActive, addressId, props.match.params.index, classify, shopsParam]);
+  }, [classifyActive, addressId, props.match.params.index]);
 
   useEffect(() => {
     getShopIndex(shopsParam).then(data => {
       data.data && !data.data.length && setHasMore(false)
       data && data.data && setShops([...shops, ...data.data])
     });
-  }, [shopsParam, classify, props.match.params.index, shops]);
+  }, [shopsParam, classify, props.match.params.index]);
 
   function changeAddress(id, index) {
     setAddressActive(index);
