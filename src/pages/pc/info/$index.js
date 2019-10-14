@@ -385,13 +385,13 @@ export default function(props) {
               {article.shareNum}
             </div>
           </div>}
-          <div className={styles.phoneFooter}>
-            <div className={styles.footerTrans}>
-              <div onClick={()=>router.push('/pc/push')} className={styles.footerAdd}>
-                +
-              </div>
-            </div>
-          </div>
+          {/*<div className={styles.phoneFooter}>*/}
+          {/*  <div className={styles.footerTrans}>*/}
+          {/*    <div onClick={()=>router.push('/pc/push')} className={styles.footerAdd}>*/}
+          {/*      +*/}
+          {/*    </div>*/}
+          {/*  </div>*/}
+          {/*</div>*/}
           <div className={styles.phoneComment + ' ' + (phoneComment ? styles.showCainter : styles.hideCainter)}>
             <div className={styles.phoneCommentList}>
               {comments.map(comment => <div key={comment.id} className={styles.phoneCommentBlock}>

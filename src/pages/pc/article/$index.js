@@ -111,7 +111,7 @@ export default function(props) {
       </div>
       <div className={styles.phoneFooter}>
         <div className={styles.footerTrans}>
-          <div className={styles.footerAdd}>
+          <div className={styles.footerAdd} onClick={()=>router.push('/pc/push')}>
             +
           </div>
         </div>

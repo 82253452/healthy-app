@@ -181,7 +181,7 @@ export default function () {
             <div className={`${styles.menuList} pc`}>
               {classifys.map(classify => <span onClick={() => setPage({ ...page, ...{ classifyId: classify.id } })}
                                               className={styles.button + ' ' + (page.classifyId === classify.id ? styles.buttonActive : '')}>{classify.name}</span>)}
-              <a  onClick={() => router.push('/pc/article')} className="more">更多>>></a>
+              <a  onClick={() => router.push('/pc/article/-1')} className="more">更多>>></a>
             </div>
             <ul className={`${styles.list} clearfix pc`}>
               {articles.map(article => <li className={`col-md-3 ${styles.item}`}>
