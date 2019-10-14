@@ -86,7 +86,7 @@ export default function(props) {
     <div className={styles.container}>
       <div onClick={startUpload} className={styles.uplaod}>
         {props.children}
-        <input accept={props.video?'video/*':'.gif,.jpg,.jpeg,.bmp,.png'} type='file' ref={fileInputRef} className={styles.uplaodInput} onChange={fileChange}/>
+        <input accept={props.video?'video/*':'image/*'} type='file' ref={fileInputRef} className={styles.uplaodInput} onChange={fileChange}/>
       </div>
     </div>
   );
