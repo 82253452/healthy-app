@@ -199,8 +199,8 @@ export default function () {
             </ul>
             {/*这里是h5部分 *********注意这里是分类不是内容*/}
             <ul className={`${styles.h5List} clearfix h5`}>
-              {classifys.map(classify => <li><a onClick={() => router.push(`/pc/privilege/${classify.id}`)}><img src={classify.image} alt=""/></a></li>)}
-              <li><a onClick={() => router.push(`/pc/privilege/-1`)}><img src={require("@/assets/share_icon01.png")} alt=""/></a></li>
+              {classifys.map(classify => <li><a onClick={() => router.push(`/pc/article/${classify.id}`)}><img src={classify.image} alt=""/></a></li>)}
+              <li><a onClick={() => router.push(`/pc/article/-1`)}><img src={require("@/assets/share_icon01.png")} alt=""/></a></li>
             </ul>
             <a  onClick={() => router.push('/pc/push')}  className={styles.h5More}>开始分享</a>
           </div>

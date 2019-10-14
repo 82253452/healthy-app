@@ -267,7 +267,7 @@
     border-radius: 50%;
   }
   .blockInfo {
-    width: 80%;
+    /*width: 80%;*/
     padding: 10%;
     /* height: 4rem; */
     background: #fff;

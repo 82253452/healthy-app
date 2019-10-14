@@ -6,10 +6,11 @@ import { getArticles } from '@/api/article';
 import { getClassify } from '@/api/classify';
 import router from 'umi/router';
 import Scrollbar from '@/component/scrollBar/index';
-export default function() {
-  const [articles, setArticles] = useState([]);
+import { useList } from 'react-use';
+export default function(props) {
+  const [articles, articleActions] = useList();
   const [classifys, setClassifys] = useState([]);
-  const [page, setPage] = useState({ pageSize: 10, pageNum: 1 });
+  const [page, setPage] = useState({ pageSize: 10, pageNum: 1 ,classifyId: props.match.params.index==='-1'?'':props.match.params.index});
   const [isLoding, setIsLoding] = useState(false);
   const [hasMore, setHasMore] = useState(true);
   useEffect(() => {
@@ -20,10 +21,10 @@ export default function() {
   useEffect(() => {
     getArticles(page).then(data => {
       data.data&&!data.data.length&&setHasMore(false)
-      data && (data.data ? setArticles([...articles, ...data.data]) : console.log('无数据'));
+      data && data.data && (page.pageNum===1?articleActions.set(data.data):articleActions.push(...data.data))
       setIsLoding(false)
     });
-  }, [page]);
+  }, [articleActions, page]);
   const goBack = () => {
     window.history.go(-1);
   };
@@ -72,7 +73,7 @@ export default function() {
         </div>
       </div>
       <div className={styles.column}>
-        {classifys.map(c=> <div key={c.id} onClick={()=>{setPage({...page,classifyId:c.id,pageNum:1});setArticles([])}} className={styles.class+' '+(page.classifyId===c.id?styles.classActive:'')}>{c.name}</div>)}
+        {classifys.map(c=> <div key={c.id} onClick={()=>{setPage({...page,classifyId:c.id,pageNum:1})}} className={styles.class+' '+(page.classifyId===c.id?styles.classActive:'')}>{c.name}</div>)}
       </div>
       <div className={styles.share} onClick={()=>toShare()}>
         开始分享
