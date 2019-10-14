@@ -17,8 +17,8 @@ export default function () {
   const [swiper, setSwiper] = useState(null);
   const [shopSwiper, setshopSwiper] = useState(null);
   const [swiper01,setSwiper01] = useState(null);
-  const [shopsParam, setShopsParam] = useState({ pageSize: 10, pageNum: 1 });
-  const [shops, setShops] = useState([]);
+  // const [shopsParam, setShopsParam] = useState({ pageSize: 10, pageNum: 1 });
+  // const [shops, setShops] = useState([]);
   useEffect(() => {
     if (isMobile()) {
       // setshopSwiper(new Swiper('.swiper-container1', {
@@ -142,12 +142,12 @@ export default function () {
   useEffect(() => {
     getArticles(page).then(data => data && (data.data && setArticles(data.data)));
   }, [page]);
-  useEffect(() => {
-    getShopIndex(shopsParam).then(data => data && data.data && setShops(data.data));
-  }, [shopsParam]);
-  useEffect(() => {
-    shopSwiper && shopSwiper.updateSlides();
-  }, [shopSwiper, shops]);
+  // useEffect(() => {
+  //   getShopIndex(shopsParam).then(data => data && data.data && setShops(data.data));
+  // }, [shopsParam]);
+  // useEffect(() => {
+  //   shopSwiper && shopSwiper.updateSlides();
+  // }, [shopSwiper, shops]);
 
   useEffect(() => {
     swiper && swiper.updateSlides();

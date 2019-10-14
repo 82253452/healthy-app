@@ -37,7 +37,7 @@ export default function (props) {
     });
     setIsloding(false);
   }, [props.match.params.index]);
-  useUpdateEffect(() => {
+  useEffect(() => {
     let classifyId = props.match.params.index
     classifyId = (classifyActive === null ? classifyId :
       (classifyActive === -1 ? '' : classify[classifyActive]['id'])
