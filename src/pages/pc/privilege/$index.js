@@ -27,7 +27,7 @@ export default function (props) {
   const [hasMore, setHasMore] = useState(true);
   useEffect(() => {
     getClassify().then(data => {
-      data && data.data && setClassify(data.data)
+      data && data.data && setClassify(data.data.filter(d=>d.type===1))
       data.data.forEach(d=>{
         (d.id==props.match.params.index)&&setClassifyActive(data.data.indexOf(d))
       })
@@ -44,7 +44,7 @@ export default function (props) {
     )
     classifyId==-1&&(classifyId='')
     setShopsParam({ ...{ classifyId }, ...{ addressId } })
-  }, [classifyActive, addressId, props.match.params.index]);
+  }, [classifyActive, addressId, props.match.params.index, classify, setShopsParam]);
 
   useUpdateEffect(() => {
     console.log(shopsParam)

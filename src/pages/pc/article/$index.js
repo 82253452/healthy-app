@@ -14,7 +14,7 @@ export default function(props) {
   const [isLoding, setIsLoding] = useState(false);
   const [hasMore, setHasMore] = useState(true);
   useEffect(() => {
-    getClassify().then(data=>data&&data.data&&setClassifys(data.data))
+    getClassify().then(data=>data&&data.data&&setClassifys(data.data.filter(d=>d.type===2)))
     // getArticles(page).then(data => data && (data.data ? setArticles(data.data) : console.log('无数据')));
   }, []);
 

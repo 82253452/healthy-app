@@ -85,7 +85,7 @@ export default function () {
               <img src={require("@/assets/icon02.png")} alt=""/>
             </h1>
             <ul className={`${styles.list} clearfix`}>
-              {classifys.map(classify => <li><a onClick={() => router.push(`/pc/privilege/${classify.id}`)}><img src={classify.image} alt=""/></a></li>)}
+              {classifys.filter(classify=>classify.type===1).map(classify => <li><a onClick={() => router.push(`/pc/privilege/${classify.id}`)}><img src={classify.image} alt=""/></a></li>)}
               <li className="h5"><a onClick={() => router.push(`/pc/privilege/-1`)}><img src={require("@/assets/imglist06.png")} alt="" /></a></li>
             </ul>
           </div>
@@ -99,7 +99,7 @@ export default function () {
                 <img src={require("@/assets/icon03_h5.png")} className="h5" alt=""/>
             </h1>
             <div className={`${styles.menuList} pc`}>
-              {classifys.map(classify => <span onClick={() => setPage({ ...page, ...{ classifyId: classify.id } })}
+              {classifys.filter(classify=>classify.type===2).map(classify => <span onClick={() => setPage({ ...page, ...{ classifyId: classify.id } })}
                                               className={styles.button + ' ' + (page.classifyId === classify.id ? styles.buttonActive : '')}>{classify.name}</span>)}
               <a  onClick={() => router.push('/pc/article/-1')} className="more">更多>>></a>
             </div>
@@ -122,7 +122,7 @@ export default function () {
             </div>
             {/*这里是h5部分 *********注意这里是分类不是内容*/}
             <ul className={`${styles.h5List} clearfix h5`}>
-              {classifys.map(classify => <li><a onClick={() => router.push(`/pc/article/${classify.id}`)}><img src={classify.image} alt=""/></a></li>)}
+              {classifys.filter(classify=>classify.type===2).map(classify => <li><a onClick={() => router.push(`/pc/article/${classify.id}`)}><img src={classify.image} alt=""/></a></li>)}
               <li><a onClick={() => router.push(`/pc/article/-1`)}><img src={require("@/assets/share_icon01.png")} alt=""/></a></li>
             </ul>
             <a  onClick={() => router.push('/pc/push')}  className={styles.h5More}>开始分享</a>

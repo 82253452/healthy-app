@@ -20,7 +20,7 @@ export default function() {
 
   useEffect(() => {
     console.log(123);
-    getClassify().then(data => data && data.data && setClassifys(data.data));
+    getClassify().then(data => data && data.data && setClassifys(data.data.filter(d=>d.type===2)));
   }, []);
 
   function editroChange(text) {
