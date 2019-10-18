@@ -847,7 +847,9 @@ fieldset[disabled] input[type="checkbox"] {
 
 
 
-
+.main-header .logo img{
+  height: 30px;
+}
 
 .clearfix:before,
 .clearfix:after{
@@ -948,9 +950,6 @@ fieldset[disabled] input[type="checkbox"] {
 .body{
   background: #f6f6f6;
 }
-.main-footer{
-  padding: 0px 0;
-}
 .m_t20{
   margin-top: 20px;
 }
@@ -960,8 +959,19 @@ fieldset[disabled] input[type="checkbox"] {
 .m_b20{
   margin-bottom: 20px;
 }
+
+.pages3 {
+  background: url(assets/bg01.png) repeat center top;
+  text-align: center;
+}
+.main-footer{
+  padding: 30px 0;
+}
 @media (max-width: 767px) {
 
+  .main-footer{
+    padding: 0px 0;
+  }
   .main-header.center{
     background: #f9f9f9;
   }

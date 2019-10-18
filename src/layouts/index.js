@@ -102,7 +102,9 @@ function BasicLayout(props) {
             </div>
           </div>
         </div>
-        <img src={require("@/assets/img003_01.jpg")} className="h5" alt=""/>
+        <div className="pages3 h5">
+        <img src={require("@/assets/h5foimg.png")} className="h5" alt=""/>
+        </div>
       </footer>
     </div>
   );

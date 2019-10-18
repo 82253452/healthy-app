@@ -95,7 +95,7 @@ export default function () {
         <div className="auto-container">
           <div className={`${styles.box}`}>
             <h1 className="title">
-              <img src={require("@/assets/icon03.png")} className="pc " alt=""/>
+              <img src={require("@/assets/icon03_01.png")} className="pc " alt=""/>
                 <img src={require("@/assets/icon03_h5.png")} className="h5" alt=""/>
             </h1>
             <div className={`${styles.menuList} pc`}>
@@ -133,7 +133,7 @@ export default function () {
       <section className={`${styles.pages3} page`}>
         <div className="cn">
           <img src={require("@/assets/img001.png")} className="pc" alt=""/>
-            <img src={require("@/assets/img002.jpg")} className="h5" alt=""/>
+            <img src={require("@/assets/img002.png")} className="h5" alt=""/>
         </div>
       </section>
 
